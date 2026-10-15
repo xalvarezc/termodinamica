@@ -1,0 +1,249 @@
+<!doctype html>
+<title>Guia de classe — criteris d'estabilitat</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.5(c)&ndash;(d) &middot; guió de pissarra</div>
+  <h1>Els <em>criteris d'estabilitat</em></h1>
+  <p class="subtitle">Mirant el segon ordre del desenvolupament de U al voltant de l'equilibri, la positivitat d'una forma quadràtica es tradueix en C<sub>V</sub>&gt;0, &kappa;<sub>T</sub>&gt;0 &mdash; i, repetint-ho amb F i H, en tots els criteris junts.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Condició perquè una forma quadràtica 2&times;2 sigui semidefinida positiva</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_estabilitat_desigualtat.html">2.5(a): desigualtat de Clausius&ndash;Gibbs</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gibbs.html">1.5.3(g): equació de Gibbs, dU=TdS&minus;PdV</a> &rArr; U<sub>S</sub>=T, U<sub>V</sub>=&minus;P</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_tds_fluid.html">1.5.4, destí 1</a>: C<sub>V</sub>=T(&part;S/&part;T)<sub>V</sub></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_tds_fluid.html">1.5.4, pas 7</a>: &kappa;<sub>T</sub>=&minus;(1/V)(&part;V/&part;P)<sub>T</sub></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_minims_potencials.html">2.5: U mínima &rArr; tots els potencials són mínims</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>Fórmula de Reech: &kappa;<sub>T</sub>/&kappa;<sub>S</sub>=C<sub>P</sub>/C<sub>V</sub></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Desenvolupament de Taylor de U(S,V) fins a segon ordre</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Regla de la cadena sobre T=U<sub>S</sub>(S,V) i P=&minus;U<sub>V</sub>(S,V) (Gibbs, pas 1)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Estabilitat tèrmica i mecànica (des de U)</span></div><div class="eq">\[ C_{V} > 0 \quad\textbf{i}\quad \kappa _{T} > 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Estabilitat tèrmica i mecànica (des de F i H)</span></div><div class="eq">\[ C_{P} > 0 \quad\textbf{i}\quad \kappa _{S} > 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Criteris d'estabilitat</span></div><div class="eq">\[ C_{P} > C_{V} > 0 \quad\textbf{i}\quad \kappa _{T} > \kappa _{S} > 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_estabilitat_desigualtat.html">2.5(a): desigualtat de Clausius&ndash;Gibbs</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Vàlida per a qualsevol desplaçament virtual</div>
+        <div class="eq">\[ \delta U - T\delta S + P\delta V \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gibbs.html">1.5.3(g): equació de Gibbs, dU=TdS&minus;PdV</a> &rArr; U<sub>S</sub>=T, U<sub>V</sub>=&minus;P</span>
+        </div>
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Desenvolupament de Taylor de U(S,V) fins a segon ordre</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Expandim &delta;U</span></div>
+        <div class="eq">\[ \delta U = T\delta S-P\delta V + \tfrac{1}{2}\left[U_{SS}\left(\delta S\right)^2+2U_{SV}\delta S\delta V+U_{VV}\left(\delta V\right)^2\right] + \ldots \]</div>
+        <div class="card-note" style="margin-top:0;font-size:13px;">Els coeficients de primer ordre del desenvolupament de Taylor són, per definició, U<sub>S</sub> i U<sub>V</sub> &mdash; ja hi hem substituït U<sub>S</sub>=T, U<sub>V</sub>=&minus;P (etiqueta de l'esquerra).</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; els termes de primer ordre es cancel·len amb Clausius&ndash;Gibbs &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Només queda la forma quadràtica</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ha de ser &ge;0 per a qualsevol &delta;S,&delta;V &mdash; és la condició d'estabilitat:</div>
+        <div class="eq">\[ U_{SS}\left(\delta S\right)^2+2U_{SV}\delta S\delta V+U_{VV}\left(\delta V\right)^2 \ge 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Mirem-ho com una paràbola en &delta;S, amb &delta;V fix com a paràmetre &mdash; la de tota la vida, A(&delta;S)<sup>2</sup>+B&delta;S+C, amb A=U<sub>SS</sub>, B=2U<sub>SV</sub>&delta;V, C=U<sub>VV</sub>(&delta;V)<sup>2</sup>.</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Que sigui &ge;0 per a <em>qualsevol</em> &delta;S és la condició de sempre: s'obre cap amunt (A&ge;0) i no talla l'eix (discriminant B<sup>2</sup>&minus;4AC&le;0). Calculem el discriminant:</div>
+        <div class="eq">\[ B^2-4AC = 4U_{SV}^2\left(\delta V\right)^2-4U_{SS}U_{VV}\left(\delta V\right)^2=-4\left(\delta V\right)^2\left(U_{SS}U_{VV}-U_{SV}^2\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com &delta;V<sup>2</sup>&ge;0 sempre, el signe el decideix només el parèntesi. Que A&ge;0 i el discriminant&le;0 valguin per a <em>qualsevol</em> &delta;V dona exactament:</div>
+        <div class="eq">\[ U_{SS} \ge 0 \quad\textbf{i}\quad U_{SS}U_{VV}-U_{SV}^2 \ge 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:13px;">(i si totes dues es compleixen, la paràbola s'obre cap amunt i no talla mai l'eix, per a qualsevol &delta;V: també són suficients.)</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Condició perquè una forma quadràtica 2&times;2 sigui semidefinida positiva</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Dues condicions sobre les derivades segones</span></div>
+        <div class="eq">\[ U_{SS} \ge 0 \quad\textbf{i}\quad U_{SS}U_{VV}-U_{SV}^2 \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_tds_fluid.html">1.5.4, destí 1</a>: C<sub>V</sub>=T(&part;S/&part;T)<sub>V</sub></span>
+        </div>
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_tds_fluid.html">1.5.4, pas 7</a>: &kappa;<sub>T</sub>=&minus;(1/V)(&part;V/&part;P)<sub>T</sub></span>
+        </div>
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Regla de la cadena sobre T=U<sub>S</sub>(S,V) i P=&minus;U<sub>V</sub>(S,V) (Gibbs, pas 1)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Traduïm a magnituds mesurables</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb la definició de C<sub>V</sub> (etiqueta de l'esquerra):</div>
+        <div class="eq">\[ C_V=T\left(\frac{\partial S}{\partial T}\right)_{\!V} \quad\Longrightarrow\quad U_{SS}=\left(\frac{\partial T}{\partial S}\right)_{\!V}=\frac{T}{C_V} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Per traduir el determinant, calculem primer (&part;S/&part;V)<sub>T</sub> a partir de T=U<sub>S</sub>(S,V), derivant a T constant:</div>
+        <div class="eq">\[ 0=U_{SS}\left(\frac{\partial S}{\partial V}\right)_{\!T}+U_{SV} \quad\Longrightarrow\quad \left(\frac{\partial S}{\partial V}\right)_{\!T}=-\frac{U_{SV}}{U_{SS}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb P=&minus;U<sub>V</sub>(S(T,V),V), per la regla de la cadena:</div>
+        <div class="eq">\[ \left(\frac{\partial P}{\partial V}\right)_{\!T}=-\left[U_{SV}\left(\frac{\partial S}{\partial V}\right)_{\!T}+U_{VV}\right]=-\frac{U_{SS}U_{VV}-U_{SV}^2}{U_{SS}}=-\frac{\det H_U}{U_{SS}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">I amb la definició de &kappa;<sub>T</sub> (etiqueta de l'esquerra):</div>
+        <div class="eq">\[ \kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_{\!T} \quad\Longrightarrow\quad \det H_U=\frac{U_{SS}}{V\kappa_T}=\frac{T}{C_V\,V\,\kappa_T} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:13px;">Com T,V&gt;0: U<sub>SS</sub>&ge;0 &hArr; C<sub>V</sub>&ge;0; i, amb U<sub>SS</sub>&gt;0 ja garantit, det H<sub>U</sub>&ge;0 &hArr; &kappa;<sub>T</sub>&ge;0.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Estabilitat tèrmica i mecànica (des de U)</span></div>
+        <div class="eq">\[ C_{V} > 0 \quad\textbf{i}\quad \kappa _{T} > 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_minims_potencials.html">2.5: U mínima &rArr; tots els potencials són mínims</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Repetim l'argument amb F(T,V) i H(S,P)</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Formes quadràtiques ja diagonals: F<sub>TT</sub>&lt;0, F<sub>VV</sub>&gt;0; H<sub>SS</sub>&gt;0, H<sub>PP</sub>&lt;0.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; mateixa traducció &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Estabilitat tèrmica i mecànica (des de F i H)</span></div>
+        <div class="eq">\[ C_{P} > 0 \quad\textbf{i}\quad \kappa _{S} > 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">Fórmula de Reech: &kappa;<sub>T</sub>/&kappa;<sub>S</sub>=C<sub>P</sub>/C<sub>V</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Combinem els quatre resultats</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Si C<sub>P</sub>,C<sub>V</sub>,&kappa;<sub>T</sub>&gt;0, automàticament &kappa;<sub>S</sub>&gt;0.</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; resum &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Criteris d'estabilitat</span></div>
+        <div class="eq">\[ C_{P} > C_{V} > 0 \quad\textbf{i}\quad \kappa _{T} > \kappa _{S} > 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> condicions necessàries però no suficients &mdash; només valen per a pertorbacions petites, i per això no distingeixen un estat estable d'un de metaestable.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">EXPLICACIÓ</span><span class="card-title">Per què F i H "ja surten diagonals"</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Al pas 5, F<sub>TT</sub>&lt;0 i F<sub>VV</sub>&gt;0 semblen dues condicions independents, sense determinant. No ho són per casualitat que el terme creuat hagi desaparegut &mdash; és que la pròpia transformada de Legendre l'hi empaqueta a dins. Calculem-ho explícitament.</div>
+
+    <div class="card-note"><strong>La Hessiana de U(S,V):</strong></div>
+    <div class="eq">\[ H_U = \begin{pmatrix} U_{SS} & U_{SV} \\ U_{SV} & U_{VV} \end{pmatrix}, \qquad \det H_U = U_{SS}U_{VV}-U_{SV}^2 \]</div>
+    <div class="card-note">Sylvester: definida positiva &hArr; U<sub>SS</sub>&gt;0 i det H<sub>U</sub>&gt;0 (el criteri del pas 3).</div>
+
+    <div class="card-note"><strong>F(T,V)=U&minus;TS</strong>, amb T=U<sub>S</sub>(S,V) definint S=S(T,V) implícitament (dF=&minus;SdT+U<sub>V</sub>dV):</div>
+    <div class="eq">\[ F_{TT} = -\left(\frac{\partial S}{\partial T}\right)_{\!V} = -\frac{1}{U_{SS}} \]</div>
+    <div class="card-note" style="margin-top:0;font-size:13px;">(per la funció inversa, ja que (&part;T/&part;S)<sub>V</sub>=U<sub>SS</sub>). Per a F<sub>VV</sub>, calen (&part;S/&part;V)<sub>T</sub>: derivant T=U<sub>S</sub>(S,V) a T constant, 0=U<sub>SS</sub>dS+U<sub>SV</sub>dV &rArr; (&part;S/&part;V)<sub>T</sub>=&minus;U<sub>SV</sub>/U<sub>SS</sub>. Amb la regla de la cadena sobre F<sub>V</sub>=U<sub>V</sub>(S(T,V),V):</div>
+    <div class="eq">\[ F_{VV} = U_{SV}\left(\frac{\partial S}{\partial V}\right)_{\!T} + U_{VV} = U_{VV}-\frac{U_{SV}^2}{U_{SS}} = \frac{\det H_U}{U_{SS}} \]</div>
+    <div class="card-note" style="margin-top:0;">El numerador <strong>és el determinant sencer de H<sub>U</sub></strong>. F<sub>VV</sub>&gt;0 (amb U<sub>SS</sub>&gt;0 ja garantit per F<sub>TT</sub>&lt;0) equival exactament a det H<sub>U</sub>&gt;0 &mdash; el mateix Sylvester, disfressat.</div>
+
+    <div class="card-note"><strong>H(S,P)=U+PV</strong>, amb P=&minus;U<sub>V</sub>(S,V) definint V=V(S,P) implícitament (dH=TdS+VdP), pel mateix mètode:</div>
+    <div class="eq">\[ H_{PP} = \left(\frac{\partial V}{\partial P}\right)_{\!S} = -\frac{1}{U_{VV}}, \qquad H_{SS} = U_{SS}-\frac{U_{SV}^2}{U_{VV}} = \frac{\det H_U}{U_{VV}} \]</div>
+
+    <div class="card-note"><strong>Els quatre resultats junts:</strong> F<sub>TT</sub>=&minus;1/U<sub>SS</sub>, F<sub>VV</sub>=detH<sub>U</sub>/U<sub>SS</sub>, H<sub>PP</sub>=&minus;1/U<sub>VV</sub>, H<sub>SS</sub>=detH<sub>U</sub>/U<sub>VV</sub>. Cap dels quatre és independent del terme creuat U<sub>SV</sub> &mdash; cadascun el porta amagat dins seu, empaquetat via el <strong>complement de Schur</strong> (la mateixa expressió que surt de completar el quadrat al pas 3, ara aplicada variable a variable). "Ja diagonals" no vol dir que T,V (o S,P) siguin direccions pròpies de H<sub>U</sub> &mdash; vol dir que la transformada de Legendre reescriu el mateix criteri de Sylvester en una forma que ho sembla.</div>
+
+    <div class="card-note"><strong>I les derivades creuades de F i H, F<sub>TV</sub> i H<sub>SP</sub>? No valen zero.</strong> Amb F<sub>T</sub>=&minus;S i (&part;S/&part;V)<sub>T</sub>=&minus;U<sub>SV</sub>/U<sub>SS</sub> (calculat més amunt):</div>
+    <div class="eq">\[ F_{TV} = -\left(\frac{\partial S}{\partial V}\right)_{\!T} = \frac{U_{SV}}{U_{SS}}, \qquad\qquad H_{SP} = -\frac{U_{SV}}{U_{VV}} \]</div>
+    <div class="card-note" style="margin-top:0;">General diferent de zero &mdash; tret que U<sub>SV</sub> ho sigui. Aleshores, per què no calia comprovar-les?</div>
+
+    <div class="card-note"><strong>Perquè la Hessiana de F mai pot ser definida &mdash; sempre és una sella.</strong> Calculem-ne el determinant amb els valors ja obtinguts:</div>
+    <div class="eq">\[ \begin{aligned} \det(\text{Hess } F) &= F_{TT}F_{VV}-F_{TV}^2 = -\frac{\det H_U}{U_{SS}^2}-\frac{U_{SV}^2}{U_{SS}^2} \\[6pt] &= -\frac{U_{SS}U_{VV}}{U_{SS}^2} = -\frac{U_{VV}}{U_{SS}} \end{aligned} \]</div>
+    <div class="card-note" style="margin-top:0;">Com que U<sub>SS</sub>&gt;0 i U<sub>VV</sub>&gt;0 (estabilitat de U), aquest determinant és <strong>sempre negatiu</strong>: la Hessiana de F és indefinida, F és sempre un punt de sella en (T,V) &mdash; còncava en T, convexa en V. (El mateix surt per H: det(Hess H)=&minus;U<sub>SS</sub>/U<sub>VV</sub>&lt;0.)</div>
+    <div class="card-note">Per això Sylvester (diagonal+determinant, l'eina per detectar <em>definició</em>) no és ni tan sols l'eina adequada per a F o H: com que mai poden ser definides, aplicar-hi Sylvester no diria res útil. El que realment es comprova és la <strong>curvatura de cada eix per separat</strong> (F<sub>TT</sub> a V fixa; F<sub>VV</sub> a T fixa) &mdash; dues comprovacions unidimensionals independents, diferents de comprovar la definició conjunta. Que aquestes dues curvatures reprodueixin, terme a terme, les dues peces del Sylvester original de U, no és perquè F "sigui diagonal" &mdash; és perquè F<sub>TT</sub> i F<sub>VV</sub> s'han definit, cadascuna, mantenint l'altra variable fixa, i l'àlgebra de Legendre fa la resta.</div>
+  </div>
+
+  <footer>Correspon als apartats 2.5(c) i (d) del guió de pissarra del Tema 2. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

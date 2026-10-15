@@ -1,0 +1,280 @@
+<!doctype html>
+<title>Guia de classe — sòlid clàssic i llei de Dulong-Petit</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.7 &middot; guió de pissarra</div>
+  <h1>El <em>sòlid clàssic</em></h1>
+  <p class="subtitle">El mateix mètode que al gas ideal, amb un hamiltonià d'oscil&middot;ladors: un canvi de variable converteix l'el&middot;lipsoide H=E en una esfera, i d'aquí surt C<sub>V</sub>=3Nk<sub>B</sub>. I, en apèndix, per on ha d'entrar el volum perquè el model doni també una equació d'estat per a la pressió.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Model: oscil&middot;ladors harmònics clàssics independents</span></li><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Aproximació <strong>quasi-harmònica</strong>: &omega;=&omega;(V)</span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Definició del paràmetre de Grüneisen</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=&part;&Gamma;/&part;E</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_stirling.html">Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>DESTÍ 1 d'aquesta mateixa pàgina: S no depèn de V</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: P/T=k<sub>B</sub>(&part;ln&Omega;/&part;V)<sub>U,N</sub></a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Canvi de variable que normalitza cada terme del hamiltonià</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Volum d'una hiperesfera de dimensió n=6N i radi 1</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Equació fonamental del sòlid clàssic</span></div><div class="eq">\[ S\simeq 3Nk_{B}\left[\ln\left(\dfrac{U}{3N\hbar\omega}\right)+1\right] \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Llei de Dulong-Petit</span></div><div class="eq">\[ C_{V}=\left(\dfrac{\partial U}{\partial T}\right)_{V}=3Nk_{B} \]</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Equació d'estat de Mie-Grüneisen</span></div><div class="eq">\[ \begin{aligned} PV&=\gamma U \\[4pt] P&=\dfrac{\gamma U}{V}=\dfrac{3N\gamma k_{B}T}{V} \end{aligned} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Model: oscil&middot;ladors harmònics clàssics independents</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un sòlid és un conjunt d'oscil&middot;ladors</div>
+        <div class="eq">\[ H\left(\mathbf{q},\mathbf{p}\right)=\sum_{i=1}^{3N}\left[\dfrac{p_{i}^{2}}{2m}+\dfrac{m\omega^{2}}{2}q_{i}^{2}\right] \]</div>
+        <div class="card-note">N nusos d'una xarxa cristal&middot;lina, cadascun vibrant en les tres direccions de l'espai: <strong>3N oscil&middot;ladors harmònics unidimensionals independents</strong>, tots de la mateixa freqüència &omega;. Com que cada oscil&middot;lador està lligat al seu nus, les partícules són <strong>distingibles</strong>: aquí no hi haurà cap N!.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Canvi de variable que normalitza cada terme del hamiltonià</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">La superfície H=E no és una esfera... encara</span></div>
+        <div class="card-note">Amb les p i les q barrejades i amb coeficients diferents, H=E és un <strong>el&middot;lipsoide</strong> de 6N dimensions. Un canvi de variable el converteix en una esfera de radi 1:</div>
+        <div class="eq">\[ \begin{aligned} z_{i}&=\dfrac{p_{i}}{\sqrt{2mE}}, &\quad& i=1,\ldots,3N \\[4pt] z_{i}&=\sqrt{\dfrac{m\omega^{2}}{2E}}\;q_{i}, &\quad& i=3N+1,\ldots,6N \end{aligned} \]</div>
+        <div class="eq">\[ z_{1}^{2}+\cdots+z_{6N}^{2}=1 \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; 3N factors de cada mena &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">El preu del canvi de variable és el jacobià</span></div>
+        <div class="eq">\[ \begin{aligned} d\mathbf{q}\,d\mathbf{p}&=\left(2mE\right)^{3N/2}\left(\dfrac{2E}{m\omega^{2}}\right)^{3N/2}d\mathbf{z} \\[6pt] &=\left(\dfrac{2E}{\omega}\right)^{3N}d\mathbf{z} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb d<strong>z</strong>&equiv;dz<sub>1</sub>&hellip;dz<sub>6N</sub>. La massa se'n va: només queda la combinació E/&omega;, que és una acció &mdash; les mateixes dimensions que h.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Volum d'una hiperesfera de dimensió n=6N i radi 1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Ara ja és el volum d'una esfera unitat de 6N dimensions</span></div>
+        <div class="eq">\[ \begin{aligned} \Gamma&=\dfrac{1}{h^{3N}}\left(\dfrac{2E}{\omega}\right)^{3N}\dfrac{\pi^{3N}}{\left(3N\right)!} \\[4pt] &=\dfrac{1}{\left(3N\right)!}\left(\dfrac{E}{\hbar\omega}\right)^{3N} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Fent servir h=2&pi;&hbar;, tot el prefactor es redueix a (E/&hbar;&omega;)<sup>3N</sup>: el nombre de "quanta d'acció" disponibles, elevat al nombre d'oscil&middot;ladors.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=&part;&Gamma;/&part;E</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Derivem per obtenir &Omega;</span></div>
+        <div class="eq">\[ \Omega=\dfrac{\partial\Gamma}{\partial E}=\dfrac{1}{\hbar\omega}\dfrac{1}{\left(3N-1\right)!}\left(\dfrac{E}{\hbar\omega}\right)^{3N-1} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span>
+        </div>
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_stirling.html">Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Boltzmann i Stirling</span></div>
+        <div class="eq">\[ \begin{aligned} S=k_{B}\ln\Omega&=k_{B}\left[\left(3N-1\right)\ln\left(\dfrac{E}{\hbar\omega}\right)\right. \\[4pt] &\qquad\left.-\ln\left(3N-1\right)!\right] \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">En el límit termodinàmic, 3N&minus;1&simeq;3N i ln(3N)!&simeq;3N&nbsp;ln&nbsp;3N&minus;3N; a més E&rarr;U.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; agrupant logaritmes &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Equació fonamental del sòlid clàssic</span></div>
+        <div class="eq">\[ S\simeq 3Nk_{B}\left[\ln\left(\dfrac{U}{3N\hbar\omega}\right)+1\right] \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Derivant respecte de U</span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{1}{T}&=\left(\dfrac{\partial S}{\partial U}\right)_{N}=\dfrac{3Nk_{B}}{U} \\[4pt] U&=3Nk_{B}T \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un k<sub>B</sub>T/2 per cada terme quadràtic del hamiltonià: n'hi ha 6N (3N cinètics i 3N potencials). És el teorema d'equipartició, aquí en un cas concret.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; derivant U &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Llei de Dulong-Petit</span></div>
+        <div class="eq">\[ C_{V}=\left(\dfrac{\partial U}{\partial T}\right)_{V}=3Nk_{B} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> una capacitat calorífica <strong>constant</strong>, independent de T i de la mena de sòlid &mdash; que és el que s'observa a temperatura ambient. Però no tendeix a 0 quan T&rarr;0, com exigeix el tercer principi, i experimentalment sí que ho fa. El model clàssic és incomplet a baixes temperatures: cal el <a href="flux_solid_einstein.html">sòlid quàntic d'Einstein</a>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">On falla el model, exactament</span></div>
+    <div class="card-note">Val la pena ser precisos sobre <em>què</em> falla, perquè no és el mètode sinó el model. El càlcul microcanònic és impecable; el que és fals és suposar que l'energia d'un oscil&middot;lador pot prendre qualsevol valor real. Un oscil&middot;lador clàssic pot absorbir una quantitat arbitràriament petita d'energia, i per això contribueix a C<sub>V</sub> per molt freda que sigui la temperatura. Un oscil&middot;lador quàntic, no: per sota de &hbar;&omega; <strong>no pot absorbir res</strong>, i queda congelat. D'aquí que C<sub>V</sub>&rarr;0.</div>
+    <div class="card-note">Això fa que el resultat clàssic sigui, tot i el seu fracàs a baixes T, el <strong>límit d'altes temperatures correcte</strong>: quan k<sub>B</sub>T&gg;&hbar;&omega; la discretització és irrellevant. El model d'Einstein ha de reproduir-lo, i ho fa.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">APÈNDIX</span><span class="card-title">I la pressió? El volum encara no ha aparegut enlloc</span></div>
+    <div class="card-note">Del model n'hem tret C<sub>V</sub>, però no cap equació tèrmica d'estat. El motiu és que al resultat del DESTÍ 1 <strong>no hi surt V per enlloc</strong>, i per tant surt P=0. Val la pena veure per què i com s'arregla, perquè la resposta és el paràmetre de Grüneisen. Aquest apèndix no és al guió de pissarra.</div>
+  </div>
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">DESTÍ 1 d'aquesta mateixa pàgina: S no depèn de V</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">El model, tal com està, no té pressió</div>
+        <div class="eq">\[ \left(\dfrac{\partial S}{\partial V}\right)_{U,N}=0 \quad\Longrightarrow\quad P=0 \]</div>
+        <div class="card-note">I no és cap descuit del càlcul. Compareu amb el <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>: allà el volum entrava per la <strong>integral de configuració</strong>, &int;d<strong>q</strong>=V<sup>N</sup>, perquè cada partícula pot ser a qualsevol punt del recipient. Aquí els àtoms estan lligats al seu nus: la integral sobre les q és sobre els <em>desplaçaments</em> respecte del nus, no sobre la capsa. L'escala de les posicions la fixa la constant de la molla, no les parets &mdash; i per això al canvi de variable del PAS 1 no hi apareix V enlloc.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Aproximació <strong>quasi-harmònica</strong>: &omega;=&omega;(V)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'única porta que queda: &omega; depèn del volum</span></div>
+        <div class="eq">\[ \begin{aligned} \omega&=\omega\left(V\right) \\[6pt] S&=3Nk_{B}\left[\ln\left(\dfrac{U}{3N\hbar\,\omega\left(V\right)}\right)+1\right] \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Físicament és evident: comprimir el sòlid acosta els àtoms, rigidifica els enllaços i puja les freqüències de vibració. Ara S sí que depèn de V, encara que només a través de &omega;.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Definició del paràmetre de Grüneisen</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Li posem nom: el paràmetre de Grüneisen</span></div>
+        <div class="eq">\[ \gamma\equiv-\dfrac{d\ln\omega}{d\ln V}=-\dfrac{V}{\omega}\dfrac{d\omega}{dV} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El signe menys és perquè &gamma;&gt;0 en un sòlid normal: si V baixa, &omega; puja.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: P/T=k<sub>B</sub>(&part;ln&Omega;/&part;V)<sub>U,N</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Derivem: l'únic terme viu és el &minus;ln&omega;</span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{P}{T}&=\left(\dfrac{\partial S}{\partial V}\right)_{U,N}=-3Nk_{B}\dfrac{d\ln\omega}{dV} \\[6pt] &=\dfrac{3Nk_{B}\,\gamma}{V} \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; amb U=3Nk<sub>B</sub>T &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Equació d'estat de Mie-Grüneisen</span></div>
+        <div class="eq">\[ \begin{aligned} PV&=\gamma U \\[4pt] P&=\dfrac{\gamma U}{V}=\dfrac{3N\gamma k_{B}T}{V} \end{aligned} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> fent servir l'equació calòrica U=3Nk<sub>B</sub>T del DESTÍ anterior, que fa desaparèixer la T. És el mateix esquelet que la resta d'equacions d'estat del curs, només canviant el número.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMPROVACIÓ</span><span class="card-title">El mateix número, per dos camins</span></div>
+    <div class="card-note">Les tres equacions d'estat del curs tenen la mateixa forma, i el sòlid només canvia el coeficient:</div>
+    <table class="mini-table"><tr><th>Sistema</th><th>Equació d'estat</th><th>Coeficient</th></tr><tr><td>Gas ideal monoatòmic</td><td>PV = &#8532;U</td><td>2/3</td></tr><tr><td>Gas de fotons</td><td>PV = &#8531;U</td><td>1/3</td></tr><tr><td>Sòlid (quasi-harmònic)</td><td>PV = &gamma;U</td><td>&gamma; &asymp; 1,7&ndash;2,1</td></tr></table>
+    <div class="card-note">I &gamma; es pot mesurar sense saber res de &omega;(V). Derivant P=&gamma;U/V respecte de T a V constant i fent servir (&part;P/&part;T)<sub>V</sub>=&alpha;/&kappa;<sub>T</sub> (del <a href="flux_reciprocitat.html">teorema de reciprocitat, 1.2.1</a>):</div>
+    <div class="eq">\[ \gamma=\dfrac{\alpha V}{\kappa_{T}C_{V}} \]</div>
+    <div class="card-note">que és la <strong>relació de Grüneisen</strong>, escrita només amb coeficients del Tema 1. Amb dades tabulades surten els valors de taula, cosa que és la millor confirmació que la construcció és correcta:</div>
+    <table class="mini-table"><caption>&gamma; calculat com &alpha;V/&kappa;<sub>T</sub>C<sub>V</sub>, i pressió tèrmica &gamma;U/V a 300 K</caption><tr><th></th><th>Gr&uuml;neisen</th><th>Pressió tèrmica</th></tr><tr><td>Coure</td><td>1,98</td><td>2,1 GPa</td></tr><tr><td>Alumini</td><td>2,08</td><td>1,5 GPa</td></tr><tr><td>Ferro</td><td>1,74</td><td>1,8 GPa</td></tr></table>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Tres coses que no m'estalviaria a classe</span></div>
+    <div class="card-note"><strong>1. Això ja no és el model harmònic.</strong> En un sòlid estrictament harmònic &omega; no depèn de V, i aleshores &gamma;=0: ni pressió, <strong>ni dilatació tèrmica</strong> (&alpha;=0, per la relació de dalt). La dilatació tèrmica és un efecte <em>anharmònic</em>, i deixar que &omega; depengui de V és la manera mínima de colar-hi l'anharmonicitat sense haver de refer el model &mdash; per això se'n diu <em>quasi</em>-harmònica.</div>
+    <div class="card-note"><strong>2. Això és només la pressió tèrmica.</strong> La pressió real d'un sòlid té dos trossos:</div>
+    <div class="eq">\[ P=P_{\text{estàtica}}\left(V\right)+\dfrac{\gamma U_{\text{vib}}}{V} \]</div>
+    <div class="card-note">El model harmònic no té energia de cohesió &mdash; les molles tenen el punt d'equilibri posat a mà &mdash; així que el terme estàtic hi és absent per construcció. Per això els 2 GPa de la taula no fan volar el coure: al volum d'equilibri els compensa exactament la pressió estàtica de cohesió.</div>
+    <div class="card-note"><strong>3. &gamma; és una entrada, no una predicció.</strong> El model dona l'<em>estructura</em> PV=&gamma;U; el valor de &gamma; ha de venir de fora (de l'experiment o d'un potencial interatòmic real). I estrictament, amb un sol &omega; tots els modes comparteixen &gamma;; en un sòlid real cada mode té el seu &gamma;<sub>i</sub> i el &gamma; termodinàmic n'és la mitjana pesada per C<sub>V</sub>.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.7 del guió de pissarra del Tema 3; l'apèndix sobre l'equació d'estat de la pressió va més enllà del guió. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,157 @@
+<!doctype html>
+<title>Guia de classe — comptar microstats: &Omega; i &Gamma;</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.3 &middot; guió de pissarra</div>
+  <h1><em>Comptar microstats</em></h1>
+  <p class="subtitle">Del principi d'equiprobabilitat a les dues magnituds que es calculen a la pràctica: &Omega;, el nombre de microstats d'energia E, i &Gamma;, el volum d'espai de fases que té a sota.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span><a href="flux_conceptes_microcanonica.html">Postulat 2: equiprobabilitat a priori</a></span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Definició auxiliar: acumulem &Omega; fins a l'energia E</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_conceptes_microcanonica.html">&int;(d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup>)&rho;=1</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&Delta;E&rarr;0 converteix la capa en la hipersuperfície H=E</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Intercanviem l'ordre d'integració</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Nombre de microstats</span></div><div class="eq">\[ \Omega\left(E,V,N\right)=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\delta\left(E-H\left(\mathbf{q},\mathbf{p}\right)\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">&Omega; s'obté derivant &Gamma;</span></div><div class="eq">\[ \Omega\left(E,V,N\right)=\left(\dfrac{\partial\Gamma\left(E,V,N\right)}{\partial E}\right)_{V,N} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc"><a href="flux_conceptes_microcanonica.html">Postulat 2: equiprobabilitat a priori</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Sistema aïllat, energia en una capa estreta</div>
+        <div class="eq">\[ E\le H\left(\mathbf{q},\mathbf{p}\right)\le E+\Delta E, \qquad \Delta E\to 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">V i N fixos. &Omega; és, per definició, el nombre de microstats compatibles amb aquest macrostat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&Delta;E&rarr;0 converteix la capa en la hipersuperfície H=E</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Equiprobables vol dir &rho; constant sobre la capa</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{q},\mathbf{p}\right)=\dfrac{\delta\left(E-H\left(\mathbf{q},\mathbf{p}\right)\right)}{\Omega} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La delta de Dirac selecciona només els microstats amb l'energia correcta; el denominador és la constant que encara no coneixem.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_conceptes_microcanonica.html">&int;(d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup>)&rho;=1</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">La normalització fixa aquesta constant</span></div>
+        <div class="eq">\[ \dfrac{1}{\Omega}\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\delta\left(E-H\left(\mathbf{q},\mathbf{p}\right)\right)=1 \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; aïllem &Omega; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Nombre de microstats</span></div>
+        <div class="eq">\[ \Omega\left(E,V,N\right)=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\delta\left(E-H\left(\mathbf{q},\mathbf{p}\right)\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ja és calculable a partir del hamiltonià &mdash; només cal saber resoldre la integral.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Definició auxiliar: acumulem &Omega; fins a l'energia E</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Però aquesta integral gairebé mai es pot fer directament</span></div>
+        <div class="card-note">Integrar sobre una hipersuperfície de 6N&minus;1 dimensions és molt més incòmode que integrar sobre el <em>volum</em> que té a dins. Definim, doncs, una funció auxiliar:</div>
+        <div class="eq">\[ \Gamma\left(E,V,N\right)=\int_{0}^{E}dE'\,\Omega\left(E',V,N\right) \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Intercanviem l'ordre d'integració</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">&Gamma; és un volum, no una superfície</span></div>
+        <div class="eq">\[ \begin{aligned} \Gamma&=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\int_{0}^{E}dE'\,\delta\left(E'-H\right) \\[6pt] &=\int_{H\left(\mathbf{q},\mathbf{p}\right)\le E}\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}} \end{aligned} \]</div>
+        <div class="card-note">La integral interior val 1 sempre que 0&le;H(<strong>q</strong>,<strong>p</strong>)&le;E, i 0 en cas contrari &mdash; que és exactament el que fa la condició del domini de la dreta. Per tant <strong>&Gamma; és el volum d'espai de fases contingut dins la hipersuperfície H=E</strong>: tots els microstats amb energia igual o inferior a E.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; derivant la definició del pas 3 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">&Omega; s'obté derivant &Gamma;</span></div>
+        <div class="eq">\[ \Omega\left(E,V,N\right)=\left(\dfrac{\partial\Gamma\left(E,V,N\right)}{\partial E}\right)_{V,N} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> aquest és el camí que es farà servir sempre: primer el volum &Gamma; (una integral sobre una regió, sovint una hiperesfera), i després una derivada. Es fa servir tal qual al <a href="flux_gas_ideal_microcanonica.html">gas ideal</a> i al <a href="flux_solid_classic.html">sòlid clàssic</a>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Les dimensions de &Omega; i &Gamma;, amb cura</span></div>
+    <div class="card-note">Val la pena fer-ho bé perquè el logaritme de la fórmula de Boltzmann demana un argument adimensional. Com que d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup> és adimensional, <strong>&Gamma; és adimensional</strong> (és literalment un nombre de cel&middot;les). En canvi &delta;(E&minus;H) té dimensions d'<em>energia a la menys u</em>, perquè &int;&delta;(E&minus;H)dE=1; per tant &Omega;, tal com està escrita al DESTÍ 1, té dimensions d'energia<sup>&minus;1</sup> &mdash; consistent amb &Omega;=&part;&Gamma;/&part;E.</div>
+    <div class="card-note">El que és de debò un recompte adimensional és <strong>&Omega;(E)&middot;&Delta;E</strong>, el nombre de microstats a la capa d'amplada &Delta;E, i és això el que hauria d'entrar al logaritme. L'amplada &Delta;E és arbitrària, però no importa: canviar-la només afegeix a S un terme k<sub>B</sub>ln&Delta;E, d'ordre ln&nbsp;N, completament menyspreable davant dels N&nbsp;ln&nbsp;N de l'entropia en el límit termodinàmic. És el mateix motiu pel qual ln&Omega;&simeq;ln&Gamma; (<a href="flux_gas_ideal_microcanonica.html">3.5</a>): la termodinàmica no distingeix entre la superfície i el volum que té a sota. <a href="sim_hiperesfera.html">La simulació de la hiperesfera</a> en dóna el número.</div>
+    <div class="card-note"><strong>Compte:</strong> el guió i els apunts diuen la frase al revés ("&Gamma; té dimensions d'energia i &Omega; és adimensional"). Amb les definicions (3.4) i (3.8) tal com estan escrites, és a l'inrevés. No afecta cap resultat del tema &mdash; precisament perquè la diferència és el terme d'ordre ln&nbsp;N que es menysprea &mdash; però val la pena no dir-ho malament a classe.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.3 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,117 @@
+<!doctype html>
+<title>Guia de classe — relacions de Maxwell</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.4 &middot; guió de pissarra</div>
+  <h1>Les <em>relacions de Maxwell</em></h1>
+  <p class="subtitle">No existeix cap "entropímetre" &mdash; però com que els potencials també són funcions d'estat, es pot mesurar com varia S mesurant, en canvi, com varien T, P o V.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_potencials_legendre.html">2.3: U, H, F, G són transformades de Legendre</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Diferencial exacta &rArr; derivades creuades han de coincidir</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Relacions de Maxwell</span></div><div class="eq">\[ \left(\dfrac{\partial T}{\partial V}\right)_{S} = -\left(\dfrac{\partial P}{\partial S}\right)_{V} \quad\textbf{i}\quad \]</div><div class="eq">\[ \left(\dfrac{\partial T}{\partial P}\right)_{S} = \left(\dfrac{\partial V}{\partial S}\right)_{P} \quad\textbf{i}\quad \]</div><div class="eq">\[ \left(\dfrac{\partial P}{\partial T}\right)_{V} = \left(\dfrac{\partial S}{\partial V}\right)_{T} \quad\textbf{i}\quad \]</div><div class="eq">\[ \left(\dfrac{\partial V}{\partial T}\right)_{P} = -\left(\dfrac{\partial S}{\partial P}\right)_{T} \quad\textbf{i}\quad \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_potencials_legendre.html">2.3: U, H, F, G són transformades de Legendre</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Els potencials no perden informació</div>
+        <div class="card-note">Són, doncs, també funcions d'estat: els seus diferencials són exactes.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Diferencial exacta &rArr; derivades creuades han de coincidir</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Apliquem-ho a dF=&minus;SdT&minus;PdV+&mu;dN</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial P}{\partial T}\right)_{V,N} = \left(\dfrac{\partial S}{\partial V}\right)_{T,N} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; repetim amb U, H i G (a N constant) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Mateix argument, els altres tres potencials</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Cada diferencial exacta dona una condició d'igualtat de derivades creuades diferent.</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; les quatre juntes &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Relacions de Maxwell</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial T}{\partial V}\right)_{S} = -\left(\dfrac{\partial P}{\partial S}\right)_{V} \quad\textbf{i}\quad \]</div>
+        <div class="eq">\[ \left(\dfrac{\partial T}{\partial P}\right)_{S} = \left(\dfrac{\partial V}{\partial S}\right)_{P} \quad\textbf{i}\quad \]</div>
+        <div class="eq">\[ \left(\dfrac{\partial P}{\partial T}\right)_{V} = \left(\dfrac{\partial S}{\partial V}\right)_{T} \quad\textbf{i}\quad \]</div>
+        <div class="eq">\[ \left(\dfrac{\partial V}{\partial T}\right)_{P} = -\left(\dfrac{\partial S}{\partial P}\right)_{T} \quad\textbf{i}\quad \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> cada relació és una equació de compatibilitat entre l'equació tèrmica (esquerra) i la calòrica per S (dreta). Interès pràctic: la relació de F, per exemple, permet mesurar com varia S isotèrmicament mesurant, en canvi, com varia P amb T a volum constant &mdash; molt més accessible.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">PER QUÈ IMPORTA</span><span class="card-title">Converteixen una mesura impossible en una de trivial</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Qualsevol derivada amb S directament &mdash; (&part;S/&part;V)<sub>T</sub>, (&part;S/&part;P)<sub>T</sub> &mdash; és inaccessible al laboratori: no existeix cap "entropímetre". Però (&part;P/&part;T)<sub>V</sub> o (&part;V/&part;T)<sub>P</sub> són mesures de PVT pures i simples. Les relacions de Maxwell diuen que totes dues valen exactament el mateix, així que sempre pots substituir la mesura impossible per la fàcil.</div>
+    <div class="card-note">Ja les havies vist en acció: a la <a href="flux_tds_fluid.html">guia de les equacions TdS</a>, (&part;S/&part;V)<sub>T</sub>=(&part;P/&part;T)<sub>V</sub> (pas 6) <strong>ja era</strong> la relació de Maxwell "de F", trobada per avançat i ad hoc. Aquí es generalitza: en comptes de refer l'argument "exactitud &rArr; derivades creuades" cada cop, tens les quatre relacions (de U, H, F, G) llestes per fer servir directament.</div>
+    <div class="card-note">Són, de fet, l'eina de càlcul més utilitzada de tota la termodinàmica clàssica: gairebé qualsevol identitat derivada (diferència de capacitats calorífiques, coeficient de Joule&ndash;Thomson, com varia S amb la pressió...) en fa servir alguna en algun pas.</div>
+  </div>
+
+  <footer>Correspon a l'apartat 2.4 del guió de pissarra del Tema 2. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

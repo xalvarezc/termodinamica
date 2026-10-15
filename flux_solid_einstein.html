@@ -1,0 +1,202 @@
+<!doctype html>
+<title>Guia de classe — sòlid quàntic d'Einstein</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.8.1 &middot; guió de pissarra</div>
+  <h1>El <em>sòlid d'Einstein</em></h1>
+  <p class="subtitle">El primer sistema del tema on &Omega; no es calcula amb una integral sinó amb combinatòria &mdash; i el primer que compleix el tercer principi.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Model d'Einstein: 3N oscil&middot;ladors quàntics independents</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_comptatge_discret.html">3.8: en sistemes discrets, &Omega; es compta</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_stirling.html">Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;, 1/T=&part;S/&part;U</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Combinacions amb repetició</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Equació calòrica del sòlid d'Einstein</span></div><div class="eq">\[ U=3N\hbar\omega\left(\dfrac{1}{2}+\dfrac{1}{e^{x}-1}\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Capacitat calorífica</span></div><div class="eq">\[ \begin{aligned} C_{V}&=\left(\dfrac{\partial U}{\partial T}\right)_{V}=3Nk_{B}\,f\left(x\right) \\[6pt] f\left(x\right)&=\dfrac{x^{2}e^{x}}{\left(e^{x}-1\right)^{2}} \end{aligned} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Model d'Einstein: 3N oscil&middot;ladors quàntics independents</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">El mateix sòlid, però amb oscil&middot;ladors quàntics</div>
+        <div class="card-note">Einstein (1906): a cada nus de la xarxa hi associem un oscil&middot;lador harmònic <strong>quàntic</strong> tridimensional, independent dels altres i tots amb la mateixa &omega;. L'únic canvi respecte del <a href="flux_solid_classic.html">sòlid clàssic</a> és que ara l'energia de cada oscil&middot;lador està <strong>discretitzada</strong>.</div>
+        <div class="eq">\[ \begin{aligned} E_{1}&=\left(n_{x}+n_{y}+n_{z}+\tfrac{3}{2}\right)\hbar\omega \\[4pt] n_{x},n_{y},n_{z}&=0,1,2,\ldots \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; sumant els 3N oscil&middot;ladors 1D &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'energia total, sumada sobre tots els nusos</span></div>
+        <div class="eq">\[ E=\dfrac{3N}{2}\hbar\omega+\hbar\omega\sum_{i=1}^{3N}n_{i} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El primer terme és l'energia de punt zero, que és fixa: no participa del recompte. Tota la llibertat és als 3N nombres quàntics n<sub>i</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_comptatge_discret.html">3.8: en sistemes discrets, &Omega; es compta</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Comptar microstats és comptar particions d'un enter</span></div>
+        <div class="eq">\[ M\equiv\sum_{i=1}^{3N}n_{i}=\dfrac{E}{\hbar\omega}-\dfrac{3N}{2} \]</div>
+        <div class="card-note">Fixada l'energia, queda fixat M: el nombre total de <strong>quanta</strong> repartits pel sòlid. Un microstat és una seqüència concreta {n<sub>1</sub>,&hellip;,n<sub>3N</sub>} que sumi M. <strong>Aquí ja no hi ha cap integral a fer: és pura combinatòria.</strong></div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Combinacions amb repetició</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Boles i particions</span></div>
+        <div class="card-note">Imaginem M boles idèntiques (els quanta) repartides en 3N caixes (els oscil&middot;ladors), separades per 3N&minus;1 particions. Cada disposició en fila de boles i particions és un microstat:</div>
+        <div class="card-note" style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:2px;text-align:center;">&bull;&bull; | &bull;&bull;&bull; | &hellip; | &bull;</div>
+        <div class="card-note">Hi ha (3N&minus;1+M)! ordenacions possibles, però permutar boles entre si no canvia res (són idèntiques), ni permutar particions entre si:</div>
+        <div class="eq">\[ \Omega=\dfrac{\left(3N-1+M\right)!}{\left(3N-1\right)!\,M!} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_stirling.html">Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Límit termodinàmic i Stirling</span></div>
+        <div class="eq">\[ \begin{aligned} \ln\Omega\simeq\;&\left(3N+M\right)\ln\left(3N+M\right) \\[4pt] &-3N\ln\left(3N\right)-M\ln M \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb 3N&minus;1&simeq;3N i ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N aplicat als tres factorials; els termes &minus;N es cancel&middot;len entre ells.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;, 1/T=&part;S/&part;U</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">La temperatura, derivant</span></div>
+        <div class="eq">\[ \dfrac{1}{T}=\left(\dfrac{\partial S}{\partial U}\right)_{N}=\dfrac{k_{B}}{\hbar\omega}\ln\left(\dfrac{3N+M}{M}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Derivant ln&Omega; respecte de M surt ln[(3N+M)/M], i &part;M/&part;U=1/&hbar;&omega; pel pas 2.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; exponenciant el pas 5 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Aïllem M i el tornem a posar a l'energia</span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{3N+M}{M}&=e^{x} \quad\Longrightarrow\quad M=\dfrac{3N}{e^{x}-1} \\[6pt] x&\equiv\dfrac{\hbar\omega}{k_{B}T} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">x és l'únic paràmetre del model: compara el quantum d'energia &hbar;&omega; amb l'energia tèrmica k<sub>B</sub>T.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; U = (3N/2)&hbar;&omega; + &hbar;&omega;M &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Equació calòrica del sòlid d'Einstein</span></div>
+        <div class="eq">\[ U=3N\hbar\omega\left(\dfrac{1}{2}+\dfrac{1}{e^{x}-1}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El terme 1/2 és l'energia de punt zero, que no desapareix ni a T=0.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; derivant respecte de T &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Capacitat calorífica</span></div>
+        <div class="eq">\[ \begin{aligned} C_{V}&=\left(\dfrac{\partial U}{\partial T}\right)_{V}=3Nk_{B}\,f\left(x\right) \\[6pt] f\left(x\right)&=\dfrac{x^{2}e^{x}}{\left(e^{x}-1\right)^{2}} \end{aligned} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> tota la dependència amb la temperatura ès dins de f(x). Els dos límits, a sota, són el motiu pel qual el model va ser històricament decisiu.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">LA FIGURA</span><span class="card-title">Els dos límits, en una corba</span></div>
+        <svg viewBox="0 0 600 330" role="img" aria-label="Capacitat calorifica del solid d'Einstein dividida per 3NkB, en funcio de T dividida per la temperatura d'Einstein. Parteix de zero a T=0, puja rapidament i tendeix asimptoticament a 1, el valor classic de Dulong-Petit." style="width:100%;height:auto;display:block;font-family:'IBM Plex Sans',sans-serif;">
+      <line x1="70.0" y1="280.0" x2="70.0" y2="40" stroke="var(--muted)" stroke-width="1.5"/>
+      <line x1="70.0" y1="280.0" x2="570" y2="280.0" stroke="var(--muted)" stroke-width="1.5"/>
+      <line x1="70.0" y1="70.9" x2="570" y2="70.9" stroke="var(--goal)" stroke-width="1.4" stroke-dasharray="6 5"/>
+      <text x="566" y="61.9" text-anchor="end" font-size="13.5" fill="var(--goal)" font-weight="600">Dulong-Petit: C<tspan baseline-shift="sub" font-size="10">V</tspan>=3Nk<tspan baseline-shift="sub" font-size="10">B</tspan></text>
+      <path fill="none" stroke="var(--flux)" stroke-width="2.6" d="M 70.0,280.0 L 74.9,280.0 L 79.8,280.0 L 84.7,280.0 L 89.6,279.9 L 94.5,279.1 L 99.4,276.5 L 104.3,271.6 L 109.2,264.2 L 114.1,254.9 L 119.0,244.3 L 123.9,233.2 L 128.8,221.9 L 133.7,211.0 L 138.6,200.6 L 143.5,190.9 L 148.4,181.8 L 153.3,173.5 L 158.2,165.9 L 163.1,159.0 L 168.0,152.7 L 172.9,146.9 L 177.8,141.7 L 182.7,136.9 L 187.6,132.6 L 192.5,128.6 L 197.4,125.0 L 202.3,121.7 L 207.2,118.6 L 212.1,115.8 L 217.0,113.3 L 221.9,110.9 L 226.8,108.7 L 231.7,106.7 L 236.6,104.8 L 241.5,103.1 L 246.4,101.5 L 251.3,100.0 L 256.2,98.6 L 261.1,97.3 L 266.0,96.1 L 270.9,95.0 L 275.8,93.9 L 280.7,93.0 L 285.6,92.0 L 290.5,91.2 L 295.4,90.3 L 300.3,89.6 L 305.2,88.8 L 310.1,88.1 L 315.0,87.5 L 319.9,86.9 L 324.8,86.3 L 329.7,85.8 L 334.6,85.2 L 339.5,84.7 L 344.4,84.3 L 349.3,83.8 L 354.2,83.4 L 359.1,83.0 L 364.0,82.6 L 368.9,82.2 L 373.8,81.9 L 378.7,81.5 L 383.6,81.2 L 388.5,80.9 L 393.4,80.6 L 398.3,80.3 L 403.2,80.1 L 408.1,79.8 L 413.0,79.6 L 417.9,79.3 L 422.8,79.1 L 427.7,78.9 L 432.6,78.7 L 437.5,78.5 L 442.4,78.3 L 447.3,78.1 L 452.2,77.9 L 457.1,77.8 L 462.0,77.6 L 466.9,77.4 L 471.8,77.3 L 476.7,77.1 L 481.6,77.0 L 486.5,76.8 L 491.4,76.7 L 496.3,76.6 L 501.2,76.4 L 506.1,76.3 L 511.0,76.2 L 515.9,76.1 L 520.8,76.0 L 525.7,75.9 L 530.6,75.8 L 535.5,75.7 L 540.4,75.6 L 545.3,75.5 L 550.2,75.4 L 555.1,75.3 L 560.0,75.2"/>
+      <text x="62.0" y="74.9" text-anchor="end" font-size="13" fill="var(--muted)">1</text>
+      <text x="62.0" y="284.0" text-anchor="end" font-size="13" fill="var(--muted)">0</text>
+      <text x="62.0" y="46" text-anchor="end" font-size="13.5" fill="var(--muted)">C<tspan baseline-shift="sub" font-size="10">V</tspan>/3Nk<tspan baseline-shift="sub" font-size="10">B</tspan></text>
+      <text x="315.0" y="300.0" text-anchor="middle" font-size="13" fill="var(--muted)">1</text>
+      <text x="560.0" y="300.0" text-anchor="middle" font-size="13" fill="var(--muted)">2</text>
+      <text x="570" y="314.0" text-anchor="end" font-size="13.5" fill="var(--muted)">T/&#920;<tspan baseline-shift="sub" font-size="10">E</tspan></text>
+      <text x="123.9" y="252.0" font-size="13" fill="var(--flux)" font-weight="600">~x&#178;e<tspan baseline-shift="super" font-size="10">&#8722;x</tspan> &rarr; 0</text>
+    </svg>
+    <div class="card-note"><strong>Altes temperatures</strong> (x&ll;1, dreta de la figura): e<sup>x</sup>&minus;1&simeq;x, de manera que f(x)&rarr;1 i C<sub>V</sub>&rarr;3Nk<sub>B</sub>. Es recupera exactament la <a href="flux_solid_classic.html">llei de Dulong-Petit</a>: quan l'energia tèrmica és molt més gran que el quantum, la discretització és invisible i el sòlid es comporta clàssicament. De la mateixa manera, U&simeq;3Nk<sub>B</sub>T.</div>
+    <div class="card-note"><strong>Baixes temperatures</strong> (x&rarr;&infin;, esquerra): f(x)&simeq;x&sup2;e<sup>&minus;x</sup>&rarr;0. L'exponencial guanya a qualsevol potència, de manera que C<sub>V</sub>&rarr;0 i el <strong>tercer principi es compleix</strong>. La raó física: per sota de &hbar;&omega; un oscil&middot;lador quàntic no pot absorbir res, i queda congelat.</div>
+    <div class="card-note">&Theta;<sub>E</sub>=&hbar;&omega;/k<sub>B</sub> és la <strong>temperatura d'Einstein</strong> del sòlid: la frontera entre els dos règims. L'única dada que cal donar-li al model és aquest número.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">El que Einstein va encertar i el que no</span></div>
+    <div class="card-note">El model explica el fet qualitatiu decisiu &mdash; que C<sub>V</sub> caigui a zero, cosa que la física clàssica no podia explicar de cap manera &mdash; amb un sol paràmetre. Quantitativament, però, la caiguda real dels sòlids és <strong>més lenta</strong> que e<sup>&minus;x</sup>: experimentalment C<sub>V</sub>&prop;T&sup3; a baixes temperatures. La causa és la hipòtesi d'Einstein que <em>tots</em> els oscil&middot;ladors tenen la <em>mateixa</em> &omega;; en un sòlid real els àtoms estan acoblats i hi ha tot un espectre de freqüències, algunes arbitràriament petites, que continuen despertes a temperatures baixes. Corregir-ho és el model de Debye. <a href="sim_solids_einstein.html">La simulació de dos sòlids d'Einstein</a> ho deixa veure.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.8.1 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,233 @@
+<!doctype html>
+<title>Guia de classe — la transformada de Legendre, vista com a geometria</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.3 &middot; complement geomètric</div>
+  <h1>La transformada de Legendre, <em>vista com a geometria</em></h1>
+  <p class="subtitle">Per què H&equiv;U&minus;(&part;U/&part;V)V no és cap combinació arbitrària: és, literalment, on talla l'eix vertical la recta tangent a la corba U(V).</p>
+
+  <div class="card-note" style="margin-bottom:22px;">Continuació de la <a href="flux_potencials_legendre.html">guia dels potencials termodinàmics</a>, on es construeixen les quatre transformades. Allà queda dit que la transformada es queda amb <em>l'ordenada a l'origen</em> de la tangent i no amb el seu pendent; aquí es desenvolupa què vol dir exactament i per què això és el que garanteix que no es perdi informació.</div>
+
+  <div class="card" style="margin-bottom:22px;">
+    <div class="card-head"><span class="step-no">LA FIGURA</span><span class="card-title">Tota la transformada, en un dibuix</span></div>
+    <div class="card-note" style="margin-top:0;">La mateixa figura amb el punt de tangència mòbil: <a href="sim_legendre.html">simulació de Legendre en moviment</a>.</div>
+    <svg viewBox="0 0 600 360" role="img" aria-label="Corba U(V) decreixent i convexa. En un punt V0 s'hi dibuixa la recta tangent, de pendent -P. Prolongada fins a l'eix vertical, la tangent el talla a l'altura H. La diferència entre H i U(V0), llegida sobre l'eix vertical, és P per V0." style="width:100%;height:auto;display:block;font-family:'IBM Plex Sans',sans-serif;">
+      <!-- eixos -->
+      <line x1="78" y1="320" x2="78" y2="36" stroke="var(--muted)" stroke-width="1.5"/>
+      <line x1="78" y1="320" x2="565" y2="320" stroke="var(--muted)" stroke-width="1.5"/>
+      <text x="68" y="44" text-anchor="end" font-size="14" fill="var(--muted)" font-style="italic">U</text>
+      <text x="565" y="340" text-anchor="end" font-size="14" fill="var(--muted)" font-style="italic">V</text>
+
+      <!-- corba U(V) -->
+      <path fill="none" stroke="var(--flux)" stroke-width="2.6" d="M 139.1,76.2 L 145.9,92.8 L 152.7,106.7 L 159.5,118.8 L 166.3,129.2 L 173.1,138.4 L 179.9,146.6 L 186.7,153.9 L 193.5,160.5 L 200.3,166.4 L 207.1,171.9 L 213.9,176.8 L 220.7,181.4 L 227.5,185.7 L 234.3,189.6 L 241.1,193.2 L 247.9,196.6 L 254.6,199.8 L 261.4,202.8 L 268.2,205.6 L 275.0,208.3 L 281.8,210.8 L 288.6,213.1 L 295.4,215.4 L 302.2,217.5 L 309.0,219.5 L 315.8,221.4 L 322.6,223.3 L 329.4,225.0 L 336.2,226.7 L 343.0,228.3 L 349.8,229.8 L 356.6,231.3 L 363.4,232.7 L 370.1,234.1 L 376.9,235.4 L 383.7,236.6 L 390.5,237.8 L 397.3,239.0 L 404.1,240.1 L 410.9,241.2 L 417.7,242.3 L 424.5,243.3 L 431.3,244.3 L 438.1,245.2 L 444.9,246.2 L 451.7,247.1 L 458.5,247.9 L 465.3,248.8 L 472.1,249.6 L 478.9,250.4 L 485.6,251.2 L 492.4,251.9 L 499.2,252.7 L 506.0,253.4 L 512.8,254.1"/>
+      <text x="519" y="250" font-size="14" fill="var(--flux)" font-weight="600">U(V)</text>
+
+      <!-- recta tangent -->
+      <line x1="78" y1="81.4" x2="376.9" y2="291.4" stroke="var(--goal)" stroke-width="2.2"/>
+      <text x="152" y="60" font-size="13.5" fill="var(--goal)" font-weight="600">recta tangent en V&#8320;</text>
+      <text x="386" y="284" font-size="13.5" fill="var(--goal)" font-weight="600">pendent = &minus;P</text>
+
+      <!-- guies -->
+      <line x1="213.9" y1="176.8" x2="213.9" y2="320" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <line x1="78" y1="176.8" x2="213.9" y2="176.8" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+      <!-- punts marcats -->
+      <circle cx="213.9" cy="176.8" r="5" fill="var(--flux)"/>
+      <circle cx="78" cy="81.4" r="5" fill="var(--goal)"/>
+      <circle cx="78" cy="176.8" r="3.5" fill="var(--muted)"/>
+
+      <!-- claudàtor del segment PV0 sobre l'eix -->
+      <line x1="60" y1="81.4" x2="60" y2="176.8" stroke="var(--ink)" stroke-width="1.2"/>
+      <line x1="56" y1="81.4" x2="64" y2="81.4" stroke="var(--ink)" stroke-width="1.2"/>
+      <line x1="56" y1="176.8" x2="64" y2="176.8" stroke="var(--ink)" stroke-width="1.2"/>
+      <text x="50" y="133" text-anchor="end" font-size="13.5" fill="var(--ink)" font-weight="600">PV&#8320;</text>
+
+      <!-- etiquetes d'altures -->
+      <text x="72" y="78" text-anchor="end" font-size="15" fill="var(--goal)" font-weight="700">H</text>
+      <text x="72" y="197" text-anchor="end" font-size="13.5" fill="var(--muted)">U(V&#8320;)</text>
+      <text x="213.9" y="340" text-anchor="middle" font-size="13.5" fill="var(--muted)">V&#8320;</text>
+    </svg>
+    <div class="card-note">La tangent a U(V) en el punt V&#8320; té pendent (&part;U/&part;V)<sub>S,N</sub>=&minus;P. Prolongada cap a l'esquerra fins a l'eix vertical &mdash; és a dir, avaluada a V=0 &mdash; el talla a l'altura <strong>H</strong>. La distància entre aquesta altura i el valor real U(V&#8320;) és exactament PV&#8320;, que és el que sumem: H=U+PV. Movent el punt de tangència al llarg de la corba, el pendent canvia i l'altura del tall també: la funció que a cada pendent li assigna la seva ordenada a l'origen és la transformada de Legendre.</div>
+  </div>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Una recta del pla queda fixada per dues dades: pendent i ordenada a l'origen</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_equacio_fonamental.html">2.1: dU=TdS&minus;PdV+&mu;dN</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>El pendent de la corba és &minus;P (punt de partida)</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>U estrictament convexa en V &mdash; que és el <a href="flux_estabilitat_cv_kappa.html">criteri d'estabilitat</a> (&part;&sup2;U/&part;V&sup2;)<sub>S</sub>&gt;0</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Equació de la recta que passa per (V&#8320;, U(V&#8320;)) amb el pendent de la corba en aquell punt</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">L'entalpia és l'ordenada a l'origen de la tangent</span></div><div class="eq">\[ H \equiv U - \left(\dfrac{\partial U}{\partial V}\right)_{S,N} V = U+PV \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">U(V) i H(P) contenen el mateix</span></div><div class="eq">\[ U\left(V\right)_{S,N} \;\longleftrightarrow\; H\left(P\right)_{S,N} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_equacio_fonamental.html">2.1: dU=TdS&minus;PdV+&mu;dN</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Una corba: U en funció de V, amb S i N congelats</div>
+        <div class="eq">\[ \left(\dfrac{\partial U}{\partial V}\right)_{S,N}=-P \]</div>
+        <div class="card-note"><strong>El neguit de sempre:</strong> si canviem V per P, sembla que ens quedem només amb un <em>pendent</em> i oblidem on érem sobre la corba. I és veritat que un pendent tot sol perd informació: totes les rectes paral·leles entre si el comparteixen.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Equació de la recta que passa per (V&#8320;, U(V&#8320;)) amb el pendent de la corba en aquell punt</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Dibuixem la recta tangent en un punt V&#8320;</span></div>
+        <div class="eq">\[ y\left(V\right)=U\left(V_{0}\right)+\left(\dfrac{\partial U}{\partial V}\right)_{S,N}\left(V-V_{0}\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; hi fem V=0 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">En llegim l'ordenada a l'origen</span></div>
+        <div class="eq">\[ y\left(0\right)=U\left(V_{0}\right)-\left(\dfrac{\partial U}{\partial V}\right)_{S,N}V_{0} \]</div>
+        <div class="card-note"><strong>Compte amb què és V=0 aquí.</strong> És on la <em>recta</em> talla l'eix vertical, una prolongació purament geomètrica &mdash; no cap estat físic del sistema. Ningú comprimeix res fins a volum zero: només s'allarga la tangent fins a l'eix per llegir-ne un número, com qui llegeix el "terme independent" d'una recta d'ajust.</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">El pendent de la corba és &minus;P (punt de partida)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Hi posem el pendent que toca</span></div>
+        <div class="eq">\[ y\left(0\right)=U\left(V_{0}\right)+PV_{0} \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; i això ja és la definició &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">L'entalpia és l'ordenada a l'origen de la tangent</span></div>
+        <div class="eq">\[ H \equiv U - \left(\dfrac{\partial U}{\partial V}\right)_{S,N} V = U+PV \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La fórmula no surt de cap manipulació enginyosa: és el resultat de llegir l'altura del tall. El mateix val per a F, G i &Omega;, canviant quina variable es prolonga fins a zero.</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Una recta del pla queda fixada per dues dades: pendent i ordenada a l'origen</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Per això el pendent sol no bastava, i la parella sí</span></div>
+        <div class="eq">\[ \text{tangent en }V_{0} \;\longleftrightarrow\; \left(-P,\;H\right) \]</div>
+        <div class="card-note">Quedar-se només amb P és quedar-se amb <em>mitja</em> recta tangent: en queden infinites, totes paral·leles, i no se sap quina era. La que falta és justament la constant d'integració que es perd quan s'intenta reconstruir U a partir de l'equació d'estat P(V,T). L'ordenada a l'origen és aquesta segona dada, i per això H(P) no és menys informació que U(V).</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">U estrictament convexa en V &mdash; que és el <a href="flux_estabilitat_cv_kappa.html">criteri d'estabilitat</a> (&part;&sup2;U/&part;V&sup2;)<sub>S</sub>&gt;0</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Una corba convexa és l'envolupant de les seves tangents</span></div>
+        <div class="card-note" style="margin-top:0;">Mou el punt de tangència per tota la corba i queda't només amb les rectes, esborrant la corba: la corba es pot recuperar sencera, perquè és l'única que les toca totes. Donar, per a cada pendent &minus;P, l'altura H(P), és doncs <strong>exactament</strong> la mateixa informació que donar U(V) punt a punt. Són dues descripcions duals de la mateixa corba, no un resum l'una de l'altra. Si U no fos convexa, diferents punts compartirien pendent, l'envolupant no reconstruiria la corba de manera única, i la transformada deixaria de ser invertible.</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; les dues cares de la mateixa corba &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">U(V) i H(P) contenen el mateix</span></div>
+        <div class="eq">\[ U\left(V\right)_{S,N} \;\longleftrightarrow\; H\left(P\right)_{S,N} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> es pot triar quina variable fer servir de "mànec" experimental &mdash; V, que és incòmode de fixar, o P, que només demana deixar el sistema obert a l'atmosfera &mdash; sense pagar cap preu en informació. Tornar a la <a href="flux_potencials_legendre.html">guia dels potencials</a>, on el mateix truc es repeteix per a F, G i &Omega;.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">COMPROVACIÓ</span><span class="card-title">Amb el gas ideal, número a número</span></div>
+    <div class="card-note" style="margin-top:0;">A S i N fixos, l'equació fonamental d'un gas ideal monoatòmic dona una corba U(V) de la forma</div>
+    <div class="eq">\[ U\left(V\right)=kV^{-2/3} \]</div>
+    <div class="card-note">amb k una constant que depèn de S i N (que aquí estan congelats). El pendent és</div>
+    <div class="eq">\[ \left(\dfrac{\partial U}{\partial V}\right)_{S,N}=-\dfrac{2}{3}kV^{-5/3}=-\dfrac{2U}{3V} \quad\Longrightarrow\quad P=\dfrac{2U}{3V} \]</div>
+    <div class="card-note">que és correcte: U=(3/2)Nk<sub>B</sub>T i PV=Nk<sub>B</sub>T donen P=2U/3V. L'ordenada a l'origen de la tangent val, doncs,</div>
+    <div class="eq">\[ H=U+PV=U+\dfrac{2}{3}U=\dfrac{5}{3}U \]</div>
+    <div class="card-note">i efectivament H=(5/2)Nk<sub>B</sub>T mentre que U=(3/2)Nk<sub>B</sub>T &mdash; la raó és 5/3. El número que es llegeix prolongant la tangent fins a l'eix és l'entalpia, sense cap correcció.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">La prova que no s'ha perdut res: es pot desfer</span></div>
+    <div class="card-note" style="margin-top:0;">L'argument de l'envolupant és geomètric; la prova operativa és que la transformada és <strong>involutiva</strong>. Un cop es té H com a funció de P, el seu diferencial dH=TdS+VdP+&mu;dN dona</div>
+    <div class="eq">\[ V=\left(\dfrac{\partial H}{\partial P}\right)_{S,N} \]</div>
+    <div class="card-note">i repetint sobre H exactament el mateix procediment &mdash; tangent, ordenada a l'origen &mdash; es recupera</div>
+    <div class="eq">\[ U=H-\left(\dfrac{\partial H}{\partial P}\right)_{S,N}P=H-PV \]</div>
+    <div class="card-note">sense cap ambigüitat ni constant perduda. Si pel camí s'hagués perdut informació, el pas no es podria desfer.</div>
+  </div>
+
+  <footer>Complement geomètric de l'apartat 2.3 del guió de pissarra del Tema 2, desenvolupant el comentari final de la <a href="flux_potencials_legendre.html">guia dels potencials termodinàmics</a>. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,215 @@
+<!doctype html>
+<title>Guia de classe — deducció de la distribució de Maxwell-Boltzmann</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 4 &middot; secció 4.1 &middot; guió de pissarra</div>
+  <h1>Deducció de la <em>distribució de Maxwell-Boltzmann</em></h1>
+  <p class="subtitle">De la densitat microcanònica de tot el gas a la probabilitat que <em>una</em> partícula tingui un moment donat: integrar tota la resta, reconèixer-hi un &Omega; de N&minus;1 partícules i fer el límit termodinàmic.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Densitat marginal: s'integra sobre totes les variables que no interessen</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &rho;(<strong>q</strong>,<strong>p</strong>)=&delta;(E&minus;H)/&Omega;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gas_ideal_microcanonica.html">3.5: &Omega; del gas ideal, &Omega;&prop;V<sup>N</sup>U<sup>3N/2&minus;1</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gas_ideal_microcanonica.html">3.5: U=3/2Nk<sub>B</sub>T</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>lim<sub>n&rarr;&infin;</sub>(1+x/n)<sup>n</sup>=e<sup>x</sup></span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">La partícula 1 hereta els microstats de la resta</span></div><div class="eq">\[ \rho\left(\mathbf{p}_{1}\right)=\dfrac{V}{h^{3}}\,\dfrac{\Omega\left(U-\dfrac{p_{1}^{2}}{2m},V,N-1\right)}{\Omega\left(U,V,N\right)} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Distribució de moments de Maxwell-Boltzmann</span></div><div class="eq">\[ \rho\left(\mathbf{p}\right)=\dfrac{1}{\left(2\pi mk_{B}T\right)^{3/2}}\,\exp\left(-\dfrac{p^{2}}{2mk_{B}T}\right) \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &rho;(<strong>q</strong>,<strong>p</strong>)=&delta;(E&minus;H)/&Omega;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Gas ideal monoatòmic aïllat: col&middot;lectivitat microcanònica</div>
+        <div class="eq">\[ \rho\left(\mathbf{q},\mathbf{p}\right)=\dfrac{\delta\left(U-\displaystyle\sum_{i=1}^{N}\dfrac{p_{i}^{2}}{2m}\right)}{\Omega\left(U,V,N\right)} \]</div>
+        <div class="card-note">Coneixem la probabilitat de cada microstat de <strong>tot</strong> el gas. Volem una cosa molt més modesta: la probabilitat que <strong>una</strong> partícula concreta, la 1, tingui moment <strong>p</strong><sub>1</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Densitat marginal: s'integra sobre totes les variables que no interessen</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">La densitat de p<sub>1</sub> és una marginal</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{p}_{1}\right)=\int\dfrac{d\mathbf{q}_{1}\cdots d\mathbf{q}_{N}\,d\mathbf{p}_{2}\cdots d\mathbf{p}_{N}}{h^{3N}}\,\rho\left(\mathbf{q},\mathbf{p}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">S'integren totes les posicions i tots els moments menys <strong>p</strong><sub>1</sub>. Queda normalitzada sola: &int;d<strong>p</strong><sub>1</sub>&rho;(<strong>p</strong><sub>1</sub>)=1 és exactament la normalització de &rho;(<strong>q</strong>,<strong>p</strong>).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; el hamiltonià és una suma: no hi ha interacció entre la 1 i la resta &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Separem l'energia de la partícula 1</span></div>
+        <div class="eq">\[ \begin{aligned} &\delta\left(U-\dfrac{p_{1}^{2}}{2m}-\sum_{i=2}^{N}\dfrac{p_{i}^{2}}{2m}\right) \\[4pt] &\quad=\delta\left(U'-\sum_{i=2}^{N}\dfrac{p_{i}^{2}}{2m}\right),\qquad U'\equiv U-\dfrac{p_{1}^{2}}{2m} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un cop fixat <strong>p</strong><sub>1</sub>, a les altres N&minus;1 partícules els queda l'energia U'.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; H no depèn de <strong>q</strong>: cada partícula pot ser a tot el volum &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Les posicions donen V<sup>N</sup></span></div>
+        <div class="eq">\[ \begin{aligned} \rho\left(\mathbf{p}_{1}\right)&=\dfrac{V^{N}}{h^{3N}\,\Omega\left(U,V,N\right)} \\[4pt] &\quad\times\int d\mathbf{p}_{2}\cdots d\mathbf{p}_{N}\;\delta\left(U'-\sum_{i=2}^{N}\dfrac{p_{i}^{2}}{2m}\right) \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">La integral que queda és un &Omega; de N&minus;1 partícules</span></div>
+        <div class="eq">\[ \begin{aligned} \Omega\left(U',V,N-1\right)&=\dfrac{V^{N-1}}{h^{3\left(N-1\right)}} \\[4pt] &\quad\times\int d\mathbf{p}_{2}\cdots d\mathbf{p}_{N}\;\delta\left(U'-\sum_{i=2}^{N}\dfrac{p_{i}^{2}}{2m}\right) \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La mateixa definició del Tema 3, aplicada a un gas de N&minus;1 partícules, volum V i energia U'. Aïllant la integral i substituint al pas 3, sobren un V i un h<sup>3</sup>.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 3 + pas 4 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">La partícula 1 hereta els microstats de la resta</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{p}_{1}\right)=\dfrac{V}{h^{3}}\,\dfrac{\Omega\left(U-\dfrac{p_{1}^{2}}{2m},V,N-1\right)}{\Omega\left(U,V,N\right)} \]</div>
+        <div class="card-note"><strong>Físicament:</strong> la probabilitat que la partícula 1 tingui <strong>p</strong><sub>1</sub> és proporcional al <strong>nombre de microstats que li queden a les altres</strong> amb l'energia que no s'ha endut. Com més energia s'endú la 1, menys en queda per repartir, menys microstats, menys probable. Encara és exacte, per a qualsevol N.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gas_ideal_microcanonica.html">3.5: &Omega; del gas ideal, &Omega;&prop;V<sup>N</sup>U<sup>3N/2&minus;1</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Substituïm &Omega; del gas ideal</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{p}_{1}\right)=C_{N}\left(1-\dfrac{p_{1}^{2}}{2mU}\right)^{\frac{3\left(N-1\right)}{2}-1},\qquad p_{1}^{2}\le 2mU \]</div>
+        <div class="card-note">Tot el que no depèn de <strong>p</strong><sub>1</sub> va a parar a la constant C<sub>N</sub>. Per a N finit hi ha un tall: la 1 no pot tenir més energia que tot el gas. <strong>Ull:</strong> als apunts de referència l'exponent surt com 3(N&minus;1)/2 (és el de &Gamma;, no el de &Omega;); difereix en 1, que en el límit del pas 7 no compta. I si es fa servir &Omega;/N! en lloc de &Omega;, el quocient guanya un factor N, que també és constant.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gas_ideal_microcanonica.html">3.5: U=3/2Nk<sub>B</sub>T</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Escrivim U en funció de T</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{p}_{1}\right)=C_{N}\left(1-\dfrac{p_{1}^{2}}{3Nmk_{B}T}\right)^{\frac{3N}{2}-\frac{5}{2}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Aquí és on entra la temperatura: a través de l'equació calòrica d'estat que la microcanònica ja ens havia donat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">lim<sub>n&rarr;&infin;</sub>(1+x/n)<sup>n</sup>=e<sup>x</sup></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Límit termodinàmic, N&rarr;&infin; amb p<sub>1</sub> fix</span></div>
+        <div class="eq">\[ \lim_{N\to\infty}\left(1-\dfrac{p_{1}^{2}}{3Nmk_{B}T}\right)^{\frac{3N}{2}-\frac{5}{2}}=\exp\left(-\dfrac{p_{1}^{2}}{2mk_{B}T}\right) \]</div>
+        <div class="card-note">El &minus;5/2 de l'exponent dóna un factor que tendeix a 1. El límit es fa amb <strong>p</strong><sub>1</sub> fix: una partícula té una energia d'ordre k<sub>B</sub>T, infinitament petita davant U. El tall p<sub>1</sub><sup>2</sup>&le;2mU se'n va a l'infinit.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 8</span><span class="card-title">La normalització fixa la constant</span></div>
+        <div class="eq">\[ 1=C\int d\mathbf{p}_{1}\,e^{-p_{1}^{2}/2mk_{B}T}=C\left(2\pi mk_{B}T\right)^{3/2} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Tres gaussianes idèntiques, una per component, amb a=1/(2mk<sub>B</sub>T).</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; el subíndex 1 sobra: totes les partícules són idèntiques &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Distribució de moments de Maxwell-Boltzmann</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{p}\right)=\dfrac{1}{\left(2\pi mk_{B}T\right)^{3/2}}\,\exp\left(-\dfrac{p^{2}}{2mk_{B}T}\right) \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> la densitat de probabilitat del moment d'una partícula d'un gas ideal en equilibri a temperatura T. Ha sortit només del postulat d'equiprobabilitat aplicat a tot el gas, sense cap hipòtesi sobre col&middot;lisions ni sobre com s'arriba a l'equilibri.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">La resta del gas fa de termòstat</span></div>
+    <div class="card-note">El DESTÍ 1 diu que &rho;(<strong>p</strong><sub>1</sub>)&prop;&Omega;<sub>resta</sub>(U&minus;&epsilon;), amb &epsilon;=p<sub>1</sub>&sup2;/2m. Com que &epsilon;&#8810;U, n'hi ha prou de desenvolupar el <strong>logaritme</strong> (no &Omega;, que varia massa de pressa) a primer ordre, i usar S=k<sub>B</sub>ln&Omega;:</div>
+    <div class="eq">\[ \ln\Omega_{\text{resta}}\left(U-\varepsilon\right)\simeq\ln\Omega_{\text{resta}}\left(U\right)-\varepsilon\,\dfrac{\partial\ln\Omega_{\text{resta}}}{\partial U}=\ln\Omega_{\text{resta}}\left(U\right)-\dfrac{\varepsilon}{k_{B}T} \]</div>
+    <div class="card-note">D'aquí surt e<sup>&minus;&epsilon;/k<sub>B</sub>T</sup> directament, sense fer servir la forma concreta de &Omega; del gas ideal. Els passos 5&ndash;7 són aquest mateix argument fet amb la fórmula exacta. <strong>No depèn de res del gas ideal excepte que la partícula 1 és un sistema petit en contacte amb un de molt gran</strong>: és el factor de Boltzmann, i és la llavor de la col&middot;lectivitat canònica.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Maxwell-Boltzmann és un resultat de límit</span></div>
+    <div class="card-note">Per a N finit la distribució exacta és la del pas 5: no és gaussiana i té un tall a p<sub>1</sub><sup>2</sup>=2mU. Que la partícula 1 no pugui tenir més energia que tot el sistema és evident; que en el límit termodinàmic aquest tall sigui irrellevant, també. La gaussiana apareix <strong>només</strong> quan la resta del gas és infinitament més gran que la partícula que mirem.</div>
+  </div>
+
+  <footer>Correspon a la secció 4.1 del Tema 4 (distribució de Maxwell-Boltzmann). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

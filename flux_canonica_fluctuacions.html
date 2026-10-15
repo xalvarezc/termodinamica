@@ -1,0 +1,187 @@
+<!doctype html>
+<title>Guia de classe — energia mitjana i fluctuacions a la canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.1 &middot; guió de pissarra</div>
+  <h1>Energia mitjana i <em>fluctuacions</em></h1>
+  <p class="subtitle">A T fixa, l'energia del sistema fluctua. Tant la mitjana com la variància surten de derivar ln&nbsp;Z respecte de &beta;; i la fluctuació relativa s'esvaeix com 1/&radic;N.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Extensivitat: &lang;E&rang; i C<sub>V</sub> són proporcionals a N</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_deduccio.html">5.1: &rho;=e<sup>&minus;&beta;H</sup>/Z</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>H&nbsp;e<sup>&minus;&beta;H</sup>=&minus;&part;e<sup>&minus;&beta;H</sup>/&part;&beta;</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>H<sup>2</sup>e<sup>&minus;&beta;H</sup>=&part;<sup>2</sup>e<sup>&minus;&beta;H</sup>/&part;&beta;<sup>2</sup></span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Derivada del quocient</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&part;/&part;&beta;=&minus;k<sub>B</sub>T<sup>2</sup>&part;/&part;T</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Energia mitjana</span></div><div class="eq">\[ \left\langle E\right\rangle=-\left(\dfrac{\partial\ln Z}{\partial\beta}\right)_{V,N} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Fluctuacions de l'energia</span></div><div class="eq">\[ \sigma_{E}^{2}=\left\langle E^{2}\right\rangle-\left\langle E\right\rangle^{2}=k_{B}T^{2}C_{V} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">En el límit termodinàmic, &lang;E&rang;=U</span></div><div class="eq">\[ \dfrac{\sigma_{E}}{\left\langle E\right\rangle}\sim\dfrac{1}{\sqrt{N}}\;\xrightarrow[N\to\infty]{}\;0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_deduccio.html">5.1: &rho;=e<sup>&minus;&beta;H</sup>/Z</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">L'energia ja no està fixada</div>
+        <div class="eq">\[ \left\langle E\right\rangle=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,H\,\dfrac{e^{-\beta H}}{Z} \]</div>
+        <div class="card-note">El sistema intercanvia energia amb la font, i la seva energia fluctua. Dues preguntes: quant val la mitjana, i és prou ben definida perquè la puguem identificar amb la U de la termodinàmica?</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">H&nbsp;e<sup>&minus;&beta;H</sup>=&minus;&part;e<sup>&minus;&beta;H</sup>/&part;&beta;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Un truc: H surt de derivar l'exponencial</span></div>
+        <div class="eq">\[ \left\langle E\right\rangle=-\dfrac{1}{Z}\,\dfrac{\partial}{\partial\beta}\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,e^{-\beta H}=-\dfrac{1}{Z}\left(\dfrac{\partial Z}{\partial\beta}\right)_{V,N} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La derivada surt de la integral perquè els límits no depenen de &beta;.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; (1/Z)&part;Z=&part;ln&nbsp;Z &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Energia mitjana</span></div>
+        <div class="eq">\[ \left\langle E\right\rangle=-\left(\dfrac{\partial\ln Z}{\partial\beta}\right)_{V,N} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">H<sup>2</sup>e<sup>&minus;&beta;H</sup>=&part;<sup>2</sup>e<sup>&minus;&beta;H</sup>/&part;&beta;<sup>2</sup></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">El mateix truc dues vegades</span></div>
+        <div class="eq">\[ \left\langle E^{2}\right\rangle=\dfrac{1}{Z}\left(\dfrac{\partial^{2}Z}{\partial\beta^{2}}\right)_{V,N} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Derivada del quocient</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">La segona derivada de ln Z és la variància</span></div>
+        <div class="eq">\[ \begin{aligned}\dfrac{\partial^{2}\ln Z}{\partial\beta^{2}}&=\dfrac{\partial}{\partial\beta}\left(\dfrac{1}{Z}\dfrac{\partial Z}{\partial\beta}\right)=\dfrac{1}{Z}\dfrac{\partial^{2}Z}{\partial\beta^{2}}-\dfrac{1}{Z^{2}}\left(\dfrac{\partial Z}{\partial\beta}\right)^{2} \\[6pt] &=\left\langle E^{2}\right\rangle-\left\langle E\right\rangle^{2}\end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&part;/&part;&beta;=&minus;k<sub>B</sub>T<sup>2</sup>&part;/&part;T</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">I la variància és la derivada de la mitjana</span></div>
+        <div class="eq">\[ \begin{aligned}\sigma_{E}^{2}&=\dfrac{\partial^{2}\ln Z}{\partial\beta^{2}}=-\dfrac{\partial\left\langle E\right\rangle}{\partial\beta} \\[6pt] &=k_{B}T^{2}\left(\dfrac{\partial\left\langle E\right\rangle}{\partial T}\right)_{V,N}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Pel DESTÍ 1, &part;ln&nbsp;Z/&part;&beta;=&minus;&lang;E&rang;.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &part;&lang;E&rang;/&part;T a V,N fixos és C<sub>V</sub> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Fluctuacions de l'energia</span></div>
+        <div class="eq">\[ \sigma_{E}^{2}=\left\langle E^{2}\right\rangle-\left\langle E\right\rangle^{2}=k_{B}T^{2}C_{V} \]</div>
+        <div class="card-note">Una magnitud microscòpica (quant fluctua l'energia) lligada a una de macroscòpica i mesurable (la capacitat calorífica). Cap hamiltonià concret: val per a qualsevol sistema.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Extensivitat: &lang;E&rang; i C<sub>V</sub> són proporcionals a N</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Quant fluctua, en relació amb la mitjana</span></div>
+        <div class="eq">\[ \dfrac{\sigma_{E}}{\left\langle E\right\rangle}=\dfrac{\sqrt{k_{B}T^{2}C_{V}}}{\left\langle E\right\rangle}\sim\dfrac{\sqrt{N}}{N} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; N&rarr;&infin; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">En el límit termodinàmic, &lang;E&rang;=U</span></div>
+        <div class="eq">\[ \dfrac{\sigma_{E}}{\left\langle E\right\rangle}\sim\dfrac{1}{\sqrt{N}}\;\xrightarrow[N\to\infty]{}\;0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> per a N~10<sup>20</sup>, la fluctuació relativa és de l'ordre de 10<sup>&minus;10</sup>. Un sistema en contacte amb una font té una energia tan ben definida com si fos aïllat: podem identificar &lang;E&rang; amb l'energia interna U, i la canònica i la microcanònica donen la mateixa termodinàmica.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">C<sub>V</sub>&ge;0, ara des de la mecànica estadística</span></div>
+    <div class="card-note">Una variància no pot ser negativa. Per tant, del DESTÍ 2,</div>
+    <div class="eq">\[ C_{V}=\dfrac{\sigma_{E}^{2}}{k_{B}T^{2}}\ge 0 \]</div>
+    <div class="card-note">És el <a href="flux_estabilitat_cv_kappa.html">criteri d'estabilitat</a> del Tema 2, que allà sortia de la concavitat de S. Aquí surt d'una cosa tan elemental com que &lang;(E&minus;&lang;E&rang;)<sup>2</sup>&rang;&ge;0.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">EXEMPLE</span><span class="card-title">El gas ideal monoatòmic</span></div>
+    <div class="card-note">Amb U=3/2Nk<sub>B</sub>T i C<sub>V</sub>=3/2Nk<sub>B</sub>:</div>
+    <div class="eq">\[ \dfrac{\sigma_{E}}{U}=\dfrac{\sqrt{\tfrac{3}{2}N}\,k_{B}T}{\tfrac{3}{2}Nk_{B}T}=\sqrt{\dfrac{2}{3N}} \]</div>
+    <div class="card-note">La <a href="sim_solids_einstein.html">simulació dels dos sòlids d'Einstein</a> ho deixa veure: la banda &plusmn;&sigma; de l'energia d'un dels sòlids, relativa a la seva mitjana, s'estreny quan N creix.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.1 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

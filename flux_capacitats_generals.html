@@ -1,0 +1,202 @@
+<!doctype html>
+<title>Guia de classe — capacitats calorífiques</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.4.1 &middot; guió de pissarra</div>
+  <h1>Les <em>capacitats calorífiques</em></h1>
+  <p class="subtitle">Del primer principi amb un sol grau de llibertat, a la relació general entre C<sub>X</sub> i C<sub>Y</sub> &mdash; i, aplicada a un fluid, a C<sub>P</sub>&minus;C<sub>V</sub>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Definició de C<sub>Z</sub> = (đQ/dT)<sub>Z</sub></span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Existeix l'equació calòrica U=U(T,Y)</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Fluid: X=&minus;P, Y=V, i la definició &alpha;=(1/V)(&part;V/&part;T)<sub>P</sub></span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_joule.html">1.4: Primer principi, dU=đQ+đW</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Aïllem đQ del primer principi</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm dins đQ = dU &minus; X dY</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Dividim per dT a X constant: dY&rarr;(&part;Y/&part;T)<sub>X</sub>dT</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Regla de la cadena per U(T,V) amb V=V(T,P)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm i simplifiquem</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Capacitats calorífiques d'un fluid</span></div><div class="eq">\[ C_{V}=\left(\dfrac{\partial U}{\partial T}\right)_{V} \quad\textbf{i}\quad C_{P}=\left(\dfrac{\partial U}{\partial T}\right)_{P}+PV\alpha \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_joule.html">1.4: Primer principi, dU=đQ+đW</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un sol grau de llibertat</div>
+        <div class="eq">\[ \text{đ}W = X dY \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Aïllem đQ del primer principi</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Aïllem la calor</span></div>
+        <div class="eq">\[ \text{đ}Q = dU - X dY \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Definició de C<sub>Z</sub> = (đQ/dT)<sub>Z</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">A Y constant, dY=0</span></div>
+        <div class="eq">\[ C_{Y} = \left(\dfrac{\partial U}{\partial T}\right)_{Y} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Existeix l'equació calòrica U=U(T,Y)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Diferencial de U(T,Y)</span></div>
+        <div class="eq">\[ dU = \left(\dfrac{\partial U}{\partial T}\right)_{Y}dT + \left(\dfrac{\partial U}{\partial Y}\right)_{T}dY \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm dins đQ = dU &minus; X dY</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">La calor en termes de T i Y</span></div>
+        <div class="eq">\[ \text{đ}Q = \left(\dfrac{\partial U}{\partial T}\right)_{Y}dT + \left[\left(\dfrac{\partial U}{\partial Y}\right)_{T}-X\right]dY \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Dividim per dT a X constant: dY&rarr;(&part;Y/&part;T)<sub>X</sub>dT</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Obtenim C<sub>X</sub></span></div>
+        <div class="eq">\[ C_{X} = \left(\dfrac{\partial U}{\partial T}\right)_{Y} + \left[\left(\dfrac{\partial U}{\partial Y}\right)_{T}-X\right]\left(\dfrac{\partial Y}{\partial T}\right)_{X} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 (intermediate arrival, styled as regular step) -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; restem C<sub>Y</sub>, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">RESULTAT GENERAL</span><span class="card-title">Relació entre C<sub>X</sub> i C<sub>Y</sub></span></div>
+        <div class="eq">\[ C_{X}-C_{Y} = \left[\left(\dfrac{\partial U}{\partial Y}\right)_{T}-X\right]\left(\dfrac{\partial Y}{\partial T}\right)_{X} \]</div>
+        <div class="card-note">Vàlida per a qualsevol sistema amb un sol grau de llibertat &mdash; ara l'apliquem a un fluid.</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Fluid: X=&minus;P, Y=V, i la definició &alpha;=(1/V)(&part;V/&part;T)<sub>P</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Particularitzem a un fluid</span></div>
+        <div class="eq">\[ C_{P}-C_{V} = \left[\left(\dfrac{\partial U}{\partial V}\right)_{T}+P\right]V\alpha \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Regla de la cadena per U(T,V) amb V=V(T,P)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 8</span><span class="card-title">Reescrivim (&part;U/&part;T)<sub>P</sub></span></div>
+        <div class="eq">\[ \left(\dfrac{\partial U}{\partial T}\right)_{P} = \left(\dfrac{\partial U}{\partial T}\right)_{V} + \left(\dfrac{\partial U}{\partial V}\right)_{T}V\alpha \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm i simplifiquem</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Capacitats calorífiques d'un fluid</span></div>
+        <div class="eq">\[ C_{V}=\left(\dfrac{\partial U}{\partial T}\right)_{V} \quad\textbf{i}\quad C_{P}=\left(\dfrac{\partial U}{\partial T}\right)_{P}+PV\alpha \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> la <a href="flux_mayer_gas_ideal.html">guia del gas ideal</a> parteix d'aquí i arriba a la relació de Mayer, C<sub>P</sub>&minus;C<sub>V</sub>=nR.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.4.1 del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

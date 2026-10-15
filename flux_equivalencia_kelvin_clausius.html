@@ -1,0 +1,154 @@
+<!doctype html>
+<title>Guia de classe — Kelvin ⇔ Clausius</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.1 &middot; guió de pissarra</div>
+  <h1>L'<em>equivalència Kelvin&ndash;Clausius</em></h1>
+  <p class="subtitle">Per què violar un enunciat de la segona llei permet construir, sense res més, un aparell que viola l'altre &mdash; en totes dues direccions.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Suposició per reducció a l'absurd</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Suposició per reducció a l'absurd, direcció recíproca</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Disseny</span><span>Acoblem un refrigerador ordinari, alimentat pel mateix W</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat</span><span>El treball es genera i es consumeix internament &mdash; no creua la frontera del conjunt</span></li><li><span class="chip identitat"><span class="dot"></span>Disseny</span><span>Acoblem un motor ordinari triat perquè cedeixi al fred exactament Q<sub>c2</sub>=Q<sub>c</sub></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">El conjunt viola Clausius</span></div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">El conjunt viola Kelvin</span></div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / suposició per l'absurd</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat / disseny del muntatge</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Suposició per reducció a l'absurd</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DIRECCIÓ 1</span></div>
+        <div class="card-title">Suposem un conversor de Kelvin</div>
+        <div class="card-note">Absorbeix Q<sub>H1</sub> del focus calent i el converteix íntegrament en treball W (Q<sub>c1</sub>=0).</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Disseny</span>
+          <span class="desc">Acoblem un refrigerador ordinari, alimentat pel mateix W</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">El refrigerador extreu Q<sub>c2</sub> del fred</span></div>
+        <div class="eq">\[ Q_{H2} = W + Q_{c2} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat</span>
+          <span class="desc">El treball es genera i es consumeix internament &mdash; no creua la frontera del conjunt</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Balanç net: només calor</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Al focus calent: entra Q<sub>H2</sub>, surt Q<sub>H1</sub> &rArr; net Q<sub>H2</sub>&minus;Q<sub>H1</sub>=Q<sub>c2</sub>. Al focus fred: en surt exactament Q<sub>c2</sub>.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; contradicció &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">El conjunt viola Clausius</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ha mogut Q<sub>c2</sub> del fred al calent sense consumir treball extern.</div>
+        <div class="arrival"><span class="rm">Conclusió:</span> si Clausius és cert, el conversor de Kelvin no pot existir.</div>
+      </div>
+    </div>
+
+    <!-- SECOND DIRECTION SOURCE -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Suposició per reducció a l'absurd, direcció recíproca</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DIRECCIÓ 2</span></div>
+        <div class="card-title">Suposem un violador de Clausius</div>
+        <div class="card-note">Mou Q<sub>c</sub> del fred al calent sense consumir treball (W<sub>1</sub>=0, Q<sub>H1</sub>=Q<sub>c</sub>).</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Disseny</span>
+          <span class="desc">Acoblem un motor ordinari triat perquè cedeixi al fred exactament Q<sub>c2</sub>=Q<sub>c</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">El fred queda equilibrat</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Entrada (Q<sub>c2</sub>, del motor) i sortida (Q<sub>c</sub>, cap al violador) es cancel·len exactament.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; contradicció &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">El conjunt viola Kelvin</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Tot el que queda és el focus calent: en surt net Q<sub>H2</sub>&minus;Q<sub>H1</sub>, convertit íntegrament en el treball net W<sub>2</sub>, sense rebutjar calor al fred.</div>
+        <div class="arrival"><span class="rm">Conclusió:</span> combinant les dues direccions, Kelvin i Clausius són estrictament equivalents &mdash; cap dels dos és més fonamental que l'altre.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.1 del guió de pissarra del Tema 1. Aquest únic axioma (dit de dues maneres) és la base de tot el que ve després: el <a href="flux_carnot_teorema.html">teorema de Carnot</a> i el <a href="flux_clausius_teorema.html">teorema de Clausius</a>. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

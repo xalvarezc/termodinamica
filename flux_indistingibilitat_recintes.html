@@ -1,0 +1,192 @@
+<!doctype html>
+<title>Guia de classe — indistingibilitat entre recintes</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; complement de la secció 3.6</div>
+  <h1>Indistingibles <em>entre recintes</em></h1>
+  <p class="subtitle">On s'acaba la indistingibilitat? Enlloc: dividir pel N! de <em>totes</em> les partícules dona exactament el mateix que dividir recinte per recinte. I si la paret deixa passar alguna partícula, l'entropia només canvia en un terme d'ordre ln&nbsp;N.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Hipòtesi A</span><span>Indistingibles només dins de cada recinte</span></li><li><span class="chip postulat"><span class="dot"></span>Hipòtesi B</span><span>Indistingibilitat global de les N partícules (el que diu la mecànica quàntica)</span></li><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Cel&middot;les a una partícula: k<sub>i</sub>&prop;V<sub>i</sub> a T fixa, límit diluït k<sub>i</sub>&Gt;N<sub>i</sub></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Dividim pel N! global: es cancel&middot;la amb el del binomial</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Binomi de Newton</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Binomial al voltant del màxim &asymp; gaussiana (Stirling a segon ordre)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Els dos camins donen el mateix recompte</span></div><div class="eq">\[ \Omega_{B}=\Omega_{A}=\Omega_{1}\,\Omega_{2},\qquad S=S_{1}+S_{2} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Obrir la paret només afegeix un terme d'ordre ln&nbsp;N</span></div><div class="eq">\[ S_{\text{oberta}}-\left(S_{1}+S_{2}\right)=\dfrac{k_{B}}{2}\ln\left(2\pi Nx_{1}x_{2}\right) \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Dos recintes, una paret, el <em>mateix</em> gas</div>
+        <div class="card-note">N<sub>1</sub> partícules al volum V<sub>1</sub> i N<sub>2</sub> al volum V<sub>2</sub>, separades per una paret; N=N<sub>1</sub>+N<sub>2</sub>. Anomenem &Omega;<sub>i</sub><sup>et</sup> el recompte de cada recinte <strong>amb les partícules etiquetades</strong>: és el que dona directament la integral sobre l'espai de fases (pas 7 del <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>).</div>
+        <div class="eq">\[ \Omega_{i}^{\text{et}}=\Omega_{i}^{\text{et}}\left(E_{i},V_{i},N_{i}\right),\qquad i=1,2 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La pregunta: les partícules de l'esquerra, són indistingibles de les de la dreta? Ho farem pels dos camins.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi A</span>
+          <span class="desc">Indistingibles només dins de cada recinte</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Camí A: cada recinte, el seu N<sub>i</sub>!</span></div>
+        <div class="card-note">Les N<sub>1</sub> de l'esquerra són un grup i les N<sub>2</sub> de la dreta un altre, distingible del primer. Quines són a l'esquerra està fixat: són &laquo;les de l'esquerra&raquo;. Només cal descomptar les permutacions <em>dins</em> de cada grup:</div>
+        <div class="eq">\[ \Omega_{A}=\dfrac{\Omega_{1}^{\text{et}}}{N_{1}!}\cdot\dfrac{\Omega_{2}^{\text{et}}}{N_{2}!} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi B</span>
+          <span class="desc">Indistingibilitat global de les N partícules (el que diu la mecànica quàntica)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Camí B: primer etiquetem les N partícules</span></div>
+        <div class="card-note">Amb etiquetes 1,&hellip;,N, un microstat diu també <strong>quines</strong> N<sub>1</sub> etiquetes són a l'esquerra. N'hi ha tantes eleccions com el nombre combinatori:</div>
+        <div class="eq">\[ \Omega^{\text{et}}=\dfrac{N!}{N_{1}!\,N_{2}!}\;\Omega_{1}^{\text{et}}\,\Omega_{2}^{\text{et}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Aquest factor és el que el camí A no té: allà la pregunta &laquo;quines són a l'esquerra&raquo; ja estava resolta per hipòtesi.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Dividim pel N! global: es cancel&middot;la amb el del binomial</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Descomptem les N! permutacions de <em>totes</em> les partícules</span></div>
+        <div class="eq">\[ \begin{aligned} \Omega_{B}=\dfrac{\Omega^{\text{et}}}{N!}&=\dfrac{1}{N!}\cdot\dfrac{N!}{N_{1}!\,N_{2}!}\;\Omega_{1}^{\text{et}}\,\Omega_{2}^{\text{et}} \\[6pt] &=\dfrac{\Omega_{1}^{\text{et}}}{N_{1}!}\cdot\dfrac{\Omega_{2}^{\text{et}}}{N_{2}!} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Permutar etiquetes entre recintes és justament canviar &laquo;quines són a l'esquerra&raquo;: el binomial compta aquestes permutacions, i el N! global les treu.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 1 = pas 3 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Els dos camins donen el mateix recompte</span></div>
+        <div class="eq">\[ \Omega_{B}=\Omega_{A}=\Omega_{1}\,\Omega_{2},\qquad S=S_{1}+S_{2} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> <strong>exactament</strong>, sense Stirling ni límit termodinàmic. No cal decidir fins on arriba la indistingibilitat: aplicar-la a tot l'univers o només dins de cada recinte dona el mateix, sempre que la paret fixi N<sub>1</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Cel&middot;les a una partícula: k<sub>i</sub>&prop;V<sub>i</sub> a T fixa, límit diluït k<sub>i</sub>&Gt;N<sub>i</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">I si la paret deixa passar partícules?</span></div>
+        <div class="card-note">Per efecte túnel la probabilitat de travessar la paret no és mai exactament zero. Aleshores N<sub>1</sub> ja no està fixat i cal sumar sobre tots els repartiments. Per fer la suma explícita, prenem un model senzill: cada partícula del recinte i té k<sub>i</sub> estats accessibles, de manera que &Omega;<sub>i</sub><sup>et</sup>=k<sub>i</sub><sup>N<sub>i</sub></sup>.</div>
+        <div class="eq">\[ \Omega_{\text{oberta}}=\sum_{N_{1}=0}^{N}\dfrac{k_{1}^{N_{1}}}{N_{1}!}\cdot\dfrac{k_{2}^{N-N_{1}}}{\left(N-N_{1}\right)!} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El k<sup>N</sup>/N! és el límit de &Omega;<sub>BE</sub> i &Omega;<sub>FD</sub> (<a href="flux_comptatge_degenerat.html">secció 3.8.2 (b)</a>) quan k&Gt;N: hi ha tantes cel&middot;les que gairebé mai n'hi ha dues partícules a la mateixa.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Binomi de Newton</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">La suma és un sol recinte de volum V<sub>1</sub>+V<sub>2</sub></span></div>
+        <div class="eq">\[ \begin{aligned} \Omega_{\text{oberta}}&=\dfrac{1}{N!}\sum_{N_{1}=0}^{N}\dbinom{N}{N_{1}}k_{1}^{N_{1}}k_{2}^{N-N_{1}} \\[6pt] &=\dfrac{\left(k_{1}+k_{2}\right)^{N}}{N!} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És exactament el recompte d'un sol gas de N partícules en tot el volum: la paret permeable és com no tenir paret. Cap N<sub>1</sub>! ni N<sub>2</sub>!, només el N! global.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Binomial al voltant del màxim &asymp; gaussiana (Stirling a segon ordre)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Paret tancada contra paret oberta</span></div>
+        <div class="card-note">Amb la mateixa densitat als dos costats, k<sub>i</sub>/(k<sub>1</sub>+k<sub>2</sub>)=N<sub>i</sub>/N=x<sub>i</sub>. El quocient entre el terme de la paret tancada (DESTÍ 1) i la suma sencera és la probabilitat binomial del repartiment més probable:</div>
+        <div class="eq">\[ \dfrac{\Omega_{1}\,\Omega_{2}}{\Omega_{\text{oberta}}}=\dbinom{N}{N_{1}}x_{1}^{N_{1}}x_{2}^{N_{2}}\simeq\dfrac{1}{\sqrt{2\pi Nx_{1}x_{2}}} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; prenent k<sub>B</sub>ln &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Obrir la paret només afegeix un terme d'ordre ln&nbsp;N</span></div>
+        <div class="eq">\[ S_{\text{oberta}}-\left(S_{1}+S_{2}\right)=\dfrac{k_{B}}{2}\ln\left(2\pi Nx_{1}x_{2}\right) \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> per a N=6&middot;10<sup>23</sup> i x<sub>1</sub>=x<sub>2</sub>=&frac12;, la diferència és d'unes 28&nbsp;k<sub>B</sub>, davant d'una entropia d'ordre 10<sup>25</sup>&nbsp;k<sub>B</sub>. Que el túnel sigui petit o gran no importa: tancada o oberta, la paret dona la mateixa entropia extensiva. Aquests 28&nbsp;k<sub>B</sub> no són cap entropia de mescla. Corresponen a no saber exactament quantes partícules hi ha a cada costat, és a dir, a les fluctuacions de N<sub>1</sub>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMPTE</span><span class="card-title">Clàssicament, el N! no es pot justificar</span></div>
+    <div class="card-note">Aquesta pàgina demostra que no importa <em>on</em> s'aplica el N!. No demostra <em>per què</em> s'ha d'aplicar. En mecànica clàssica, una partícula té una trajectòria contínua i, en principi, es pot seguir: dues configuracions que només difereixen en una permutació són estats diferents. Cap argument clàssic obliga a identificar-les. Dins la física clàssica, el N! s'<strong>imposa</strong> perquè l'entropia surti extensiva (pas 7 del <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>). La raó és quàntica: la funció d'ona de partícules idèntiques ha de ser simètrica o antisimètrica respecte de l'intercanvi.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">No hi ha cap llindar de solapament</span></div>
+    <div class="card-note">Quànticament, la indistingibilitat <strong>no depèn del solapament</strong> de les funcions d'ona: és exacta i global. Dos àtoms d'heli en recintes diferents són tan indistingibles com dos del mateix recinte. El que sí que depèn del solapament són els <em>efectes</em> observables de l'intercanvi, que són proporcionals a la integral de solapament i van decreixent de manera contínua, sense cap salt.</div>
+    <div class="card-note">Per això la pregunta &laquo;a partir de quina cota deixen de ser indistingibles?&raquo; no té resposta: no deixen de ser-ho mai. I tampoc no cal, perquè el N! global i el binomial es cancel&middot;len (pas 3). El túnel a través de la paret només afegeix un terme d'ordre ln&nbsp;N (DESTÍ FINAL).</div>
+    <div class="card-note">El sòlid funciona igual. Assignar N àtoms etiquetats a N nusos dona un factor N!, que es cancel&middot;la amb el N! global. Per això al <a href="flux_solid_classic.html">sòlid clàssic</a> sembla que &laquo;no cal dividir&raquo;. Un exemple real que l'intercanvi entre àtoms localitzats existeix i es mesura és el <sup>3</sup>He sòlid, on els àtoms dels nusos s'intercanvien per túnel i això en determina el magnetisme nuclear.</div>
+  </div>
+
+  <footer>Complement de la secció 3.6 del guió de pissarra del Tema 3; no és al guió. Guia de classe: per tenir controlat el fil de la demostració sense perdre's. Ve de la <a href="flux_entropia_mescla.html">guia de l'entropia de mescla</a>.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

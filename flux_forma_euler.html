@@ -1,0 +1,158 @@
+<!doctype html>
+<title>Guia de classe — forma d'Euler</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.2 &middot; guió de pissarra</div>
+  <h1>La <em>forma d'Euler</em></h1>
+  <p class="subtitle">Perquè U és extensiva, ha de ser homogènia de grau 1 &mdash; i aquesta sola condició matemàtica dona, sense física addicional, U=TS+&sum;X<sub>i</sub>Y<sub>i</sub>+&sum;&mu;<sub>i</sub>N<sub>i</sub>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>U és extensiva &rArr; homogènia de grau 1 en (S,Y,N)</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_equacio_fonamental.html">2.1: T, X<sub>i</sub>, &mu;<sub>i</sub> com a derivades de U</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Derivem f(&lambda;x<sub>i</sub>)=&lambda;<sup>n</sup>f respecte &lambda; i posem &lambda;=1</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Diferenciem la forma d'Euler i comparem amb l'equació de Gibbs (2.1)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Forma d'Euler</span></div><div class="eq">\[ U = TS + \sum _{i}X_{i}Y_{i} + \sum _{i}\mu _{i}N_{i} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Equació de Gibbs&ndash;Duhem</span></div><div class="eq">\[ SdT + \sum _{i}Y_{i}dX_{i} + \sum _{i}N_{i}d\mu _{i} = 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">U és extensiva &rArr; homogènia de grau 1 en (S,Y,N)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Criteri d'homogeneïtat</div>
+        <div class="eq">\[ U\left(\lambda S,\lambda Y,\lambda N\right) = \lambda U\left(S,Y,N\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Derivem f(&lambda;x<sub>i</sub>)=&lambda;<sup>n</sup>f respecte &lambda; i posem &lambda;=1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Teorema d'Euler (per a qualsevol f homogènia de grau n)</span></div>
+        <div class="eq">\[ nf = \sum _{i}x_{i}\left(\dfrac{\partial f}{\partial x_{i}}\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; apliquem amb n=1, x<sub>i</sub>=S,Y<sub>i</sub>,N<sub>i</sub> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Particularitzem a U</span></div>
+        <div class="eq">\[ U = S\left(\dfrac{\partial U}{\partial S}\right)_{Y,N} + \sum Y_{i}\left(\dfrac{\partial U}{\partial Y_{i}}\right) + \sum N_{i}\left(\dfrac{\partial U}{\partial N_{i}}\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_equacio_fonamental.html">2.1: T, X<sub>i</sub>, &mu;<sub>i</sub> com a derivades de U</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Substituïm les derivades conegudes</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial U}{\partial S}\right)_{Y,N} = T \qquad \left(\dfrac{\partial U}{\partial Y_{i}}\right) = X_{i} \qquad \left(\dfrac{\partial U}{\partial N_{i}}\right) = \mu _{i} \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; reescrivim &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Forma d'Euler</span></div>
+        <div class="eq">\[ U = TS + \sum _{i}X_{i}Y_{i} + \sum _{i}\mu _{i}N_{i} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Diferenciem la forma d'Euler i comparem amb l'equació de Gibbs (2.1)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Els termes de dU es cancel·len</span></div>
+        <div class="eq">\[ TdS + SdT + \sum _{i}X_{i}dY_{i} + \sum _{i}Y_{i}dX_{i} + \sum _{i}\mu _{i}dN_{i} + \sum _{i}N_{i}d\mu _{i} = TdS + \sum _{i}X_{i}dY_{i} + \sum _{i}\mu _{i}dN_{i} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Esquerra: dU diferenciant la forma d'Euler (destí 1). Dreta: dU de l'equació de Gibbs (2.1). Els termes TdS, &sum;X<sub>i</sub>dY<sub>i</sub> i &sum;&mu;<sub>i</sub>dN<sub>i</sub> es cancel·len a banda i banda.</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; el que sobra ha de ser zero &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Equació de Gibbs&ndash;Duhem</span></div>
+        <div class="eq">\[ SdT + \sum _{i}Y_{i}dX_{i} + \sum _{i}N_{i}d\mu _{i} = 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> les variables intensives no són totes independents. La <a href="flux_potencials_legendre.html">guia dels potencials termodinàmics</a> fa servir directament la forma d'Euler de U per obtenir la de cada potencial.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">PER QUÈ IMPORTA</span><span class="card-title">Les intensives no es poden triar totes lliurement</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Per un fluid senzill, només 2 de {T, P, &mu;} són independents: un cop fixes T i P, &mu; ja queda determinat (fins a una constant d'integració). Per això &mu; mai apareix com a variable de control independent en una equació d'estat &mdash; ja ve donada per T i P via Gibbs&ndash;Duhem.</div>
+    <div class="card-note">La versió per partícula, d&mu;=&minus;sdT+vdP (que reapareix a la <a href="flux_potencials_legendre.html">guia dels potencials</a>, en parlar de G), és literalment l'eina que permet aïllar una equació d'estat com v=(&part;&mu;/&part;P)<sub>T</sub> a partir d'una &mu;(T,P) coneguda &mdash; no és un resultat abstracte, és una recepta de càlcul, com es veu a l'exemple del guió.</div>
+    <div class="card-note">I estructuralment, és el senyal que la forma d'Euler no inventa informació nova: diferenciar-la i comparar-ho amb la Gibbs original havia de donar, forçosament, una relació sobrant entre les intensives &mdash; Gibbs&ndash;Duhem és exactament aquesta redundància, feta explícita. (Fora d'aquest tema, la seva conseqüència més coneguda és la relació de Clausius&ndash;Clapeyron entre pressió i temperatura de coexistència de fases.)</div>
+  </div>
+
+  <footer>Correspon a l'apartat 2.2 del guió de pissarra del Tema 2 (la definició de funció homogènia i el criteri d'homogeneïtat, 2.2(a)-(b), s'usen aquí com a punt de partida sense guia pròpia). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

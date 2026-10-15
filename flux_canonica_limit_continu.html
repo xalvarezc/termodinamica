@@ -1,0 +1,155 @@
+<!doctype html>
+<title>Guia de classe — del discret al continu</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.6.1 &middot; guió de pissarra</div>
+  <h1>Del <em>discret</em> al <em>continu</em></h1>
+  <p class="subtitle">Una partícula en una caixa té nivells discrets. Quan la separació entre nivells és petita davant de k<sub>B</sub>T, la suma es converteix en una integral i surt la Z<sub>1</sub> clàssica &mdash; i amb ella, la raó per dividir per h<sup>3N</sup>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Nivells de la partícula en una caixa: n<sub>x</sub>,n<sub>y</sub>,n<sub>z</sub>=1,2,3,&hellip;</span></li><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>Separació entre nivells petita davant de k<sub>B</sub>T: a&#8810;1</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_discrets.html">5.6: Z=&sum;<sub>s</sub>e<sup>&minus;&beta;E<sub>s</sub></sup></a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&int;<sub>0</sub><sup>&infin;</sup>e<sup>&minus;ax&sup2;</sup>dx=&frac12;&radic;(&pi;/a)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">La Z<sub>1</sub> clàssica</span></div><div class="eq">\[ Z_{1}=\left(\dfrac{L}{\lambda}\right)^{3}=\dfrac{V}{\lambda^{3}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">El pas al continu</span></div><div class="eq">\[ \sum_{s}\;\longrightarrow\;\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\qquad\text{si}\quad\lambda\ll L \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Nivells de la partícula en una caixa: n<sub>x</sub>,n<sub>y</sub>,n<sub>z</sub>=1,2,3,&hellip;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Partícula en una caixa cúbica d'aresta L</div>
+        <div class="eq">\[ \begin{gathered}E=\dfrac{h^{2}}{8mL^{2}}\left(n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\right) \\[4pt] n_{x},n_{y},n_{z}=1,2,3,\dots\end{gathered} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Cada terna (n<sub>x</sub>,n<sub>y</sub>,n<sub>z</sub>) és un microstat. Amb parets infinites, n=0 no és un estat (la funció d'ona seria nul&middot;la); els apunts comencen a 0, i en el límit d'aquesta guia no canvia res.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_discrets.html">5.6: Z=&sum;<sub>s</sub>e<sup>&minus;&beta;E<sub>s</sub></sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">La suma factoritza</span></div>
+        <div class="eq">\[ \begin{gathered}Z_{1}=\sum_{n_{x},n_{y},n_{z}}e^{-a\left(n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\right)}=\left(\sum_{n=1}^{\infty}e^{-an^{2}}\right)^{3} \\[6pt] a=\dfrac{\beta h^{2}}{8mL^{2}}\end{gathered} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Els tres nombres quàntics són independents: cap lligam entre ells.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">Separació entre nivells petita davant de k<sub>B</sub>T: a&#8810;1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Nivells molt junts: la suma és una integral</span></div>
+        <div class="eq">\[ \sum_{n=1}^{\infty}e^{-an^{2}}\simeq\int_{0}^{\infty}dn\,e^{-an^{2}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Si a&#8810;1, l'exponencial canvia molt poc d'un n al següent, i la suma és l'àrea sota la corba. La integral val ~1/&radic;a&#8811;1, i començar a n=0 o a n=1 hi afegeix o hi treu un terme d'ordre 1: negligible.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&int;<sub>0</sub><sup>&infin;</sup>e<sup>&minus;ax&sup2;</sup>dx=&frac12;&radic;(&pi;/a)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Una mitja gaussiana</span></div>
+        <div class="eq">\[ \begin{aligned}\int_{0}^{\infty}dn\,e^{-an^{2}}&=\dfrac{1}{2}\sqrt{\dfrac{\pi}{a}} \\[4pt] &=L\,\dfrac{\sqrt{2\pi mk_{B}T}}{h}=\dfrac{L}{\lambda}\end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; al cub, amb V=L<sup>3</sup> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">La Z<sub>1</sub> clàssica</span></div>
+        <div class="eq">\[ Z_{1}=\left(\dfrac{L}{\lambda}\right)^{3}=\dfrac{V}{\lambda^{3}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Exactament la del <a href="flux_canonica_gas_ideal.html">gas ideal</a>, calculada allà amb una integral sobre l'espai de fases dividida per h<sup>3</sup>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; escrivint a en termes de &lambda; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Quan és vàlida la hipòtesi</span></div>
+        <div class="eq">\[ \begin{gathered}a=\dfrac{h^{2}}{8mL^{2}k_{B}T}=\dfrac{\pi}{4}\left(\dfrac{\lambda}{L}\right)^{2}\ll 1 \\[6pt] \Longleftrightarrow\quad\lambda\ll L\end{gathered} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; per a N partícules, una cel&middot;la h<sup>3</sup> per grau de llibertat &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">El pas al continu</span></div>
+        <div class="eq">\[ \sum_{s}\;\longrightarrow\;\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\qquad\text{si}\quad\lambda\ll L \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> quan la longitud d'ona tèrmica és petita davant de la caixa, comptar estats quàntics i integrar l'espai de fases donen el mateix &mdash; <strong>si la cel&middot;la és h<sup>3</sup> per partícula</strong>. Aquesta és la justificació del h<sup>3N</sup> que al Tema 3 es va <a href="flux_conceptes_microcanonica.html">introduir</a> amb el principi d'incertesa: cada estat quàntic ocupa un volum h<sup>3</sup> de l'espai de fases d'una partícula.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Dues condicions diferents, que els apunts ajunten</span></div>
+    <div class="card-note">El DESTÍ FINAL demana &lambda;&#8810;L: que els <strong>nivells d'una partícula</strong> formin un quasi-continu. Per a una partícula en una caixa macroscòpica, sempre es compleix. Els apunts la reescriuen com &lambda;&#8810;l amb l=(V/N)<sup>1/3</sup>, però és una altra condició: que les <strong>partícules</strong> estiguin prou separades perquè els seus paquets d'ona no se solapin, i el 1/N! sigui correcte (<a href="flux_canonica_gas_ideal.html">gas ideal</a>, targeta A CLASSE). Amb N=1 coincideixen; amb N gran, la segona és molt més exigent. Els electrons d'un metall compleixen la primera i no la segona: tenen un espectre quasi-continu, però són un gas quàntic.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">RESUM</span><span class="card-title">Les formes de la funció de partició</span></div>
+    <table class="mini-table"><tr><th></th><th>Sistemes continus</th><th>Sistemes discrets</th></tr><tr><td>Sobre microstats</td><td>Z=&int;e<sup>&minus;&beta;H</sup>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></td><td>Z=&sum;<sub>s</sub>e<sup>&minus;&beta;E<sub>s</sub></sup></td></tr><tr><td>Sobre energies</td><td>Z=&int;&Omega;(E)e<sup>&minus;&beta;E</sup>dE</td><td>Z=&sum;<sub>E</sub>g(E)e<sup>&minus;&beta;E</sup></td></tr><tr><td>Una partícula</td><td>Z<sub>1</sub>=&int;g(E)e<sup>&minus;&beta;E</sup>dE</td><td>Z<sub>1</sub>=&sum;<sub>E</sub>g(E)e<sup>&minus;&beta;E</sup></td></tr></table>
+  </div>
+
+  <footer>Correspon a la secció 5.6.1 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

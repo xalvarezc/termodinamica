@@ -1,0 +1,153 @@
+<!doctype html>
+<title>Guia de classe — teorema de Clausius</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.3(a) &middot; guió de pissarra</div>
+  <h1>El <em>teorema de Clausius</em></h1>
+  <p class="subtitle">Com generalitzar Carnot a un procés cíclic amb tants focus tèrmics com calgui &mdash; tot es redueix, un altre cop, a l'enunciat de Kelvin.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Enunciat de Kelvin: cap cicle converteix íntegrament en treball la calor d'un sol focus</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_carnot_funcio_f.html">1.5.2(b): Q<sub>i</sub>/Q<sub>j</sub>=T<sub>i</sub>/T<sub>j</sub></a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Sumem totes les màquines de Carnot</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Cada T<sub>i</sub> és net de bescanvi (pas 1) &rArr; el conjunt (sistema + totes les Carnot) només toca T&#8320;. Cicle complet, primera llei: tot el treball ve de T&#8320;</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Teorema de Clausius</span></div><div class="eq">\[ \oint _{C} \dfrac{\text{đ}Q}{T} \le 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="card" style="margin-bottom:22px;">
+    <div class="card-head"><span class="step-no">ABANS DE COMENÇAR</span><span class="card-title">Del cas de dos focus, al cas general</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ja saps resoldre el cas més senzill possible: una <a href="flux_carnot_funcio_f.html">màquina de Carnot</a> que només toca dos focus, T&#8321; i T&#8322;. Absorbeix Q&#8321; a T&#8321;, cedeix Q&#8322; a T&#8322;, i com que és reversible, Q&#8321;/T&#8321;=Q&#8322;/T&#8322;. Si sumes cada calor bescanviada dividida per la seva temperatura:</div>
+    <div class="eq">\[ \dfrac{Q_{1}}{T_{1}} - \dfrac{Q_{2}}{T_{2}} = 0 \]</div>
+    <div class="card-note">(el signe negatiu perquè Q&#8322; <em>surt</em> del sistema). El factor 1/T pesa cada calor pel seu "valor en potencial de treball" a aquella temperatura &mdash; calor absorbida a T alta és barata, calor cedida a T baixa és cara. Que la suma doni exactament zero és el senyal que el procés és reversible; si la mateixa màquina tingués fricció, la suma sortiria estrictament negativa.</div>
+    <div class="card-note"><strong>Ara generalitzem.</strong> En comptes d'un sistema que toca només dos focus, imagina'n un que, al llarg d'un sol cicle, en toca tants com calgui &mdash; T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub>,&hellip;,T<sub>n</sub> &mdash; bescanviant una calor đQ<sub>i</sub> diferent amb cadascun (és el sistema verd del dibuix de sota). La pregunta natural: la mateixa suma ponderada, ara amb n termes, es manté &le;0? Això és exactament el teorema de Clausius, i la manera de demostrar-ho és reduir aquest cas general, focus a focus, al cas de dos focus que ja domines.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:30px;">
+    <img src="imatges/intercanvi_ciclic.png" alt="El sistema (verd) bescanvia đQ_i amb cada focus T_i i fa un treball propi W. Cada focus es reemplaça per una màquina de Carnot connectada a T0, que fa el seu propi treball dW_i. El conjunt, a la dreta, només toca T0 i fa un treball total W+ΣdW_i." style="width:100%;display:block;border-radius:8px;">
+    <div class="card-note" style="margin-top:10px;">El <strong>sistema</strong> (verd) és el cicle genèric C de l'esquema de sota: bescanvia đQ<sub>i</sub> amb cada focus T<sub>i</sub>, i com qualsevol màquina fa <em>el seu propi</em> treball <strong>W</strong> &mdash; no ve de cap T<sub>i</sub>, surt directament del sistema. Cada focus T<sub>i</sub> es reemplaça per una màquina de Carnot auxiliar (cercle groc) connectada a T&#8320;: li lliura exactament đQ<sub>i</sub> (el mateix que el sistema n'esperava) mentre bescanvia đQ<sub>i</sub>' amb T&#8320; i fa el seu <em>propi</em> treball, petit, <strong>dW<sub>i</sub></strong>. Per això T<sub>i</sub> queda net de bescanvi &mdash; és un simple intermediari.</div>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; disseny del muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un cicle C amb bescanvis infinitesimals đQ<sub>i</sub></div>
+        <div class="card-note">Cada đQ<sub>i</sub> s'intercanvia a una temperatura T<sub>i</sub> (constant en aquell subprocés); el sistema, a més, fa un treball propi W.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_carnot_funcio_f.html">1.5.2(b): Q<sub>i</sub>/Q<sub>j</sub>=T<sub>i</sub>/T<sub>j</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Portem cada bescanvi a un focus comú T&#8320;</span></div>
+        <div class="eq">\[ \text{đ}Q_{i}' = \left(\dfrac{T_{0}}{T_{i}}\right)\text{đ}Q_{i} \]</div>
+        <div class="card-note">Amb una màquina de Carnot per a cada bescanvi, que fa el seu propi treball dW<sub>i</sub>=đQ<sub>i</sub>'&minus;đQ<sub>i</sub> i deixa T<sub>i</sub> sense bescanvi net.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Sumem totes les màquines de Carnot</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Suma total cap a T&#8320;</span></div>
+        <div class="eq">\[ \sum _{i}\text{đ}Q_{i}' = T_{0}\sum _{i}\left(\dfrac{\text{đ}Q_{i}}{T_{i}}\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Cada T<sub>i</sub> és net de bescanvi (pas 1) &rArr; el conjunt (sistema + totes les Carnot) només toca T&#8320;. Cicle complet, primera llei: tot el treball ve de T&#8320;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Balanç d'energia del conjunt</span></div>
+        <div class="eq">\[ W + \sum _{i}dW_{i} = \sum _{i}\text{đ}Q_{i}' \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Enunciat de Kelvin: cap cicle converteix íntegrament en treball la calor d'un sol focus</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Aquesta suma no pot ser positiva</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Si &sum;đQ<sub>i</sub>' fos &gt;0, el conjunt seria un cicle que treu calor d'un únic focus (T&#8320;) i la converteix íntegrament en el treball W+&sum;dW<sub>i</sub>, sense tocar cap altre focus &mdash; exactament el que Kelvin prohibeix.</div>
+        <div class="eq">\[ \sum _{i}\text{đ}Q_{i}' \le 0 \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; límit n&rarr;&infin;, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Teorema de Clausius</span></div>
+        <div class="eq">\[ \oint _{C} \dfrac{\text{đ}Q}{T} \le 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> generalitza Carnot a qualsevol nombre de focus. La <a href="flux_entropia_definicio.html">guia del naixement de l'entropia</a> hi parteix directament.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.3(a) del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

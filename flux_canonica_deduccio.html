@@ -1,0 +1,178 @@
+<!doctype html>
+<title>Guia de classe — la distribució canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.1 &middot; guió de pissarra</div>
+  <h1>La distribució <em>canònica</em></h1>
+  <p class="subtitle">Un sistema en contacte amb una font: el conjunt és aïllat i microcanònic. Integrant la font, la probabilitat de cada microstat del sistema queda proporcional a e<sup>&minus;&beta;H</sup>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Densitat marginal: s'integra sobre les variables que no interessen</span></li><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>Font molt més gran que el sistema: H<sub>1</sub>&#8810;E</span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Normalització: &int;d<strong>q</strong>d<strong>p</strong>&rho;/h<sup>3N</sup>=1</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &rho;=&delta;(E&minus;H)/&Omega;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega; i 1/T=&part;S/&part;E</a></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Factor de Boltzmann</span></div><div class="eq">\[ \rho\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)=C\,e^{-\beta H_{1}\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Col&middot;lectivitat canònica</span></div><div class="eq">\[ \begin{gathered}\rho\left(\mathbf{q},\mathbf{p}\right)=\dfrac{e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)}}{Z} \\[8pt] Z\left(T,V,N\right)=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)}\end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &rho;=&delta;(E&minus;H)/&Omega;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Sistema + font, aïllats junts</div>
+        <div class="eq">\[ \rho\left(\mathbf{q}_{1},\mathbf{p}_{1},\mathbf{q}_{2},\mathbf{p}_{2}\right)=\dfrac{\delta\left(E-H_{1}-H_{2}\right)}{\Omega\left(E\right)} \]</div>
+        <div class="card-note">El sistema 1 és en contacte tèrmic amb un sistema 2 molt més gran, la <strong>font</strong>. El conjunt 1+2 és aïllat, amb energia total E: li podem aplicar la microcanònica. No hi ha interacció entre 1 i 2 més enllà de l'intercanvi d'energia, de manera que H=H<sub>1</sub>+H<sub>2</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Densitat marginal: s'integra sobre les variables que no interessen</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Només ens interessa el sistema: marginal sobre la font</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)=\int\dfrac{d\mathbf{q}_{2}\,d\mathbf{p}_{2}}{h^{3N_{2}}}\,\rho\left(\mathbf{q}_{1},\mathbf{p}_{1},\mathbf{q}_{2},\mathbf{p}_{2}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La probabilitat que el sistema sigui al microstat (<strong>q</strong><sub>1</sub>,<strong>p</strong><sub>1</sub>), sigui quin sigui el microstat de la font.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">La integral és el nombre de microstats de la font</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)=\dfrac{\Omega_{2}\left(E-H_{1}\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)\right)}{\Omega\left(E\right)} \]</div>
+        <div class="card-note">Exacte. És la mateixa idea que a la <a href="flux_mb_deduccio.html">deducció de Maxwell-Boltzmann</a> (DESTÍ 1): un microstat del sistema és tan probable com microstats li deixa a la font l'energia que no s'ha endut.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">Font molt més gran que el sistema: H<sub>1</sub>&#8810;E</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">La font és molt més gran: desenvolupem el logaritme</span></div>
+        <div class="eq">\[ \begin{aligned}\ln\Omega_{2}\left(E-H_{1}\right)&\simeq\ln\Omega_{2}\left(E\right) \\ &\quad-H_{1}\left(\dfrac{\partial\ln\Omega_{2}}{\partial E_{2}}\right)_{E_{2}=E}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Es desenvolupa ln&nbsp;&Omega;<sub>2</sub> i no &Omega;<sub>2</sub>: &Omega;<sub>2</sub> creix com una potència enorme de l'energia, i el seu desenvolupament de Taylor no convergiria amb pocs termes.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega; i 1/T=&part;S/&part;E</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">La derivada és la temperatura de la font</span></div>
+        <div class="eq">\[ \dfrac{\partial\ln\Omega_{2}}{\partial E_{2}}=\dfrac{1}{k_{B}}\dfrac{\partial S_{2}}{\partial E_{2}}=\dfrac{1}{k_{B}T}\equiv\beta \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">T és la temperatura <strong>de la font</strong>. El sistema no en té cap de definida a priori: l'hereta.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; exponenciant: &Omega;<sub>2</sub>(E) i &Omega;(E) no depenen de (<strong>q</strong><sub>1</sub>,<strong>p</strong><sub>1</sub>) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Factor de Boltzmann</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)=C\,e^{-\beta H_{1}\left(\mathbf{q}_{1},\mathbf{p}_{1}\right)} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">De la font només hi queda una cosa: la seva temperatura.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Normalització: &int;d<strong>q</strong>d<strong>p</strong>&rho;/h<sup>3N</sup>=1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">La normalització fixa la constant</span></div>
+        <div class="eq">\[ 1=C\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,e^{-\beta H}\quad\Longrightarrow\quad C=\dfrac{1}{Z} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Traient l'etiqueta 1: el sistema té N partícules i hamiltonià H.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; definint Z &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Col&middot;lectivitat canònica</span></div>
+        <div class="eq">\[ \begin{gathered}\rho\left(\mathbf{q},\mathbf{p}\right)=\dfrac{e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)}}{Z} \\[8pt] Z\left(T,V,N\right)=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)}\end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> la probabilitat de cada microstat d'un sistema a temperatura T, i la <strong>funció de partició</strong> Z, que en depèn de T, V i N. Per a partícules indistingibles cal un 1/N! davant de la integral (<a href="flux_canonica_ideals.html">secció 5.2</a>).</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Què vol dir exactament "font"</span></div>
+    <div class="card-note">El terme següent del desenvolupament del pas 3 és</div>
+    <div class="eq">\[ \dfrac{H_{1}^{2}}{2}\,\dfrac{\partial^{2}\ln\Omega_{2}}{\partial E_{2}^{2}}=\dfrac{H_{1}^{2}}{2k_{B}}\,\dfrac{\partial}{\partial E_{2}}\left(\dfrac{1}{T_{2}}\right)=-\dfrac{H_{1}^{2}}{2k_{B}T^{2}C_{2}} \]</div>
+    <div class="card-note">on C<sub>2</sub> és la capacitat calorífica de la font. Desapareix quan C<sub>2</sub>&rarr;&infin;. Aquesta és la definició operativa de font: <strong>un sistema que absorbeix o cedeix energia sense canviar de temperatura</strong>. No cal que el sistema 1 sigui petit; cal que la font sigui infinitament més gran.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Microcanònica i canònica: què es fixa</span></div>
+    <table class="mini-table"><tr><th></th><th>Microcanònica</th><th>Canònica</th></tr><tr><td>Sistema</td><td>aïllat</td><td>en contacte amb una font</td></tr><tr><td>Fix</td><td>E, V, N</td><td>T, V, N</td></tr><tr><td>&rho;(<strong>q</strong>,<strong>p</strong>)</td><td>&delta;(E&minus;H)/&Omega;: uniforme sobre la capa</td><td>e<sup>&minus;&beta;H</sup>/Z: tots els microstats, amb pes</td></tr><tr><td>L'energia</td><td>fixada</td><td>fluctua (<a href="flux_canonica_fluctuacions.html">5.1</a>)</td></tr></table>
+    <div class="card-note">La canònica no és un postulat nou: és la microcanònica del conjunt sistema+font, mirada només des del sistema.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.1 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

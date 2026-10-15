@@ -1,0 +1,210 @@
+<!doctype html>
+<title>Guia de classe — fórmula de Boltzmann</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.4 &middot; guió de pissarra</div>
+  <h1>La <em>fórmula de Boltzmann</em></h1>
+  <p class="subtitle">El mateix sistema mirat dues vegades &mdash; amb entropies i amb recomptes de microstats &mdash; dóna dues condicions d'equilibri que han de ser la mateixa: d'aquí surt S=k<sub>B</sub>ln&Omega;, el pont entre les dues teories.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>Hipòtesi de treball: equilibri = màxim de &Omega;<sub>T</sub></span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>S és extensiva (<a href="flux_forma_euler.html">2.2</a>)</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>2a llei: S màxima en un sistema aïllat</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gibbs.html">1.5.3(g): 1/T=(&part;S/&part;U)<sub>V,N</sub></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega; és el nombre de microstats</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_equacio_fonamental.html">2.1: equació fonamental en la representació de S</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Regla de la cadena, amb U<sub>2</sub>=U&minus;U<sub>1</sub></span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>(1/&Omega;)&part;&Omega; = &part;ln&Omega;</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Fórmula de Boltzmann</span></div><div class="eq">\[ S\left(E,V,N\right)=k_{B}\ln\Omega\left(E,V,N\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Equacions d'estat de la col&middot;lectivitat microcanònica</span></div><div class="eq">\[ \dfrac{1}{T}=k_{B}\left(\dfrac{\partial\ln\Omega}{\partial U}\right)_{V,N} \]</div><div class="eq">\[ \dfrac{P}{T}=k_{B}\left(\dfrac{\partial\ln\Omega}{\partial V}\right)_{U,N} \]</div><div class="eq">\[ \dfrac{\mu}{T}=-k_{B}\left(\dfrac{\partial\ln\Omega}{\partial N}\right)_{U,V} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un sistema compost aïllat, partit en dos</div>
+        <div class="eq">\[ U=U_{1}+U_{2}=\text{cte} \]</div>
+        <div class="card-note">Dos subsistemes en <strong>contacte tèrmic</strong> i res més: poden intercanviar energia entre ells, però el conjunt està aïllat. Mirarem el mateix muntatge dues vegades: primer amb termodinàmica, després comptant microstats.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">S és extensiva (<a href="flux_forma_euler.html">2.2</a>)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Termodinàmica: l'entropia és additiva</span></div>
+        <div class="eq">\[ \begin{aligned} S_{T}&=S_{1}\left(U_{1}\right)+S_{2}\left(U_{2}\right) \\[4pt] &=S_{1}\left(U_{1}\right)+S_{2}\left(U-U_{1}\right) \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">U<sub>1</sub> és l'única variable lliure: fixada ella, U<sub>2</sub>=U&minus;U<sub>1</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Regla de la cadena, amb U<sub>2</sub>=U&minus;U<sub>1</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Derivem respecte de la variable lliure</span></div>
+        <div class="eq">\[ \dfrac{\partial S_{T}}{\partial U_{1}}=\dfrac{\partial S_{1}}{\partial U_{1}}+\dfrac{\partial S_{2}}{\partial U_{2}}\dfrac{\partial U_{2}}{\partial U_{1}}=\dfrac{\partial S_{1}}{\partial U_{1}}-\dfrac{\partial S_{2}}{\partial U_{2}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El signe menys ve de &part;U<sub>2</sub>/&part;U<sub>1</sub>=&minus;1, que és tot el que aporta la conservació de l'energia.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">2a llei: S màxima en un sistema aïllat</span>
+        </div>
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gibbs.html">1.5.3(g): 1/T=(&part;S/&part;U)<sub>V,N</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">A l'equilibri, S<sub>T</sub> és màxima</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial S_{1}}{\partial U_{1}}\right)=\left(\dfrac{\partial S_{2}}{\partial U_{2}}\right) \quad\Longleftrightarrow\quad T_{1}=T_{2} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Fent servir 1/T=(&part;S/&part;U)<sub>V,N</sub>. És la condició d'equilibri tèrmic de tota la vida, ara obtinguda com un problema de màxim.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega; és el nombre de microstats</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Microscòpicament: els microstats es multipliquen</span></div>
+        <div class="eq">\[ \Omega_{T}=\Omega_{1}\left(E_{1}\right)\,\Omega_{2}\left(E_{2}\right) \]</div>
+        <div class="card-note">Per cada microstat del subsistema 1 hi ha &Omega;<sub>2</sub> microstats del conjunt: és la regla del producte, sense cap suposició addicional (els subsistemes són independents). <strong>Aquest producte és l'origen del logaritme</strong> que apareixerà al final.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">Hipòtesi de treball: equilibri = màxim de &Omega;<sub>T</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Més microstats, més desordre, més entropia</span></div>
+        <div class="card-note">Si l'entropia mesura el desordre microscòpic, com més gran sigui &Omega;<sub>T</sub> més entropia hi haurà. És doncs raonable esperar que l'estat que maximitza S sigui el mateix que maximitza &Omega;<sub>T</sub>. Imposem-ho, amb E=E<sub>1</sub>+E<sub>2</sub> constant:</div>
+        <div class="eq">\[ \dfrac{\partial\Omega_{T}}{\partial E_{1}}=\dfrac{\partial\Omega_{1}}{\partial E_{1}}\Omega_{2}-\Omega_{1}\dfrac{\partial\Omega_{2}}{\partial E_{2}}=0 \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">(1/&Omega;)&part;&Omega; = &part;ln&Omega;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Dividim per &Omega;<sub>1</sub>&Omega;<sub>2</sub></span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{1}{\Omega_{1}}\dfrac{\partial\Omega_{1}}{\partial U_{1}}&=\dfrac{1}{\Omega_{2}}\dfrac{\partial\Omega_{2}}{\partial U_{2}} \\[6pt] \dfrac{\partial\ln\Omega_{1}}{\partial U_{1}}&=\dfrac{\partial\ln\Omega_{2}}{\partial U_{2}} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Aquí ja hem escrit U en lloc d'E: en el límit termodinàmic, l'energia mecànica del sistema i la seva energia interna coincideixen.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; comparem les dues condicions d'equilibri &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Fórmula de Boltzmann</span></div>
+        <div class="eq">\[ S\left(E,V,N\right)=k_{B}\ln\Omega\left(E,V,N\right) \]</div>
+        <div class="card-note">Les condicions dels passos 3 i 6 descriuen el <em>mateix</em> equilibri del <em>mateix</em> sistema, així que &part;S/&part;U i k<sub>B</sub>&part;ln&Omega;/&part;U han de ser la mateixa cosa. k<sub>B</sub> és una constant universal &mdash; la constant de Boltzmann &mdash; i la seva funció és només posar unitats d'entropia a un nombre pur.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_equacio_fonamental.html">2.1: equació fonamental en la representació de S</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">I d'aquí, les equacions d'estat</span></div>
+        <div class="card-note">S(U,V,N) és una equació fonamental en la representació de l'entropia. Les seves derivades ja les coneixem de dS=dU/T+(P/T)dV&minus;(&mu;/T)dN:</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; derivant S=k<sub>B</sub>ln&Omega; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Equacions d'estat de la col&middot;lectivitat microcanònica</span></div>
+        <div class="eq">\[ \dfrac{1}{T}=k_{B}\left(\dfrac{\partial\ln\Omega}{\partial U}\right)_{V,N} \]</div>
+        <div class="eq">\[ \dfrac{P}{T}=k_{B}\left(\dfrac{\partial\ln\Omega}{\partial V}\right)_{U,N} \]</div>
+        <div class="eq">\[ \dfrac{\mu}{T}=-k_{B}\left(\dfrac{\partial\ln\Omega}{\partial N}\right)_{U,V} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> tota la termodinàmica d'un sistema surt de saber-ne comptar els microstats. La recepta completa és: escriu el hamiltonià &rarr; calcula &Gamma; &rarr; deriva per obtenir &Omega; &rarr; pren-ne el logaritme &rarr; deriva altre cop. Es fa sencera al <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què havia de ser un logaritme, i no una altra funció</span></div>
+    <div class="card-note">No és una casualitat ni una tria còmoda. Els microstats es <strong>multipliquen</strong> en ajuntar sistemes (pas 4) mentre que l'entropia se <strong>suma</strong> (pas 1). Si S=f(&Omega;), la funció f ha de convertir productes en sumes:</div>
+    <div class="eq">\[ f\left(\Omega_{1}\Omega_{2}\right)=f\left(\Omega_{1}\right)+f\left(\Omega_{2}\right) \]</div>
+    <div class="card-note">L'única funció contínua que fa això és f(x)=k&middot;ln&nbsp;x. El logaritme no s'ha tria: ve imposat per l'extensivitat de S combinada amb la multiplicativitat de &Omega;. L'única llibertat que queda és la constant k, i la fixa l'escala de temperatura escollida &mdash; d'aquí que k<sub>B</sub> sigui universal.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Què demostra exactament la comparació del DESTÍ 1</span></div>
+    <div class="card-note">Comparant els passos 3 i 6 el que s'obté, estrictament, és que &part;S/&part;U i k<sub>B</sub>&part;ln&Omega;/&part;U coincideixen &mdash; és a dir, que S i k<sub>B</sub>ln&Omega; poden diferir en una funció que no depengui d'U. Que aquesta funció sigui zero no ve de l'argument del contacte tèrmic: ve d'exigir que S sigui extensiva (cosa que ln&Omega; ja compleix, pel pas 4) i que S&rarr;0 quan &Omega;&rarr;1, que és el tercer principi. Val la pena dir-ho, perquè així la fórmula de Boltzmann no queda com un acte de fe.</div>
+    <div class="card-note">Igualment, el pas 5 parteix d'una <em>hipòtesi</em> raonable (equilibri = màxim de &Omega;<sub>T</sub>), no d'un teorema.  <a href="sim_solids_einstein.html">La simulació de dos sòlids d'Einstein</a> ho deixa veure. La justificació forta arriba a <a href="flux_entropia_shannon.html">3.9</a>, on S=k<sub>B</sub>ln&Omega; surt de maximitzar l'entropia estadística sense haver de suposar res sobre &Omega;<sub>T</sub>.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.4 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

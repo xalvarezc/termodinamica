@@ -1,0 +1,181 @@
+<!doctype html>
+<title>Guia de classe — la funció f(T₁,T₂)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.2(b) &middot; guió de pissarra</div>
+  <h1>La funció <em>f(T&#8321;,T&#8322;)</em></h1>
+  <p class="subtitle">Per què multipliquem <strong>Q&#8323;/Q&#8321;</strong> per <strong>Q&#8322;/Q&#8323;</strong>? Cada pas del fil principal, i què s'hi invoca &mdash; postulat, resultat previ, o pura àlgebra.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Llei zero (1.3): T és l'única magnitud comuna a qualsevol focus</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>La mateixa definició del pas 1, aplicada dues vegades</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Mateixa definició, ara aplicada al conjunt T&#8321;&rarr;T&#8322;</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_carnot_teorema.html">1.5.2(a): &eta;=&eta;<sub>c</sub> per a totes les reversibles</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Q&#8323; es cancel·la sola: (a/b)&middot;(b/c) = a/c</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Única forma que cancel·la T<sub>m</sub> per a qualsevol valor intermedi</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Conseqüència directa</span></div><div class="eq">\[ \dfrac{Q_i}{Q_j} = \dfrac{T_i}{T_j} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_carnot_teorema.html">1.5.2(a): &eta;=&eta;<sub>c</sub> per a totes les reversibles</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">El rendiment de Carnot no depèn de la màquina</div>
+        <div class="card-note">Només dels dos focus, T&#8321; i T&#8322; &mdash; ho hem demostrat a l'apartat anterior.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Llei zero (1.3): T és l'única magnitud comuna a qualsevol focus</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Definim la funció universal</span></div>
+        <div class="eq">\[ \dfrac{Q_2}{Q_1} = f\left(T_1,T_2\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 (setup, no new physics) -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; cap suposició nova, és disseny &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Encadenem dues Carnot</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">T<sub>1</sub> &rarr; T<sub>m</sub> &rarr; T<sub>2</sub>, muntades perquè tota la Q<sub>3</sub> cedida per la 1a sigui absorbida per la 2a.</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">La mateixa definició del pas 1, aplicada dues vegades</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Apliquem f a cada màquina</span></div>
+        <div class="eq">\[ \dfrac{Q_3}{Q_1} = f\left(T_1,T_m\right) \qquad\textbf{i}\qquad \dfrac{Q_2}{Q_3} = f\left(T_m,T_2\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Q&#8323; es cancel·la sola: (a/b)&middot;(b/c) = a/c</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Multipliquem &mdash; àlgebra pura</span></div>
+        <div class="eq">\[ \dfrac{Q_2}{Q_1} = f\left(T_1,T_m\right)\cdot f\left(T_m,T_2\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Mateixa definició, ara aplicada al conjunt T&#8321;&rarr;T&#8322;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">El conjunt és una sola Carnot</span></div>
+        <div class="eq">\[ \dfrac{Q_2}{Q_1} = f\left(T_1,T_2\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 (comparison, no new tributary) -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; comparem 4 i 5, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Les dues expressions valen Q&#8322;/Q&#8321;</span></div>
+        <div class="eq">\[ f\left(T_1,T_m\right)\cdot f\left(T_m,T_2\right) = f\left(T_1,T_2\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Única forma que cancel·la T<sub>m</sub> per a qualsevol valor intermedi</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">La forma de f queda determinada</span></div>
+        <div class="eq">\[ f\left(T_i,T_j\right) = \dfrac{T_i}{T_j} \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint f pel pas 1, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Conseqüència directa</span></div>
+        <div class="eq">\[ \dfrac{Q_i}{Q_j} = \dfrac{T_i}{T_j} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> defineix, per primer cop, una escala de temperatura absoluta &mdash; independent de la substància termomètrica, via el termòmetre de Carnot \(T=T_R Q_1/Q_2\) (1.5.2c). La <a href="flux_carnot_gas_ideal.html">guia següent</a> mostra que aquesta escala coincideix amb la del gas ideal; els <a href="flux_clausius_teorema.html">teorema de Clausius</a> i els <a href="flux_limits_treball.html">límits reals de treball</a> hi tornen a fer servir directament \(Q_i/Q_j=T_i/T_j\).</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.2(b) del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

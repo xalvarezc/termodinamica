@@ -1,0 +1,161 @@
+<!doctype html>
+<title>Guia de classe — pressió cinètica d'un gas ideal</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 4 &middot; secció 4.2 &middot; guió de pissarra</div>
+  <h1>La <em>pressió</em>, comptant xocs</h1>
+  <p class="subtitle">La pressió com a moment lineal lliurat a la paret per unitat d'àrea i de temps: quantes partícules hi arriben, amb quina v<sub>z</sub>, i quant moment deixa cadascuna.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Model: xocs elàstics amb una paret llisa en repòs, perpendicular a z</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Conservació del moment lineal i de l'energia cinètica en el xoc</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_velocitats.html">4.1: &rho;(v<sub>z</sub>), independent de la posició</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_valors_mitjans.html">4.1: &lang;v<sub>z</sub>&sup2;&rang;=k<sub>B</sub>T/m</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integrand parell: &int;<sub>0</sub><sup>&infin;</sup>=&frac12;&int;<sub>&minus;&infin;</sub><sup>&infin;</sup></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Equació tèrmica d'estat del gas ideal</span></div><div class="eq">\[ PV=Nk_{B}T \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Model: xocs elàstics amb una paret llisa en repòs, perpendicular a z</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">La pressió és força per unitat d'àrea sobre la paret</div>
+        <div class="eq">\[ P=\dfrac{F}{A}=\dfrac{\Delta p_{z}^{\text{paret}}}{A\,\Delta t} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">En un gas ideal les partícules no interactuen: l'única força sobre la paret ve dels xocs. Cal el moment total que rep una àrea A en un temps &Delta;t.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Conservació del moment lineal i de l'energia cinètica en el xoc</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Un xoc: v<sub>z</sub>&rarr;&minus;v<sub>z</sub></span></div>
+        <div class="eq">\[ \Delta p_{x}^{(1)}=\Delta p_{y}^{(1)}=0\qquad\qquad\Delta p_{z}^{(1)}=2mv_{z} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La component paral&middot;lela a la paret no canvia; la perpendicular s'inverteix. La partícula perd 2mv<sub>z</sub> en la direcció z i la paret el guanya. Només xoquen les que hi van: v<sub>z</sub>&gt;0.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_velocitats.html">4.1: &rho;(v<sub>z</sub>), independent de la posició</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Quantes arriben amb una v<sub>z</sub> donada</span></div>
+        <div class="eq">\[ dN\left(v_{z}\right)=\underbrace{\dfrac{N}{V}}_{\text{densitat}}\;\underbrace{A\,v_{z}\Delta t}_{\text{cilindre}}\;\underbrace{\rho\left(v_{z}\right)dv_{z}}_{\text{fracció}} \]</div>
+        <div class="card-note">Les partícules amb component v<sub>z</sub> que toquen A durant &Delta;t són les que eren dins un cilindre de base A i altura v<sub>z</sub>&Delta;t. Fan falta dues coses que ja tenim: la densitat és <strong>uniforme</strong> (les posicions donaven V<sup>N</sup>) i la velocitat és <strong>independent de la posició</strong> (&rho;(<strong>q</strong>,<strong>p</strong>) no depèn de <strong>q</strong>).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 1 &times; pas 2 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Moment que deixen a la paret</span></div>
+        <div class="eq">\[ \begin{aligned} d\left(\Delta p_{z}^{\text{paret}}\right)&=2mv_{z}\,dN\left(v_{z}\right) \\[4pt] &=\dfrac{2mN}{V}\,A\Delta t\;v_{z}^{2}\,\rho\left(v_{z}\right)dv_{z} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un factor v<sub>z</sub> ve del moment de cada xoc; l'altre, de quantes en xoquen. Per això surt v<sub>z</sub>&sup2;.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integrand parell: &int;<sub>0</sub><sup>&infin;</sup>=&frac12;&int;<sub>&minus;&infin;</sub><sup>&infin;</sup></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Sumem sobre totes les v<sub>z</sub>&gt;0</span></div>
+        <div class="eq">\[ \begin{aligned} P&=\dfrac{2mN}{V}\int_{0}^{\infty}v_{z}^{2}\,\rho\left(v_{z}\right)dv_{z} \\[4pt] &=\dfrac{2mN}{V}\cdot\dfrac{1}{2}\left\langle v_{z}^{2}\right\rangle=\dfrac{mN}{V}\left\langle v_{z}^{2}\right\rangle \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">&rho;(v<sub>z</sub>) és parella: la meitat que s'allunya de la paret no hi contribueix, i aquest &frac12; es menja exactament el 2 del rebot.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_valors_mitjans.html">4.1: &lang;v<sub>z</sub>&sup2;&rang;=k<sub>B</sub>T/m</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Substituïm la variància de la gaussiana</span></div>
+        <div class="eq">\[ P=\dfrac{mN}{V}\cdot\dfrac{k_{B}T}{m} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; la m se'n va &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Equació tèrmica d'estat del gas ideal</span></div>
+        <div class="eq">\[ PV=Nk_{B}T \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> la mateixa equació que al Tema 3 sortia de derivar l'entropia, P/T=(&part;S/&part;V)<sub>U,N</sub>. Aquí surt de comptar xocs. La massa desapareix: a igual densitat i temperatura, un gas lleuger i un de pesant fan la mateixa pressió &mdash; el lleuger xoca més sovint, el pesant xoca més fort.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">El pas 4 no necessita Maxwell-Boltzmann</span></div>
+    <div class="card-note">Fins al pas 4 només s'ha fet servir que la distribució és isòtropa: &lang;v<sub>z</sub>&sup2;&rang;=&lang;v&sup2;&rang;/3. Per tant, per a <strong>qualsevol</strong> gas de partícules lliures no relativistes amb una distribució isòtropa,</div>
+    <div class="eq">\[ P=\dfrac{2}{3}\,\dfrac{N}{V}\left\langle\dfrac{1}{2}mv^{2}\right\rangle=\dfrac{2}{3}\,\dfrac{U}{V} \]</div>
+    <div class="card-note">La pressió és dos terços de la densitat d'energia cinètica (la segona igualtat, per al gas monoatòmic, on tota U és cinètica). Maxwell-Boltzmann només entra al pas 5, per dir quant val &lang;v<sub>z</sub>&sup2;&rang; en funció de T.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">I les col&middot;lisions entre partícules dins el cilindre?</span></div>
+    <div class="card-note">El càlcul suposa que les partícules del cilindre arriben a la paret en línia recta. En un gas real n'hi ha que xoquen pel camí i es desvien &mdash; però, en equilibri, la distribució de velocitats és estacionària: per cada partícula que surt de la classe v<sub>z</sub> per un xoc, una altra hi entra. El balanç, en mitjana, és el mateix. I no cal que la paret sigui llisa: per isotropia, les forces tangencials es compensen en mitjana encara que cada xoc individual no sigui especular.</div>
+  </div>
+
+  <footer>Correspon a la secció 4.2 del Tema 4 (distribució de Maxwell-Boltzmann). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

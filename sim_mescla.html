@@ -1,0 +1,175 @@
+<!doctype html>
+<title>Simulació — entropia de mescla i paradoxa de Gibbs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; simulació &middot; secció 3.6</div>
+  <h1>Treure la paret: <em>idèntics o diferents</em></h1>
+  <p class="subtitle">Dos compartiments a la mateixa T i P. Treu la paret. Si els gasos són diferents, mai més no tornaràs a l'estat inicial; si són idèntics, no ha passat res. L'entropia ho ha de reflectir &mdash; i la fórmula sense N! no ho fa.</p>
+
+  <div class="card-note" style="margin-bottom:20px;">És l'experiment mental de <a href="flux_entropia_mescla.html">3.6</a>. El que es vol veure a classe és que la distinció "idèntics / diferents" és la que mana, i que és discontínua: no hi ha "una mica diferents".</div>
+
+  <div class="sim">
+    <div class="sim-presets">
+      <button class="sim-btn" id="same">Gasos idèntics</button>
+      <button class="sim-btn" id="diff">Gasos diferents</button>
+      <span style="display:inline-block;width:14px"></span>
+      <button class="sim-btn" id="open">Treu la paret</button>
+      <button class="sim-btn" id="close">Torna a posar la paret</button>
+    </div>
+    <div class="sim-controls">
+      <div class="sim-ctl">
+        <label for="n1">Partícules a l'esquerra &mdash; N<sub>1</sub> <b id="n1v">30</b></label>
+        <input type="range" id="n1" min="2" max="60" value="30">
+      </div>
+      <div class="sim-ctl">
+        <label for="n2">Partícules a la dreta &mdash; N<sub>2</sub> <b id="n2v">30</b></label>
+        <input type="range" id="n2" min="2" max="60" value="30">
+      </div>
+    </div>
+
+    <div id="fig"></div>
+
+    <div class="sim-out">
+      <div><span>estat</span><strong id="o-state" style="font-size:14px;">paret posada</strong></div>
+      <div><span>fórmula <em>sense</em> N! (abans de Sackur-Tetrode)</span><strong id="o-naive">&mdash;</strong><em>k<sub>B</sub></em></div>
+      <div><span>Sackur-Tetrode, gasos idèntics</span><strong id="o-st">&mdash;</strong><em>k<sub>B</sub></em></div>
+      <div><span>entropia de mescla, gasos diferents</span><strong id="o-mix">&mdash;</strong><em>k<sub>B</sub></em></div>
+    </div>
+    <div class="sim-note" id="note"></div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">QUÈ MIRAR</span><span class="card-title">La prova dels dos botons</span></div>
+    <div class="card-note" style="margin-top:0;"><strong>Gasos idèntics, treu la paret, torna-la a posar.</strong> L'estat final és indistingible de l'inicial: mateixa densitat a cada costat, i cap manera de dir quines partícules "eren" de l'esquerra. Per tant &Delta;S ha de ser 0. La fórmula sense el terme N! dona un número positiu &mdash; és la <strong>paradoxa de Gibbs</strong>: prediu que s'ha creat entropia en un procés que es desfà posant una paret.</div>
+    <div class="card-note"><strong>Gasos diferents, treu la paret, torna-la a posar.</strong> Ara sí que ha passat alguna cosa irreversible: cada costat té una barreja, i separar-los costaria treball. L'entropia de mescla és real, i val exactament el número que per a gasos idèntics era el <em>fals</em>:</div>
+    <div class="eq">\[ \begin{aligned} \Delta S_{\text{mescla}}&=k_{B}\left[N_{1}\ln\dfrac{N}{N_{1}}+N_{2}\ln\dfrac{N}{N_{2}}\right] \\[6pt] &=-Nk_{B}\left(x_{1}\ln x_{1}+x_{2}\ln x_{2}\right) \end{aligned} \]</div>
+    <div class="card-note" style="margin-top:0;">La mateixa expressió, correcta o incorrecta segons si les partícules es poden distingir. El 1/N! de Sackur-Tetrode és el que fa la diferència, i no és un apedaçament: és la indistingibilitat de les partícules idèntiques, que és un fet físic.</div>
+    <div class="card-note"><strong>I el salt és discontinu.</strong> No importa <em>com</em> de diferents siguin els gasos: dos isòtops donen la mateixa &Delta;S que heli i xenó. O són distingibles o no ho són. Això és un fet quàntic, i és dels pocs llocs on la termodinàmica clàssica ho nota.</div>
+  </div>
+
+  <footer>Simulació de suport per a la secció 3.6 del Tema 3. Els compartiments tenen volums proporcionals a N<sub>1</sub> i N<sub>2</sub>, de manera que la densitat &mdash; i per tant T i P &mdash; és la mateixa a tots dos costats.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = function (id) { return document.getElementById(id); };
+  var n1 = el("n1"), n2 = el("n2");
+  var same = true, open = false;
+  var pts = [];            // {x,y,side}
+  var W = 640, H = 260, PAD = 14;
+
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+
+  function place() {
+    var N1 = +n1.value, N2 = +n2.value, N = N1 + N2;
+    var split = PAD + (W - 2 * PAD) * N1 / N;
+    pts = [];
+    var i;
+    function vel(p) { var a = rnd(0, 2 * Math.PI), v = rnd(2.6, 3.6); p.vx = v * Math.cos(a); p.vy = v * Math.sin(a); return p; }
+    for (i = 0; i < N1; i++) pts.push(vel({ x: rnd(PAD + 8, split - 8), y: rnd(PAD + 8, H - PAD - 8), side: 0 }));
+    for (i = 0; i < N2; i++) pts.push(vel({ x: rnd(split + 8, W - PAD - 8), y: rnd(PAD + 8, H - PAD - 8), side: 1 }));
+    open = false;
+  }
+
+  function scatter() { open = true; }      // la paret desapareix; la barreja la fa la difusio, no un salt
+
+  // gas ideal: vol lliure a velocitat constant, amb rebot a les parets exteriors i, si hi es, a la particio
+  function move() {
+    var N1 = +n1.value, N2 = +n2.value, split = PAD + (W - 2 * PAD) * N1 / (N1 + N2);
+    var lo = PAD + 6, hiX = W - PAD - 6, hiY = H - PAD - 6;
+    pts.forEach(function (p) {
+      var nx = p.x + p.vx, ny = p.y + p.vy;
+      if (nx < lo) { nx = 2 * lo - nx; p.vx = -p.vx; }
+      if (nx > hiX) { nx = 2 * hiX - nx; p.vx = -p.vx; }
+      if (ny < lo) { ny = 2 * lo - ny; p.vy = -p.vy; }
+      if (ny > hiY) { ny = 2 * hiY - ny; p.vy = -p.vy; }
+      if (!open) {                                     // la particio rebota segons el costat on era
+        if (p.x < split && nx >= split - 3) { nx = 2 * (split - 3) - nx; p.vx = -p.vx; }
+        if (p.x >= split && nx < split + 3) { nx = 2 * (split + 3) - nx; p.vx = -p.vx; }
+      }
+      p.x = nx; p.y = ny;
+    });
+  }
+
+  function draw() {
+    var N1 = +n1.value, N2 = +n2.value, N = N1 + N2;
+    el("n1v").textContent = N1;
+    el("n2v").textContent = N2;
+    var split = PAD + (W - 2 * PAD) * N1 / N;
+
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Dos compartiments amb particules; la paret es pot treure i tornar a posar">'];
+    s.push('<rect x="' + PAD + '" y="' + PAD + '" width="' + (W - 2 * PAD) + '" height="' + (H - 2 * PAD) + '" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="1.8"/>');
+    if (!open) s.push('<line x1="' + split.toFixed(1) + '" y1="' + PAD + '" x2="' + split.toFixed(1) + '" y2="' + (H - PAD) + '" stroke="var(--ink)" stroke-width="3"/>');
+    pts.forEach(function (p) {
+      var col = same ? "var(--flux)" : (p.side === 0 ? "var(--flux)" : "var(--goal)");
+      s.push('<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="5" fill="' + col + '"/>');
+    });
+    s.push("</svg>");
+    el("fig").innerHTML = s.join("");
+
+    var naive = N1 * Math.log(N / N1) + N2 * Math.log(N / N2);
+    var f = function (v) { return v.toFixed(2).replace(".", ","); };
+    el("o-naive").textContent = open ? f(naive) : "0,00";
+    el("o-st").textContent = "0,00";
+    el("o-mix").textContent = open ? f(naive) : "0,00";
+    el("o-state").textContent = open ? "paret treta" : "paret posada";
+
+    var mixTxt = "";
+    if (!same) {
+      var cross = 0, i;
+      for (i = 0; i < pts.length; i++) if (pts[i].side === 0 && pts[i].x > split) cross++;
+      mixTxt = " Ara mateix hi ha <strong>" + cross + "</strong> de les " + N1 + " partícules blaves a la dreta.";
+    }
+    var note;
+    if (!open) {
+      note = "<strong>Estat inicial.</strong> Dos compartiments amb la mateixa densitat, i per tant la mateixa T i P. Treu la paret.";
+    } else if (same) {
+      note = "<strong>Gasos idèntics, paret treta.</strong> Macroscòpicament no ha canviat res. La fórmula sense N! diu &Delta;S=" + f(naive) +
+             "&nbsp;k<sub>B</sub>&gt;0 &mdash; fals. Sackur-Tetrode diu 0 &mdash; correcte. Torna a posar la paret i mira com es recupera l'estat inicial.";
+    } else {
+      note = "<strong>Gasos diferents, paret treta.</strong> Ara sí: &Delta;S<sub>mescla</sub>=" + f(naive) +
+             "&nbsp;k<sub>B</sub>, i és irreversible. Torna a posar la paret: cada costat queda barrejat, no es recupera res." + mixTxt;
+    }
+    el("note").innerHTML = note;
+  }
+
+  function reset() { place(); draw(); }
+  n1.addEventListener("input", reset);
+  n2.addEventListener("input", reset);
+  el("same").addEventListener("click", function () { same = true; draw(); });
+  el("diff").addEventListener("click", function () { same = false; draw(); });
+  el("open").addEventListener("click", function () { if (!open) { scatter(); draw(); } });
+  el("close").addEventListener("click", function () {
+    if (!open) return;
+    open = false;      // la paret torna; les particules es queden on son. Si son identiques no hi ha res a distingir
+    draw();
+  });
+
+  // setInterval i no requestAnimationFrame: aixi la difusio avança tambe en pestanyes de fons i en headless
+  function start() { reset(); setInterval(function () { move(); draw(); }, 33); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

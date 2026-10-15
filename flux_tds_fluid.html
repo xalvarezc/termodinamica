@@ -1,0 +1,299 @@
+<!doctype html>
+<title>Guia de classe — equacions TdS</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.4 &middot; guió de pissarra</div>
+  <h1>Les <em>equacions TdS</em></h1>
+  <p class="subtitle">De l'equació de Gibbs, i escollint quines variables mantenim com a base, surten tres formes equivalents &mdash; i, comparant-les, la relació de Mayer general.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Definició de derivada parcial: qualsevol diferencial de S(T,V) s'escriu així</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>S és funció d'estat &rArr; dS és exacta: les derivades creuades de S han de coincidir</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Definicions dels coeficients termodinàmics (secció 1.2)</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gibbs.html">1.5.3(g): equació de Gibbs</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_reciprocitat.html">1.2.1: &alpha;=&beta;P&kappa;<sub>T</sub> (teorema de reciprocitat)</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_capacitats_generals.html">1.4.1: C<sub>V</sub>=(&part;U/&part;T)<sub>V</sub></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_capacitats_generals.html">1.4.1, pas 8: mateixa regla de la cadena, aplicada allà a U</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Diferencial de U(T,V), substituïda a Gibbs i dividida per T</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Derivem M respecte V, i N respecte T</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm la condició d'exactitud (pas 5) a N=(1/T)[(&part;U/&part;V)<sub>T</sub>+P] (pas 1)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm els quatre coeficients ja coneguts d'aquesta pàgina</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Primera equació TdS</span></div><div class="eq">\[ T dS = C_{V} dT + \left(\dfrac{\alpha T}{\kappa _{T}}\right) dV \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Segona i tercera equacions TdS</span></div><div class="eq">\[ T dS = C_{P} dT - TV\alpha dP \]</div><div class="eq">\[ T dS = \left(\dfrac{C_{V}\kappa _{T}}{\alpha }\right) dP + \left(\dfrac{C_{P}}{\alpha V}\right) dV \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Relació de Mayer (general)</span></div><div class="eq">\[ C_{P}-C_{V} = \dfrac{TV\alpha ^2}{\kappa _{T}} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gibbs.html">1.5.3(g): equació de Gibbs</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Gibbs per un fluid, amb U=U(T,V)</div>
+        <div class="eq">\[ T dS = dU + P dV \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Diferencial de U(T,V), substituïda a Gibbs i dividida per T</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">dS en termes de T i V</span></div>
+        <div class="eq">\[ dS = \left(\dfrac{1}{T}\right)\left(\dfrac{\partial U}{\partial T}\right)_{V}dT + \left(\dfrac{1}{T}\right)\left[\left(\dfrac{\partial U}{\partial V}\right)_{T}+P\right]dV \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 (NEW) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Definició de derivada parcial: qualsevol diferencial de S(T,V) s'escriu així</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">dS com a diferencial exacta</span></div>
+        <div class="eq">\[ dS = \left(\dfrac{\partial S}{\partial T}\right)_{V} dT + \left(\dfrac{\partial S}{\partial V}\right)_{T} dV \]</div>
+        <div class="card-note">Aquesta és la forma general de qualsevol diferencial de S(T,V) &mdash; comparant-la amb el pas 1, identifiquem M&equiv;(&part;S/&part;T)<sub>V</sub>=(1/T)(&part;U/&part;T)<sub>V</sub> i N&equiv;(&part;S/&part;V)<sub>T</sub>=(1/T)[(&part;U/&part;V)<sub>T</sub>+P].</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 (was STEP 2) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">S és funció d'estat &rArr; dS és exacta: les derivades creuades de S han de coincidir</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Plantegem la igualtat de derivades creuades</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial }{\partial V}\right)\left[\left(\dfrac{\partial S}{\partial T}\right)_{V}\right]_{T} = \left(\dfrac{\partial }{\partial T}\right)\left[\left(\dfrac{\partial S}{\partial V}\right)_{T}\right]_{V} \]</div>
+        <div class="card-note">Amb M i N del pas 2, identificats al pas 1: la condició diu &part;M/&part;V=&part;N/&part;T. Encara no cal saber que M=C<sub>V</sub>/T &mdash; només que és una derivada de U.</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 (was STEP 3) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Derivem M respecte V, i N respecte T</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Els termes amb &part;&sup2;U es cancel·len</span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{1}{T}\dfrac{\partial ^2U}{\partial V\partial T} &= -\dfrac{1}{T^{2}}\left(\dfrac{\partial U}{\partial V}\right)_{T} + \dfrac{1}{T}\dfrac{\partial ^2U}{\partial T\partial V} \\[4pt] &\quad + \dfrac{1}{T}\left(\dfrac{\partial P}{\partial T}\right)_{V} - \dfrac{P}{T^{2}} \end{aligned} \]</div>
+        <div class="card-note">U té derivades creuades iguals, (&part;&sup2;U/&part;V&part;T)=(&part;&sup2;U/&part;T&part;V), així que aquest terme apareix igual a banda i banda i desapareix en restar.</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; multipliquem per T&sup2; i reordenem, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Condició d'exactitud</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial U}{\partial V}\right)_{T} = T\left(\dfrac{\partial P}{\partial T}\right)_{V} - P \]</div>
+        <div class="card-note">Aquesta és la relació que quedava, un cop cancel·lat el terme d'U i multiplicat tot per T&sup2;.</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm la condició d'exactitud (pas 5) a N=(1/T)[(&part;U/&part;V)<sub>T</sub>+P] (pas 1)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">La derivada, explícita</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial S}{\partial V}\right)_{T} = \left(\dfrac{1}{T}\right)\left[T\left(\dfrac{\partial P}{\partial T}\right)_{V}-P+P\right] = \left(\dfrac{\partial P}{\partial T}\right)_{V} \]</div>
+        <div class="card-note">Els dos termes &plusmn;P es cancel·len i queda una derivada més simple &mdash; de fet, aquesta igualtat (&part;S/&part;V)<sub>T</sub>=(&part;P/&part;T)<sub>V</sub> és exactament una de les <a href="flux_maxwell.html">relacions de Maxwell</a> (Tema 2, 2.4), aquí trobada per avançat.</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Definicions dels coeficients termodinàmics (secció 1.2)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Les definicions que hi entren</span></div>
+        <div class="eq">\[ \alpha = \left(\dfrac{1}{V}\right)\left(\dfrac{\partial V}{\partial T}\right)_{P} \]</div>
+        <div class="eq">\[ \kappa _{T} = -\left(\dfrac{1}{V}\right)\left(\dfrac{\partial V}{\partial P}\right)_{T} \]</div>
+        <div class="eq">\[ \beta = \left(\dfrac{1}{P}\right)\left(\dfrac{\partial P}{\partial T}\right)_{V} \]</div>
+        <div class="card-note">Per definició de &beta;, la derivada del pas 6 ja és (&part;P/&part;T)<sub>V</sub>=&beta;P.</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_reciprocitat.html">1.2.1: &alpha;=&beta;P&kappa;<sub>T</sub> (teorema de reciprocitat)</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 8</span><span class="card-title">El coeficient de dV, amb noms</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial S}{\partial V}\right)_{T} = \left(\dfrac{\partial P}{\partial T}\right)_{V} = \beta P = \dfrac{\alpha }{\kappa _{T}} \]</div>
+        <div class="card-note">Aïllant &beta;=&alpha;/(P&kappa;<sub>T</sub>) de la relació de reciprocitat i substituint-la a &beta;P, els P es cancel·len i queda tot en termes de &alpha; i &kappa;<sub>T</sub>.</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 (NEW) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_capacitats_generals.html">1.4.1: C<sub>V</sub>=(&part;U/&part;T)<sub>V</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 9</span><span class="card-title">Ara sí: el coeficient de dT ja té nom</span></div>
+        <div class="eq">\[ \left(\dfrac{1}{T}\right)\left(\dfrac{\partial U}{\partial T}\right)_{V} = \dfrac{C_{V}}{T} \]</div>
+        <div class="card-note">Ara que M ja no s'ha de tornar a derivar (pas 3-4 s'han acabat), el podem substituir pel seu nom: la <strong>definició</strong> de C<sub>V</sub> ve de đQ: C<sub>V</sub>=(đQ/dT)<sub>V</sub>. A <a href="flux_capacitats_generals.html">1.4.1</a> vam deduir dU a partir de đQ (a V constant, đQ=dU perquè no hi ha treball PdV) &mdash; per això, i només per això, C<sub>V</sub> també es pot escriure com (&part;U/&part;T)<sub>V</sub>.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituïm els coeficients (pas 8 i pas 9) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Primera equació TdS</span></div>
+        <div class="eq">\[ T dS = C_{V} dT + \left(\dfrac{\alpha T}{\kappa _{T}}\right) dV \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; repetim l'argument amb U(T,P) i U(P,V) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 10</span><span class="card-title">Dues variants més, mateix mètode</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Canviant quina parella de variables es manté fixa a cada diferencial.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; mateixa deducció &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Segona i tercera equacions TdS</span></div>
+        <div class="eq">\[ T dS = C_{P} dT - TV\alpha dP \]</div>
+        <div class="eq">\[ T dS = \left(\dfrac{C_{V}\kappa _{T}}{\alpha }\right) dP + \left(\dfrac{C_{P}}{\alpha V}\right) dV \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 10 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_capacitats_generals.html">1.4.1, pas 8: mateixa regla de la cadena, aplicada allà a U</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 11</span><span class="card-title">Reaprofitem la regla de la cadena, ara per S</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial S}{\partial T}\right)_{P} = \left(\dfrac{\partial S}{\partial T}\right)_{V} + \left(\dfrac{\partial S}{\partial V}\right)_{T}\left(\dfrac{\partial V}{\partial T}\right)_{P} \]</div>
+        <div class="card-note">Exactament el mateix truc de canvi de variable que a 1.4.1 &mdash; només que allà l'aplicàvem a U i ara a S.</div>
+      </div>
+    </div>
+
+    <!-- STEP 11 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm els quatre coeficients ja coneguts d'aquesta pàgina</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 12</span><span class="card-title">Tot en termes de C<sub>V</sub>, C<sub>P</sub>, &alpha;, &kappa;<sub>T</sub></span></div>
+        <div class="eq">\[ \dfrac{C_{P}}{T} = \dfrac{C_{V}}{T} + \left(\dfrac{\alpha }{\kappa _{T}}\right)\left(\alpha V\right) \]</div>
+        <div class="card-note">(&part;S/&part;T)<sub>V</sub>=C<sub>V</sub>/T (pas 9), (&part;S/&part;T)<sub>P</sub>=C<sub>P</sub>/T (destí 2), (&part;S/&part;V)<sub>T</sub>=&alpha;/&kappa;<sub>T</sub> (pas 8), i (&part;V/&part;T)<sub>P</sub>=&alpha;V (definició d'&alpha;, pas 7).</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; multipliquem per T i reordenem &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Relació de Mayer (general)</span></div>
+        <div class="eq">\[ C_{P}-C_{V} = \dfrac{TV\alpha ^2}{\kappa _{T}} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> es redueix exactament a la <a href="flux_mayer_gas_ideal.html">guia de Mayer per al gas ideal</a> (1.4.2) substituint &alpha;=1/T, &kappa;<sub>T</sub>=1/P.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">PER QUÈ IMPORTA</span><span class="card-title">D'una entropia abstracta, a una entropia calculable</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">No existeix cap "entropímetre" &mdash; però C<sub>V</sub>, C<sub>P</sub>, &alpha; i &kappa;<sub>T</sub> sí que es mesuren directament. Les equacions TdS donen dS només en funció d'aquestes magnituds mesurables: integrant-les, calcules &Delta;S d'un procés real sense saber res de la física microscòpica de la substància.</div>
+    <div class="card-note">Les tres formes corresponen a tres muntatges experimentals diferents (segons si controles T,V; T,P; o P,V). I la relació de Mayer general que en surt, C<sub>P</sub>&minus;C<sub>V</sub>=TV&alpha;&sup2;/&kappa;<sub>T</sub>, diu que aquestes quatre magnituds <strong>no es poden triar independentment</strong> &mdash; mesurant-ne tres, la quarta queda fixada. És la mateixa relació que es fa servir a <a href="flux_estabilitat_cv_kappa.html">Tema 2 (2.5)</a> per demostrar C<sub>P</sub>&gt;C<sub>V</sub>&gt;0.</div>
+    <div class="card-note">I el truc que s'hi fa servir &mdash; S és funció d'estat &rArr; derivades creuades han de coincidir &rArr; relació entre mesurables &mdash; és exactament el mètode de les <a href="flux_maxwell.html">relacions de Maxwell</a> (Tema 2, 2.4), aquí aplicat només a U(T,V) i allà generalitzat als quatre potencials.</div>
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.4 del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,450 @@
+<!doctype html>
+<title>Guies de classe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+
+  <div class="eyebrow">Termodinàmica i Mecànica Estadística &middot; guions de pissarra</div>
+  <h1>Guies de classe</h1>
+  <p class="subtitle">Cada demostració del curs, convertida en una guia pas a pas: d'on parteix, quin postulat o resultat previ hi entra a cada pas, i on arriba. Fes clic en qualsevol targeta per obrir-ne la guia.</p>
+
+  <div class="tema-heading">Tema 1 &middot; Repàs de termodinàmica de l'equilibri</div>
+  <p class="tema-subtitle">Primer i segon principi, màquines tèrmiques, teoremes de Carnot i Clausius, naixement de l'entropia.</p>
+
+  <div class="idx-section">
+    <h2>1.2 &middot; Coeficients termodinàmics</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_reciprocitat.html">
+        <div class="idx-tag">1.2.1</div>
+        <div class="idx-title">Teorema de reciprocitat</div>
+        <div class="idx-desc">De &Psi;(X,Y,Z)=0 a (&part;X/&part;Y)<sub>Z</sub>(&part;Y/&part;Z)<sub>X</sub>(&part;Z/&part;X)<sub>Y</sub>=&minus;1, i aplicat a un fluid: &alpha;=&beta;P&kappa;<sub>T</sub>.</div>
+      </a>
+      <a class="idx-card" href="flux_compatibilitat_alfa_kappa.html">
+        <div class="idx-tag">1.2.1</div>
+        <div class="idx-title">Relació de compatibilitat &alpha;&ndash;&kappa;<sub>T</sub></div>
+        <div class="idx-desc">Una segona restricció, independent de la primera, que surt de v=v(T,P) ser una diferencial exacta.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>1.4 &middot; Primer principi</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_joule.html">
+        <div class="idx-tag">1.4</div>
+        <div class="idx-title">Experiment de Joule</div>
+        <div class="idx-desc">De la roda de paletes en un recipient adiabàtic a la definició de calor i el primer principi, dU=đQ+đW.</div>
+      </a>
+      <a class="idx-card" href="flux_capacitats_generals.html">
+        <div class="idx-tag">1.4.1</div>
+        <div class="idx-title">Relacions entre capacitats calorífiques</div>
+        <div class="idx-desc">C<sub>Y</sub>=(&part;U/&part;T)<sub>Y</sub> i C<sub>X</sub>&minus;C<sub>Y</sub>, aplicades a un fluid fins a C<sub>P</sub>&minus;C<sub>V</sub>.</div>
+      </a>
+      <a class="idx-card" href="flux_mayer_gas_ideal.html">
+        <div class="idx-tag">1.4.2</div>
+        <div class="idx-title">Relació de Mayer (gas ideal)</div>
+        <div class="idx-desc">El cas particular del gas ideal: C<sub>P</sub>&minus;C<sub>V</sub>=nR.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>1.5.1 &middot; Màquines tèrmiques</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_equivalencia_kelvin_clausius.html">
+        <div class="idx-tag">1.5.1</div>
+        <div class="idx-title">Equivalència Kelvin &hArr; Clausius</div>
+        <div class="idx-desc">Dues reduccions a l'absurd, en direccions oposades: violar-ne un permet construir un aparell que viola l'altre.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>1.5.2 &middot; Teorema de Carnot</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_carnot_teorema.html">
+        <div class="idx-tag">1.5.2(a)</div>
+        <div class="idx-title">El teorema de Carnot</div>
+        <div class="idx-desc">Cap màquina supera el rendiment de Carnot; totes les reversibles hi arriben exactament, &eta;=&eta;<sub>c</sub>.</div>
+      </a>
+      <a class="idx-card" href="flux_carnot_funcio_f.html">
+        <div class="idx-tag">1.5.2(b)&ndash;(c)</div>
+        <div class="idx-title">La funció f(T&#8321;,T&#8322;)</div>
+        <div class="idx-desc">Encadenant dues Carnot, la funció universal queda forçada a f(T<sub>i</sub>,T<sub>j</sub>)=T<sub>i</sub>/T<sub>j</sub> &mdash; neix l'escala absoluta.</div>
+      </a>
+      <a class="idx-card" href="sim_carnot.html">
+        <div class="idx-tag">sim &middot; 1.5.2</div>
+        <div class="idx-title">El cicle de Carnot al diagrama PV</div>
+        <div class="idx-desc">Mou T<sub>1</sub>, T<sub>2</sub> i l'expansió: Q<sub>1</sub>/Q<sub>2</sub>=T<sub>1</sub>/T<sub>2</sub> sempre, i el rendiment només depèn de les temperatures.</div>
+      </a>
+      <a class="idx-card" href="flux_carnot_gas_ideal.html">
+        <div class="idx-tag">1.5.2(d)</div>
+        <div class="idx-title">Equivalència amb l'escala de gas ideal</div>
+        <div class="idx-desc">Calculant directament amb un gas ideal, sense invocar Carnot, s'arriba a la mateixa escala: T&equiv;&theta;.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>1.5.3 &middot; Teorema de Clausius</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_clausius_teorema.html">
+        <div class="idx-tag">1.5.3(a)</div>
+        <div class="idx-title">El teorema de Clausius</div>
+        <div class="idx-desc">Generalitza Carnot a qualsevol nombre de focus: &oint;<sub>C</sub>đQ/T&le;0.</div>
+      </a>
+      <a class="idx-card" href="flux_entropia_definicio.html">
+        <div class="idx-tag">1.5.3(b)&ndash;(d)</div>
+        <div class="idx-title">Naixement de l'entropia</div>
+        <div class="idx-desc">Del teorema de Clausius surten, en cadena: dS&equiv;đQ<sup>rev</sup>/T, la desigualtat general, i &Delta;S<sub>&Uscr;</sub>&ge;0.</div>
+      </a>
+      <a class="idx-card" href="flux_direccio_calor.html">
+        <div class="idx-tag">1.5.3(e)</div>
+        <div class="idx-title">Direcció del flux de calor</div>
+        <div class="idx-desc">Per què la calor va sempre de calent a fred: &Delta;S<sub>&Uscr;</sub>&ge;0 ho exigeix.</div>
+      </a>
+      <a class="idx-card" href="flux_limits_treball.html">
+        <div class="idx-tag">1.5.3(f)</div>
+        <div class="idx-title">Límits reals de treball</div>
+        <div class="idx-desc">El treball desaprofitat per una màquina real, exactament W<sub>desap</sub>=T<sub>f</sub>&Delta;S<sub>&Uscr;</sub>.</div>
+      </a>
+      <a class="idx-card" href="flux_gibbs.html">
+        <div class="idx-tag">1.5.3(g)</div>
+        <div class="idx-title">Equació de Gibbs</div>
+        <div class="idx-desc">Primer i segon principi combinats: TdS=dU&minus;đW<sup>rev</sup> &mdash; el punt de partida del Tema 2.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>1.5.4 &middot; Equacions TdS</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_tds_fluid.html">
+        <div class="idx-tag">1.5.4</div>
+        <div class="idx-title">Equacions TdS per a un fluid</div>
+        <div class="idx-desc">De Gibbs a les tres formes de TdS, i a la relació de Mayer general, C<sub>P</sub>&minus;C<sub>V</sub>=TV&alpha;&sup2;/&kappa;<sub>T</sub>.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tema-heading">Tema 2 &middot; Estructura formal de la termodinàmica</div>
+  <p class="tema-subtitle">Equació fonamental, forma d'Euler, potencials i transformades de Legendre, relacions de Maxwell, criteris d'estabilitat.</p>
+
+  <div class="idx-section">
+    <h2>2.1 &middot; Equació fonamental</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_equacio_fonamental.html">
+        <div class="idx-tag">2.1</div>
+        <div class="idx-title">Equació fonamental</div>
+        <div class="idx-desc">De dU=TdS&minus;PdV a les dues equacions d'estat, i a la generalització U=U(S,Y,N).</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>2.2 &middot; Forma d'Euler</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_forma_euler.html">
+        <div class="idx-tag">2.2</div>
+        <div class="idx-title">Forma d'Euler i Gibbs&ndash;Duhem</div>
+        <div class="idx-desc">De la homogeneïtat de grau 1 de U a U=TS+&sum;X<sub>i</sub>Y<sub>i</sub>+&sum;&mu;<sub>i</sub>N<sub>i</sub>, i a la relació entre les intensives.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>2.3 &middot; Potencials termodinàmics</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_potencials_legendre.html">
+        <div class="idx-tag">2.3(a)&ndash;(e)</div>
+        <div class="idx-title">Transformades de Legendre: H, F, G, &Omega;</div>
+        <div class="idx-desc">El mateix truc, quatre vegades: canviem S per T, V per P, o totes dues &mdash; i llegim Q<sup>rev</sup>, W<sup>rev</sup> directament.</div>
+      </a>
+      <a class="idx-card" href="sim_legendre.html">
+        <div class="idx-tag">sim &middot; 2.3</div>
+        <div class="idx-title">La transformada de Legendre, en moviment</div>
+        <div class="idx-desc">Mou el punt de tangència: l'ordenada a l'origen és H, i (P,H) va dibuixant la corba transformada punt a punt.</div>
+      </a>
+      <a class="idx-card" href="flux_legendre_geometria.html">
+        <div class="idx-tag">2.3 &middot; geometria</div>
+        <div class="idx-title">La transformada de Legendre, vista com a geometria</div>
+        <div class="idx-desc">H és l'ordenada a l'origen de la recta tangent a U(V) &mdash; d'on surt la fórmula i per què no es perd informació.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>2.4 &middot; Relacions de Maxwell</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_maxwell.html">
+        <div class="idx-tag">2.4</div>
+        <div class="idx-title">Relacions de Maxwell</div>
+        <div class="idx-desc">Els potencials també són funcions d'estat &rArr; quatre condicions d'igualtat de derivades creuades.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>2.5 &middot; Criteris d'estabilitat</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_estabilitat_desigualtat.html">
+        <div class="idx-tag">2.5(a)&ndash;(b)</div>
+        <div class="idx-title">Desigualtat de Clausius&ndash;Gibbs</div>
+        <div class="idx-desc">De la 2a llei aplicada a un sistema amb reservoris, a l'entropia màxima / energia mínima.</div>
+      </a>
+      <a class="idx-card" href="flux_estabilitat_desigualtat_bis.html">
+        <div class="idx-tag">2.5(a)&ndash;(b) bis</div>
+        <div class="idx-title">Clausius&ndash;Gibbs, versió dels apunts</div>
+        <div class="idx-desc">El mateix destí pel camí de 2.6.1 dels apunts: tres reservoris i la forma d'Euler de cadascun.</div>
+      </a>
+      <a class="idx-card" href="flux_minims_potencials.html">
+        <div class="idx-tag">2.5 &middot; F, H, G</div>
+        <div class="idx-title">Mínims dels potencials F, H i G</div>
+        <div class="idx-desc">La mateixa desigualtat de Clausius&ndash;Gibbs, llegida amb tres muntatges de reservoris diferents &mdash; cada muntatge, el seu potencial.</div>
+      </a>
+      <a class="idx-card" href="flux_estabilitat_cv_kappa.html">
+        <div class="idx-tag">2.5(c)&ndash;(d)</div>
+        <div class="idx-title">Criteris d'estabilitat: C<sub>V</sub>, C<sub>P</sub>, &kappa;<sub>T</sub>, &kappa;<sub>S</sub></div>
+        <div class="idx-desc">Del segon ordre del desenvolupament de U, a C<sub>P</sub>&gt;C<sub>V</sub>&gt;0 i &kappa;<sub>T</sub>&gt;&kappa;<sub>S</sub>&gt;0.</div>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="tema-heading">Tema 3 &middot; Descripció microscòpica de sistemes macroscòpics</div>
+  <p class="tema-subtitle">Col&middot;lectivitat microcanònica: microstats i macrostats, els dos postulats, la fórmula de Boltzmann i les seves aplicacions al gas ideal, al sòlid i als sistemes discrets.</p>
+
+  <div class="idx-section">
+    <h2>3.1&ndash;3.3 &middot; Conceptes i postulats</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_conceptes_microcanonica.html">
+        <div class="idx-tag">3.1 &middot; Conceptes i postulats</div>
+        <div class="idx-title">Conceptes i postulats</div>
+        <div class="idx-desc">Microstat, macrostat, espai de fases, col&middot;lectivitat i els dos postulats &mdash; el vocabulari que cal tenir fixat abans de comptar res.</div>
+      </a>
+      <a class="idx-card" href="flux_microcanonica_omega.html">
+        <div class="idx-tag">3.3</div>
+        <div class="idx-title">Comptar microstats: &Omega;, &Gamma;</div>
+        <div class="idx-desc">De l'equiprobabilitat a &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup> i al volum &Gamma; que té a sota.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>3.4 &middot; Connexió termodinàmica&ndash;mecànica estadística</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_formula_boltzmann.html">
+        <div class="idx-tag">3.4</div>
+        <div class="idx-title">Fórmula de Boltzmann</div>
+        <div class="idx-desc">Dos subsistemes en contacte tèrmic, mirats amb entropies i amb recomptes: d'aquí surt S=k<sub>B</sub>ln&Omega;.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>3.5&ndash;3.7 &middot; Aplicacions clàssiques</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_stirling.html">
+        <div class="idx-tag">3.5 · eina</div>
+        <div class="idx-title">Aproximació de Stirling</div>
+        <div class="idx-desc">ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N: una suma de logaritmes atrapada entre dues integrals, i el terme &frac12;ln(2&pi;N) que surt d'una gaussiana.</div>
+      </a>
+      <a class="idx-card" href="flux_gas_ideal_microcanonica.html">
+        <div class="idx-tag">3.5</div>
+        <div class="idx-title">Gas ideal monoatòmic</div>
+        <div class="idx-desc">Del hamiltonià a PV=Nk<sub>B</sub>T, passant per una hiperesfera de 3N dimensions i per la paradoxa de Gibbs.</div>
+      </a>
+      <a class="idx-card" href="flux_entropia_mescla.html">
+        <div class="idx-tag">3.6</div>
+        <div class="idx-title">Entropia de mescla</div>
+        <div class="idx-desc">Treure una paret entre dues meitats del mateix gas: amb l'entropia equivocada surt &Delta;S&gt;0; amb Sackur-Tetrode, zero.</div>
+      </a>
+      <a class="idx-card" href="flux_indistingibilitat_recintes.html">
+        <div class="idx-tag">3.6</div>
+        <div class="idx-title">Indistingibles entre recintes</div>
+        <div class="idx-desc">Dividir pel N! de totes les partícules o recinte per recinte dona el mateix; una paret permeable només afegeix un terme d'ordre ln&nbsp;N.</div>
+      </a>
+      <a class="idx-card" href="flux_solid_classic.html">
+        <div class="idx-tag">3.7</div>
+        <div class="idx-title">Sòlid clàssic</div>
+        <div class="idx-desc">Un canvi de variable converteix l'el&middot;lipsoide H=E en una esfera, i en surt C<sub>V</sub>=3Nk<sub>B</sub> (Dulong-Petit).</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>3.8 &middot; Sistemes discrets</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_solid_einstein.html">
+        <div class="idx-tag">3.8.1</div>
+        <div class="idx-title">Sòlid quàntic d'Einstein</div>
+        <div class="idx-desc">El primer &Omega; comptat amb combinatòria, i el primer model que compleix el tercer principi.</div>
+      </a>
+      <a class="idx-card" href="flux_comptatge_discret.html">
+        <div class="idx-tag">3.8.2a</div>
+        <div class="idx-title">Comptatge sense degeneració</div>
+        <div class="idx-desc">N i E fixen les ocupacions: per a distingibles queda N!/&prod;n<sub>i</sub>!, per a bosons i fermions no queda res a comptar.</div>
+      </a>
+      <a class="idx-card" href="flux_comptatge_degenerat.html">
+        <div class="idx-tag">3.8.2b</div>
+        <div class="idx-title">Comptatge amb degeneració</div>
+        <div class="idx-desc">g<sub>i</sub> estats per nivell: &Omega;(N,E) en les tres estadístiques, les fórmules dels apunts ben llegides, i d'on surt el 1/N!.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>3.9 &middot; Entropia estadística</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_lagrange.html">
+        <div class="idx-tag">3.9 · eina</div>
+        <div class="idx-title">Multiplicadors de Lagrange</div>
+        <div class="idx-desc">Extrems amb lligams: sumar zeros ben triats, &lambda;<sub>a</sub>dg<sub>a</sub>, fins que els desplaçaments que queden són independents. I què vol dir &lambda;.</div>
+      </a>
+      <a class="idx-card" href="flux_entropia_shannon.html">
+        <div class="idx-tag">3.9</div>
+        <div class="idx-title">Entropia estadística</div>
+        <div class="idx-desc">Maximitzant &minus;k<sub>B</sub>&sum;P&nbsp;ln&nbsp;P surten alhora el segon postulat i la fórmula de Boltzmann.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>Tema 3 &middot; Simulacions</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="sim_microstats_macrostats.html">
+        <div class="idx-tag">sim &middot; 3.1 i 3.8.2</div>
+        <div class="idx-title">Microstats i macrostats, comptats un per un</div>
+        <div class="idx-desc">Els 2<sup>N</sup> microstats escrits i agrupats; sorteja'n a l'atzar i mira quin macrostat et surt sempre.</div>
+      </a>
+      <a class="idx-card" href="sim_mescla.html">
+        <div class="idx-tag">sim &middot; 3.6</div>
+        <div class="idx-title">Treure la paret: gàsos idèntics o diferents</div>
+        <div class="idx-desc">La paradoxa de Gibbs amb dos botons: la fórmula sense N! dóna &Delta;S&gt;0 per a un procés que es desfà posant la paret.</div>
+      </a>
+      <a class="idx-card" href="sim_hiperesfera.html">
+        <div class="idx-tag">sim &middot; 3.3</div>
+        <div class="idx-title">Per què &Omega; i &Gamma; tenen el mateix logaritme</div>
+        <div class="idx-desc">En dimensió alta, gairebé tot el volum és a la pell. El número, en lloc de la frase.</div>
+      </a>
+      <a class="idx-card" href="sim_solids_einstein.html">
+        <div class="idx-tag">sim &middot; 3.4 i 3.8.1</div>
+        <div class="idx-title">Dos sòlids d'Einstein compartint energia</div>
+        <div class="idx-desc">El màxim de &Omega;<sub>T</sub> existeix i s'estreny amb N; i les dues temperatures s'igualen al pic.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tema-heading">Tema 4 &middot; Distribució de Maxwell-Boltzmann</div>
+  <p class="tema-subtitle">La distribució de velocitats d'una partícula d'un gas ideal, deduïda de la microcanònica de tot el gas, i les seves aplicacions: pressió cinètica i efusió.</p>
+
+  <div class="idx-section">
+    <h2>4.1 &middot; Deducció</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_mb_deduccio.html">
+        <div class="idx-tag">4.1a</div>
+        <div class="idx-title">Deducció de la distribució de moments</div>
+        <div class="idx-desc">&rho;(<strong>p</strong><sub>1</sub>)&prop;&Omega;<sub>resta</sub>(U&minus;p<sub>1</sub>&sup2;/2m): la partícula hereta els microstats de les altres, i en el límit N&rarr;&infin; surt la gaussiana.</div>
+      </a>
+      <a class="idx-card" href="flux_mb_velocitats.html">
+        <div class="idx-tag">4.1b</div>
+        <div class="idx-title">Les tres distribucions de velocitat</div>
+        <div class="idx-desc">Vector, component i celeritat: el jacobià 4&pi;v&sup2; fa que estar quiet sigui el vector més probable però la celeritat menys probable.</div>
+      </a>
+      <a class="idx-card" href="flux_mb_valors_mitjans.html">
+        <div class="idx-tag">4.1c</div>
+        <div class="idx-title">Velocitats característiques</div>
+        <div class="idx-desc">v<sub>p</sub>&lt;&lang;v&rang;&lt;v<sub>rms</sub>, totes &prop;&radic;(T/m), i &lang;&frac12;mv&sup2;&rang;=3/2k<sub>B</sub>T com a prova de coherència.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="idx-section">
+    <h2>4.2&ndash;4.3 &middot; Aplicacions</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_mb_pressio.html">
+        <div class="idx-tag">4.2</div>
+        <div class="idx-title">Pressió cinètica</div>
+        <div class="idx-desc">Moment lliurat a la paret per xocs: PV=Nk<sub>B</sub>T sense passar per l'entropia.</div>
+      </a>
+      <a class="idx-card" href="flux_mb_efusio.html">
+        <div class="idx-tag">4.3</div>
+        <div class="idx-title">Efusió</div>
+        <div class="idx-desc">J=&frac14;n&lang;v&rang;, buidatge exponencial amb &tau;=4V/A&lang;v&rang;, i per què serveix per separar isòtops.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tema-heading">Tema 5 &middot; Col&middot;lectivitat canònica</div>
+  <p class="tema-subtitle">Un sistema en contacte amb una font a temperatura T: el factor de Boltzmann, la funció de partició i l'energia lliure de Helmholtz; aplicacions a sistemes ideals, equipartició i sistemes discrets.</p>
+
+  <div class="idx-section">
+    <h2>5.1 &middot; La col&middot;lectivitat canònica</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_canonica_deduccio.html">
+        <div class="idx-tag">5.1a</div>
+        <div class="idx-title">La distribució canònica</div>
+        <div class="idx-desc">Sistema + font, microcanònics junts: integrant la font, &rho;&prop;e<sup>&minus;&beta;H</sup>. I què vol dir exactament "font".</div>
+      </a>
+      <a class="idx-card" href="flux_canonica_fluctuacions.html">
+        <div class="idx-tag">5.1b</div>
+        <div class="idx-title">Energia mitjana i fluctuacions</div>
+        <div class="idx-desc">U=&minus;&part;ln&nbsp;Z/&part;&beta;, &sigma;<sub>E</sub><sup>2</sup>=k<sub>B</sub>T<sup>2</sup>C<sub>V</sub>, fluctuació relativa ~1/&radic;N. I C<sub>V</sub>&ge;0 com a variància.</div>
+      </a>
+      <a class="idx-card" href="flux_canonica_helmholtz.html">
+        <div class="idx-tag">5.1c</div>
+        <div class="idx-title">F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z</div>
+        <div class="idx-desc">Z és la transformada de Laplace de &Omega;; el pas de sella la converteix en la de Legendre de S. Sense constants indeterminades.</div>
+      </a>
+    </div>
+  </div>
+  <div class="idx-section">
+    <h2>5.2&ndash;5.5 &middot; Sistemes ideals</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_canonica_ideals.html">
+        <div class="idx-tag">5.2&ndash;5.3</div>
+        <div class="idx-title">Sistemes ideals i degeneració</div>
+        <div class="idx-desc">Z=Z<sub>1</sub><sup>N</sup> o Z<sub>1</sub><sup>N</sup>/N! (només en el límit clàssic), i Z<sub>1</sub>=&int;g(E)e<sup>&minus;&beta;E</sup>dE.</div>
+      </a>
+      <a class="idx-card" href="flux_canonica_gas_ideal.html">
+        <div class="idx-tag">5.4</div>
+        <div class="idx-title">Gas ideal monoatòmic</div>
+        <div class="idx-desc">Z<sub>1</sub>=V/&lambda;<sup>3</sup>: equacions d'estat i Sackur-Tetrode en tres línies. &lambda; decideix si el gas és clàssic.</div>
+      </a>
+      <a class="idx-card" href="flux_equiparticio.html">
+        <div class="idx-tag">5.5</div>
+        <div class="idx-title">Teorema d'equipartició</div>
+        <div class="idx-desc">&lang;x<sub>i</sub>&part;H/&part;x<sub>j</sub>&rang;=k<sub>B</sub>T&delta;<sub>ij</sub> per parts; k<sub>B</sub>T/2 per terme quadràtic, i per què falla en quàntica.</div>
+      </a>
+    </div>
+  </div>
+  <div class="idx-section">
+    <h2>5.6 &middot; Sistemes discrets</h2>
+    <div class="idx-list">
+      <a class="idx-card" href="flux_canonica_discrets.html">
+        <div class="idx-tag">5.6</div>
+        <div class="idx-title">Canònica per a sistemes discrets</div>
+        <div class="idx-desc">Shannon amb dos lligams: el segon multiplicador és 1/T, i F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z exacta. Dues partícules: MB, BE, FD i el 1/N!.</div>
+      </a>
+      <a class="idx-card" href="flux_canonica_oscillador_quantic.html">
+        <div class="idx-tag">5.6.1</div>
+        <div class="idx-title">Oscil&middot;lador harmònic quàntic</div>
+        <div class="idx-desc">Una sèrie geomètrica dóna el C<sub>V</sub> d'Einstein: C<sub>V</sub>&rarr;0 a T=0, equipartició a T alta.</div>
+      </a>
+      <a class="idx-card" href="flux_canonica_limit_continu.html">
+        <div class="idx-tag">5.6.1</div>
+        <div class="idx-title">Del discret al continu</div>
+        <div class="idx-desc">Partícula en una caixa: quan &lambda;&#8810;L la suma és una integral, i d'aquí la cel&middot;la h<sup>3</sup>.</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>Cada guia enllaça, quan cal, amb les guies anteriors dels quals depèn &mdash; per repassar-los si cal, sense perdre el fil, fins i tot entre temes diferents. Als Temes 1 i 2, les seccions purament definitòries (per exemple, Tema 1: 1.1, 1.3, 1.5.1 introducció, 1.6; Tema 2: 2.2(a)&ndash;(b)) no tenen guia pròpia: no contenen cap deducció multi-pas, només postulats i definicions directes; es troben senceres als guions de pissarra de cada tema. Al Tema 3, en canvi, els conceptes i els dos postulats sí que tenen pàgina pròpia (<a href="flux_conceptes_microcanonica.html">3.1&ndash;3.3</a>), perquè tot el tema s'hi recolza i convé tenir-los a mà.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>

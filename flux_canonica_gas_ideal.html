@@ -1,0 +1,200 @@
+<!doctype html>
+<title>Guia de classe — gas ideal a la col·lectivitat canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.4 &middot; guió de pissarra</div>
+  <h1>El <em>gas ideal monoatòmic</em>, en canònica</h1>
+  <p class="subtitle">El mateix sistema del Tema 3, ara amb una gaussiana en lloc d'una hiperesfera. Surten les mateixes equacions d'estat i la mateixa Sackur-Tetrode, i apareix una longitud nova: la longitud d'ona tèrmica.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Gas ideal monoatòmic: H<sub>1</sub>=p<sup>2</sup>/2m</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_fluctuacions.html">5.1: U=&minus;&part;ln&nbsp;Z/&part;&beta;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_helmholtz.html">5.1: P=k<sub>B</sub>T&part;ln&nbsp;Z/&part;V</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_stirling.html">Aproximació de Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_helmholtz.html">5.1: S=&minus;(&part;F/&part;T)<sub>V,N</sub></a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Funció de partició d'una partícula</span></div><div class="eq">\[ Z_{1}=\dfrac{V}{\lambda^{3}},\qquad\lambda\left(T\right)=\dfrac{h}{\sqrt{2\pi mk_{B}T}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Equacions calòrica i tèrmica d'estat</span></div><div class="eq">\[ U=\dfrac{3}{2}Nk_{B}T\qquad\qquad PV=Nk_{B}T \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Sackur-Tetrode, per segona vegada</span></div><div class="eq">\[ S=Nk_{B}\left[\ln\left(\dfrac{V}{N\lambda^{3}}\right)+\dfrac{5}{2}\right] \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Gas ideal monoatòmic: H<sub>1</sub>=p<sup>2</sup>/2m</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Una partícula lliure dins un volum V</div>
+        <div class="eq">\[ Z_{1}=\int\dfrac{d^{3}q\,d^{3}p}{h^{3}}\,e^{-\beta p^{2}/2m} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La Z<sub>1</sub> dels <a href="flux_canonica_ideals.html">sistemes ideals</a>, amb el hamiltonià d'una partícula lliure.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; H<sub>1</sub> no depèn de <strong>q</strong> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Les posicions donen V</span></div>
+        <div class="eq">\[ Z_{1}=\dfrac{V}{h^{3}}\int d^{3}p\,e^{-\beta p^{2}/2m} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Tres gaussianes</span></div>
+        <div class="eq">\[ \begin{aligned}&\int d^{3}p\,e^{-\beta\left(p_{x}^{2}+p_{y}^{2}+p_{z}^{2}\right)/2m} \\ &\quad=\left(\dfrac{2\pi m}{\beta}\right)^{3/2}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">També surt en esfèriques, 4&pi;&int;p<sup>2</sup>e<sup>&minus;&beta;p&sup2;/2m</sup>dp; o amb la degeneració g(E)=(2&pi;V/h<sup>3</sup>)(2m)<sup>3/2</sup>E<sup>1/2</sup> i Z<sub>1</sub>=&int;g&nbsp;e<sup>&minus;&beta;E</sup>dE.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; definint &lambda; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Funció de partició d'una partícula</span></div>
+        <div class="eq">\[ Z_{1}=\dfrac{V}{\lambda^{3}},\qquad\lambda\left(T\right)=\dfrac{h}{\sqrt{2\pi mk_{B}T}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">&lambda; és la <strong>longitud d'ona tèrmica de de Broglie</strong>: la longitud d'ona d'una partícula amb el moment típic a temperatura T, p~&radic;(mk<sub>B</sub>T).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_fluctuacions.html">5.1: U=&minus;&part;ln&nbsp;Z/&part;&beta;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Energia: només importa com depèn Z<sub>1</sub> de &beta;</span></div>
+        <div class="eq">\[ \begin{gathered}\ln Z=N\ln Z_{1}-\ln N! \\[6pt] U=-N\dfrac{\partial\ln Z_{1}}{\partial\beta}=-N\dfrac{\partial}{\partial\beta}\ln\beta^{-3/2}=\dfrac{3N}{2\beta}\end{gathered} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El ln&nbsp;N! no depèn de &beta; ni de V: no afecta ni U ni P.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_helmholtz.html">5.1: P=k<sub>B</sub>T&part;ln&nbsp;Z/&part;V</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Pressió: només importa com depèn Z<sub>1</sub> de V</span></div>
+        <div class="eq">\[ P=k_{B}T\,N\,\dfrac{\partial\ln Z_{1}}{\partial V}=\dfrac{Nk_{B}T}{V} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; aïllant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Equacions calòrica i tèrmica d'estat</span></div>
+        <div class="eq">\[ U=\dfrac{3}{2}Nk_{B}T\qquad\qquad PV=Nk_{B}T \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Les mateixes que a la <a href="flux_gas_ideal_microcanonica.html">microcanònica</a>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_stirling.html">Aproximació de Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">L'energia lliure, amb Stirling</span></div>
+        <div class="eq">\[ \begin{aligned}F&=-k_{B}T\left(N\ln\dfrac{V}{\lambda^{3}}-N\ln N+N\right) \\[4pt] &=-Nk_{B}T\left[\ln\left(\dfrac{V}{N\lambda^{3}}\right)+1\right]\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Aquí sí que el 1/N! importa: sense ell, F no seria extensiva (hi hauria ln&nbsp;V en lloc de ln(V/N)).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_helmholtz.html">5.1: S=&minus;(&part;F/&part;T)<sub>V,N</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">L'entropia és la derivada respecte de T</span></div>
+        <div class="eq">\[ \begin{aligned}S&=Nk_{B}\left[\ln\left(\dfrac{V}{N\lambda^{3}}\right)+1\right] \\ &\quad+Nk_{B}T\,\dfrac{\partial}{\partial T}\ln\lambda^{-3}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com que &lambda;<sup>&minus;3</sup>&prop;T<sup>3/2</sup>, l'últim terme val 3Nk<sub>B</sub>/2.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; 1+3/2=5/2 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Sackur-Tetrode, per segona vegada</span></div>
+        <div class="eq">\[ S=Nk_{B}\left[\ln\left(\dfrac{V}{N\lambda^{3}}\right)+\dfrac{5}{2}\right] \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> és la <a href="flux_gas_ideal_microcanonica.html">Sackur-Tetrode</a> del Tema 3: amb U=3/2&middot;Nk<sub>B</sub>T, (4&pi;mU/3Nh<sup>2</sup>)<sup>3/2</sup>=&lambda;<sup>&minus;3</sup>. Dues col&middot;lectivitats, la mateixa termodinàmica &mdash; però aquí en tres línies i sense hiperesferes.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">&lambda; decideix si el gas és clàssic</span></div>
+    <div class="card-note">La Sackur-Tetrode només té sentit si V/(N&lambda;<sup>3</sup>)&#8811;1; si no, l'entropia surt negativa. Amb la distància mitjana entre partícules l=(V/N)<sup>1/3</sup>, la condició és</div>
+    <div class="eq">\[ \lambda\ll l\quad\Longleftrightarrow\quad\dfrac{N\lambda^{3}}{V}\ll 1\quad\Longleftrightarrow\quad\dfrac{Z_{1}}{N}\gg 1 \]</div>
+    <div class="card-note">L'última forma diu que hi ha molts més estats d'una partícula accessibles que partícules: és exactament el <a href="flux_comptatge_degenerat.html">límit clàssic</a> que justifica el 1/N!.</div>
+    <table class="mini-table"><tr><th>Sistema</th><th>&lambda;</th><th>l=(V/N)<sup>1/3</sup></th><th>Règim</th></tr><tr><td>N<sub>2</sub>, 300 K, 1 atm</td><td>0.019 nm</td><td>3.4 nm</td><td>clàssic (&lambda;/l&asymp;0.006)</td></tr><tr><td>Electrons en el coure, 300 K</td><td>4.3 nm</td><td>0.23 nm</td><td>quàntic: Fermi-Dirac</td></tr></table>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Maxwell-Boltzmann, ara sense límit</span></div>
+    <div class="card-note">Per a una partícula, la canònica dóna directament &rho;<sub>1</sub>(<strong>p</strong>)&prop;e<sup>&minus;&beta;p&sup2;/2m</sup>: la distribució de <a href="flux_mb_deduccio.html">Maxwell-Boltzmann</a>. Al Tema 4 calia el límit N&rarr;&infin;, perquè la resta del gas feia de font; aquí la font ja hi és des del principi, i el resultat és exacte per a qualsevol N.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.4 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

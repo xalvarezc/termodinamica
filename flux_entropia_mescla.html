@@ -1,0 +1,152 @@
+<!doctype html>
+<title>Guia de classe — entropia de mescla i paradoxa de Gibbs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.6 &middot; guió de pissarra</div>
+  <h1>L'<em>entropia de mescla</em></h1>
+  <p class="subtitle">La paradoxa de Gibbs posada a prova amb un experiment mental: treure una paret entre dues meitats del mateix gas. Amb l'entropia equivocada surt &Delta;S&gt;0; amb la correcta, zero.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Premissa</span><span>Les partícules són idèntiques i indistingibles</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gas_ideal_microcanonica.html">3.5, pas 7: S abans de Sackur-Tetrode</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_gas_ideal_microcanonica.html">3.5: equació de Sackur-Tetrode</a></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">La contradicció</span></div><div class="eq">\[ \begin{aligned} \Delta S_{T}&=N_{1}k_{B}\ln\left(\dfrac{N_{1}+N_{2}}{N_{1}}\right) \\[4pt] &\quad+N_{2}k_{B}\ln\left(\dfrac{N_{1}+N_{2}}{N_{2}}\right)>0 \end{aligned} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">L'entropia de mescla de dos gasos idèntics és zero</span></div><div class="eq">\[ \begin{aligned} \Delta S_{T}&=Nk_{B}\ln\dfrac{V}{N}-N_{1}k_{B}\ln\dfrac{V_{1}}{N_{1}} \\[4pt] &\quad-N_{2}k_{B}\ln\dfrac{V_{2}}{N_{2}}=0 \end{aligned} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Una paret entre dues meitats del <em>mateix</em> gas</div>
+        <div class="card-note">Un recipient de volum V, dividit per una paret en dos compartiments: N<sub>1</sub> partícules al volum V<sub>1</sub> i N<sub>2</sub> al volum V<sub>2</sub>, tots dos <strong>a la mateixa T i P</strong>, i tots dos del <strong>mateix</strong> gas.</div>
+        <div class="eq">\[ \dfrac{N_{1}}{V_{1}}=\dfrac{N_{2}}{V_{2}}=\dfrac{N_{1}+N_{2}}{V} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Igual T i igual P implica igual densitat: aquesta és la relació que es farà servir dos cops.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Premissa</span>
+          <span class="desc">Les partícules són idèntiques i indistingibles</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Traiem la paret: què hauria de passar</span></div>
+        <div class="card-note">Els gasos es barregen, però són el <strong>mateix</strong> gas a la mateixa T i P: macroscòpicament l'estat final és indistingible de l'inicial. Tornar a posar la paret retorna exactament el mateix estat. Per tant el procés ha de ser reversíble i ha de sortir</div>
+        <div class="eq">\[ \Delta S_{T}=0 \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gas_ideal_microcanonica.html">3.5, pas 7: S abans de Sackur-Tetrode</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Provem-ho amb l'entropia <em>sense</em> indistingibilitat</span></div>
+        <div class="eq">\[ S=Nk_{B}\left[\dfrac{3}{2}+\ln\left(aV\right)+\dfrac{3}{2}\ln\left(\dfrac{U}{N}\right)\right] \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És l'expressió del pas 7 del <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>, abans d'afegir-hi el &minus;k<sub>B</sub>ln&nbsp;N!. Com que T no canvia, U/N tampoc: l'únic terme que es mou és el del volum.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; S<sub>final</sub> &minus; S<sub>1</sub> &minus; S<sub>2</sub> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">El balanç, només amb el terme del volum</span></div>
+        <div class="eq">\[ \begin{aligned} \Delta S_{T}&=k_{B}\left[N\ln V-N_{1}\ln V_{1}-N_{2}\ln V_{2}\right] \\[6pt] &=N_{1}k_{B}\ln\left(\dfrac{V}{V_{1}}\right)+N_{2}k_{B}\ln\left(\dfrac{V}{V_{2}}\right) \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; igualtat de densitats &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">La contradicció</span></div>
+        <div class="eq">\[ \begin{aligned} \Delta S_{T}&=N_{1}k_{B}\ln\left(\dfrac{N_{1}+N_{2}}{N_{1}}\right) \\[4pt] &\quad+N_{2}k_{B}\ln\left(\dfrac{N_{1}+N_{2}}{N_{2}}\right)>0 \end{aligned} \]</div>
+        <div class="card-note">Fent servir la igualtat de densitats del punt de partida. És estrictament positiu <strong>sempre</strong>, fins i tot en el cas més inofensiu de tots: N<sub>1</sub>=N<sub>2</sub> i V<sub>1</sub>=V<sub>2</sub>, on dóna &Delta;S<sub>T</sub>=2N<sub>1</sub>k<sub>B</sub>ln&nbsp;2&ne;0. Hem "creat" entropia només traient una paret entre dues meitats idèntiques.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_gas_ideal_microcanonica.html">3.5: equació de Sackur-Tetrode</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Refem el càlcul amb l'entropia correcta</span></div>
+        <div class="eq">\[ S=Nk_{B}\ln\left[\dfrac{V}{N}\left(\dfrac{4\pi mU}{3Nh^{2}}\right)^{3/2}\right]+\dfrac{5N}{2}k_{B} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara el terme que depèn del volum és Nk<sub>B</sub>ln(V/N), no Nk<sub>B</sub>ln&nbsp;V.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; les tres densitats són iguals &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">L'entropia de mescla de dos gasos idèntics és zero</span></div>
+        <div class="eq">\[ \begin{aligned} \Delta S_{T}&=Nk_{B}\ln\dfrac{V}{N}-N_{1}k_{B}\ln\dfrac{V_{1}}{N_{1}} \\[4pt] &\quad-N_{2}k_{B}\ln\dfrac{V_{2}}{N_{2}}=0 \end{aligned} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> perquè les tres densitats són iguals i els tres logaritmes també: el balanç s'anul&middot;la idènticament. La paradoxa de Gibbs no era un problema de termodinàmica sinó un error de recompte, i el factor 1/N! el corregeix.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Compte: amb gasos <em>diferents</em> l'entropia de mescla sí que existeix</span></div>
+    <div class="card-note">És el malentès fàcil d'aquesta secció. El que Sackur-Tetrode arregla és només el cas de gasos <strong>idèntics</strong>. Si els dos compartiments contenen espècies <em>diferents</em> (posem A i B), cada espècie té el seu propi N<sub>A</sub>! i N<sub>B</sub>!, i cada una passa d'ocupar el seu compartiment a ocupar tot el volum. El resultat és exactament la fórmula del DESTÍ 1, que ara sí que és correcta:</div>
+    <div class="eq">\[ \Delta S_{\text{mescla}}=-Nk_{B}\left(x_{A}\ln x_{A}+x_{B}\ln x_{B}\right)>0 \]</div>
+    <div class="card-note">amb x<sub>A</sub>, x<sub>B</sub> les fraccions molars. I és el que toca: barrejar dos gasos diferents és irreversible de debò &mdash; per separar-los caldria fer-hi treball. El resultat no depèn de <em>com</em> de diferents siguin: és el mateix per a dos isòtops que per a heli i xenó. La discontinuïtat entre "idèntics" i "lleugerament diferents" és real, i és de naturalesa quàntica.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.6 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's. L'experiment, amb els dos botons, a la <a href="sim_mescla.html">simulació de treure la paret</a>.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

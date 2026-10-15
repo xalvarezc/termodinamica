@@ -1,0 +1,229 @@
+<!doctype html>
+<title>Simulació — microstats i macrostats</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; simulació &middot; seccions 3.1 i 3.8.2</div>
+  <h1><em>Microstats</em> i <em>macrostats</em>, comptats un per un</h1>
+  <p class="subtitle">N partícules distingibles i dos nivells d'energia. Tots els microstats són igual de probables &mdash; i tot i així, si en tries un a l'atzar, gairebé sempre et surt el mateix macrostat.</p>
+
+  <div class="card-note" style="margin-bottom:20px;">És l'exemple de <a href="flux_comptatge_discret.html">3.8.2</a> fet en gran. Serveix per a la distinció de <a href="flux_conceptes_microcanonica.html">3.1</a>: un macrostat és compatible amb molts microstats, i aquesta asimetria és tot el tema. Aquí es pot comptar.</div>
+
+  <div class="sim">
+    <div class="sim-controls">
+      <div class="sim-ctl">
+        <label for="n">Partícules &mdash; N <b id="nv">3</b></label>
+        <input type="range" id="n" min="1" max="40" value="3">
+      </div>
+    </div>
+    <div class="sim-presets">
+      <button class="sim-btn" data-n="3">3 &mdash; els 8 microstats, escrits</button>
+      <button class="sim-btn" data-n="4">4</button>
+      <button class="sim-btn" data-n="10">10</button>
+      <button class="sim-btn" data-n="40">40</button>
+      <button class="sim-btn" id="draw1">Tria 1 microstat a l'atzar</button>
+      <button class="sim-btn" id="draw1k">Tria'n 1000</button>
+      <button class="sim-btn" id="auto">▶ Sorteig continu</button>
+      <button class="sim-btn" id="reset">Esborra els sortejos</button>
+    </div>
+
+    <div id="fig"></div>
+    <div id="fig2"></div>
+
+    <div class="sim-out">
+      <div><span>microstats totals 2<sup>N</sup></span><strong id="o-tot">&mdash;</strong></div>
+      <div><span>macrostats possibles</span><strong id="o-macro">&mdash;</strong></div>
+      <div><span>&Omega; del macrostat més gran</span><strong id="o-omax">&mdash;</strong></div>
+      <div><span>la seva fracció</span><strong id="o-frac">&mdash;</strong></div>
+      <div><span>sortejos fets</span><strong id="o-draws">0</strong></div>
+      <div><span>últim microstat</span><strong id="o-last" style="font-size:14px;font-family:'IBM Plex Mono',monospace;">&mdash;</strong></div>
+    </div>
+
+    <div class="sim-note" id="enum"></div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">QUÈ MIRAR</span><span class="card-title">L'equiprobabilitat no és el que sembla</span></div>
+    <div class="card-note" style="margin-top:0;"><strong>Amb N=3, comença comptant.</strong> Hi ha 2&sup3;=8 microstats, escrits tots a sota del gràfic, i només 4 macrostats. El segon postulat diu que <strong>cadascun dels 8 microstats</strong> és igual de probable. No diu que els 4 macrostats ho siguin: n'hi ha un amb 1 microstat i un altre amb 3.</div>
+    <div class="card-note"><strong>Ara prem "Tria'n 1000".</strong> Cada sorteig tira una moneda per partícula &mdash; és a dir, mostreja microstats amb <em>exactament</em> la mateixa probabilitat cadascun, tal com diu el postulat. Les barres buides que s'acumulen damunt del gràfic són el resultat, i segueixen la corba exacta. <strong>Això és el postulat en acció:</strong> de l'equiprobabilitat dels microstats en surt, sense afegir res més, una distribució molt desigual de macrostats.</div>
+    <div class="card-note"><strong>Puja N a 40.</strong> Els microstats totals passen a 10<sup>12</sup>, i el macrostat central se'n queda el 12,5%, mentre que els dels extrems (totes les partícules al mateix nivell) tenen exactament 1 microstat cadascun &mdash; una probabilitat de 10<sup>&minus;12</sup>. Amb N=10<sup>23</sup> l'exponent és tan gran que aquests macrostats, tot i ser perfectament possibles, no passen mai.</div>
+    <div class="card-note">Fixa't que en cap moment no s'ha dit que uns microstats siguin "més naturals" que uns altres, ni s'ha introduït cap dinàmica. L'única cosa que passa és <strong>comptar</strong>. Aquest és el contingut sencer del segon postulat, i el motiu pel qual l'entropia resulta ser un recompte.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Per què aquí les partícules són distingibles</span></div>
+    <div class="card-note" style="margin-top:0;">El recompte &Omega;=N!/(N<sub>1</sub>!N<sub>2</sub>!) compta com a diferents els estats que es diferencien només en <em>quina</em> partícula és a dalt. Això només val si es poden etiquetar &mdash; partícules localitzades, com els nusos d'un sòlid. Per a partícules indistingibles en aquests dos nivells, cada parella (N<sub>1</sub>,N<sub>2</sub>) és <strong>un sol</strong> microstat (&Omega;=1). Dividir per N! no és la resposta en general: només funciona quan hi ha molts més estats que partícules, com en un gas &mdash; i és d'on surt la <a href="flux_entropia_mescla.html">paradoxa de Gibbs</a>. La <a href="flux_comptatge_discret.html">guia del comptatge discret</a> té la taula amb els tres casos (Maxwell-Boltzmann, Bose-Einstein, Fermi-Dirac).</div>
+  </div>
+
+  <footer>Simulació de suport per a les seccions 3.1 i 3.8.2 del Tema 3. L'enumeració explícita apareix fins a N=4 (16 microstats); per sobre, només el recompte.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var el = function (id) { return document.getElementById(id); };
+  var n = el("n");
+  var counts = null;          // sortejos acumulats, per macrostat
+  var draws = 0;
+  var trace = [], autoT = null;     // fraccio al nivell superior dels ultims sortejos
+
+  function binom(N, k) {      // exacte mentre N <= 40
+    var r = 1;
+    for (var i = 1; i <= k; i++) r = r * (N - k + i) / i;
+    return Math.round(r);
+  }
+
+  function reset() { var N = +n.value; counts = new Array(N + 1).fill(0); draws = 0; trace = []; }
+
+  function sample(times) {
+    var N = +n.value, last = "";
+    for (var t = 0; t < times; t++) {
+      var up = 0; last = "";
+      for (var i = 0; i < N; i++) {
+        var b = Math.random() < 0.5;
+        if (b) up++;
+        last += b ? "●" : "○";
+      }
+      counts[up]++; draws++;
+      trace.push(up / N); if (trace.length > 240) trace.shift();
+    }
+    el("o-last").textContent = N <= 40 ? last : "—";
+  }
+
+  function draw() {
+    var N = +n.value;
+    el("nv").textContent = N;
+    if (!counts || counts.length !== N + 1) reset();
+
+    var om = [], i, tot = 0;
+    for (i = 0; i <= N; i++) { om.push(binom(N, i)); tot += om[i]; }
+    var omax = Math.max.apply(null, om);
+
+    var W = 640, H = 285, L = 46, R = 14, T = 26, B = 46;
+    var bw = (W - L - R) / (N + 1);
+    var y = function (v) { return H - B - v * (H - B - T); };
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Nombre de microstats de cada macrostat, i resultat dels sortejos">'];
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+
+    for (i = 0; i <= N; i++) {
+      var cx = L + (i + 0.5) * bw;
+      var h = (H - B) - y(om[i] / omax);
+      s.push('<rect x="' + (cx - bw * 0.37).toFixed(1) + '" y="' + y(om[i] / omax).toFixed(1) +
+             '" width="' + (bw * 0.74).toFixed(1) + '" height="' + Math.max(0, h).toFixed(1) +
+             '" fill="var(--flux)" opacity="' + (om[i] === omax ? "1" : "0.5") + '"/>');
+      if (draws > 0) {                       // sortejos: contorn a sobre
+        var f = counts[i] / draws * tot / omax;
+        s.push('<rect x="' + (cx - bw * 0.37).toFixed(1) + '" y="' + y(f).toFixed(1) +
+               '" width="' + (bw * 0.74).toFixed(1) + '" height="' + Math.max(0, (H - B) - y(f)).toFixed(1) +
+               '" fill="none" stroke="var(--goal)" stroke-width="1.6"/>');
+      }
+      if (N <= 20) s.push('<text x="' + cx.toFixed(1) + '" y="' + (H - B + 15) + '" text-anchor="middle" font-size="10.5" fill="var(--muted)">' + i + "</text>");
+    }
+    if (draws > 0) s.push('<text x="' + (W - R) + '" y="' + (T - 10) + '" text-anchor="end" font-size="12" fill="var(--goal)" font-weight="600">contorn = ' + draws.toLocaleString("ca-ES") + " sortejos</text>");
+    s.push('<text x="' + ((L + W - R) / 2) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="12.5" fill="var(--muted)">partícules al nivell superior &#8594; (cada barra, un macrostat)</text>');
+    s.push('<text x="' + (L - 8) + '" y="' + (T + 10) + '" text-anchor="end" font-size="11.5" fill="var(--muted)">&Omega;</text>');
+    s.push("</svg>");
+    el("fig").innerHTML = s.join("");
+
+    el("o-tot").textContent = tot.toLocaleString("ca-ES");
+    el("o-macro").textContent = N + 1;
+    el("o-omax").textContent = omax.toLocaleString("ca-ES");
+    el("o-frac").textContent = (100 * omax / tot).toFixed(2) + " %";
+    el("o-draws").textContent = draws.toLocaleString("ca-ES");
+
+    // enumeracio explicita, nomes mentre es pot llegir
+    var out = "";
+    if (N <= 4) {
+      var groups = [];
+      for (i = 0; i <= N; i++) groups.push([]);
+      for (var m = 0; m < (1 << N); m++) {
+        var str = "", up = 0;
+        for (var b = 0; b < N; b++) {
+          var on = (m >> b) & 1;
+          up += on; str += on ? "●" : "○";
+        }
+        groups[up].push(str);
+      }
+      out = '<table class="mini-table"><caption>Tots els 2<sup>' + N + "</sup>=" + tot +
+            " microstats, agrupats pel macrostat a què pertanyen (&#9679; = nivell superior)</caption>" +
+            "<tr><th>Macrostat</th><th>Energia</th><th>Microstats</th><th>&Omega;</th></tr>";
+      for (i = 0; i <= N; i++) {
+        out += "<tr" + (om[i] === omax ? ' style="background:var(--flux-soft)"' : "") +
+               "><td>" + i + " a dalt</td><td>" + i + "&epsilon;</td>" +
+               '<td class="sim-micro">' + groups[i].join("&nbsp;&nbsp;") + "</td><td>" + om[i] + "</td></tr>";
+      }
+      out += "</table>";
+    } else {
+      out = "<strong>L'enumeració explícita apareix fins a N=4</strong> (16 microstats). Amb N=" + N +
+            " n'hi hauria " + tot.toLocaleString("ca-ES") + ", i ja només té sentit comptar-los.";
+    }
+    el("enum").innerHTML = out;
+    drawTrace(N);
+  }
+
+  n.addEventListener("input", function () { reset(); draw(); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-n]"), function (b) {
+    b.addEventListener("click", function () { n.value = b.getAttribute("data-n"); reset(); draw(); });
+  });
+  el("draw1").addEventListener("click", function () { sample(1); draw(); });
+  el("draw1k").addEventListener("click", function () { sample(1000); draw(); });
+  el("reset").addEventListener("click", function () { reset(); el("o-last").textContent = "—"; draw(); });
+
+  // ---------- la traça: fraccio de particules al nivell superior, sorteig rere sorteig ----------
+  // La desviacio exacta d'una moneda per particula es 0,5/arrel(N): la banda es fa estreta com 1/arrel(N).
+  function drawTrace(N) {
+    var W = 640, H = 170, L = 48, R = 14, T = 26, B = 24, len = 240;
+    var y = function (v) { return H - B - v * (H - B - T); };
+    var x = function (i) { return L + (i / (len - 1)) * (W - L - R); };
+    var sd = 0.5 / Math.sqrt(N);
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Fraccio de particules al nivell superior en sortejos successius">'];
+    s.push('<rect x="' + L + '" y="' + y(0.5 + sd).toFixed(1) + '" width="' + (W - L - R) + '" height="' + (y(0.5 - sd) - y(0.5 + sd)).toFixed(1) + '" fill="var(--flux)" opacity="0.14"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + y(0.5).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(0.5).toFixed(1) + '" stroke="var(--goal)" stroke-width="1.2" stroke-dasharray="5 4"/>');
+    if (trace.length > 1) {
+      var d = "", i, off = len - trace.length;
+      for (i = 0; i < trace.length; i++) d += (i ? " L " : "M ") + x(off + i).toFixed(1) + "," + y(trace[i]).toFixed(1);
+      s.push('<path d="' + d + '" fill="none" stroke="var(--ink)" stroke-width="1.6"/>');
+    } else {
+      s.push('<text x="' + ((L + W - R) / 2) + '" y="' + ((T + H - B) / 2 + 4) + '" text-anchor="middle" font-size="13" fill="var(--muted)">Prem ▶ Sorteig continu: cada punt és un microstat triat a l’atzar</text>');
+    }
+    s.push('<text x="' + (L - 6) + '" y="' + (y(1) + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">1</text>');
+    s.push('<text x="' + (L - 6) + '" y="' + (y(0) + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">0</text>');
+    s.push('<text x="' + L + '" y="' + (T - 10) + '" font-size="12.5" fill="var(--flux)" font-weight="600">fracció al nivell superior, sorteig rere sorteig · banda ±σ = ' + (100 * sd).toFixed(1) + ' %</text>');
+    s.push('<text x="' + (W - R) + '" y="' + (H - 6) + '" text-anchor="end" font-size="11.5" fill="var(--muted)">sortejos →</text>');
+    s.push("</svg>");
+    el("fig2").innerHTML = s.join("");
+  }
+  el("auto").addEventListener("click", function () {
+    if (autoT) { clearInterval(autoT); autoT = null; el("auto").textContent = "▶ Sorteig continu"; return; }
+    el("auto").textContent = "■ Atura";
+    autoT = setInterval(function () { sample(4); draw(); }, 50);
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", draw);
+  else draw();
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

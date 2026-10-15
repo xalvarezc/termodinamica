@@ -1,0 +1,202 @@
+<!doctype html>
+<title>Guia de classe — equació fonamental de la canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.1 &middot; guió de pissarra</div>
+  <h1>L'equació fonamental: <em>F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z</em></h1>
+  <p class="subtitle">Z és una transformada de Laplace de &Omega;. En el límit termodinàmic la integral la domina un sol pic, i el seu exponent és l'energia lliure de Helmholtz.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_deduccio.html">5.1: Z=&int;e<sup>&minus;&beta;H</sup>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_potencials_legendre.html">2.3: F=U&minus;TS, variables naturals T,V,N</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_potencials_legendre.html">2.3: dF=&minus;SdT&minus;PdV+&mu;dN</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>f(H)=&int;dE&nbsp;f(E)&nbsp;&delta;(E&minus;H)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Mètode de Laplace (punt de sella)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Z és la transformada de Laplace de &Omega;</span></div><div class="eq">\[ Z\left(T,V,N\right)=\int_{0}^{\infty}dE\,\Omega\left(E,V,N\right)e^{-\beta E} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Equació fonamental en la representació de F</span></div><div class="eq">\[ F\left(T,V,N\right)=-k_{B}T\ln Z\left(T,V,N\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Equacions d'estat a partir de Z</span></div><div class="eq">\[ \begin{gathered}S=k_{B}\left(\dfrac{\partial\left(T\ln Z\right)}{\partial T}\right)_{V,N} \\[6pt] P=k_{B}T\left(\dfrac{\partial\ln Z}{\partial V}\right)_{T,N} \\[6pt] \mu=-k_{B}T\left(\dfrac{\partial\ln Z}{\partial N}\right)_{T,V}\end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_deduccio.html">5.1: Z=&int;e<sup>&minus;&beta;H</sup>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Z suma sobre microstats; la volem com una integral sobre energies</div>
+        <div class="eq">\[ Z\left(T,V,N\right)=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Molts microstats tenen la mateixa energia. Agrupant-los, Z hauria de quedar en funció del recompte microcanònic &Omega;(E).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">f(H)=&int;dE&nbsp;f(E)&nbsp;&delta;(E&minus;H)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Introduïm una delta</span></div>
+        <div class="eq">\[ e^{-\beta H\left(\mathbf{q},\mathbf{p}\right)}=\int_{0}^{\infty}dE\,e^{-\beta E}\,\delta\left(E-H\left(\mathbf{q},\mathbf{p}\right)\right) \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">I canviem l'ordre d'integració</span></div>
+        <div class="eq">\[ Z=\int_{0}^{\infty}dE\,e^{-\beta E}\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\delta\left(E-H\right) \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; la integral interior és &Omega;(E,V,N) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Z és la transformada de Laplace de &Omega;</span></div>
+        <div class="eq">\[ Z\left(T,V,N\right)=\int_{0}^{\infty}dE\,\Omega\left(E,V,N\right)e^{-\beta E} \]</div>
+        <div class="card-note">L'integrand, dividit per Z, és la <strong>distribució de l'energia</strong> del sistema: &Omega;(E), que creix enormement amb E, per e<sup>&minus;&beta;E</sup>, que decreix. El producte té un pic.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Escrivim &Omega; com una entropia</span></div>
+        <div class="eq">\[ Z=\int_{0}^{\infty}dE\,\exp\left[-\beta\left(E-TS\left(E\right)\right)\right] \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">S(E) és l'entropia microcanònica del sistema amb energia E (a V,N fixos), i T la temperatura de la font.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Mètode de Laplace (punt de sella)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Un exponent proporcional a N: el domina el màxim</span></div>
+        <div class="eq">\[ \dfrac{\partial}{\partial E}\left(E-TS\right)=0\quad\Longleftrightarrow\quad\dfrac{\partial S}{\partial E}=\dfrac{1}{T} \]</div>
+        <div class="card-note">El màxim és a l'energia U on <strong>la temperatura del sistema iguala la de la font</strong>. La curvatura en aquest punt és &part;<sup>2</sup>S/&part;E<sup>2</sup>=&minus;1/(T<sup>2</sup>C<sub>V</sub>): el pic és una gaussiana d'amplada &radic;(k<sub>B</sub>T<sup>2</sup>C<sub>V</sub>), exactament la &sigma;<sub>E</sub> de les <a href="flux_canonica_fluctuacions.html">fluctuacions</a> (DESTÍ 2).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; exponent ~N, prefactor ~&radic;N &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Integrant la gaussiana</span></div>
+        <div class="eq">\[ \ln Z=-\beta\left(U-TS\left(U\right)\right)+\mathcal{O}\left(\ln N\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">L'amplada del pic només aporta un terme d'ordre ln&nbsp;N, negligible davant dels d'ordre N.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_potencials_legendre.html">2.3: F=U&minus;TS, variables naturals T,V,N</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Equació fonamental en la representació de F</span></div>
+        <div class="eq">\[ F\left(T,V,N\right)=-k_{B}T\ln Z\left(T,V,N\right) \]</div>
+        <div class="card-note">Com S=k<sub>B</sub>ln&Omega; a la microcanònica: un cop calculada Z, tenim tota la termodinàmica. És natural que surti F: Z depèn de T, V i N, que són les variables naturals de l'energia lliure de Helmholtz.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_potencials_legendre.html">2.3: dF=&minus;SdT&minus;PdV+&mu;dN</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Les equacions d'estat són derivades de F</span></div>
+        <div class="eq">\[ \begin{gathered}S=-\left(\dfrac{\partial F}{\partial T}\right)_{V,N},\qquad P=-\left(\dfrac{\partial F}{\partial V}\right)_{T,N} \\[6pt] \mu=\left(\dfrac{\partial F}{\partial N}\right)_{T,V}\end{gathered} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Equacions d'estat a partir de Z</span></div>
+        <div class="eq">\[ \begin{gathered}S=k_{B}\left(\dfrac{\partial\left(T\ln Z\right)}{\partial T}\right)_{V,N} \\[6pt] P=k_{B}T\left(\dfrac{\partial\ln Z}{\partial V}\right)_{T,N} \\[6pt] \mu=-k_{B}T\left(\dfrac{\partial\ln Z}{\partial N}\right)_{T,V}\end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el programa de la canònica: hamiltonià &rarr; Z &rarr; F &rarr; tot. És el mateix programa que el de la microcanònica, però substituint un recompte a energia fixa (sovint difícil) per una integral sense lligams (sovint fàcil).</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què no n'hi ha prou d'igualar U</span></div>
+    <div class="card-note">Els apunts arriben a F per un altre camí. De F=U&minus;TS i S=&minus;&part;F/&part;T surt U=&part;(&beta;F)/&part;&beta;, i el <a href="flux_canonica_fluctuacions.html">DESTÍ 1 de les fluctuacions</a> diu U=&minus;&part;ln&nbsp;Z/&part;&beta;. Igualant:</div>
+    <div class="eq">\[ \dfrac{\partial\left(\beta F\right)}{\partial\beta}=-\dfrac{\partial\ln Z}{\partial\beta}\quad\Longrightarrow\quad\beta F=-\ln Z+c\left(V,N\right) \]</div>
+    <div class="card-note">Integrar respecte de &beta; a V,N fixos deixa una <strong>funció</strong> de V i N, no una constant. I no és irrellevant: canviaria P i &mu;. El camí del pas de sella la fixa: c=0 (llevat de termes d'ordre ln&nbsp;N). Als <a href="flux_canonica_discrets.html">sistemes discrets</a> (5.6) s'hi arriba encara per un tercer camí, que la fixa exactament.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Laplace a la mecànica estadística, Legendre a la termodinàmica</span></div>
+    <table class="mini-table"><tr><th></th><th>Microcanònica</th><th>Canònica</th></tr><tr><td>Variables</td><td>E, V, N</td><td>T, V, N</td></tr><tr><td>Recompte</td><td>&Omega;(E,V,N)</td><td>Z=&int;&Omega;e<sup>&minus;&beta;E</sup>dE</td></tr><tr><td>Potencial</td><td>S=k<sub>B</sub>ln&Omega;</td><td>F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z</td></tr><tr><td>Relació</td><td colspan="2">F=U&minus;TS: <a href="flux_legendre_geometria.html">transformada de Legendre</a></td></tr></table>
+    <div class="card-note">El pas de sella converteix la transformada de <strong>Laplace</strong> de &Omega; en la transformada de <strong>Legendre</strong> de S: canviar de col&middot;lectivitat és canviar de potencial termodinàmic.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.1 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

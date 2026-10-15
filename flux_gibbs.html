@@ -1,0 +1,106 @@
+<!doctype html>
+<title>Guia de classe — equació de Gibbs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.3(g) &middot; guió de pissarra</div>
+  <h1>L'<em>equació de Gibbs</em></h1>
+  <p class="subtitle">On es tanca el cercle: el primer i el segon principi, combinats en una sola equació &mdash; literalment el punt de partida del Tema 2.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_joule.html">1.4: primer principi</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_entropia_definicio.html">1.5.3(b): definició d'entropia</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm đQ<sup>rev</sup> al primer principi</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Equació de Gibbs</span></div><div class="eq">\[ T dS = dU - \text{đ}W^{rev} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_joule.html">1.4: primer principi</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Primer principi (procés reversible)</div>
+        <div class="eq">\[ dU = \text{đ}Q - \text{đ}W \]</div>
+        <div class="card-note">Aquí đW denota el treball fet <em>pel</em> sistema.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_entropia_definicio.html">1.5.3(b): definició d'entropia</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Per un procés reversible</span></div>
+        <div class="eq">\[ \text{đ}Q^{rev} = T dS \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm đQ<sup>rev</sup> al primer principi</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Equació de Gibbs</span></div>
+        <div class="eq">\[ T dS = dU - \text{đ}W^{rev} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> per un fluid, TdS=dU+PdV; per un sistema magnètic, TdS=dU&minus;&Hscr;dM. La <a href="flux_tds_fluid.html">guia de les equacions TdS</a> hi parteix directament.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">PER QUÈ IMPORTA</span><span class="card-title">On el 1r i el 2n principi es fonen en una equació</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Elimina đQ i đW &mdash; només queden diferencials de funcions d'estat (U, S, V). I això té una conseqüència que sol passar desapercebuda: com que dU, dS i dV són diferencials de funcions d'estat, la relació val entre dos estats d'equilibri qualssevol, encara que el procés real que els uneixi sigui irreversible &mdash; tot i haver-la deduït suposant reversibilitat.</div>
+    <div class="card-note">És literalment on comença el <a href="flux_equacio_fonamental.html">Tema 2</a>: U(S,V,N), amb la Gibbs com el seu diferencial, es converteix en "tota la informació termodinàmica del sistema". Forma d'Euler, els quatre potencials, Maxwell, estabilitat &mdash; tot el Tema 2 és, en el fons, exprimir aquesta única equació de maneres diferents.</div>
+    <div class="card-note">I és universal: per un fluid, TdS=dU+PdV; per un sistema magnètic, TdS=dU&minus;&Hscr;dM &mdash; el mateix esquelet, només canviant el terme de treball.</div>
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.3(g) del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

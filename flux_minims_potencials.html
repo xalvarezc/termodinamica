@@ -1,0 +1,224 @@
+<!doctype html>
+<title>Guia de classe — mínims dels potencials F, H i G</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.5 &middot; guió de pissarra</div>
+  <h1>Els <em>mínims de F, H i G</em></h1>
+  <p class="subtitle">El guió diu, sense demostrar-ho, que "com que U és mínima a l'equilibri, també ho són tots els potencials". Aquí es fa &mdash; i la part delicada no és l'àlgebra, sinó <em>per què</em> el &delta; d'un potencial del sistema es pot identificar amb una desigualtat escrita amb les variables del reservori.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>F, H, G es defineixen amb la T i la P <em>del sistema</em></span></li><li><span class="chip postulat"><span class="dot"></span>Restricció</span><span>Desplaçaments d'una variable interna, a equilibri amb els reservoris</span></li><li><span class="chip postulat"><span class="dot"></span>Muntatge</span><span>Muntatge: T fixada pel termòstat, V i N fixos per les parets</span></li><li><span class="chip postulat"><span class="dot"></span>Muntatge</span><span>Muntatge: P fixada pel manòstat, S i N fixos</span></li><li><span class="chip postulat"><span class="dot"></span>Muntatge</span><span>Muntatge: T i P fixades pels reservoris, N fix</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_estabilitat_desigualtat.html">2.5(a): desigualtat de Clausius&ndash;Gibbs</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>T<sub>0</sub>, P<sub>0</sub> i &mu;<sub>0</sub> són constants</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">F és mínima a T, V, N fixos</span></div><div class="eq">\[ \left(\delta F\right)_{T,V,N}\ge 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">H és mínima a S, P, N fixos</span></div><div class="eq">\[ \left(\delta H\right)_{S,P,N}\ge 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">G és mínima a T, P, N fixos</span></div><div class="eq">\[ \left(\delta G\right)_{T,P,N}\ge 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_estabilitat_desigualtat.html">2.5(a): desigualtat de Clausius&ndash;Gibbs</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">La desigualtat de Clausius&ndash;Gibbs, sense tocar</div>
+        <div class="eq">\[ \delta U-T_{0}\,\delta S+P_{0}\,\delta V-\mu_{0}\,\delta N\ge 0 \]</div>
+        <div class="card-note">Hi he posat el subíndex 0 a propòsit, perquè és el quid de tota la pàgina: <strong>T<sub>0</sub>, P<sub>0</sub> i &mu;<sub>0</sub> són les dels reservoris</strong>, no les del sistema. Són tres números fixos: el desplaçament virtual mou el sistema, i el reservori, que és infinit, no es mou de lloc. A l'equilibri coincideixen amb les del sistema, però només <em>a l'equilibri</em>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">T<sub>0</sub>, P<sub>0</sub> i &mu;<sub>0</sub> són constants</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Com que són constants, el membre esquerre és el &delta; d'alguna cosa</span></div>
+        <div class="eq">\[ A\equiv U-T_{0}S+P_{0}V-\mu_{0}N \]</div>
+        <div class="card-note">Prenent-ne el desplaçament virtual, els tres números fixos surten fora de la &delta; i es recupera exactament el membre esquerre del punt de partida:</div>
+        <div class="eq">\[ \delta A=\delta U-T_{0}\,\delta S+P_{0}\,\delta V-\mu_{0}\,\delta N\ge 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">A s'anomena <strong>funció de disponibilitat</strong> (o exergia). Aquesta desigualtat val per a <strong>qualsevol</strong> desplaçament virtual, sense cap condició: és la de Clausius&ndash;Gibbs reescrita.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">F, H, G es defineixen amb la T i la P <em>del sistema</em></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Però A no és F, ni H, ni G</span></div>
+        <div class="eq">\[ A=U-T_{0}S+P_{0}V-\mu_{0}N \qquad\text{vs.}\qquad F=U-TS \]</div>
+        <div class="card-note"><strong>Aquí és on s'ha d'anar amb compte.</strong> A la definició de F, H i G, la T i la P són les <em>del sistema</em> &mdash; són funcions d'estat del sistema, no en saben res, de cap reservori. A A, en canvi, són les del reservori. Les dues funcions <strong>no són la mateixa</strong> tret que el sistema estigui en equilibri amb el reservori.</div>
+        <div class="card-note">I la diferència no és innòcua. Preneu un desplaçament virtual que escalfi lleugerament el sistema, &delta;T, a V i N fixos: amb &delta;U=C<sub>V</sub>&delta;T i &delta;S=C<sub>V</sub>&delta;T/T<sub>0</sub>, surt &delta;A=0 (estacionari, com toca a l'equilibri) però</div>
+        <div class="eq">\[ \delta F=\delta U-T_{0}\,\delta S-S\,\delta T=-S\,\delta T<0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">F <em>disminueix</em>. Si la identificació fos automàtica, això ja seria una contradicció amb "F és mínima". No ho és: el que passa és que aquest desplaçament no val, i ara veurem per què.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Restricció</span>
+          <span class="desc">Desplaçaments d'una variable interna, a equilibri amb els reservoris</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">La restricció que els identifica</span></div>
+        <div class="card-note">Ens limitem als desplaçaments que deixen el sistema <strong>en equilibri amb els reservoris que toca</strong>. Si hi ha termòstat, T=T<sub>0</sub> durant tot el desplaçament; si hi ha manòstat, P=P<sub>0</sub>.</div>
+        <div class="card-note"><strong>Què es desplaça, llavors?</strong> Una variable <em>interna</em>: la posició d'una paret entre dos subsistemes, el grau d'avanç d'una reacció química, la fracció de massa que ha canviat de fase&hellip; Coses que poden variar <em>mentre</em> el sistema continua a la temperatura del bany. Aquests són, de fet, els casos que interessen: equilibri de fases, equilibri químic, alliberament d'una lligadura interna.</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Sobre aquest conjunt de desplaçaments, i només sobre aquest, les T i P de A i les de F, H, G són el mateix número.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Muntatge</span>
+          <span class="desc">Muntatge: T fixada pel termòstat, V i N fixos per les parets</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Helmholtz: termòstat, parets rígides i impermeables</span></div>
+        <div class="eq">\[ \begin{aligned} A&=\left(U-T_{0}S\right)+P_{0}V-\mu_{0}N \\[4pt] &=F+P_{0}V-\mu_{0}N \end{aligned} \]</div>
+        <div class="card-note">La primera igualtat és pura àlgebra; la segona necessita T=T<sub>0</sub> (pas 3), que és el que permet escriure U&minus;T<sub>0</sub>S com la F del sistema. I ara el pas clau: <strong>V i N estan fixats per les parets</strong>, així que P<sub>0</sub>V i &mu;<sub>0</sub>N són constants i no aporten res al desplaçament:</div>
+        <div class="eq">\[ \delta A=\delta F \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &delta;A&ge;0 i &delta;A=&delta;F &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">F és mínima a T, V, N fixos</span></div>
+        <div class="eq">\[ \left(\delta F\right)_{T,V,N}\ge 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El muntatge més habitual: un sòlid o un gas tancat en un recipient rígid dins d'un bany termòstat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Muntatge</span>
+          <span class="desc">Muntatge: P fixada pel manòstat, S i N fixos</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Entalpia: manòstat, a entropia i N fixos</span></div>
+        <div class="eq">\[ \begin{aligned} A&=\left(U+P_{0}V\right)-T_{0}S-\mu_{0}N \\[4pt] &=H-T_{0}S-\mu_{0}N \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara la segona igualtat necessita P=P<sub>0</sub>. I és <strong>S</strong> (no V) la que ha d'estar fixada perquè T<sub>0</sub>S sigui constant, juntament amb N. Això explica per què el criteri de H surt amb S i P fixos, i no amb cap altra parella.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &delta;A&ge;0 i &delta;A=&delta;H &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">H és mínima a S, P, N fixos</span></div>
+        <div class="eq">\[ \left(\delta H\right)_{S,P,N}\ge 0 \]</div>
+        <div class="card-note"><strong>El menys útil dels tres, i val la pena dir-ho.</strong> Matemàticament és igual de vàlid, però mantenir S constant no es fa "posant-hi una paret": cal aïllament tèrmic <em>i</em> que no es generi gens d'entropia. No hi ha cap "entropòstat" al laboratori. Per això H s'acostuma a fer servir com a comptador de calor a P constant, no com a criteri d'equilibri.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Muntatge</span>
+          <span class="desc">Muntatge: T i P fixades pels reservoris, N fix</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Gibbs: termòstat i manòstat alhora</span></div>
+        <div class="eq">\[ \begin{aligned} A&=\left(U-T_{0}S+P_{0}V\right)-\mu_{0}N \\[4pt] &=G-\mu_{0}N \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Necessita T=T<sub>0</sub> i P=P<sub>0</sub> alhora. Només queda una constant per matar, &mu;<sub>0</sub>N, i n'hi ha prou amb parets impermeables.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &delta;A&ge;0 i &delta;A=&delta;G &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">G és mínima a T, P, N fixos</span></div>
+        <div class="eq">\[ \left(\delta G\right)_{T,P,N}\ge 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el cas amb menys lletra petita de tots &mdash; A i G difereixen només en &mu;<sub>0</sub>N &mdash; i també el més útil, perquè T i P ambient són exactament el que fixa un laboratori qualsevol sense fer res. D'aquí que G governi les transicions de fase i l'equilibri químic.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">RESUM</span><span class="card-title">Un sol criteri, &delta;A&ge;0, llegit sis vegades</span></div>
+    <div class="card-note">A cada fila, el potencial és el que queda de A quan les lligadures del muntatge converteixen la resta de termes en constants. La tercera columna és literalment A&minus;potencial:</div>
+    <table class="mini-table"><tr><th>Muntatge</th><th>Variables fixes</th><th>A &minus; potencial</th><th>Mínim</th></tr><tr><td>Aïllat</td><td>S, V, N</td><td>&minus;T<sub>0</sub>S+P<sub>0</sub>V&minus;&mu;<sub>0</sub>N</td><td><strong>U</strong></td></tr><tr><td>Termòstat</td><td>T, V, N</td><td>P<sub>0</sub>V&minus;&mu;<sub>0</sub>N</td><td><strong>F</strong></td></tr><tr><td>Manòstat</td><td>S, P, N</td><td>&minus;T<sub>0</sub>S&minus;&mu;<sub>0</sub>N</td><td><strong>H</strong></td></tr><tr><td>Termòstat + manòstat</td><td>T, P, N</td><td>&minus;&mu;<sub>0</sub>N</td><td><strong>G</strong></td></tr><tr><td>Termòstat + &mu;-stat</td><td>T, V, &mu;</td><td>P<sub>0</sub>V</td><td><strong>&Omega;</strong></td></tr></table>
+    <div class="card-note">Llegit així, <strong>no hi ha cinc criteris d'equilibri: n'hi ha un de sol</strong>, &delta;A&ge;0, i cinc maneres que les lligadures tenen de simplificar-lo. La columna del mig diu què cal tenir fix perquè la identificació funcioni: si un terme d'aquella columna pot variar, el potencial d'aquella fila <em>no</em> és el que s'ha de minimitzar.</div>
+    <div class="card-note">L'última fila és el potencial gran canònic &Omega;=U&minus;TS&minus;&mu;N (<a href="flux_potencials_legendre.html">2.3(d)</a>). I la taula és la mateixa que la de les transformades de Legendre, cosa que no és casualitat: la variable que el reservori et fixa és exactament la que la transformada converteix en variable natural. Posar un termòstat és, en el llenguatge de <a href="flux_legendre_geometria.html">2.3</a>, canviar S per T; el potencial que en surt és el que aleshores és mínim. <strong>Triar el potencial no és una qüestió de gust: el tria el muntatge.</strong></div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">La versió curta, per a la pissarra</span></div>
+    <div class="card-note">A la pissarra normalment no es passa per A: s'escriu directament el diferencial del potencial i es diu que un terme "cau". Per exemple, per a F:</div>
+    <div class="eq">\[ \delta F=\delta U-T\,\delta S-S\,\delta T=\delta U-T_{0}\,\delta S\ \ge 0 \]</div>
+    <div class="card-note">És el mateix càlcul, i és perfectament vàlid &mdash; però només si es diu per què cau el terme S&delta;T. <strong>No cau perquè "la T és la del termòstat i les constants no varien"</strong>: la T de F és la del sistema. Cau perquè ens hem <em>restringit</em> als desplaçaments que mantenen el sistema a la temperatura del bany, i sobre aquests &delta;T=0 per construcció. És una restricció, no una identitat, i el contraexemple del pas 2 mostra què passa si s'oblida.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">"Mínima" respecte de què, exactament</span></div>
+    <div class="card-note"><strong>1. No és un mínim respecte de T ni de P.</strong> (&delta;F)<sub>T,V,N</sub>&ge;0 vol dir: entre tots els estats interns que el sistema podria tenir <em>amb la mateixa T, V i N</em>, el d'equilibri és el de F més petita. La T no és una de les coses que varien. De fet F és <strong>còncava</strong> en T (F<sub>TT</sub>=&minus;C<sub>V</sub>/T&lt;0): com a funció de T és un màxim, no un mínim &mdash; i el contraexemple del pas 2 n'és precisament la primera derivada. Veure la <a href="flux_estabilitat_cv_kappa.html">guia dels criteris d'estabilitat</a>.</div>
+    <div class="card-note"><strong>2. El signe canvia segons si el procés és real o virtual.</strong> Aquí tot és virtual: el desplaçament <em>aparta</em> el sistema de l'equilibri, i per això &delta;F&ge;0. Per a un procés <em>real i espontani</em>, que hi va <em>cap a</em>, el signe s'inverteix: (&Delta;F)<sub>T,V,N</sub>&le;0. Són la mateixa afirmació &mdash; "F és mínima a l'equilibri" &mdash; llegida en les dues direccions. És el mateix parany del signe que a <a href="flux_estabilitat_desigualtat.html">2.5(a)</a>.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">A no és només un truc de càlcul</span></div>
+    <div class="card-note">La funció de disponibilitat té significat físic propi: <strong>&minus;&Delta;A és el treball màxim aprofitable</strong> que es pot extreure del sistema abans que arribi a l'equilibri amb els reservoris. Que &delta;A&ge;0 sempre vol dir, llegit així, que cap desplaçament espontani no et regala treball &mdash; és la segona llei un altre cop. Connecta directament amb <a href="flux_limits_treball.html">1.5.3(f)</a>, on la mateixa idea surt com a W<sub>desap</sub>=T<sub>f</sub>&Delta;S<sub>&Uscr;</sub>.</div>
+    <div class="card-note">Per això val la pena presentar A abans que F, H i G, i no al revés: A és l'objecte que compleix la desigualtat sense cap condició, i els tres potencials són només els seus àlies còmodes quan el muntatge deixa mortes prou variables.</div>
+  </div>
+
+  <footer>Complement de l'apartat 2.5 del guió de pissarra del Tema 2, que justifica el pas de 2.5(d) on s'afirma que tots els potencials són mínims a l'equilibri. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

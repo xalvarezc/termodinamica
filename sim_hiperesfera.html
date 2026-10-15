@@ -1,0 +1,182 @@
+<!doctype html>
+<title>Simulació — el volum d'una hiperesfera és tot a la pell</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; simulació &middot; secció 3.3</div>
+  <h1>Per què <em>&Omega; i &Gamma; tenen el mateix logaritme</em></h1>
+  <p class="subtitle">En dimensió alta, gairebé tot el volum d'una hiperesfera és dins d'una pell finíssima just a sota de la superfície. És l'única raó per la qual es pot calcular &Gamma; (un volum, fàcil) i fer servir el resultat com si fos &Omega; (una superfície, difícil).</p>
+
+  <div class="card-note" style="margin-bottom:20px;">Al <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>, el pas 6 diu que ln&Omega;&simeq;ln&Gamma; "perquè en dimensió tan alta gairebé tot el volum és a prop de la superfície". És una frase que normalment s'ha d'acceptar. Aquí es pot veure el número.</div>
+
+  <div class="sim">
+    <div class="sim-presets">
+      <button class="sim-btn" data-set="3,1">n=3 &mdash; una esfera normal</button>
+      <button class="sim-btn" data-set="30,1">n=30</button>
+      <button class="sim-btn" data-set="300,1">n=300</button>
+      <button class="sim-btn" data-set="3000,1">n=3000</button>
+      <button class="sim-btn" data-set="3000,0.1">n=3000, pell del 0,1&nbsp;%</button>
+      <button class="sim-btn" id="run">▶ Puja n</button>
+    </div>
+
+    <div class="sim-controls">
+      <div class="sim-ctl">
+        <label for="n">Dimensió &mdash; n <b id="nv">3</b></label>
+        <input type="range" id="n" min="1" max="4000" value="3">
+      </div>
+      <div class="sim-ctl">
+        <label for="eps">Gruix de la pell, en % del radi <b id="ev">1,0 %</b></label>
+        <input type="range" id="eps" min="1" max="200" value="10">
+      </div>
+    </div>
+
+    <div id="fig"></div>
+
+    <div class="sim-out">
+      <div><span>fracció del volum a la pell</span><strong id="o-frac">&mdash;</strong></div>
+      <div><span>fracció al nucli interior</span><strong id="o-core">&mdash;</strong></div>
+      <div><span>ln&Gamma; &minus; ln&Gamma;<sub>pell</sub></span><strong id="o-dln">&mdash;</strong></div>
+      <div><span>per a un mol, n=3N</span><strong id="o-mol">&mdash;</strong><em>pell de l'1 %</em></div>
+    </div>
+
+    <div class="sim-note" id="note"></div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">QUÈ MIRAR</span><span class="card-title">El número, i després què vol dir</span></div>
+    <div class="card-note" style="margin-top:0;">La fracció del volum d'una esfera de dimensió n que queda dins de la pell exterior de gruix &epsilon; (en fracció del radi) és</div>
+    <div class="eq">\[ \dfrac{\Gamma_{\text{pell}}}{\Gamma}=1-\left(1-\epsilon\right)^{n} \]</div>
+    <div class="card-note" style="margin-top:0;">perquè el volum va com R<sup>n</sup>. Amb n petit no passa res; amb n gran, l'exponent ho devora tot:</div>
+    <table class="mini-table">
+      <caption>Fracció del volum dins de l'1 % exterior del radi</caption>
+      <tr><th>Dimensió n</th><th>Fracció a la pell</th></tr>
+      <tr><td>2 (un cercle)</td><td>2,0 %</td></tr>
+      <tr><td>3 (una esfera)</td><td>3,0 %</td></tr>
+      <tr><td>30</td><td>26 %</td></tr>
+      <tr><td>300</td><td>95 %</td></tr>
+      <tr><td>3000</td><td>99,99999 %</td></tr>
+      <tr><td>3&middot;10<sup>23</sup> (un mol)</td><td>1, fins a 10<sup>&minus;10<sup>21</sup></sup></td></tr>
+    </table>
+    <div class="card-note" style="margin-top:0;"><strong>La intuïció que falla</strong> és la de l'esfera de tota la vida: allà el centre és on hi ha el material. En dimensió alta no hi ha pràcticament res al centre. El motiu és que per ser al nucli cal que <em>totes</em> les n coordenades siguin petites alhora, i això és cada cop més improbable com més coordenades hi ha.</div>
+    <div class="card-note"><strong>I per què importa això aquí.</strong> &Gamma; és el volum de la regió H&le;E i &Omega; viu a la superfície H=E. Si gairebé tot &Gamma; és enganxat a la superfície, llavors comptar tot el volum o comptar només la capa prima dona pràcticament el mateix nombre &mdash; i, sobretot, <strong>el mateix logaritme</strong>. La lectura que es mostra a dalt, ln&Gamma;&minus;ln&Gamma;<sub>pell</sub>, és exactament l'error que es comet: és d'ordre 1, mentre que ln&Gamma; és d'ordre N&nbsp;ln&nbsp;N ~ 10<sup>25</sup>. Per això es pot escriure ln&Omega;&simeq;ln&Gamma; sense pensar-hi més.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Això no demostra que &Omega; i &Gamma; siguin iguals</span></div>
+    <div class="card-note" style="margin-top:0;">No ho són, i de fet ni tan sols tenen les mateixes dimensions (&Gamma; és adimensional i &Omega; va com energia<sup>&minus;1</sup>; veure el matís de <a href="flux_microcanonica_omega.html">3.3</a>). El que diu aquesta pàgina és una cosa més modesta i més útil: <strong>els seus logaritmes difereixen en un terme menyspreable</strong> davant de N&nbsp;ln&nbsp;N. Com que l'entropia és k<sub>B</sub> per un logaritme, aquest terme no arriba mai a la termodinàmica. Exactament el mateix argument justifica que l'amplada &Delta;E de la capa sigui arbitrària.</div>
+  </div>
+
+  <footer>Simulació de suport per a la secció 3.3 del Tema 3, i per al pas 6 del gas ideal (3.5). Tot el càlcul es fa en logaritmes, de manera que els valors per a n gran no desborden.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = function (id) { return document.getElementById(id); };
+  var n = el("n"), eps = el("eps");
+  var runT = null;
+
+  function draw() {
+    var N = +n.value, E = +eps.value / 10 / 100;      // el control va en decimes de %
+    el("nv").textContent = N;
+    el("ev").textContent = (E * 100).toFixed(1).replace(".", ",") + " %";
+
+    // fraccio al nucli = (1-eps)^n, calculada en logaritmes
+    var lnCore = N * Math.log(1 - E);
+    var core = Math.exp(lnCore);
+    var frac = -Math.expm1(lnCore);                   // 1 - (1-eps)^n, precis fins i tot si core~1
+
+    el("o-frac").textContent = frac > 0.999999 ? "> 99,9999 %" : (100 * frac).toFixed(4).replace(".", ",") + " %";
+    el("o-core").textContent = core < 1e-6 ? core.toExponential(2) : (100 * core).toFixed(4).replace(".", ",") + " %";
+    el("o-dln").textContent = (-Math.log(frac)).toFixed(4).replace(".", ",");
+    var lnMol = 3e23 * Math.log(0.99);
+    // exponent de l'ordre de -1,3e21: l'escrivim com a potencia de deu llegible
+    var ex21 = Math.abs(lnMol / Math.LN10) / 1e21;
+    el("o-mol").innerHTML = "1 &minus; 10<sup>&minus;" + ex21.toFixed(1).replace(".", ",") + "&middot;10<sup>21</sup></sup>";
+
+    // --- figura: dues coses alhora ---
+    var W = 640, H = 300, s = [];
+    s.push('<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Fraccio del volum dins de la pell exterior, en funcio de la dimensio">');
+
+    // (a) esquerra: el disc, amb la pell marcada a escala
+    var cx = 110, cy = 150, r = 86;
+    s.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="var(--flux)" opacity="0.30"/>');
+    s.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * (1 - E)).toFixed(2) + '" fill="var(--card)"/>');
+    s.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * (1 - E)).toFixed(2) + '" fill="var(--flux)" opacity="' + (0.30 * core).toFixed(3) + '"/>');
+    s.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="var(--flux)" stroke-width="1.6"/>');
+    s.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * (1 - E)).toFixed(2) + '" fill="none" stroke="var(--goal)" stroke-width="1.4" stroke-dasharray="4 3"/>');
+    s.push('<text x="' + cx + '" y="' + (cy + r + 26) + '" text-anchor="middle" font-size="12" fill="var(--muted)">el gruix de la pell, a escala</text>');
+    s.push('<text x="' + cx + '" y="' + (cy + r + 42) + '" text-anchor="middle" font-size="12" fill="var(--muted)">(el dibuix és de n=2; la intensitat,</text>');
+    s.push('<text x="' + cx + '" y="' + (cy + r + 57) + '" text-anchor="middle" font-size="12" fill="var(--muted)">el que queda al nucli en dimensió n)</text>');
+
+    // (b) dreta: fraccio vs n, eix x logaritmic
+    var L = 265, R = 20, T = 30, B = 118;
+    var x = function (k) { return L + (Math.log(k) / Math.log(4000)) * (W - L - R); };
+    var y = function (v) { return H - B - v * (H - B - T); };
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + y(1).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(1).toFixed(1) + '" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4"/>');
+    var d = "", k;
+    for (k = 1; k <= 4000; k = k < 20 ? k + 1 : Math.ceil(k * 1.06)) {
+      d += (d ? " L " : "M ") + x(k).toFixed(1) + "," + y(-Math.expm1(k * Math.log(1 - E))).toFixed(1);
+    }
+    s.push('<path d="' + d + '" fill="none" stroke="var(--flux)" stroke-width="2.4"/>');
+    s.push('<circle cx="' + x(Math.max(1, N)).toFixed(1) + '" cy="' + y(frac).toFixed(1) + '" r="5" fill="var(--goal)"/>');
+    [1, 10, 100, 1000].forEach(function (t) {
+      s.push('<text x="' + x(t).toFixed(1) + '" y="' + (H - B + 16) + '" text-anchor="middle" font-size="11" fill="var(--muted)">' + t + "</text>");
+    });
+    s.push('<text x="' + (L - 7) + '" y="' + (y(1) + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="var(--muted)">100%</text>');
+    s.push('<text x="' + (L - 7) + '" y="' + (H - B + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">0</text>');
+    s.push('<text x="' + ((L + W - R) / 2) + '" y="' + (H - B + 34) + '" text-anchor="middle" font-size="12.5" fill="var(--muted)">dimensió n (escala logarítmica)</text>');
+    s.push('<text x="' + ((L + W - R) / 2) + '" y="' + (T - 12) + '" text-anchor="middle" font-size="12.5" fill="var(--flux)" font-weight="600">fracció del volum dins de la pell</text>');
+    s.push("</svg>");
+    el("fig").innerHTML = s.join("");
+
+    var ln = (N * 0.5 * Math.log(N || 1));
+    el("note").innerHTML = "<strong>Compara les dues escales:</strong> l'error que es comet confonent &Gamma; amb la pell és " +
+      (-Math.log(frac)).toFixed(3).replace(".", ",") + ", mentre que ln&Gamma; mateix és d'ordre " +
+      (ln > 1e4 ? ln.toExponential(1) : Math.round(ln)) + " per a n=" + N +
+      " &mdash; i d'ordre 10<sup>25</sup> per a un mol. L'error no hi arriba mai.";
+  }
+
+  el("run").addEventListener("click", function () {
+    if (runT) { clearInterval(runT); runT = null; el("run").textContent = "▶ Puja n"; return; }
+    n.value = 1; draw(); el("run").textContent = "■ Atura";
+    runT = setInterval(function () {
+      var v = Math.min(4000, Math.ceil(+n.value * 1.06) + 1);
+      n.value = v; draw();
+      if (v >= 4000) { clearInterval(runT); runT = null; el("run").textContent = "▶ Puja n"; }
+    }, 60);
+  });
+  [n, eps].forEach(function (c) { c.addEventListener("input", draw); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-set]"), function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-set").split(",");
+      n.value = v[0]; eps.value = Math.round(+v[1] * 10); draw();
+    });
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", draw);
+  else draw();
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

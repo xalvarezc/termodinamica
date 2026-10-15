@@ -1,0 +1,165 @@
+<!doctype html>
+<title>Guia de classe — aproximació de Stirling</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; eina de la secció 3.5 &middot; guió de pissarra</div>
+  <h1>L'aproximació de <em>Stirling</em></h1>
+  <p class="subtitle">Per què ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N: una suma de logaritmes que es comporta com una integral. I, si cal més precisió, el terme següent surt d'una gaussiana.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>El logaritme d'un producte és la suma dels logaritmes</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Comparació suma&ndash;integral per a una funció creixent</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integració per parts: &int;ln&nbsp;x&nbsp;dx=x&nbsp;ln&nbsp;x&minus;x</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integral d'Euler: N!=&int;<sub>0</sub><sup>&infin;</sup>x<sup>N</sup>e<sup>&minus;x</sup>dx</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Mètode de Laplace: desenvolupar f fins a segon ordre al voltant del màxim</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Aproximació de Stirling</span></div><div class="eq">\[ \ln N!\simeq N\ln N-N \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Fórmula de Stirling completa</span></div><div class="eq">\[ \ln N!\simeq N\ln N-N+\dfrac{1}{2}\ln\left(2\pi N\right) \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">El logaritme d'un producte és la suma dels logaritmes</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">El factorial, passat a logaritmes</div>
+        <div class="eq">\[ \ln N!=\ln\left(1\cdot2\cdots N\right)=\sum_{n=1}^{N}\ln n \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">A mecànica estadística sempre necessitem ln&nbsp;N!, mai N! sol: l'entropia és k<sub>B</sub>ln&Omega;. I una suma és molt més fàcil d'aproximar que un producte.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Comparació suma&ndash;integral per a una funció creixent</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">La suma queda atrapada entre dues integrals</span></div>
+        <div class="card-note">Cada terme ln&nbsp;n és l'àrea d'un rectangle d'amplada 1. Com que ln&nbsp;x és creixent, aquest rectangle queda per sobre de la corba a l'interval [n&minus;1,&nbsp;n] i per sota a [n,&nbsp;n+1]:</div>
+        <div class="eq">\[ \int_{n-1}^{n}\ln x\,dx\;\le\;\ln n\;\le\;\int_{n}^{n+1}\ln x\,dx \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Sumant de n=2 a N (el terme ln&nbsp;1 és zero):</div>
+        <div class="eq">\[ \int_{1}^{N}\ln x\,dx\;\le\;\ln N!\;\le\;\int_{1}^{N+1}\ln x\,dx \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integració per parts: &int;ln&nbsp;x&nbsp;dx=x&nbsp;ln&nbsp;x&minus;x</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Fem les dues integrals</span></div>
+        <div class="eq">\[ \begin{aligned} \ln N!&\ge N\ln N-N+1 \\[4pt] \ln N!&\le\left(N+1\right)\ln\left(N+1\right)-N \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Desenvolupant la cota superior, (N+1)ln(N+1)&minus;N = N&nbsp;ln&nbsp;N&minus;N+ln&nbsp;N+O(1). Les dues cotes comencen igual, N&nbsp;ln&nbsp;N&minus;N, i només difereixen en termes d'ordre ln&nbsp;N.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; ln&nbsp;N &#8810; N per a N gran &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Aproximació de Stirling</span></div>
+        <div class="eq">\[ \ln N!\simeq N\ln N-N \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> amb un error d'ordre ln&nbsp;N, davant de termes d'ordre N&nbsp;ln&nbsp;N. Per a N&sim;10<sup>23</sup>, ln&nbsp;N&asymp;53: totalment irrellevant en una entropia d'ordre N&nbsp;k<sub>B</sub>. Com a corol&middot;lari, derivant respecte de N: d(ln&nbsp;N!)/dN&simeq;ln&nbsp;N, que és el que es fa servir per calcular &mu;.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integral d'Euler: N!=&int;<sub>0</sub><sup>&infin;</sup>x<sup>N</sup>e<sup>&minus;x</sup>dx</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Si cal més precisió: el factorial com una integral</span></div>
+        <div class="eq">\[ \begin{aligned} N!&=\int_{0}^{\infty}x^{N}e^{-x}\,dx=\int_{0}^{\infty}e^{f\left(x\right)}\,dx \\[4pt] f\left(x\right)&=N\ln x-x \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Es comprova integrant per parts N vegades. L'integrand és un producte d'una potència que creix i una exponencial que decau: té un màxim molt pronunciat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Mètode de Laplace: desenvolupar f fins a segon ordre al voltant del màxim</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Al voltant del màxim, l'integrand és una gaussiana</span></div>
+        <div class="card-note">El màxim és on f'(x)=N/x&minus;1=0, és a dir, a x=N. Allà f(N)=N&nbsp;ln&nbsp;N&minus;N i f''(N)=&minus;1/N:</div>
+        <div class="eq">\[ \begin{aligned} N!&\simeq e^{N\ln N-N}\int_{-\infty}^{\infty}e^{-\left(x-N\right)^{2}/2N}\,dx \\[6pt] &=e^{N\ln N-N}\sqrt{2\pi N} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">L'amplada de la gaussiana és &radic;N, molt més petita que la posició del màxim, N. És la mateixa idea que les fluctuacions relatives 1/&radic;N de tot el Tema 3: gairebé tota la integral ve d'un entorn estret del màxim.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; prenent logaritmes &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Fórmula de Stirling completa</span></div>
+        <div class="eq">\[ \ln N!\simeq N\ln N-N+\dfrac{1}{2}\ln\left(2\pi N\right) \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el terme &frac12;ln(2&pi;N) és precisament l'error d'ordre ln&nbsp;N del DESTÍ 1, ara calculat. L'error que queda és d'ordre 1/N.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Com de bona és, en números</span></div>
+    <table class="mini-table"><tr><th>N</th><th>ln&nbsp;N!</th><th>N&nbsp;ln&nbsp;N&minus;N</th><th>Error relatiu (DESTÍ 1)</th><th>Error relatiu (DESTÍ FINAL)</th></tr><tr><td>3</td><td>1,79</td><td>0,30</td><td>83&nbsp;%</td><td>1,5&nbsp;%</td></tr><tr><td>10</td><td>15,10</td><td>13,03</td><td>14&nbsp;%</td><td>0,06&nbsp;%</td></tr><tr><td>100</td><td>363,7</td><td>360,5</td><td>0,9&nbsp;%</td><td>2&middot;10<sup>&minus;6</sup></td></tr><tr><td>1000</td><td>5912,1</td><td>5907,8</td><td>0,07&nbsp;%</td><td>1,4&middot;10<sup>&minus;8</sup></td></tr><tr><td>6&middot;10<sup>23</sup></td><td>3,24&middot;10<sup>25</sup></td><td>3,24&middot;10<sup>25</sup></td><td>9&middot;10<sup>&minus;25</sup></td><td>4&middot;10<sup>&minus;51</sup></td></tr></table>
+    <div class="card-note">Amb N=3, com a l'exemple dels dos nivells del guió, Stirling no serveix de res: allà cal comptar exactament. És una aproximació per a <strong>N macroscòpic</strong>, i allà és pràcticament exacta.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMPTE</span><span class="card-title">Quan el primer ordre no n'hi ha prou</span></div>
+    <div class="card-note">El DESTÍ 1 n'hi ha prou sempre que el que importa siguin els termes d'ordre N, que és el cas de qualsevol entropia o equació d'estat. No n'hi ha prou quan el resultat que busquem és, ell mateix, d'ordre ln&nbsp;N. Dos exemples del curs:</div>
+    <div class="card-note">&bull; Al <a href="flux_gas_ideal_microcanonica.html">gas ideal</a> (pas 6), ln&nbsp;&Omega; i ln&nbsp;&Gamma; difereixen en un terme d'ordre ln&nbsp;N, del mateix ordre que l'error de Stirling. Per això es poden identificar: tots dos termes es llencen alhora.<br>&bull; A la guia dels <a href="flux_indistingibilitat_recintes.html">indistingibles entre recintes</a> (pas 6), la diferència d'entropia entre paret tancada i oberta és &frac12;ln(2&pi;Nx<sub>1</sub>x<sub>2</sub>). Aquest terme només surt amb el DESTÍ FINAL: amb el primer ordre la diferència donaria exactament zero.</div>
+  </div>
+
+  <footer>Eina que s'invoca a les seccions 3.5, 3.7 i 3.8 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

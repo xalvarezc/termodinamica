@@ -1,0 +1,307 @@
+<!doctype html>
+<title>Simulació — dos sòlids d'Einstein compartint energia</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; simulació &middot; seccions 3.4 i 3.8.1</div>
+  <h1>Dos sòlids d'Einstein <em>compartint energia</em></h1>
+  <p class="subtitle">Dos sòlids en contacte tèrmic, aïllats de la resta. El nombre total de quanta és fix i es reparteixen de totes les maneres possibles. Totes són igual de probables &mdash; i tot i així el repartiment que s'observa és sempre el mateix.</p>
+
+  <div class="card-note" style="margin-bottom:20px;">Això és, literalment, el muntatge de la <a href="flux_formula_boltzmann.html">guia de la fórmula de Boltzmann</a>: dos subsistemes que només intercanvien energia, amb &Omega;<sub>T</sub>=&Omega;<sub>A</sub>&Omega;<sub>B</sub>. Allà s'<em>imposa</em> que l'equilibri és el màxim de &Omega;<sub>T</sub>; aquí es veu. El recompte de cada sòlid és el del <a href="flux_solid_einstein.html">model d'Einstein</a>, &Omega;=(q+N&minus;1)!/[q!(N&minus;1)!].</div>
+
+  <div class="sim">
+    <div class="sim-presets">
+      <button class="sim-btn" data-preset="3,3,6">3 + 3 oscil&middot;ladors, 6 quanta &mdash; comptable a mà</button>
+      <button class="sim-btn" data-preset="30,30,30">30 + 30</button>
+      <button class="sim-btn" data-preset="100,100,100">100 + 100</button>
+      <button class="sim-btn" data-preset="400,400,400">400 + 400</button>
+      <button class="sim-btn" data-preset="100,300,200">asimètric: 100 + 300</button>
+      <button class="sim-btn" id="grow">▶ Fes créixer N (de 2 a 400)</button>
+      <button class="sim-btn" id="live">▶ Fluctuacions en directe</button>
+    </div>
+
+    <div class="sim-controls">
+      <div class="sim-ctl">
+        <label for="na">Oscil&middot;ladors del sòlid A &mdash; N<sub>A</sub> <b id="nav">3</b></label>
+        <input type="range" id="na" min="1" max="400" value="3">
+      </div>
+      <div class="sim-ctl">
+        <label for="nb">Oscil&middot;ladors del sòlid B &mdash; N<sub>B</sub> <b id="nbv">3</b></label>
+        <input type="range" id="nb" min="1" max="400" value="3">
+      </div>
+      <div class="sim-ctl">
+        <label for="q">Quanta totals &mdash; q <b id="qv">6</b></label>
+        <input type="range" id="q" min="1" max="600" value="6">
+      </div>
+    </div>
+
+    <div id="fig"></div>
+    <div id="fig2"></div>
+
+    <div class="sim-out">
+      <div><span>q<sub>A</sub> més probable</span><strong id="o-peak">&mdash;</strong></div>
+      <div><span>amplada relativa &sigma;/q</span><strong id="o-width">&mdash;</strong></div>
+      <div><span>prob. del macrostat més probable</span><strong id="o-pmax">&mdash;</strong></div>
+      <div><span>microstats totals &Omega;<sub>T</sub></span><strong id="o-tot">&mdash;</strong></div>
+      <div><span>k<sub>B</sub>T/&hbar;&omega; del sòlid A</span><strong id="o-ta">&mdash;</strong><em>al pic</em></div>
+      <div><span>k<sub>B</sub>T/&hbar;&omega; del sòlid B</span><strong id="o-tb">&mdash;</strong><em>al pic</em></div>
+    </div>
+
+    <div class="sim-note" id="tablenote"></div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">QUÈ MIRAR</span><span class="card-title">Tres coses, en aquest ordre</span></div>
+    <div class="card-note" style="margin-top:0;"><strong>1. Amb 3+3 oscil&middot;ladors i 6 quanta es pot comptar a mà.</strong> La taula de sota del gràfic dona &Omega;<sub>A</sub>, &Omega;<sub>B</sub> i el seu producte per a cada repartiment. Hi ha 462 microstats en total i el repartiment més probable (3 i 3) en té 100: el 21,6%. És a dir, l'equilibri amb 6 oscil&middot;ladors <strong>gairebé no vol dir res</strong> &mdash; qualsevol repartiment és perfectament possible.</div>
+    <div class="card-note"><strong>2. Puja N i mira com s'estreny el pic.</strong> L'amplada relativa va com 1/&radic;N. Això vol dir que la fluctuació <em>absoluta</em> creix, però la <em>relativa</em> es mor:</div>
+    <table class="mini-table">
+      <caption>Amplada relativa del pic, per a dos sòlids iguals amb q = N</caption>
+      <tr><th>N per sòlid</th><th>Amplada relativa</th></tr>
+      <tr><td>3</td><td>33 %</td></tr>
+      <tr><td>30</td><td>11 %</td></tr>
+      <tr><td>300</td><td>3,5 %</td></tr>
+      <tr><td>3000</td><td>1,1 %</td></tr>
+      <tr><td>10<sup>23</sup></td><td>3&middot;10<sup>&minus;10</sup> %</td></tr>
+    </table>
+    <div class="card-note" style="margin-top:0;">A 10<sup>23</sup> el pic és tan estret que l'energia de cada sòlid és, a efectes pràctics, un número fix. <strong>Aquí és on neix la termodinàmica:</strong> no perquè els altres repartiments siguin impossibles, sinó perquè són tan improbables que no passen mai. El "màxim de &Omega;<sub>T</sub>" del <a href="flux_formula_boltzmann.html">pas 5 de 3.4</a> deixa de ser una hipòtesi raonable i passa a ser una certesa pràctica.</div>
+    <div class="card-note"><strong>3. Mira les dues temperatures.</strong> Al repartiment més probable, k<sub>B</sub>T/&hbar;&omega; dels dos sòlids surt <strong>igual</strong>, encara que N<sub>A</sub> i N<sub>B</sub> siguin ben diferents &mdash; prova el preset asimètric, on el pic ja no és al mig i tot i així les dues temperatures coincideixen. (Amb sistemes petits queden <em>gairebé</em> iguals, 0,916 i 0,919 al preset 100+300: la diferència és perquè q<sub>A</sub> només pot prendre valors enters i el màxim real cau entre dos. Com més gran és N, més s'ajusten.) És exactament la condició</div>
+    <div class="eq">\[ \dfrac{\partial\ln\Omega_{A}}{\partial U_{A}}=\dfrac{\partial\ln\Omega_{B}}{\partial U_{B}} \]</div>
+    <div class="card-note" style="margin-top:0;">del pas 6 de 3.4, calculada aquí com a diferència discreta ln&Omega;(q+1)&minus;ln&Omega;(q): el que costa, en logaritme de microstats, afegir un quantum. <strong>La temperatura és això</strong> &mdash; i el que s'iguala a l'equilibri no són les energies, sinó aquesta derivada.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">MATÍS</span><span class="card-title">Què és exactament cada barra</span></div>
+    <div class="card-note" style="margin-top:0;">Cada barra és un <strong>macrostat</strong> (un repartiment q<sub>A</sub> | q&minus;q<sub>A</sub>), i la seva alçada és el nombre de <strong>microstats</strong> compatibles, &Omega;<sub>A</sub>(q<sub>A</sub>)&middot;&Omega;<sub>B</sub>(q&minus;q<sub>A</sub>), normalitzat. El postulat d'equiprobabilitat diu que tots els microstats són igual de probables &mdash; <em>no</em> que tots els macrostats ho siguin. El gràfic és precisament la diferència entre les dues coses.</div>
+    <div class="card-note">Noteu també que el pic no és al mig quan N<sub>A</sub>&ne;N<sub>B</sub>: el sòlid amb més oscil&middot;ladors se'n queda més, en proporció. El que s'iguala és la temperatura, no l'energia.</div>
+  </div>
+
+  <footer>Simulació de suport per a les seccions 3.4 i 3.8.1 del Tema 3. No substitueix cap guia: serveix per veure que el màxim de &Omega;<sub>T</sub> existeix i que s'estreny amb N. Tot el càlcul es fa amb logaritmes de factorials, de manera que els números grans no desborden.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // --- ln Gamma (Lanczos, g=7) per poder treballar amb factorials enormes ---
+  var LC = [0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+            771.32342877765313, -176.61502916214059, 12.507343278686905,
+            -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  function lgamma(x) {
+    if (x < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * x)) - lgamma(1 - x);
+    x -= 1;
+    var a = LC[0], t = x + 7.5;
+    for (var i = 1; i < 9; i++) a += LC[i] / (x + i);
+    return 0.5 * Math.log(2 * Math.PI) + (x + 0.5) * Math.log(t) - t + Math.log(a);
+  }
+  // nombre de microstats d'un solid d'Einstein: (q+N-1)! / [ q! (N-1)! ]
+  function lnOmega(N, q) { return lgamma(q + N) - lgamma(q + 1) - lgamma(N); }
+
+  function fmt(ln) {
+    if (ln < 36) {
+      var v = Math.round(Math.exp(ln));
+      return v.toLocaleString("ca-ES");
+    }
+    var e = ln / Math.LN10, f = Math.floor(e);
+    return (Math.pow(10, e - f)).toFixed(2) + "·10<sup>" + f + "</sup>";
+  }
+
+  var el = function (id) { return document.getElementById(id); };
+  var na = el("na"), nb = el("nb"), q = el("q");
+  var cur = null, key = "", trace = [], qA = null, growT = null, liveT = null;
+
+  function draw() {
+    var NA = +na.value, NB = +nb.value, Q = +q.value;
+    el("nav").textContent = NA;
+    el("nbv").textContent = NB;
+    el("qv").textContent = Q;
+
+    // distribucio sobre els macrostats q_A = 0 .. Q
+    var ln = [], i, mx = -Infinity;
+    for (i = 0; i <= Q; i++) {
+      ln.push(lnOmega(NA, i) + lnOmega(NB, Q - i));
+      if (ln[i] > mx) mx = ln[i];
+    }
+    var w = ln.map(function (x) { return Math.exp(x - mx); });
+    var Z = w.reduce(function (a, b) { return a + b; }, 0);
+    var p = w.map(function (x) { return x / Z; });
+
+    var peak = 0;
+    for (i = 0; i <= Q; i++) if (p[i] > p[peak]) peak = i;
+    var mean = 0, varr = 0;
+    for (i = 0; i <= Q; i++) mean += i * p[i];
+    for (i = 0; i <= Q; i++) varr += (i - mean) * (i - mean) * p[i];
+    var sd = Math.sqrt(varr);
+    cur = { NA: NA, NB: NB, Q: Q, mean: mean, sd: sd, peak: peak };
+    var k2 = NA + "|" + NB + "|" + Q;
+    if (k2 !== key) { key = k2; trace = []; qA = peak; drawTrace(); }
+
+    // --- figura ---
+    var W = 640, H = 290, L = 48, R = 14, T = 16, B = 44;
+    var x = function (k) { return L + (Q === 0 ? 0 : (k / Q) * (W - L - R)); };
+    var y = function (v) { return H - B - v * (H - B - T); };
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Distribucio del nombre de microstats segons com es reparteixen els quanta entre els dos solids">'];
+
+    // banda de +-sigma
+    if (sd > 0 && Q > 8) {
+      var x1 = x(Math.max(0, mean - sd)), x2 = x(Math.min(Q, mean + sd));
+      s.push('<rect x="' + x1.toFixed(1) + '" y="' + T + '" width="' + Math.max(0, x2 - x1).toFixed(1) +
+             '" height="' + (H - B - T) + '" fill="var(--flux)" opacity="0.10"/>');
+    }
+    // eixos
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+
+    if (Q <= 60) {                      // pocs macrostats: barres que es poden comptar
+      var bw = Math.max(1.5, (W - L - R) / (Q + 1) * 0.74);
+      for (i = 0; i <= Q; i++) {
+        var hh = (H - B) - y(p[i] / p[peak]);
+        s.push('<rect x="' + (x(i) - bw / 2).toFixed(1) + '" y="' + y(p[i] / p[peak]).toFixed(1) +
+               '" width="' + bw.toFixed(1) + '" height="' + Math.max(0, hh).toFixed(1) +
+               '" fill="var(--flux)" opacity="' + (i === peak ? "1" : "0.55") + '"/>');
+      }
+    } else {                            // molts: millor una corba plena
+      var d = "M " + x(0).toFixed(1) + "," + (H - B);
+      for (i = 0; i <= Q; i++) d += " L " + x(i).toFixed(1) + "," + y(p[i] / p[peak]).toFixed(1);
+      d += " L " + x(Q).toFixed(1) + "," + (H - B) + " Z";
+      s.push('<path d="' + d + '" fill="var(--flux)" opacity="0.22"/>');
+      s.push('<path d="' + d + '" fill="none" stroke="var(--flux)" stroke-width="2"/>');
+    }
+    // marca del pic
+    s.push('<line x1="' + x(peak).toFixed(1) + '" y1="' + T + '" x2="' + x(peak).toFixed(1) +
+           '" y2="' + (H - B) + '" stroke="var(--goal)" stroke-width="1.4" stroke-dasharray="5 4"/>');
+    s.push('<text x="' + x(peak).toFixed(1) + '" y="' + (T - 3) + '" text-anchor="middle" font-size="12" fill="var(--goal)" font-weight="600">q<tspan baseline-shift="sub" font-size="9">A</tspan>=' + peak + '</text>');
+    // etiquetes
+    s.push('<text x="' + L + '" y="' + (H - B + 18) + '" text-anchor="middle" font-size="12" fill="var(--muted)">0</text>');
+    s.push('<text x="' + (W - R) + '" y="' + (H - B + 18) + '" text-anchor="middle" font-size="12" fill="var(--muted)">' + Q + '</text>');
+    s.push('<text x="' + ((L + W - R) / 2) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="12.5" fill="var(--muted)">quanta al sòlid A &#8594; (la resta van al B)</text>');
+    s.push('<text x="' + (L - 8) + '" y="' + (T + 10) + '" text-anchor="end" font-size="11.5" fill="var(--muted)">&Omega;<tspan baseline-shift="sub" font-size="9">A</tspan>&Omega;<tspan baseline-shift="sub" font-size="9">B</tspan></text>');
+    s.push("</svg>");
+    el("fig").innerHTML = s.join("");
+
+    // --- lectures ---
+    el("o-peak").textContent = peak + " de " + Q;
+    el("o-width").textContent = Q > 0 ? (100 * sd / Q).toFixed(2) + " %" : "—";
+    el("o-pmax").textContent = (100 * p[peak]).toFixed(2) + " %";
+    el("o-tot").innerHTML = fmt(mx + Math.log(Z));
+
+    // temperatura: beta = d lnOmega / dq, calculada com a diferencia discreta al pic
+    var bA = lnOmega(NA, peak + 1) - lnOmega(NA, peak);
+    var bB = lnOmega(NB, Q - peak + 1) - lnOmega(NB, Q - peak);
+    el("o-ta").textContent = bA > 0 ? (1 / bA).toFixed(3) : "∞";
+    el("o-tb").textContent = bB > 0 ? (1 / bB).toFixed(3) : "∞";
+
+    // --- taula, nomes quan es pot llegir ---
+    var note = "";
+    if (Q <= 10) {
+      note = '<table class="mini-table"><caption>Tots els repartiments possibles, un per fila</caption>' +
+             '<tr><th>q<sub>A</sub></th><th>q<sub>B</sub></th><th>&Omega;<sub>A</sub></th><th>&Omega;<sub>B</sub></th><th>&Omega;<sub>A</sub>&Omega;<sub>B</sub></th><th>prob.</th></tr>';
+      for (i = 0; i <= Q; i++) {
+        note += "<tr" + (i === peak ? ' style="background:var(--flux-soft)"' : "") + "><td>" + i + "</td><td>" + (Q - i) +
+                "</td><td>" + fmt(lnOmega(NA, i)) + "</td><td>" + fmt(lnOmega(NB, Q - i)) +
+                "</td><td>" + fmt(ln[i]) + "</td><td>" + (100 * p[i]).toFixed(1) + " %</td></tr>";
+      }
+      note += "</table>";
+    } else {
+      note = "<strong>La taula apareix</strong> quan hi ha 10 quanta o menys, que és quan encara es pot llegir fila a fila.";
+    }
+    el("tablenote").innerHTML = note;
+  }
+
+  [na, nb, q].forEach(function (c) { c.addEventListener("input", draw); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-preset]"), function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-preset").split(",");
+      na.value = v[0]; nb.value = v[1]; q.value = v[2];
+      draw();
+    });
+  });
+
+  // ---------- dinamica 1: fer creixer N i veure com s'estreny el pic ----------
+  function stopGrow() { if (growT) { clearInterval(growT); growT = null; el("grow").textContent = "▶ Fes créixer N (de 2 a 400)"; } }
+  el("grow").addEventListener("click", function () {
+    if (growT) { stopGrow(); return; }
+    var N = 2; na.value = N; nb.value = N; q.value = N; draw();
+    el("grow").textContent = "■ Atura";
+    growT = setInterval(function () {
+      N = Math.min(400, Math.ceil(N * 1.08) + 1);
+      na.value = N; nb.value = N; q.value = N; draw();
+      if (N >= 400) stopGrow();
+    }, 140);
+  });
+
+  // ---------- dinamica 2: fluctuacions en directe ----------
+  // Cadena de Markov (Metropolis) que mou un quantum entre els dos solids amb
+  // probabilitat d'acceptacio Omega(nou)/Omega(vell): la distribucio
+  // estacionaria es EXACTAMENT la del grafic de dalt, aixi que el que es veu
+  // es el sistema fluctuant de debo al voltant del seu equilibri.
+  function metropolis(k) {
+    var NA = cur.NA, NB = cur.NB, Q = cur.Q, i, nq, dln;
+    for (i = 0; i < k; i++) {
+      nq = qA + (Math.random() < 0.5 ? 1 : -1);
+      if (nq < 0 || nq > Q) continue;
+      dln = lnOmega(NA, nq) + lnOmega(NB, Q - nq) - lnOmega(NA, qA) - lnOmega(NB, Q - qA);
+      if (dln >= 0 || Math.random() < Math.exp(dln)) qA = nq;
+    }
+  }
+  function drawTrace() {
+    if (!cur) return;
+    var W = 640, H = 170, L = 48, R = 14, T = 26, B = 24, n = 240;
+    var y = function (v) { return H - B - v * (H - B - T); };
+    var x = function (i) { return L + (i / (n - 1)) * (W - L - R); };
+    var m = cur.mean / cur.Q, sd = cur.sd / cur.Q;
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Fraccio de quanta al solid A al llarg del temps">'];
+    s.push('<rect x="' + L + '" y="' + y(Math.min(1, m + sd)).toFixed(1) + '" width="' + (W - L - R) + '" height="' + Math.max(1, y(Math.max(0, m - sd)) - y(Math.min(1, m + sd))).toFixed(1) + '" fill="var(--flux)" opacity="0.14"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + y(m).toFixed(1) + '" x2="' + (W - R) + '" y2="' + y(m).toFixed(1) + '" stroke="var(--goal)" stroke-width="1.2" stroke-dasharray="5 4"/>');
+    if (trace.length > 1) {
+      var d = "", i, off = n - trace.length;
+      for (i = 0; i < trace.length; i++) d += (i ? " L " : "M ") + x(off + i).toFixed(1) + "," + y(trace[i]).toFixed(1);
+      s.push('<path d="' + d + '" fill="none" stroke="var(--ink)" stroke-width="1.6"/>');
+      s.push('<circle cx="' + x(n - 1).toFixed(1) + '" cy="' + y(trace[trace.length - 1]).toFixed(1) + '" r="4" fill="var(--goal)"/>');
+    } else {
+      s.push('<text x="' + ((L + W - R) / 2) + '" y="' + ((T + H - B) / 2 + 4) + '" text-anchor="middle" font-size="13" fill="var(--muted)">Prem ▶ Fluctuacions en directe per veure el sistema moure’s</text>');
+    }
+    s.push('<text x="' + (L - 6) + '" y="' + (y(1) + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">1</text>');
+    s.push('<text x="' + (L - 6) + '" y="' + (y(0) + 4) + '" text-anchor="end" font-size="11" fill="var(--muted)">0</text>');
+    s.push('<text x="' + L + '" y="' + (T - 10) + '" font-size="12.5" fill="var(--flux)" font-weight="600">q<tspan baseline-shift="sub" font-size="9">A</tspan>/q al llarg del temps · banda ±σ = ' + (100 * sd).toFixed(2) + ' %</text>');
+    s.push('<text x="' + (W - R) + '" y="' + (H - 6) + '" text-anchor="end" font-size="11.5" fill="var(--muted)">temps →</text>');
+    s.push("</svg>");
+    el("fig2").innerHTML = s.join("");
+  }
+  el("live").addEventListener("click", function () {
+    if (liveT) { clearInterval(liveT); liveT = null; el("live").textContent = "▶ Fluctuacions en directe"; return; }
+    el("live").textContent = "■ Atura les fluctuacions";
+    liveT = setInterval(function () {
+      if (!cur) return;
+      metropolis(Math.max(4, Math.round(cur.Q / 3)));
+      trace.push(qA / cur.Q);
+      if (trace.length > 240) trace.shift();
+      drawTrace();
+    }, 40);
+  });
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", draw);
+  else draw();
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

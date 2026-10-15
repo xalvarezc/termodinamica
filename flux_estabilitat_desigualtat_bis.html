@@ -1,0 +1,228 @@
+<!doctype html>
+<title>Guia de classe — desigualtat de Clausius-Gibbs (versió dels apunts)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.5(a)&ndash;(b) &middot; versió dels apunts (2.6.1)</div>
+  <h1>La <em>desigualtat de Clausius&ndash;Gibbs</em> &mdash; versió dels apunts</h1>
+  <p class="subtitle">El mateix destí que a la <a href="flux_estabilitat_desigualtat.html">versió curta</a>, però pel camí dels apunts: tres reservoris per separat, i la forma d'Euler de cadascun per obtenir-ne el &delta;U.</p>
+
+  <div class="card-note" style="margin-bottom:22px;"><strong>Dues rutes cap al mateix lloc.</strong> A la <a href="flux_estabilitat_desigualtat.html">versió curta</a> hi ha <em>un sol</em> reservori i se li aplica directament l'equació de Gibbs. Aquí, com als apunts (2.6.1), es parteix en <strong>tres</strong> reservoris &mdash; termòstat, manòstat i &mu;-stat &mdash; i de cadascun se'n treu el &delta;U per la seva <strong>forma d'Euler</strong>, imposant després la conservació de l'energia total. El contingut físic és el mateix; canvia per on s'hi entra.</div>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Desplaçament virtual &delta;: apartem el sistema de l'equilibri "a mà", sense deixar-lo evolucionar</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>El conjunt està aïllat &rArr; V<sub>tot</sub> i N<sub>tot</sub> són fixos</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_forma_euler.html">2.2: forma d'Euler, U=TS&minus;PV+&mu;N</a>, aplicada a cada reservori</span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_entropia_definicio.html">Tema 1, 1.5.3(d): l'entropia d'un sistema aïllat és màxima a l'equilibri</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Al pas 1 hi substituïm el pas 2 i el pas 3, amb &delta;U<sub>tot</sub>=0</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Aïllem &delta;S<sub>t</sub> del pas 4</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm &delta;S<sub>t</sub> (pas 5) al pas 6</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Desigualtat de Clausius&ndash;Gibbs</span></div><div class="eq">\[ \delta U-T\,\delta S+P\,\delta V-\mu\,\delta N\ge 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Màxima entropia / mínima energia</span></div><div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \quad\textbf{i}\quad \left(\delta U\right)_{S,V,N} \ge 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Sistema en equilibri amb tres reservoris</div>
+        <div class="card-note">Un <strong>termòstat</strong> (fixa T), un <strong>manòstat</strong> (fixa P) i un <strong>&mu;-stat</strong> o reservori de partícules (fixa &mu;). Cadascun fixa una magnitud intensiva; a l'equilibri, la T, P i &mu; del sistema són les dels reservoris. El conjunt sistema+reservoris està aïllat.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Desplaçament virtual &delta;: apartem el sistema de l'equilibri "a mà", sense deixar-lo evolucionar</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'energia del conjunt, repartida en quatre trossos</span></div>
+        <div class="eq">\[ \begin{aligned} \delta U_{tot}&=\delta U+\delta U_{r} \\[4pt] &=\delta U+\delta U_{t}+\delta U_{m}+\delta U_{\mu} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">U és la del sistema; U<sub>t</sub>, U<sub>m</sub>, U<sub>&mu;</sub> les del termòstat, el manòstat i el &mu;-stat.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_forma_euler.html">2.2: forma d'Euler, U=TS&minus;PV+&mu;N</a>, aplicada a cada reservori</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">El &delta;U de cada reservori, per la seva forma d'Euler</span></div>
+        <div class="eq">\[ \begin{aligned} \delta U_{t}&=T\,\delta S_{t} \\[4pt] \delta U_{m}&=-P\,\delta V_{m} \\[4pt] \delta U_{\mu}&=\mu\,\delta N_{\mu} \end{aligned} \]</div>
+        <div class="card-note"><strong>D'on surt cada línia:</strong> un termòstat és un reservori amb parets rígides i impermeables, així que de tota la seva forma d'Euler només li varia S &mdash; per això els apunts diuen que "es redueix a U=TS". I com que la seva T és <em>fixa</em> per definició (és el que el fa un reservori), en prendre el desplaçament virtual la T surt fora: &delta;U<sub>t</sub>=T&delta;S<sub>t</sub>, sense cap terme S&delta;T. El mateix raonament, amb la variable que toca a cada cas, dona les altres dues línies.</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">El conjunt està aïllat &rArr; V<sub>tot</sub> i N<sub>tot</sub> són fixos</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">El que guanya el sistema, ho perd el reservori</span></div>
+        <div class="eq">\[ \delta V_{m}=-\delta V \quad\textbf{i}\quad \delta N_{\mu}=-\delta N \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">V i N són extensives: V<sub>tot</sub>=V+V<sub>m</sub> i N<sub>tot</sub>=N+N<sub>&mu;</sub>. Com que els totals no canvien, &delta;V<sub>tot</sub>=0 i &delta;N<sub>tot</sub>=0.</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Al pas 1 hi substituïm el pas 2 i el pas 3, amb &delta;U<sub>tot</sub>=0</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">L'energia total també es conserva</span></div>
+        <div class="eq">\[ \delta U_{tot}=\delta U+T\,\delta S_{t}+P\,\delta V-\mu\,\delta N=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Els signes: &delta;U<sub>m</sub>=&minus;P&delta;V<sub>m</sub>=+P&delta;V i &delta;U<sub>&mu;</sub>=&mu;&delta;N<sub>&mu;</sub>=&minus;&mu;&delta;N, pel pas 3.</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Aïllem &delta;S<sub>t</sub> del pas 4</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">&delta;S del termòstat, en termes del sistema</span></div>
+        <div class="eq">\[ \delta S_{t}=-\left(\dfrac{1}{T}\right)\delta U-\left(\dfrac{P}{T}\right)\delta V+\left(\dfrac{\mu}{T}\right)\delta N \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Tota l'entropia dels reservoris que canvia és la del termòstat: el manòstat i el &mu;-stat només bescanvien V i N.</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_entropia_definicio.html">Tema 1, 1.5.3(d): l'entropia d'un sistema aïllat és màxima a l'equilibri</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">L'entropia total, en canvi, no es conserva</span></div>
+        <div class="eq">\[ \delta S_{tot}=\delta S+\delta S_{t}\le 0 \]</div>
+        <div class="card-note"><strong>Compte amb el signe &mdash; aquí és on s'inverteix.</strong> La segona llei, tal com s'escriu habitualment (&Delta;S<sub>&Uscr;</sub>&ge;0), val per a processos <em>reals</em>: el sistema aïllat evoluciona <em>cap a</em> l'equilibri i hi guanya entropia. Un desplaçament <strong>virtual</strong> fa exactament el contrari, l'aparta de l'equilibri. Com que l'equilibri és el <strong>màxim</strong> de S<sub>tot</sub>, qualsevol estat virtual veí en té menys: S<sub>tot</sub>(virtual)&le;S<sub>tot</sub>(eq), és a dir &delta;S<sub>tot</sub>&le;0. És el mateix principi llegit al revés, no una llei diferent &mdash; i és el desplaçament que el sistema desfaria tot sol si el deixéssim anar.</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm &delta;S<sub>t</sub> (pas 5) al pas 6</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Sumem les dues entropies</span></div>
+        <div class="eq">\[ \delta S-\left(\dfrac{1}{T}\right)\delta U-\left(\dfrac{P}{T}\right)\delta V+\left(\dfrac{\mu}{T}\right)\delta N\le 0 \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; multipliquem per T&gt;0, canviem de signe i reordenem &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Desigualtat de Clausius&ndash;Gibbs</span></div>
+        <div class="eq">\[ \delta U-T\,\delta S+P\,\delta V-\mu\,\delta N\ge 0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">T, P i &mu; són les dels reservoris, però a l'equilibri coincideixen amb les del sistema &mdash; per això s'escriuen sense subíndex.</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; fixem U,V,N (sistema aïllat) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 8</span><span class="card-title">Cas particular: sistema aïllat</span></div>
+        <div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 9 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; fixem S,V,N &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 9</span><span class="card-title">Cas particular: entropia constant</span></div>
+        <div class="eq">\[ \left(\delta U\right)_{S,V,N} \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; els dos junts &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Màxima entropia / mínima energia</span></div>
+        <div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \quad\textbf{i}\quad \left(\delta U\right)_{S,V,N} \ge 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> a l'equilibri, l'entropia és màxima i, equivalentment, l'energia interna és mínima. La <a href="flux_estabilitat_cv_kappa.html">guia dels criteris d'estabilitat</a> hi parteix directament, mirant el segon ordre del desenvolupament; i la <a href="flux_minims_potencials.html">guia dels mínims de F, H i G</a> repeteix la mateixa desigualtat amb altres muntatges de reservoris.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon als apartats 2.5(a) i (b) del guió de pissarra del Tema 2, seguint el camí de la secció 2.6.1 dels apunts. La <a href="flux_estabilitat_desigualtat.html">versió curta</a> hi arriba amb menys passos aplicant l'equació de Gibbs a un sol reservori.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

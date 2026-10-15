@@ -1,0 +1,228 @@
+<!doctype html>
+<title>Guia de classe — multiplicadors de Lagrange</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.9 &middot; eina matemàtica</div>
+  <h1>Els <em>multiplicadors de Lagrange</em></h1>
+  <p class="subtitle">Extrems d'una funció de n variables lligades per m condicions. Els desplaçaments ja no són independents; el truc és afegir zeros ben triats perquè ho tornin a semblar.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Extrem condicionat: extrem de f entre els punts que compleixen els lligams</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Teorema de la funció implícita</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Un sistema lineal amb determinant no nul té solució única</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Condició d'extrem condicionat</span></div><div class="eq">\[ \begin{gathered} \dfrac{\partial f}{\partial x_{i}}+\sum_{a=1}^{m}\lambda_{a}\dfrac{\partial g_{a}}{\partial x_{i}}=0,\qquad i=1,\dots,n \\[6pt] \Longleftrightarrow\qquad\nabla f=-\sum_{a=1}^{m}\lambda_{a}\nabla g_{a} \end{gathered} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">El mètode: extrem lliure de &#8466;</span></div><div class="eq">\[ \begin{gathered} \dfrac{\partial\mathcal{L}}{\partial x_{i}}=0\quad\left(i=1,\dots,n\right) \\[6pt] \dfrac{\partial\mathcal{L}}{\partial\lambda_{a}}=0\quad\left(a=1,\dots,m\right) \end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Extrem condicionat: extrem de f entre els punts que compleixen els lligams</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Extrem de f amb m lligams</div>
+        <div class="eq">\[ \begin{gathered} \text{extrem de }f\left(x_{1},\dots,x_{n}\right) \\[4pt] \text{amb}\quad g_{a}\left(x_{1},\dots,x_{n}\right)=0,\qquad a=1,\dots,m&lt;n \end{gathered} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Sense lligams, la condició seria &part;f/&part;x<sub>i</sub>=0 per a cada i. Amb lligams no: el màxim de f sobre els punts permesos no té per què ser un punt on el gradient s'anul&middot;li.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; condició d'extrem a primer ordre &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">A l'extrem, df=0 per a tot desplaçament permès</span></div>
+        <div class="eq">\[ df=\sum_{i=1}^{n}\dfrac{\partial f}{\partial x_{i}}\,dx_{i}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Però només per als dx<sub>i</sub> que no ens treuen dels lligams. Si els n desplaçaments fossin independents, podríem triar-ne un de no nul cada cop i concloure que cada coeficient és zero. Aquí <strong>no ho són</strong>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; els lligams s'han de complir també després de moure's &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Quins desplaçaments són permesos</span></div>
+        <div class="eq">\[ dg_{a}=\sum_{i=1}^{n}\dfrac{\partial g_{a}}{\partial x_{i}}\,dx_{i}=0,\qquad a=1,\dots,m \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">m equacions lineals entre els n desplaçaments: en queden n&minus;m de lliures.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Teorema de la funció implícita</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Hipòtesi de regularitat: m variables dependents</span></div>
+        <div class="eq">\[ \det\left(\dfrac{\partial g_{a}}{\partial x_{b}}\right)_{a,b=1,\dots,m}\neq 0 \]</div>
+        <div class="card-note">Reordenant les variables si cal, suposem que aquest determinant m&times;m no s'anul&middot;la al punt. Vol dir que els gradients &nabla;g<sub>a</sub> són linealment independents: els lligams no són redundants. Llavors x<sub>1</sub>,&hellip;,x<sub>m</sub> es poden escriure com a funcions de x<sub>m+1</sub>,&hellip;,x<sub>n</sub>, que són les <strong>independents</strong>: dx<sub>m+1</sub>,&hellip;,dx<sub>n</sub> es poden triar lliurement.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 1 + &lambda;<sub>a</sub> &times; pas 2: s'hi sumen zeros &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Sumem a df cada dg<sub>a</sub> multiplicat per un número arbitrari</span></div>
+        <div class="eq">\[ \sum_{i=1}^{n}\left(\dfrac{\partial f}{\partial x_{i}}+\sum_{a=1}^{m}\lambda_{a}\dfrac{\partial g_{a}}{\partial x_{i}}\right)dx_{i}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És cert per a <strong>qualsevol</strong> valor de &lambda;<sub>1</sub>,&hellip;,&lambda;<sub>m</sub>, perquè per a desplaçaments permesos cada dg<sub>a</sub> val zero. De moment els &lambda;<sub>a</sub> són lliures: els fixarem al pas següent.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Un sistema lineal amb determinant no nul té solució única</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Triem els &lambda;<sub>a</sub> per anul&middot;lar els coeficients de les dependents</span></div>
+        <div class="eq">\[ \dfrac{\partial f}{\partial x_{b}}+\sum_{a=1}^{m}\lambda_{a}\dfrac{\partial g_{a}}{\partial x_{b}}=0,\qquad b=1,\dots,m \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">m equacions lineals per a m incògnites &lambda;<sub>a</sub>, amb la matriu del pas 3. Com que el seu determinant no és zero, hi ha <strong>una única</strong> tria de &lambda;<sub>a</sub> que ho aconsegueix.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; dx<sub>m+1</sub>,&hellip;,dx<sub>n</sub> independents (pas 3) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">El que queda només conté desplaçaments lliures</span></div>
+        <div class="eq">\[ \sum_{i=m+1}^{n}\left(\dfrac{\partial f}{\partial x_{i}}+\sum_{a=1}^{m}\lambda_{a}\dfrac{\partial g_{a}}{\partial x_{i}}\right)dx_{i}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara sí que podem moure un sol dx<sub>i</sub> deixant quiets els altres lliures: el seu coeficient ha de ser zero. I així per a cada i=m+1,&hellip;,n.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 5 (i&le;m) + pas 6 (i&gt;m) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Condició d'extrem condicionat</span></div>
+        <div class="eq">\[ \begin{gathered} \dfrac{\partial f}{\partial x_{i}}+\sum_{a=1}^{m}\lambda_{a}\dfrac{\partial g_{a}}{\partial x_{i}}=0,\qquad i=1,\dots,n \\[6pt] \Longleftrightarrow\qquad\nabla f=-\sum_{a=1}^{m}\lambda_{a}\nabla g_{a} \end{gathered} \]</div>
+        <div class="card-note">Les m primeres equacions les hem <em>imposades</em> triant els &lambda;; les n&minus;m restants les ha <em>forçades</em> l'extrem. Al final totes tenen la mateixa forma, i ja no cal recordar quines variables eren les dependents.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; reescriptura: els lligams també surten d'una derivada &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">La funció de Lagrange</span></div>
+        <div class="eq">\[ \mathcal{L}\left(x_{1},\dots,x_{n},\lambda_{1},\dots,\lambda_{m}\right)=f+\sum_{a=1}^{m}\lambda_{a}\,g_{a} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">&part;&#8466;/&part;x<sub>i</sub>=0 és el DESTÍ 1, i &part;&#8466;/&part;&lambda;<sub>a</sub>=g<sub>a</sub>=0 són els lligams.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; n+m equacions, n+m incògnites &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">El mètode: extrem lliure de &#8466;</span></div>
+        <div class="eq">\[ \begin{gathered} \dfrac{\partial\mathcal{L}}{\partial x_{i}}=0\quad\left(i=1,\dots,n\right) \\[6pt] \dfrac{\partial\mathcal{L}}{\partial\lambda_{a}}=0\quad\left(a=1,\dots,m\right) \end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> un extrem condicionat de f en n variables és un punt estacionari <strong>sense lligams</strong> de &#8466; en n+m variables. Hem canviat m lligams per m incògnites noves &mdash; i ja no cal aïllar cap variable.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">La imatge geomètrica: n=2, m=1</span></div>
+    <div class="card-note" style="margin-top:0;">Les corbes de nivell de f=x&sup2;+y&sup2; són cercles; el lligam g=0 és la recta x+y=c. Movent-nos per la recta, f baixa fins que la recta deixa de <em>tallar</em> els cercles i en <em>toca</em> un: allà la corba de nivell i el lligam són tangents, i per tant <strong>&nabla;f i &nabla;g són paral&middot;lels</strong>. El quocient de les seves llargades és &minus;&lambda;.</div>
+    <svg viewBox="0 0 600 330" role="img" aria-label="Cercles concèntrics, corbes de nivell de f. Una recta, el lligam g igual a zero, és tangent a un dels cercles en un punt. En aquest punt, el gradient de f i el gradient de g apunten en la mateixa direcció, perpendicular a la recta. En un altre punt de la recta, on la recta talla un cercle, es pot fer baixar f movent-se per la recta." style="width:100%;height:auto;display:block;font-family:'IBM Plex Sans',sans-serif;">
+      <defs>
+        <marker id="ah-goal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--goal)"/></marker>
+        <marker id="ah-flux" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--flux)"/></marker>
+        <marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker>
+      </defs>
+      <!-- corbes de nivell de f, centrades a (170,250) -->
+      <circle cx="170" cy="250" r="70" fill="none" stroke="var(--muted)" stroke-width="1.1" stroke-dasharray="3 4"/>
+      <circle cx="170" cy="250" r="141.4" fill="none" stroke="var(--muted)" stroke-width="1.6"/>
+      <circle cx="170" cy="250" r="200" fill="none" stroke="var(--muted)" stroke-width="1.1" stroke-dasharray="3 4"/>
+      <circle cx="170" cy="250" r="3" fill="var(--muted)"/>
+      <text x="160" y="270" text-anchor="end" font-size="13" fill="var(--muted)">mínim lliure de f</text>
+      <!-- lligam g=0 -->
+      <line x1="130" y1="10" x2="440" y2="320" stroke="var(--flux)" stroke-width="2.6"/>
+      <text x="446" y="306" font-size="14" fill="var(--flux)" font-weight="600">g = 0</text>
+      <!-- punt de tangència -->
+      <line x1="270" y1="150" x2="340" y2="80" stroke="var(--goal)" stroke-width="2.4" marker-end="url(#ah-goal)"/>
+      <line x1="270" y1="150" x2="300" y2="120" stroke="var(--flux)" stroke-width="4" marker-end="url(#ah-flux)"/>
+      <circle cx="270" cy="150" r="5.5" fill="var(--goal)"/>
+      <text x="346" y="76" font-size="14" fill="var(--goal)" font-weight="700">&#8711;f</text>
+      <text x="304" y="140" font-size="14" fill="var(--flux)" font-weight="700">&#8711;g</text>
+      <text x="292" y="162" font-size="13" fill="var(--goal)" font-weight="600">extrem condicionat: tangència</text>
+      <!-- punt on la recta talla una corba de nivell -->
+      <circle cx="170" cy="50" r="4.5" fill="var(--muted)"/>
+      <line x1="178" y1="58" x2="226" y2="106" stroke="var(--muted)" stroke-width="1.8" marker-end="url(#ah-muted)"/>
+      <text x="232" y="36" font-size="13" fill="var(--muted)">aquí la recta talla el cercle:</text>
+      <text x="232" y="52" font-size="13" fill="var(--muted)">movent-s'hi, f encara baixa</text>
+    </svg>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Què vol dir &lambda; físicament</span></div>
+    <div class="card-note">Si el lligam és de la forma g=h(x)&minus;c, el valor de f a l'extrem depèn de c, i</div>
+    <div class="eq">\[ \dfrac{df^{*}}{dc}=\nabla f\cdot\dfrac{d\mathbf{x}^{*}}{dc}=-\lambda\,\nabla h\cdot\dfrac{d\mathbf{x}^{*}}{dc}=-\lambda \]</div>
+    <div class="card-note">perquè h(<strong>x</strong>*(c))=c implica &nabla;h&middot;d<strong>x</strong>*/dc=1. El multiplicador mesura <strong>quant canvia l'òptim quan es relaxa el lligam</strong>. Per això, quan es maximitza l'entropia fixant l'energia mitjana, el multiplicador acaba sent proporcional a &part;S/&part;U=1/T: no és un artifici de càlcul, és una magnitud física.</div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Dues advertències</span></div>
+    <div class="card-note"><strong>És una condició necessària, no suficient.</strong> Dóna punts estacionaris condicionats: màxims, mínims o punts de sella. Quin és quin s'ha de decidir a part (en el cas de l'entropia, per la concavitat de &minus;P&nbsp;ln&nbsp;P).</div>
+    <div class="card-note"><strong>La regularitat del pas 3 no és decorativa.</strong> Minimitzem f=x amb el lligam g=y&sup2;&minus;x&sup3;=0. Com que x&sup3;=y&sup2;&ge;0, el mínim és a l'origen. Però allà &nabla;g=(&minus;3x&sup2;,2y)=(0,0), mentre que &nabla;f=(1,0): no hi ha cap &lambda; amb &nabla;f=&minus;&lambda;&nabla;g. El mètode no troba aquest mínim, perquè en aquest punt el lligam no defineix cap variable dependent.</div>
+  </div>
+
+  <footer>Eina matemàtica per a la secció 3.9 del Tema 3 (<a href="flux_entropia_shannon.html">entropia estadística</a>), i per a totes les col&middot;lectivitats que es dedueixen maximitzant l'entropia amb lligams. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

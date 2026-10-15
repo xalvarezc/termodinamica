@@ -1,0 +1,175 @@
+<!doctype html>
+<title>Guia de classe — desigualtat de Clausius-Gibbs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.5(a)&ndash;(b) &middot; guió de pissarra</div>
+  <h1>La <em>desigualtat de Clausius&ndash;Gibbs</em></h1>
+  <p class="subtitle">De la segona llei aplicada a un sistema en contacte amb reservoris, als dos principis d'equilibri: entropia màxima, energia mínima. Els apunts (2.6.1) hi arriben per un altre camí: vegeu la <a href="flux_estabilitat_desigualtat_bis.html">versió dels apunts</a>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Desplaçament virtual &delta; del sistema; U, V, N totals es conserven</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_equacio_fonamental.html">2.1: equació de Gibbs, aplicada al reservori</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_entropia_definicio.html">Tema 1, 1.5.3(d): l'entropia d'un sistema aïllat és màxima a l'equilibri</a> &mdash; el conjunt és aïllat &rArr; &delta;S<sub>tot</sub>=&delta;S+&delta;S<sub>res</sub>&le;0</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm els signes del pas 1</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Desigualtat de Clausius&ndash;Gibbs</span></div><div class="eq">\[ \delta U - T\delta S + P\delta V - \mu \delta N \ge 0 \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Màxima entropia / mínima energia</span></div><div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \quad\textbf{i}\quad \left(\delta U\right)_{S,V,N} \ge 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Sistema en equilibri amb reservoris</div>
+        <div class="card-note">Termòstat (T&#8320;), manòstat (P&#8320;) i reservori de partícules (&mu;&#8320;). El conjunt sistema+reservoris està aïllat.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Desplaçament virtual &delta; del sistema; U, V, N totals es conserven</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">El que guanya el sistema, ho perd el reservori</span></div>
+        <div class="eq">\[ \delta U_{res}=-\delta U, \quad \delta V_{res}=-\delta V, \quad\textbf{i}\quad \delta N_{res}=-\delta N \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_equacio_fonamental.html">2.1: equació de Gibbs, aplicada al reservori</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">El reservori, sempre en equilibri</span></div>
+        <div class="eq">\[ \delta S_{res}=\left(\dfrac{1}{T_{0}}\right)\delta U_{res}+\left(\dfrac{P_{0}}{T_{0}}\right)\delta V_{res}-\left(\dfrac{\mu _{0}}{T_{0}}\right)\delta N_{res} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm els signes del pas 1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">&delta;S del reservori, en termes del sistema</span></div>
+        <div class="eq">\[ \delta S_{res}=-\left(\dfrac{1}{T_{0}}\right)\delta U-\left(\dfrac{P_{0}}{T_{0}}\right)\delta V+\left(\dfrac{\mu _{0}}{T_{0}}\right)\delta N \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_entropia_definicio.html">Tema 1, 1.5.3(d): l'entropia d'un sistema aïllat és màxima a l'equilibri</a> &mdash; el conjunt és aïllat &rArr; &delta;S<sub>tot</sub>=&delta;S+&delta;S<sub>res</sub>&le;0</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Sumem les dues entropies</span></div>
+        <div class="eq">\[ \delta S - \left(\dfrac{1}{T_{0}}\right)\delta U - \left(\dfrac{P_{0}}{T_{0}}\right)\delta V + \left(\dfrac{\mu _{0}}{T_{0}}\right)\delta N \le 0 \]</div>
+        <div class="card-note"><strong>Compte amb el signe.</strong> La 2a llei en la forma &Delta;S<sub>&Uscr;</sub>&ge;0 val per a processos <em>reals</em>, que porten el conjunt aïllat <em>cap a</em> l'equilibri. Un desplaçament <strong>virtual</strong> fa el contrari: l'en aparta. Com que l'equilibri és el <strong>màxim</strong> de S<sub>tot</sub>, qualsevol estat virtual veí en té menys, i per tant &delta;S<sub>tot</sub>&le;0. És el mateix principi llegit al revés, no una llei diferent &mdash; i és el desplaçament que el sistema desfaria tot sol si el deixéssim anar.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; multipliquem per T&#8320;&gt;0, canviem de signe i reordenem; a l'equilibri T=T&#8320;, P=P&#8320;, &mu;=&mu;&#8320; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Desigualtat de Clausius&ndash;Gibbs</span></div>
+        <div class="eq">\[ \delta U - T\delta S + P\delta V - \mu \delta N \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; fixem U,V,N (sistema aïllat) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Cas particular: sistema aïllat</span></div>
+        <div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; fixem S,V,N &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Cas particular: entropia constant</span></div>
+        <div class="eq">\[ \left(\delta U\right)_{S,V,N} \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; els dos junts &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Màxima entropia / mínima energia</span></div>
+        <div class="eq">\[ \left(\delta S\right)_{U,V,N} \le 0 \quad\textbf{i}\quad \left(\delta U\right)_{S,V,N} \ge 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> a l'equilibri, l'entropia és màxima i, equivalentment, l'energia interna és mínima. La <a href="flux_estabilitat_cv_kappa.html">guia dels criteris d'estabilitat</a> hi parteix directament, mirant el segon ordre del desenvolupament; i la <a href="flux_minims_potencials.html">guia dels mínims de F, H i G</a> repeteix la mateixa desigualtat amb altres muntatges de reservoris.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon als apartats 2.5(a) i (b) del guió de pissarra del Tema 2. Guia de classe: per tenir controlat el fil de la demostració sense perdre's. La <a href="flux_estabilitat_desigualtat_bis.html">versió dels apunts</a> hi arriba amb tres reservoris i la forma d'Euler de cadascun.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

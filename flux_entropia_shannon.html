@@ -1,0 +1,142 @@
+<!doctype html>
+<title>Guia de classe — entropia estadística de Shannon-Gibbs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.9 &middot; guió de pissarra</div>
+  <h1>L'<em>entropia estadística</em></h1>
+  <p class="subtitle">Maximitzant S=&minus;k<sub>B</sub>&sum;P&nbsp;ln&nbsp;P amb l'única condició que les probabilitats sumin 1, surten alhora el segon postulat i la fórmula de Boltzmann.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Definició de Shannon-Gibbs</span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Normalització de la probabilitat</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span><a href="flux_lagrange.html">Multiplicadors de Lagrange</a></span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&part;(P&nbsp;ln&nbsp;P)/&part;P = ln&nbsp;P + 1</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Distribució d'equilibri</span></div><div class="eq">\[ \sum_{k}P_{k}=\Omega\,P_{j}=1 \quad\Longrightarrow\quad P_{j}=\dfrac{1}{\Omega} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Fórmula de Boltzmann, un altre cop</span></div><div class="eq">\[ S=-k_{B}\sum_{k}\dfrac{1}{\Omega}\ln\left(\dfrac{1}{\Omega}\right)=k_{B}\ln\Omega \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Definició de Shannon-Gibbs</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">L'entropia, definida sobre probabilitats</div>
+        <div class="eq">\[ S=-k_{B}\sum_{k}P_{k}\ln P_{k} \]</div>
+        <div class="card-note">L'<strong>entropia estadística</strong> (de Shannon, o de Gibbs), amb P<sub>k</sub> la probabilitat del microstat k. Mesura la nostra <em>ignorància</em> sobre en quin microstat es troba el sistema: val zero si un microstat té probabilitat 1, i és màxima quan no en sabem res. Ara la prendrem com a punt de partida i veurem què se'n dedueix.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Normalització de la probabilitat</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'única cosa que sabem del sistema</span></div>
+        <div class="eq">\[ g_{1}=\sum_{k}P_{k}-1=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Que les probabilitats sumen 1. Per a un sistema aïllat no hi ha cap altra restricció: no fixem ni l'energia mitjana (això seria la col&middot;lectivitat canònica) ni res més.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc"><a href="flux_lagrange.html">Multiplicadors de Lagrange</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Maximitzem S amb aquesta restricció</span></div>
+        <div class="eq">\[ \dfrac{\partial S}{\partial P_{j}}+\lambda\dfrac{\partial g_{1}}{\partial P_{j}}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)"><a href="flux_lagrange.html">Mètode dels multiplicadors de Lagrange</a>: &lambda; és l'únic multiplicador, un per restricció.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&part;(P&nbsp;ln&nbsp;P)/&part;P = ln&nbsp;P + 1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Fem les derivades</span></div>
+        <div class="eq">\[ \begin{aligned} -k_{B}\left(\ln P_{j}+1\right)+\lambda&=0 \\[4pt] P_{j}&=\exp\left(\dfrac{\lambda}{k_{B}}-1\right) \end{aligned} \]</div>
+        <div class="card-note"><strong>I aquí està tot:</strong> el resultat no depèn de j. Sigui quin sigui el microstat, la seva probabilitat és la mateixa.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; normalitzant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Distribució d'equilibri</span></div>
+        <div class="eq">\[ \sum_{k}P_{k}=\Omega\,P_{j}=1 \quad\Longrightarrow\quad P_{j}=\dfrac{1}{\Omega} \]</div>
+        <div class="card-note">Com que hi ha &Omega; microstats i tots tenen la mateixa probabilitat, la normalització en fixa el valor. <strong>És el principi d'equiprobabilitat a priori</strong> &mdash; el <a href="flux_conceptes_microcanonica.html">segon postulat</a> &mdash; que aquí no s'ha suposat: n'ha sortit.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint al punt de partida &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Fórmula de Boltzmann, un altre cop</span></div>
+        <div class="eq">\[ S=-k_{B}\sum_{k}\dfrac{1}{\Omega}\ln\left(\dfrac{1}{\Omega}\right)=k_{B}\ln\Omega \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> la suma té &Omega; termes idèntics, i cada un val (1/&Omega;)ln&Omega;. Retrobem S=k<sub>B</sub>ln&Omega;, ara no com una comparació afortunada entre dues condicions d'equilibri (<a href="flux_formula_boltzmann.html">3.4</a>) sinó com el <strong>màxim</strong> d'una entropia definida sobre probabilitats.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Què s'ha guanyat fent la volta</span></div>
+    <div class="card-note">A 3.4 l'equiprobabilitat era un <strong>postulat</strong> i la fórmula de Boltzmann se'n deriva comparant dues condicions d'equilibri. Aquí, en canvi, el punt de partida és la definició d'entropia estadística, i tant l'equiprobabilitat com la fórmula de Boltzmann en són <em>conseqüències</em>. El postulat no ha desaparegut &mdash; s'ha desplaçat: ara el que se suposa és que la distribució d'equilibri és la que maximitza la ignorància compatible amb el que se sap. Que és una suposició molt més natural, i molt més fèrtil.</div>
+    <div class="card-note"><strong>Fèrtil en quin sentit:</strong> el mètode es generalitza tot sol. Si a la normalització hi afegim una segona restricció &mdash; que l'energia mitjana &lang;E&rang;=&sum;P<sub>k</sub>E<sub>k</sub> sigui fixa &mdash; apareix un segon multiplicador de Lagrange &beta;, i el mateix càlcul dóna P<sub>k</sub>&prop;e<sup>&minus;&beta;E<sub>k</sub></sup>: la distribució de Boltzmann de la col&middot;lectivitat canònica, amb &beta;=1/k<sub>B</sub>T. Afegint-hi encara &lang;N&rang;, surt la macrocanònica. Les tres col&middot;lectivitats són el mateix principi amb un nombre creixent de lligams.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.9 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

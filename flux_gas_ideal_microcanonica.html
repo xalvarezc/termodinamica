@@ -1,0 +1,230 @@
+<!doctype html>
+<title>Guia de classe — gas ideal a la col&middot;lectivitat microcanònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.5 &middot; guió de pissarra</div>
+  <h1>El <em>gas ideal monoatòmic</em></h1>
+  <p class="subtitle">Del hamiltonià a PV=Nk<sub>B</sub>T sense cap dada experimental: comptar microstats dins una hiperesfera, i després descomptar les permutacions que no en generen cap de nou.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Model: N partícules puntuals sense interacció dins un volum V</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Indistingibilitat de partícules idèntiques no localitzades</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Gamma;=&int;<sub>H&le;E</sub>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=(&part;&Gamma;/&part;E)<sub>V,N</sub></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_stirling.html">Aproximació de Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: equacions d'estat microcanòniques</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Volum d'una hiperesfera n-dimensional</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Equació de Sackur-Tetrode</span></div><div class="eq">\[ S=Nk_{B}\ln\left[\dfrac{V}{N}\left(\dfrac{4\pi mU}{3Nh^{2}}\right)^{3/2}\right]+\dfrac{5N}{2}k_{B} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Equacions calòrica i tèrmica d'estat</span></div><div class="eq">\[ U=\dfrac{3}{2}Nk_{B}T \qquad\qquad PV=Nk_{B}T \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Model: N partícules puntuals sense interacció dins un volum V</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un gas ideal és un gas sense interaccions</div>
+        <div class="eq">\[ H\left(\mathbf{q},\mathbf{p}\right)=\sum_{i=1}^{N}\dfrac{p_{i}^{2}}{2m}=\dfrac{1}{2m}\left(p_{1}^{2}+\cdots+p_{3N}^{2}\right) \]</div>
+        <div class="card-note">En mecànica estadística, <strong>ideal</strong> vol dir que les partícules no interactuen entre elles &mdash; no cap altra cosa. De la definició termodinàmica (PV=nRT) no cal partir: en sortirà.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Gamma;=&int;<sub>H&le;E</sub>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Les posicions se separen de seguida</span></div>
+        <div class="eq">\[ \Gamma=\dfrac{1}{h^{3N}}\int d\mathbf{q}\int_{p_{1}^{2}+\cdots+p_{3N}^{2}\le 2mU}d\mathbf{p} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La condició H&le;U només afecta els moments: el hamiltonià no depèn de <strong>q</strong>. Per això les dues integrals es poden fer per separat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; les partícules estan contingudes en un volum V &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">La integral de posicions és directa</span></div>
+        <div class="eq">\[ \int d\mathbf{q}=\int dq_{1}\,dq_{2}\cdots dq_{N}=V^{N} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Cada partícula és puntual i pot ser en qualsevol punt del recipient, independentment de les altres.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Volum d'una hiperesfera n-dimensional</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">La de moments és el volum d'una hiperesfera</span></div>
+        <div class="card-note">La condició p<sub>1</sub>&sup2;+&hellip;+p<sub>3N</sub>&sup2;&le;2mU és una <strong>hiperesfera de 3N dimensions i radi &radic;(2mU)</strong>. El volum d'una hiperesfera de dimensió n i radi R és</div>
+        <div class="eq">\[ \int_{x_{1}^{2}+\cdots+x_{n}^{2}\le R^{2}}dx_{1}\cdots dx_{n}=\dfrac{\pi^{n/2}}{\left(\tfrac{n}{2}\right)!}R^{n} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">amb n=3N i R=&radic;(2mU).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 2 &times; pas 3 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Ajuntant les dues integrals</span></div>
+        <div class="eq">\[ \Gamma\left(U,V,N\right)=\dfrac{V^{N}}{h^{3N}}\,\dfrac{\pi^{3N/2}}{\left(\tfrac{3N}{2}\right)!}\,\left(2mU\right)^{3N/2} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=(&part;&Gamma;/&part;E)<sub>V,N</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">I derivant, el nombre de microstats</span></div>
+        <div class="eq">\[ \begin{aligned} \Omega=\dfrac{\partial\Gamma}{\partial U}&=\dfrac{2mV^{N}}{h^{3N}}\,\dfrac{\pi^{3N/2}}{\left(\tfrac{3N}{2}-1\right)!} \\[4pt] &\quad\times\left(2mU\right)^{3N/2-1} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com que &Gamma;&prop;U<sup>3N/2</sup>, derivar només baixa l'exponent: &Omega;=(3N/2)&Gamma;/U.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_stirling.html">Aproximació de Stirling: ln&nbsp;N!&simeq;N&nbsp;ln&nbsp;N&minus;N</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">En el límit termodinàmic, ln&Omega; i ln&Gamma; són el mateix</span></div>
+        <div class="eq">\[ \ln\Omega=\ln\Gamma+\ln\left(\dfrac{3N}{2U}\right)\simeq\ln\Gamma \]</div>
+        <div class="card-note">Perquè ln&Gamma; és d'ordre <strong>N&nbsp;ln&nbsp;N</strong> (hi ha termes com N&nbsp;ln&nbsp;V, N&nbsp;ln&nbsp;U i ln(3N/2)!), mentre que el terme que els separa és d'ordre <strong>ln&nbsp;N</strong>. Per a N~10<sup>23</sup> la diferència és irrellevant. Aquest resultat és general, encara que aquí el vegem en un cas concret: <strong>la superfície d'energia i tot el volum que té a sota tenen el mateix logaritme</strong>, perquè en dimensió tan alta gairebé tot el volum és a prop de la superfície. <a href="sim_hiperesfera.html">La simulació de la hiperesfera</a> en dóna el número.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: S=k<sub>B</sub>ln&Omega;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">L'equació fonamental... que no pot ser correcta</span></div>
+        <div class="eq">\[ \begin{aligned} S=k_{B}\ln\Omega&\simeq k_{B}\ln\Gamma \\[4pt] &=Nk_{B}\ln\left[V\left(\dfrac{4\pi mU}{3Nh^{2}}\right)^{3/2}\right] \\[4pt] &\quad+\dfrac{3N}{2}k_{B} \end{aligned} \]</div>
+        <div class="card-note">Substituint el pas 4 i aplicant Stirling a ln(3N/2)!. <strong>Aquesta expressió no és extensiva:</strong> si es dupliquen U, V i N alhora, el terme N&nbsp;ln&nbsp;V creix més de pressa que linealment, i surt S(&lambda;U,&lambda;V,&lambda;N)&ne;&lambda;S(U,V,N). L'entropia hauria de ser homogènia de grau 1 i no ho és: és la <strong>paradoxa de Gibbs</strong>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Indistingibilitat de partícules idèntiques no localitzades</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 8</span><span class="card-title">La causa: les partícules són indistingibles</span></div>
+        <div class="card-note">Les partícules d'un gas són idèntiques i es mouen: no es poden etiquetar. Fixat un microstat, <strong>permutar dues partícules no en genera cap de nou</strong> &mdash; però la integral sobre l'espai de fases les ha comptat totes com a diferents. Cal descomptar les N! permutacions:</div>
+        <div class="eq">\[ \begin{aligned} \Omega_{\text{indist}}&=\dfrac{\Omega}{N!} \\[4pt] S_{\text{indist}}&=S-k_{B}\ln N! \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; afegint &minus;k<sub>B</sub>ln&nbsp;N! amb Stirling &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Equació de Sackur-Tetrode</span></div>
+        <div class="eq">\[ S=Nk_{B}\ln\left[\dfrac{V}{N}\left(\dfrac{4\pi mU}{3Nh^{2}}\right)^{3/2}\right]+\dfrac{5N}{2}k_{B} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara sí que és extensiva: V i N hi entren només per la combinació V/N, i U per U/N. El &frac32; ha passat a &frac52; pel &minus;k<sub>B</sub>ln&nbsp;N! &simeq; &minus;Nk<sub>B</sub>(ln&nbsp;N&minus;1).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: equacions d'estat microcanòniques</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 9</span><span class="card-title">Ja només cal derivar</span></div>
+        <div class="eq">\[ \begin{aligned} \dfrac{1}{T}&=\left(\dfrac{\partial S}{\partial U}\right)_{V,N}=\dfrac{3Nk_{B}}{2U} \\[6pt] \dfrac{P}{T}&=\left(\dfrac{\partial S}{\partial V}\right)_{U,N}=\dfrac{Nk_{B}}{V} \end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; aïllant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Equacions calòrica i tèrmica d'estat</span></div>
+        <div class="eq">\[ U=\dfrac{3}{2}Nk_{B}T \qquad\qquad PV=Nk_{B}T \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> les dues equacions d'estat del gas ideal monoatòmic, deduïdes únicament del hamiltonià &mdash; sense cap dada experimental. La segona val per a qualsevol gas ideal; la primera, només per al monoatòmic, perquè depèn dels graus de llibertat interns de les partícules.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Quan cal dividir per N! i quan no</span></div>
+    <div class="card-note">La divisió per N! no és un apèndix cosmètic per salvar l'extensivitat: correspon a una propietat física real de les partícules. El criteri és si es poden <strong>etiquetar</strong>:</div>
+    <table class="mini-table"><tr><th>Sistema</th><th>Es poden etiquetar?</th><th>Cal dividir per N!?</th></tr><tr><td>Gas ideal</td><td>no: són idèntiques i es mouen</td><td><strong>sí</strong></td></tr><tr><td><a href="flux_solid_classic.html">Sòlid clàssic</a></td><td>sí: cadascuna té el seu nus de la xarxa</td><td><strong>no</strong></td></tr><tr><td>Dos nivells amb partícules localitzades</td><td>sí</td><td><strong>no</strong></td></tr></table>
+    <div class="card-note">Dit d'una altra manera: les partícules idèntiques <em>localitzades</em> són distingibles, perquè la seva posició ja és una etiqueta. Per això el sòlid no pateix la paradoxa de Gibbs.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Què hi fa h en el resultat d'un càlcul clàssic</span></div>
+    <div class="card-note">A la Sackur-Tetrode hi apareix la constant de Planck, tot i que el càlcul és íntegrament clàssic. No és cap contradicció: h hi entra només com la mida de la cel&middot;la que converteix un volum d'espai de fases en un recompte. Com que desapareix en derivar (només afegeix una constant a S), <strong>no afecta ni U ni PV</strong> &mdash; la mecànica clàssica no en pot dir res, i tampoc no la necessita. On sí que importa és en el valor absolut de l'entropia, que és justament el que el tercer principi fa mesurable.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.5 del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

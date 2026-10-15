@@ -1,0 +1,139 @@
+<!doctype html>
+<title>Guia de classe — límits reals de treball</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.3(f) &middot; guió de pissarra</div>
+  <h1>Els <em>límits reals de treball</em></h1>
+  <p class="subtitle">El treball que una màquina real deixa de produir, en funció exacta de l'entropia que genera &mdash; cap detall intern de la irreversibilitat necessari.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>El motor és cíclic: torna a l'estat inicial</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_carnot_funcio_f.html">1.5.2: rendiment de Carnot com a fita superior</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_entropia_definicio.html">1.5.3(d): entropia generada a l'univers</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substituïm Q<sub>2</sub><sup>real</sup>=Q<sub>1</sub>&minus;W i comparem amb W<sup>max</sup></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Treball desaprofitat</span></div><div class="eq">\[ W_{desap} = W^{max}-W = T_{f}\Delta S_{\mathcal{U}} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_carnot_funcio_f.html">1.5.2: rendiment de Carnot com a fita superior</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un motor real entre T<sub>c</sub> i T<sub>f</sub></div>
+        <div class="eq">\[ W^{max} = Q_{1}\left(\dfrac{1-T_{f}}{T_{c}}\right) \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">El motor és cíclic: torna a l'estat inicial</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Primera llei per al cicle real</span></div>
+        <div class="eq">\[ Q_{2}^{real} = Q_{1} - W \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_entropia_definicio.html">1.5.3(d): entropia generada a l'univers</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Entropia generada pel cicle</span></div>
+        <div class="eq">\[ \Delta S_{\mathcal{U}} = \dfrac{Q_{2}^{real}}{T_{f}} - \dfrac{Q_{1}}{T_{c}} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substituïm Q<sub>2</sub><sup>real</sup>=Q<sub>1</sub>&minus;W i comparem amb W<sup>max</sup></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Reagrupem els termes</span></div>
+        <div class="eq">\[ \Delta S_{\mathcal{U}} = \dfrac{W^{max}-W}{T_{f}} \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; reescrivim, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Treball desaprofitat</span></div>
+        <div class="eq">\[ W_{desap} = W^{max}-W = T_{f}\Delta S_{\mathcal{U}} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el treball és el que queda un cop pagat el "peatge" d'expulsar l'entropia al focus fred &mdash; mai és gratis. Per un refrigerador real, anàlogament, W<sup>min</sup>=Q&#8322;(T<sub>c</sub>/T<sub>f</sub>&minus;1).</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">El treball perdut, quantificat</span></div>
+    <div class="card-note" style="margin-top:0;">Si l'expansió (o el cicle) no és lliure de veritat, sinó que treballa contra un desajust finit, l'entropia generada es pot calcular exactament com un <strong>treball perdut</strong> &mdash; això és, de fet, el que ja diu el DESTÍ d'aquesta guia, W<sub>desap</sub>=T<sub>f</sub>&Delta;S<sub>&Uscr;</sub>. No és un mecanisme diferent de la fricció o l'expansió lliure: és el mateix desajust mecànic entre sistema i entorn, vist ara des del treball en lloc del recompte de microestats.</div>
+    <div class="card-note"><strong>Comprovem-ho</strong> amb una isoterma de gas ideal, de V&#8321; a V&#8322; a temperatura T:</div>
+    <ul style="margin:6px 0 10px 20px;padding:0;font-size:14.5px;color:var(--ink);line-height:1.5;">
+      <li><strong>Reversible</strong>: W<sup>max</sup>=nRT&thinsp;ln(V&#8322;/V&#8321;); com que &Delta;U=0, Q<sub>rev</sub>=W<sup>max</sup>, i per tant &Delta;S<sub>gas</sub>=Q<sub>rev</sub>/T=nR&thinsp;ln(V&#8322;/V&#8321;) &mdash; cap generació, com toca.</li>
+      <li><strong>Irreversible</strong> (expansió sobtada contra P<sub>ext</sub> constant): W<sub>real</sub>=P<sub>ext</sub>(V&#8322;&minus;V&#8321;)&lt;W<sup>max</sup>, i com que &Delta;U=0 igualment, Q<sub>real</sub>=W<sub>real</sub>.</li>
+    </ul>
+    <div class="card-note" style="margin-top:0;">Però &Delta;S<sub>gas</sub> és funció d'estat: val el mateix a tots dos casos, independentment del camí. Per tant</div>
+    <div class="eq">\[ S_{gen} = \Delta S_{gas} - \dfrac{Q_{real}}{T} = \dfrac{W^{max}-W_{real}}{T} \]</div>
+    <div class="card-note">exactament el treball perdut, dividit per T. I l'expansió lliure n'és el cas extrem: P<sub>ext</sub>=0 &rArr; W<sub>real</sub>=0, així que <em>tot</em> el treball reversible màxim es converteix en entropia generada &mdash; cap treball, cap calor, tota la generació surt d'aquest dèficit total.</div>
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.3(f) del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

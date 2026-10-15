@@ -1,0 +1,163 @@
+<!doctype html>
+<title>Guia de classe — efusió</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 4 &middot; secció 4.3 &middot; guió de pissarra</div>
+  <h1><em>Efusió</em> per un orifici petit</h1>
+  <p class="subtitle">El mateix cilindre de la pressió, però ara comptant partícules en lloc de moment: el flux d'efusió, el buidatge exponencial del recipient i per què els gasos lleugers se'n van abans.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>Orifici petit comparat amb el recorregut lliure mitjà; a fora, buit</span></li><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>L'interior es manté en equilibri a T constant mentre es buida</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_pressio.html">4.2, pas 2: partícules que arriben a A en &Delta;t</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_valors_mitjans.html">4.1: &lang;v&rang;=&radic;(8k<sub>B</sub>T/&pi;m)</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&int;<sub>0</sub><sup>&infin;</sup>x&nbsp;e<sup>&minus;ax&sup2;</sup>dx=1/(2a)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Separació de variables: dN/N=&minus;dt/&tau;</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Flux d'efusió</span></div><div class="eq">\[ J=\dfrac{N}{V}\sqrt{\dfrac{k_{B}T}{2\pi m}}=\dfrac{1}{4}\,\dfrac{N}{V}\left\langle v\right\rangle \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Buidatge exponencial</span></div><div class="eq">\[ N\left(t\right)=N\left(0\right)e^{-t/\tau},\qquad\tau=\dfrac{4V}{A\left\langle v\right\rangle} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">Orifici petit comparat amb el recorregut lliure mitjà; a fora, buit</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un forat d'àrea A a la paret</div>
+        <div class="card-note">Volem el <strong>flux d'efusió</strong> J: partícules que surten per unitat d'àrea i de temps. Si el forat és petit comparat amb el recorregut lliure mitjà, les partícules el travessen una a una, sense arrossegar-se entre elles: <strong>surt per A exactament el que hauria xocat contra A</strong>. (Si fos gran, el gas sortiria com un raig, i això ja és hidrodinàmica.)</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_pressio.html">4.2, pas 2: partícules que arriben a A en &Delta;t</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Les que surten són les del cilindre</span></div>
+        <div class="eq">\[ dN\left(v_{z}\right)=\dfrac{N}{V}\,A\,v_{z}\Delta t\;\rho\left(v_{z}\right)dv_{z},\qquad v_{z}>0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara no multipliquem per 2mv<sub>z</sub>: no ens interessa el moment, sinó el nombre.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&int;<sub>0</sub><sup>&infin;</sup>x&nbsp;e<sup>&minus;ax&sup2;</sup>dx=1/(2a)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Sumem sobre v<sub>z</sub>&gt;0</span></div>
+        <div class="eq">\[ \begin{aligned} J&=\dfrac{1}{A\,\Delta t}\int_{0}^{\infty}dN\left(v_{z}\right) \\[4pt] &=\dfrac{N}{V}\left(\dfrac{\beta m}{2\pi}\right)^{1/2}\int_{0}^{\infty}v_{z}\,e^{-\beta mv_{z}^{2}/2}dv_{z} \\[4pt] &=\dfrac{N}{V}\left(\dfrac{\beta m}{2\pi}\right)^{1/2}\dfrac{1}{\beta m} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Ara només hi ha un factor v<sub>z</sub> (el de quantes arriben). A diferència de la pressió, la paritat no ens estalvia la integral: v<sub>z</sub>&rho;(v<sub>z</sub>) és senar, la seva integral sobre tota la recta és zero, i cal fer-la de debò només sobre v<sub>z</sub>&gt;0.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_valors_mitjans.html">4.1: &lang;v&rang;=&radic;(8k<sub>B</sub>T/&pi;m)</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Flux d'efusió</span></div>
+        <div class="eq">\[ J=\dfrac{N}{V}\sqrt{\dfrac{k_{B}T}{2\pi m}}=\dfrac{1}{4}\,\dfrac{N}{V}\left\langle v\right\rangle \]</div>
+        <div class="card-note">La segona forma és la que es recorda: <strong>un quart de densitat per celeritat mitjana</strong>. El &frac14; reuneix dues coses: només la meitat de les partícules va cap a la paret, i les que hi van no hi van perpendiculars (la mitjana de v<sub>z</sub> sobre aquesta meitat és &lang;v&rang;/2).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">L'interior es manté en equilibri a T constant mentre es buida</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Balanç de partícules del recipient</span></div>
+        <div class="eq">\[ \dfrac{dN}{dt}=-A\,J=-\dfrac{A\left\langle v\right\rangle}{4V}\,N \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com que el forat és petit, les partícules que s'escapen en un temps curt són poques comparades amb les que queden: el gas de dins passa per estats d'equilibri i el DESTÍ 1 val a cada instant, amb la N d'aquell instant.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Separació de variables: dN/N=&minus;dt/&tau;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Integrem</span></div>
+        <div class="eq">\[ \int_{N\left(0\right)}^{N\left(t\right)}\dfrac{dN}{N}=-\dfrac{A\left\langle v\right\rangle}{4V}\int_{0}^{t}dt' \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; exponenciant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Buidatge exponencial</span></div>
+        <div class="eq">\[ N\left(t\right)=N\left(0\right)e^{-t/\tau},\qquad\tau=\dfrac{4V}{A\left\langle v\right\rangle} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el temps característic creix amb el volum i decreix amb l'àrea del forat i la celeritat mitjana. Com que &lang;v&rang;&prop;&radic;(T/m), els gasos lleugers i calents es buiden abans.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Separar isòtops per efusió</span></div>
+    <div class="card-note">A igual densitat i temperatura, J&prop;1/&radic;m (llei de Graham). Si dins hi ha una mescla de dos gasos, el que surt està enriquit en el lleuger, amb un factor</div>
+    <div class="eq">\[ \dfrac{J_{1}/n_{1}}{J_{2}/n_{2}}=\sqrt{\dfrac{m_{2}}{m_{1}}} \]</div>
+    <div class="card-note">L'enriquiment és <strong>parcial</strong>, no una separació completa. Per a l'urani, en forma de UF<sub>6</sub>: &radic;(352/349)&asymp;1.0043. Un 0.4&nbsp;% per etapa; per això les plantes de difusió gasosa encadenaven més d'un miler d'etapes.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què cal un termòstat perquè &tau; sigui constant</span></div>
+    <div class="card-note">El pas 1 compta les partícules amb pes v<sub>z</sub>: <strong>surten preferentment les ràpides</strong>. L'energia cinètica mitjana de les que s'escapen és 2k<sub>B</sub>T, no 3/2k<sub>B</sub>T. Si les parets fossin adiabàtiques, el gas de dins es refredaria a mesura que es buida, &lang;v&rang; baixaria i &tau; aniria creixent. L'exponencial del DESTÍ FINAL suposa parets a T fixada &mdash; per això la hipòtesi del pas 3 diu &laquo;a T constant&raquo; i no només &laquo;en equilibri&raquo;.</div>
+  </div>
+
+  <footer>Correspon a la secció 4.3 del Tema 4 (distribució de Maxwell-Boltzmann). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

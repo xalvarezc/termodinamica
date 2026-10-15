@@ -1,0 +1,212 @@
+<!doctype html>
+<title>Guia de classe — col·lectivitat canònica per a sistemes discrets</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.6 &middot; guió de pissarra</div>
+  <h1>Canònica per a <em>sistemes discrets</em></h1>
+  <p class="subtitle">Maximitzar l'entropia de Shannon amb dos lligams, la normalització i l'energia mitjana. Surt el factor de Boltzmann, el segon multiplicador és 1/T, i F=&minus;k<sub>B</sub>T&nbsp;ln&nbsp;Z sense cap constant indeterminada.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Canònica: es fixa l'energia mitjana, no l'energia</span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Degeneració g(E): nombre de microstats amb energia E</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_entropia_shannon.html">3.9: S=&minus;k<sub>B</sub>&sum;p<sub>s</sub>ln&nbsp;p<sub>s</sub></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_lagrange.html">Lagrange: &lambda; mesura com canvia l'òptim amb el lligam</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_formula_boltzmann.html">3.4: 1/T=&part;S/&part;U</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span><a href="flux_lagrange.html">Multiplicadors de Lagrange</a></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Distribució canònica discreta</span></div><div class="eq">\[ p_{s}=\dfrac{e^{-\beta E_{s}}}{Z},\qquad Z=\sum_{s}e^{-\beta E_{s}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Equació fonamental, sense constant indeterminada</span></div><div class="eq">\[ F=U-TS=-k_{B}T\ln Z \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Probabilitat d'una energia</span></div><div class="eq">\[ P\left(E\right)=\dfrac{g\left(E\right)e^{-\beta E}}{Z} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_entropia_shannon.html">3.9: S=&minus;k<sub>B</sub>&sum;p<sub>s</sub>ln&nbsp;p<sub>s</sub></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Energia discreta: probabilitats p<sub>s</sub> de cada microstat</div>
+        <div class="eq">\[ S=-k_{B}\sum_{s}p_{s}\ln p_{s} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un microstat s és una configuració concreta del sistema, amb energia E<sub>s</sub>. Com al Tema 3, l'equilibri és la distribució que maximitza S compatible amb el que sabem.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Canònica: es fixa l'energia mitjana, no l'energia</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Què sabem: normalització i energia mitjana</span></div>
+        <div class="eq">\[ g_{1}=\sum_{s}p_{s}-1=0,\qquad g_{2}=U-\sum_{s}p_{s}E_{s}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">A la <a href="flux_entropia_shannon.html">microcanònica</a> només hi havia g<sub>1</sub>, i sortia l'equiprobabilitat. El contacte amb la font afegeix un segon lligam.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc"><a href="flux_lagrange.html">Multiplicadors de Lagrange</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Dos lligams, dos multiplicadors</span></div>
+        <div class="eq">\[ \begin{gathered}\dfrac{\partial S}{\partial p_{i}}+\lambda_{1}\dfrac{\partial g_{1}}{\partial p_{i}}+\lambda_{2}\dfrac{\partial g_{2}}{\partial p_{i}}=0 \\[6pt] -k_{B}\left(\ln p_{i}+1\right)+\lambda_{1}-\lambda_{2}E_{i}=0\end{gathered} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; tot el que no depèn de i va a la constant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Aïllem p<sub>i</sub> i normalitzem</span></div>
+        <div class="eq">\[ p_{i}=\dfrac{e^{-\lambda_{2}E_{i}/k_{B}}}{Z},\qquad Z=\sum_{s}e^{-\lambda_{2}E_{s}/k_{B}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">&lambda;<sub>1</sub> només fixa la normalització. Falta saber què és &lambda;<sub>2</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint p<sub>i</sub> a S &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">L'entropia a l'òptim</span></div>
+        <div class="eq">\[ \begin{aligned}S&=-k_{B}\sum_{s}p_{s}\left(-\dfrac{\lambda_{2}E_{s}}{k_{B}}-\ln Z\right) \\[4pt] &=k_{B}\ln Z+\lambda_{2}U\end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_lagrange.html">Lagrange: &lambda; mesura com canvia l'òptim amb el lligam</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">El multiplicador és la derivada de l'òptim respecte del lligam</span></div>
+        <div class="eq">\[ \begin{aligned}\dfrac{\partial S}{\partial U}&=k_{B}\dfrac{\partial\ln Z}{\partial\lambda_{2}}\dfrac{\partial\lambda_{2}}{\partial U}+\lambda_{2}+U\dfrac{\partial\lambda_{2}}{\partial U} \\[4pt] &=\lambda_{2}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">k<sub>B</sub>&part;ln&nbsp;Z/&part;&lambda;<sub>2</sub>=&minus;U, i el primer i el tercer terme es cancel&middot;len. Els apunts identifiquen &lambda;<sub>2</sub> comparant S=k<sub>B</sub>ln&nbsp;Z+&lambda;<sub>2</sub>U amb S=(U&minus;F)/T; així queda demostrat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_formula_boltzmann.html">3.4: 1/T=&part;S/&part;U</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">I &part;S/&part;U és 1/T</span></div>
+        <div class="eq">\[ \lambda_{2}=\dfrac{1}{T},\qquad\dfrac{\lambda_{2}}{k_{B}}=\dfrac{1}{k_{B}T}=\beta \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint &lambda;<sub>2</sub> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Distribució canònica discreta</span></div>
+        <div class="eq">\[ p_{s}=\dfrac{e^{-\beta E_{s}}}{Z},\qquad Z=\sum_{s}e^{-\beta E_{s}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El mateix factor de Boltzmann que la <a href="flux_canonica_deduccio.html">deducció amb una font</a>, per un camí completament diferent.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; S=k<sub>B</sub>ln&nbsp;Z+U/T i F=U&minus;TS &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Equació fonamental, sense constant indeterminada</span></div>
+        <div class="eq">\[ F=U-TS=-k_{B}T\ln Z \]</div>
+        <div class="card-note"><strong>Exacte</strong>, sense cap c(V,N): compareu amb el comentari de la <a href="flux_canonica_helmholtz.html">guia de F</a>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Degeneració g(E): nombre de microstats amb energia E</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Agrupem els microstats per energia</span></div>
+        <div class="eq">\[ Z=\sum_{s}e^{-\beta E_{s}}=\sum_{E}g\left(E\right)e^{-\beta E} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La primera suma és sobre microstats; la segona, sobre valors diferents de l'energia. No són el mateix: un nivell pot contenir molts microstats.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; sumant p<sub>s</sub> sobre els microstats amb la mateixa E &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Probabilitat d'una energia</span></div>
+        <div class="eq">\[ P\left(E\right)=\dfrac{g\left(E\right)e^{-\beta E}}{Z} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> cada <em>microstat</em> té pes e<sup>&minus;&beta;E</sup>; cada <em>energia</em>, g(E)e<sup>&minus;&beta;E</sup>. És la versió discreta de &Omega;(E)e<sup>&minus;&beta;E</sup> de la <a href="flux_canonica_helmholtz.html">guia de F</a>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">EXEMPLE</span><span class="card-title">Dues partícules en dos nivells</span></div>
+    <div class="card-note">Nivells d'energia &epsilon;<sub>1</sub>&lt;&epsilon;<sub>2</sub>, no degenerats. Escrivim e<sub>a</sub>=e<sup>&minus;2&beta;&epsilon;<sub>1</sub></sup>, e<sub>b</sub>=e<sup>&minus;&beta;(&epsilon;<sub>1</sub>+&epsilon;<sub>2</sub>)</sup>, e<sub>c</sub>=e<sup>&minus;2&beta;&epsilon;<sub>2</sub></sup>.</div>
+    <table class="mini-table"><tr><th>Estadística</th><th>Microstats</th><th>Z</th><th>T&rarr;&infin;</th></tr><tr><td>Maxwell-Boltzmann</td><td>4 (11, 22, 12, 21)</td><td>e<sub>a</sub>+2e<sub>b</sub>+e<sub>c</sub>=Z<sub>1</sub><sup>2</sup></td><td>p<sub>s</sub>=1/4</td></tr><tr><td>Bose-Einstein</td><td>3 (les dues a baix, a dalt, una a cada)</td><td>e<sub>a</sub>+e<sub>b</sub>+e<sub>c</sub></td><td>p<sub>s</sub>=1/3</td></tr><tr><td>Fermi-Dirac</td><td>1 (una a cada nivell)</td><td>e<sub>b</sub></td><td>p=1</td></tr></table>
+    <div class="card-note">A T&rarr;0, en els dos primers casos el sistema va al microstat de mínima energia (les dues partícules a baix); per a fermions, l'únic microstat ja ho és. Comparant amb la prescripció clàssica Z<sub>1</sub><sup>2</sup>/2!:</div>
+    <div class="eq">\[ Z_{BE}=\dfrac{Z_{1}^{2}}{2!}+\dfrac{e_{a}+e_{c}}{2},\qquad Z_{FD}=\dfrac{Z_{1}^{2}}{2!}-\dfrac{e_{a}+e_{c}}{2} \]</div>
+    <div class="card-note">El 1/N! no és exacte ni per a bosons ni per a fermions: la diferència són els estats amb dues partícules al mateix nivell (e<sub>a</sub>, e<sub>c</sub>). Quan aquests estats són negligibles (molts més estats que partícules), totes tres coincideixen: és el <a href="flux_comptatge_degenerat.html">límit clàssic</a>.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què costa la canònica amb partícules indistingibles</span></div>
+    <div class="card-note">Si un microstat és un conjunt d'ocupacions {n<sub>i</sub>} dels nivells d'una partícula, Z=&sum;e<sup>&minus;&beta;&sum;n<sub>i</sub>&epsilon;<sub>i</sub></sup> amb la condició &sum;n<sub>i</sub>=N. Aquest lligam acobla les n<sub>i</sub> i impedeix factoritzar la suma. Deixant fluctuar també N &mdash; la col&middot;lectivitat macrocanònica &mdash; el lligam desapareix, i per això és allà on es tracten bosons i fermions.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.6 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

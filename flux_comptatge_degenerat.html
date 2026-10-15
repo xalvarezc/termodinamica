@@ -1,0 +1,191 @@
+<!doctype html>
+<title>Guia de classe — comptatge en nivells degenerats</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.8.2 (b) &middot; guió de pissarra</div>
+  <h1>Comptatge discret, <em>amb degeneració</em></h1>
+  <p class="subtitle">Ara cada nivell d'energia té g<sub>i</sub> estats. Amb les ocupacions fixades encara queda una tria &mdash; quins estats del nivell s'ocupen &mdash; i els tres recomptes tornen a ser interessants, també per a bosons i fermions.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Nivell i d'energia &epsilon;<sub>i</sub> amb g<sub>i</sub> estats (degeneració g<sub>i</sub>)</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Principi d'exclusió de Pauli</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_comptatge_discret.html">3.8.2 (a): N!/&prod;n<sub>i</sub>!, sense degeneració</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_solid_einstein.html">3.8.1: boles indistingibles i particions</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Principi del producte: tries independents es multipliquen</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Maxwell-Boltzmann amb degeneració</span></div><div class="eq">\[ \Omega_{MB}\left(\left\{n_{i}\right\}\right)=N!\prod_{i}\dfrac{g_{i}^{n_{i}}}{n_{i}!} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Bose-Einstein i Fermi-Dirac amb degeneració</span></div><div class="eq">\[ \begin{aligned} \Omega_{BE}\left(\left\{n_{i}\right\}\right)&=\prod_{i}\dfrac{\left(n_{i}+g_{i}-1\right)!}{n_{i}!\,\left(g_{i}-1\right)!} \\[6pt] \Omega_{FD}\left(\left\{n_{i}\right\}\right)&=\prod_{i}\dfrac{g_{i}!}{n_{i}!\,\left(g_{i}-n_{i}\right)!} \end{aligned} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">&Omega;(N,E) de dos nivells, en les tres estadístiques</span></div><div class="eq">\[ \begin{aligned} \Omega_{MB}\left(N,E\right)&=\dfrac{N!}{n_{1}!\,n_{2}!}\,g_{1}^{n_{1}}g_{2}^{n_{2}} \\[8pt] \Omega_{BE}\left(N,E\right)&=w_{BE}\left(n_{1},g_{1}\right)\,w_{BE}\left(n_{2},g_{2}\right) \\[8pt] \Omega_{FD}\left(N,E\right)&=w_{FD}\left(n_{1},g_{1}\right)\,w_{FD}\left(n_{2},g_{2}\right) \end{aligned} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Nivell i d'energia &epsilon;<sub>i</sub> amb g<sub>i</sub> estats (degeneració g<sub>i</sub>)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Ocupacions fixades, però ara cada nivell té diversos estats</div>
+        <div class="card-note">Com a la <a href="flux_comptatge_discret.html">guia sense degeneració</a>, fixem quantes partícules n<sub>i</sub> hi ha a cada nivell i. La diferència és que el nivell i té g<sub>i</sub> estats diferents amb la mateixa energia &epsilon;<sub>i</sub>: un àtom amb diversos estats de spin, un orbital amb diverses m, o les moltes cel&middot;les d'espai de fases amb gairebé la mateixa energia d'un gas.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_comptatge_discret.html">3.8.2 (a): N!/&prod;n<sub>i</sub>!, sense degeneració</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Distingibles: dues tries successives</span></div>
+        <div class="card-note">Primer, quines partícules van a cada nivell: N!/&prod;n<sub>i</sub>!, com abans. Després, cadascuna de les n<sub>i</sub> partícules del nivell i tria, independentment, un dels g<sub>i</sub> estats: g<sub>i</sub><sup>n<sub>i</sub></sup> maneres.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; producte de les dues tries &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Maxwell-Boltzmann amb degeneració</span></div>
+        <div class="eq">\[ \Omega_{MB}\left(\left\{n_{i}\right\}\right)=N!\prod_{i}\dfrac{g_{i}^{n_{i}}}{n_{i}!} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb tots els g<sub>i</sub>=1 es recupera N!/&prod;n<sub>i</sub>!.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_solid_einstein.html">3.8.1: boles indistingibles i particions</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Bosons en un nivell: n boles en g caixes</span></div>
+        <div class="eq">\[ w_{BE}\left(n,g\right)=\dfrac{\left(n+g-1\right)!}{n!\,\left(g-1\right)!} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El mateix recompte del sòlid d'Einstein: n boles i g&minus;1 particions, descomptant les permutacions de les boles entre elles i de les particions entre elles.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Principi d'exclusió de Pauli</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Fermions en un nivell: quins n dels g estats són plens</span></div>
+        <div class="eq">\[ w_{FD}\left(n,g\right)=\dfrac{g!}{n!\,\left(g-n\right)!}\qquad\left(n\le g\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Cada estat és ple o buit: n boles i g&minus;n forats, descomptant les permutacions entre boles i entre forats. Si n&gt;g, no hi ha cap microstat.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Principi del producte: tries independents es multipliquen</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Diversos nivells</span></div>
+        <div class="card-note">Fixades les ocupacions, la tria dins d'un nivell no afecta la dels altres. I, a diferència del pas 1, per a partícules indistingibles <strong>no hi ha cap factor N!/&prod;n<sub>i</sub>!</strong>: no té sentit preguntar <em>quines</em> van a cada nivell, només quantes.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; producte dels pasos 2 i 3 sobre els nivells &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Bose-Einstein i Fermi-Dirac amb degeneració</span></div>
+        <div class="eq">\[ \begin{aligned} \Omega_{BE}\left(\left\{n_{i}\right\}\right)&=\prod_{i}\dfrac{\left(n_{i}+g_{i}-1\right)!}{n_{i}!\,\left(g_{i}-1\right)!} \\[6pt] \Omega_{FD}\left(\left\{n_{i}\right\}\right)&=\prod_{i}\dfrac{g_{i}!}{n_{i}!\,\left(g_{i}-n_{i}\right)!} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb tots els g<sub>i</sub>=1: &Omega;<sub>BE</sub>=1 i &Omega;<sub>FD</sub>=1 o 0, el DESTÍ FINAL de la <a href="flux_comptatge_discret.html">guia sense degeneració</a>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; dos nivells, 0 i &epsilon;: n<sub>2</sub>=E/&epsilon;, n<sub>1</sub>=N&minus;E/&epsilon; &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Com abans, N i E fixen les ocupacions</span></div>
+        <div class="eq">\[ n_{1}=N-\dfrac{E}{\varepsilon},\qquad n_{2}=\dfrac{E}{\varepsilon} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El mateix pas que a la guia sense degeneració: substituint-ho als destins 1 i 2, cada &Omega; passa a ser una funció de N i E.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; destins 1 i 2 amb el pas 5 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">&Omega;(N,E) de dos nivells, en les tres estadístiques</span></div>
+        <div class="eq">\[ \begin{aligned} \Omega_{MB}\left(N,E\right)&=\dfrac{N!}{n_{1}!\,n_{2}!}\,g_{1}^{n_{1}}g_{2}^{n_{2}} \\[8pt] \Omega_{BE}\left(N,E\right)&=w_{BE}\left(n_{1},g_{1}\right)\,w_{BE}\left(n_{2},g_{2}\right) \\[8pt] \Omega_{FD}\left(N,E\right)&=w_{FD}\left(n_{1},g_{1}\right)\,w_{FD}\left(n_{2},g_{2}\right) \end{aligned} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> amb n<sub>1</sub>=N&minus;E/&epsilon; i n<sub>2</sub>=E/&epsilon;. Ara els tres casos fan el mateix camí: N i E fixen les ocupacions, i &Omega;(N,E) compta les maneres de realitzar-les. Amb g<sub>1</sub>=g<sub>2</sub>=1 es torna a la guia sense degeneració.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">Com s'han de llegir les fórmules dels apunts</span></div>
+    <div class="card-note">Els apunts donen, per a N partícules i k "nivells",</div>
+    <div class="eq">\[ \begin{aligned} \Omega_{BE}&=\dfrac{\left(k-1+N\right)!}{\left(k-1\right)!\,N!} \\[6pt] \Omega_{FD}&=\dfrac{k!}{N!\,\left(k-N\right)!} \end{aligned} \]</div>
+    <div class="card-note">Són els passos 2 i 3 amb n=N i g=k: <strong>un sol nivell amb k estats de la mateixa energia</strong>. Llegides així, E=N&epsilon; ja hi és imposada i són un recompte a energia fixada, com el DESTÍ FINAL. Si en canvi els k estats tenen energies diferents, aquestes fórmules compten tots els microstats de totes les energies &mdash; l'equivalent de k<sup>N</sup> per a distingibles, com es veu a <a href="flux_comptatge_discret.html">l'exemple de 3 partícules</a>.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">RESUM</span><span class="card-title">Els tres comptatges, de costat</span></div>
+    <table class="mini-table"><tr><th>Estadística</th><th>Ocupació màxima</th><th>Sense degeneració (g<sub>i</sub>=1)</th><th>Amb degeneració g<sub>i</sub></th></tr><tr><td>Maxwell-Boltzmann (distingibles)</td><td>il&middot;limitada</td><td>N!/&prod;n<sub>i</sub>!</td><td>N!&prod;g<sub>i</sub><sup>n<sub>i</sub></sup>/n<sub>i</sub>!</td></tr><tr><td>Bose-Einstein</td><td>il&middot;limitada</td><td>1</td><td>&prod;(n<sub>i</sub>+g<sub>i</sub>&minus;1)!/[n<sub>i</sub>!(g<sub>i</sub>&minus;1)!]</td></tr><tr><td>Fermi-Dirac</td><td>1 per estat</td><td>1 (o 0)</td><td>&prod;g<sub>i</sub>!/[n<sub>i</sub>!(g<sub>i</sub>&minus;n<sub>i</sub>)!]</td></tr></table>
+    <div class="card-note">Totes dues columnes amb les ocupacions n<sub>i</sub> fixades.</div>
+    <div class="card-note"><strong>Una coincidència que no ho és:</strong> w<sub>BE</sub> és exactament la mateixa fórmula del pas 3 del <a href="flux_solid_einstein.html">sòlid d'Einstein</a>, amb g&harr;3N caixes i n&harr;M boles. El comptatge de boles indistingibles en caixes és el mateix problema tant si les boles són bosons com si són quanta d'energia. De fet els quanta de vibració d'un sòlid <em>són</em> bosons &mdash; s'anomenen fonons. I és un recompte a energia fixada per la mateixa raó que a la targeta anterior: tots els quanta tenen la mateixa energia &hbar;&omega;.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Límit clàssic: d'on surt el 1/N! del gas ideal</span></div>
+    <div class="card-note">Si cada nivell té molts més estats que partícules, g<sub>i</sub>&#8811;n<sub>i</sub>, gairebé mai n'hi ha dues al mateix estat, i bosons i fermions deixen de distingir-se:</div>
+    <div class="eq">\[ \begin{gathered} w_{BE}\left(n,g\right)\simeq w_{FD}\left(n,g\right)\simeq\dfrac{g^{n}}{n!} \\[6pt] \Longrightarrow\quad\Omega_{BE}\simeq\Omega_{FD}\simeq\prod_{i}\dfrac{g_{i}^{n_{i}}}{n_{i}!}=\dfrac{\Omega_{MB}}{N!} \end{gathered} \]</div>
+    <div class="card-note">El recompte de distingibles (DESTÍ 1) dividit per N!: és la justificació quàntica de la divisió per N! del <a href="flux_gas_ideal_microcanonica.html">gas ideal</a>, que allà vam haver d'introduir a mà. En un gas a temperatura ordinària el nombre d'estats d'una partícula accessibles és enormement més gran que N, i el límit és excel&middot;lent. Fora d'aquest límit (baixa T, alta densitat) la divisió per N! deixa de ser correcta, i cal el recompte quàntic de debò. Sense degeneració (g<sub>i</sub>=1) el límit no es pot fer mai: per això allà N!/&prod;n<sub>i</sub>! dividit per N! no dóna res amb sentit.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.8.2 (b) del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

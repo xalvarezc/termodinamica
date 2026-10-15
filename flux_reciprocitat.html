@@ -1,0 +1,185 @@
+<!doctype html>
+<title>Guia de classe — teorema de reciprocitat</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.2.1 &middot; guió de pissarra</div>
+  <h1>El <em>teorema de reciprocitat</em></h1>
+  <p class="subtitle">D'una relació abstracta entre tres variables d'estat, <strong>&Psi;(X,Y,Z)=0</strong>, a una identitat purament geomètrica &mdash; i, aplicada a un fluid, a la relació <strong>&alpha;=&beta;P&kappa;<sub>T</sub></strong> entre els tres coeficients termodinàmics.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Teorema de la funció implícita</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Teorema de la funció inversa: (&part;X/&part;Y)<sub>Z</sub>=1/(&part;Y/&part;X)<sub>Z</sub></span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Funció inversa, altre cop: (&part;Z/&part;X)<sub>Y</sub>=1/(&part;X/&part;Z)<sub>Y</sub></span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Fluid: X=T, Y=V, Z=P, i les definicions de &alpha;, &kappa;<sub>T</sub>, &beta;</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Pura substitució: canviem dY pel seu valor</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Reagrupem termes en dX a un costat, en dZ a l'altre</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Substitució directa i simplificació algebraica</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Els tres coeficients no són independents</span></div><div class="eq">\[ \alpha = \beta P\kappa _{T} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; punt de partida &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Una relació entre tres variables d'estat</div>
+        <div class="eq">\[ \Psi \left(X,Y,Z\right) = 0 \]</div>
+        <div class="card-note">Prou suau perquè el teorema de la funció implícita permeti aïllar-ne dues qualssevol en funció de la tercera.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Teorema de la funció implícita</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Escrivim els dos diferencials</span></div>
+        <div class="eq">\[ dX = \left(\dfrac{\partial X}{\partial Y}\right)_{Z}dY + \left(\dfrac{\partial X}{\partial Z}\right)_{Y}dZ \]</div>
+        <div class="eq">\[ dY = \left(\dfrac{\partial Y}{\partial X}\right)_{Z}dX + \left(\dfrac{\partial Y}{\partial Z}\right)_{X}dZ \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Pura substitució: canviem dY pel seu valor</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Substituïm dY dins de dX</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">dX = (&part;X/&part;Y)<sub>Z</sub>[(&part;Y/&part;X)<sub>Z</sub>dX + (&part;Y/&part;Z)<sub>X</sub>dZ] + (&part;X/&part;Z)<sub>Y</sub>dZ</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Reagrupem termes en dX a un costat, en dZ a l'altre</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Agrupem</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">[1&minus;(&part;X/&part;Y)<sub>Z</sub>(&part;Y/&part;X)<sub>Z</sub>]dX = [(&part;X/&part;Y)<sub>Z</sub>(&part;Y/&part;Z)<sub>X</sub> + (&part;X/&part;Z)<sub>Y</sub>]dZ</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Teorema de la funció inversa: (&part;X/&part;Y)<sub>Z</sub>=1/(&part;Y/&part;X)<sub>Z</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">El claudàtor de l'esquerra és zero</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com que dZ és arbitrari, el claudàtor de la dreta també s'ha d'anul·lar.</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; comparem, cap física nova &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Queda una relació entre tres derivades</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial X}{\partial Y}\right)_{Z}\left(\dfrac{\partial Y}{\partial Z}\right)_{X} = -\left(\dfrac{\partial X}{\partial Z}\right)_{Y} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Funció inversa, altre cop: (&part;Z/&part;X)<sub>Y</sub>=1/(&part;X/&part;Z)<sub>Y</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Multipliquem els dos costats per (&part;Z/&part;X)<sub>Y</sub></span></div>
+        <div class="eq">\[ \left(\dfrac{\partial X}{\partial Y}\right)_{Z}\left(\dfrac{\partial Y}{\partial Z}\right)_{X}\left(\dfrac{\partial Z}{\partial X}\right)_{Y} = -1 \]</div>
+        <div class="card-note">Aquest és el <strong>teorema de reciprocitat</strong>, vàlid per a qualsevol terna de variables d'estat lligades per una sola relació.</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Fluid: X=T, Y=V, Z=P, i les definicions de &alpha;, &kappa;<sub>T</sub>, &beta;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Apliquem el teorema a un fluid</span></div>
+        <div class="eq">\[ \left(\dfrac{\partial V}{\partial T}\right)_{P}=\alpha V, \left(\dfrac{\partial V}{\partial P}\right)_{T}=-\kappa _{T}V, \left(\dfrac{\partial P}{\partial T}\right)_{V}=\beta P \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Substitució directa i simplificació algebraica</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Els tres coeficients no són independents</span></div>
+        <div class="eq">\[ \alpha = \beta P\kappa _{T} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> qualsevol dels tres coeficients termodinàmics d'un fluid es dedueix dels altres dos &mdash; és una identitat, no una llei física addicional.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.2.1 del guió de pissarra del Tema 1. Vegeu també la <a href="flux_compatibilitat_alfa_kappa.html">guia de la relació de compatibilitat &alpha;&ndash;&kappa;<sub>T</sub></a>, la segona relació que surt de la mateixa secció. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

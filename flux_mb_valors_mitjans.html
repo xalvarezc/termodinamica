@@ -1,0 +1,175 @@
+<!doctype html>
+<title>Guia de classe — velocitats característiques de Maxwell-Boltzmann</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 4 &middot; secció 4.1 &middot; guió de pissarra</div>
+  <h1>Tres <em>velocitats característiques</em></h1>
+  <p class="subtitle">La més probable, la mitjana i l'arrel quadràtica mitjana: tres maneres de resumir F(v) en un número, que no coincideixen perquè F(v) no és simètrica.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>Celeritat més probable: el màxim de F(v)</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_velocitats.html">4.1: distribució de la celeritat F(v)</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_velocitats.html">4.1: &rho;(v<sub>x</sub>), gaussiana de variància k<sub>B</sub>T/m</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&int;<sub>0</sub><sup>&infin;</sup>x<sup>3</sup>e<sup>&minus;ax&sup2;</sup>dx=1/(2a<sup>2</sup>)</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Celeritat més probable</span></div><div class="eq">\[ v_{p}=\sqrt{\dfrac{2k_{B}T}{m}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Celeritat mitjana</span></div><div class="eq">\[ \left\langle v\right\rangle=\sqrt{\dfrac{8k_{B}T}{\pi m}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 3</span><span class="resum-gt">Arrel quadràtica mitjana</span></div><div class="eq">\[ v_{\text{rms}}=\sqrt{\left\langle v^{2}\right\rangle}=\sqrt{\dfrac{3k_{B}T}{m}} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">L'ordre de les tres</span></div><div class="eq">\[ \begin{gathered} v_{p}&lt;\left\langle v\right\rangle&lt;v_{\text{rms}} \\[6pt] \sqrt{2}:\sqrt{8/\pi}:\sqrt{3}=1:1.128:1.225 \end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_velocitats.html">4.1: distribució de la celeritat F(v)</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">La distribució de la celeritat</div>
+        <div class="eq">\[ F\left(v\right)=4\pi v^{2}\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2},\qquad\beta=\dfrac{1}{k_{B}T} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Creix com v&sup2; a prop de zero i cau com una gaussiana a v gran: la cua de la dreta és més llarga que la pujada de l'esquerra.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">Celeritat més probable: el màxim de F(v)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Derivem i igualem a zero</span></div>
+        <div class="eq">\[ \dfrac{dF}{dv}\propto\left(2v-\beta mv^{3}\right)e^{-\beta mv^{2}/2}=0 \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La solució v=0 és el mínim (F(0)=0); l'altra, v&sup2;=2/&beta;m, és el màxim.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; aïllant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Celeritat més probable</span></div>
+        <div class="eq">\[ v_{p}=\sqrt{\dfrac{2k_{B}T}{m}} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&int;<sub>0</sub><sup>&infin;</sup>x<sup>3</sup>e<sup>&minus;ax&sup2;</sup>dx=1/(2a<sup>2</sup>)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">La celeritat mitjana és una integral de v&sup3;</span></div>
+        <div class="eq">\[ \begin{aligned} \left\langle v\right\rangle&=\int_{0}^{\infty}v\,F\left(v\right)dv \\[4pt] &=4\pi\left(\dfrac{\beta m}{2\pi}\right)^{3/2}\int_{0}^{\infty}v^{3}e^{-\beta mv^{2}/2}dv \\[4pt] &=4\pi\left(\dfrac{\beta m}{2\pi}\right)^{3/2}\dfrac{2}{\left(\beta m\right)^{2}} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb a=&beta;m/2. La integral es fa amb el canvi u=v&sup2;, que la converteix en &frac12;&int;u&nbsp;e<sup>&minus;au</sup>du.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; simplificant &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Celeritat mitjana</span></div>
+        <div class="eq">\[ \left\langle v\right\rangle=\sqrt{\dfrac{8k_{B}T}{\pi m}} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_velocitats.html">4.1: &rho;(v<sub>x</sub>), gaussiana de variància k<sub>B</sub>T/m</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Per a &lang;v&sup2;&rang;, millor anar component a component</span></div>
+        <div class="eq">\[ \left\langle v_{x}^{2}\right\rangle=\int_{-\infty}^{\infty}v_{x}^{2}\,\rho\left(v_{x}\right)dv_{x}=\dfrac{1}{\beta m}=\dfrac{k_{B}T}{m} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És directament la variància de la gaussiana. Es podria fer amb F(v) i &int;v<sup>4</sup>e<sup>&minus;av&sup2;</sup>, però així no cal cap integral nova.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; v&sup2;=v<sub>x</sub>&sup2;+v<sub>y</sub>&sup2;+v<sub>z</sub>&sup2; i isotropia &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Les tres components contribueixen igual</span></div>
+        <div class="eq">\[ \left\langle v^{2}\right\rangle=\left\langle v_{x}^{2}\right\rangle+\left\langle v_{y}^{2}\right\rangle+\left\langle v_{z}^{2}\right\rangle=\dfrac{3k_{B}T}{m} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; arrel quadrada &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 3</span><span class="card-title">Arrel quadràtica mitjana</span></div>
+        <div class="eq">\[ v_{\text{rms}}=\sqrt{\left\langle v^{2}\right\rangle}=\sqrt{\dfrac{3k_{B}T}{m}} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; destins 1, 2 i 3 en unitats de &radic;(k<sub>B</sub>T/m) &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">L'ordre de les tres</span></div>
+        <div class="eq">\[ \begin{gathered} v_{p}&lt;\left\langle v\right\rangle&lt;v_{\text{rms}} \\[6pt] \sqrt{2}:\sqrt{8/\pi}:\sqrt{3}=1:1.128:1.225 \end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> les tres escalen igual, com &radic;(T/m); només difereixen en el prefactor. L'ordre ve de l'asimetria de F(v): la cua llarga cap a v grans arrossega la mitjana per sobre del màxim, i elevar al quadrat dóna encara més pes a la cua. Per al N<sub>2</sub> a 300&nbsp;K: v<sub>p</sub>&asymp;422&nbsp;m/s, &lang;v&rang;&asymp;476&nbsp;m/s, v<sub>rms</sub>&asymp;517&nbsp;m/s.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">&lang;&frac12;mv&sup2;&rang;=3/2k<sub>B</sub>T: comprovació, no resultat nou</span></div>
+    <div class="card-note">Del DESTÍ 3 surt immediatament</div>
+    <div class="eq">\[ \left\langle\dfrac{1}{2}mv^{2}\right\rangle=\dfrac{3}{2}k_{B}T\qquad\Longrightarrow\qquad U=N\left\langle\dfrac{1}{2}mv^{2}\right\rangle=\dfrac{3}{2}Nk_{B}T \]</div>
+    <div class="card-note">Cal dir-ho honestament a classe: U=3/2Nk<sub>B</sub>T <strong>ja s'havia fet servir</strong> per deduir Maxwell-Boltzmann (<a href="flux_mb_deduccio.html">4.1, pas 6</a>). Tornar-la a obtenir és una prova de coherència del càlcul &mdash; no una segona demostració. El que sí que és nou és el repartiment: &frac12;k<sub>B</sub>T per a cada component (pas 3), que és el que més endavant s'enunciarà com a teorema d'equipartició.</div>
+  </div>
+
+  <footer>Correspon a la secció 4.1 del Tema 4 (distribució de Maxwell-Boltzmann). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

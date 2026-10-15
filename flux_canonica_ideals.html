@@ -1,0 +1,167 @@
+<!doctype html>
+<title>Guia de classe — sistemes ideals i degeneració a la canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; seccions 5.2&ndash;5.3 &middot; guió de pissarra</div>
+  <h1>Sistemes <em>ideals</em> i <em>degeneració</em></h1>
+  <p class="subtitle">Sense interaccions, l'exponencial factoritza i Z de N partícules es redueix a Z<sub>1</sub> d'una sola. I Z<sub>1</sub> es pot calcular comptant quants estats d'una partícula hi ha a cada energia.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Sistema ideal: H=&sum;H<sub>i</sub>, sense termes d'interacció</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_deduccio.html">5.1: Z=&int;e<sup>&minus;&beta;H</sup>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_comptatge_degenerat.html">3.8.2 (b): límit clàssic, &Omega;<sub>indist</sub>&simeq;&Omega;<sub>dist</sub>/N!</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_helmholtz.html">5.1: Z=&int;&Omega;(E)e<sup>&minus;&beta;E</sup>dE</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_microcanonica_omega.html">3.3: &Omega;=&part;&Gamma;/&part;E=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Partícules idèntiques distingibles</span></div><div class="eq">\[ Z_{\text{dist}}=Z_{1}^{N},\qquad Z_{1}=\int\dfrac{d^{3}q\,d^{3}p}{h^{3}}\,e^{-\beta H_{1}\left(\mathbf{q},\mathbf{p}\right)} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Partícules indistingibles, en el límit clàssic</span></div><div class="eq">\[ Z_{\text{indist}}=\dfrac{Z_{1}^{N}}{N!} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Z<sub>1</sub> com una integral d'una sola variable</span></div><div class="eq">\[ Z_{1}=\int_{0}^{\infty}dE\,g\left(E\right)e^{-\beta E} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Sistema ideal: H=&sum;H<sub>i</sub>, sense termes d'interacció</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Un sistema ideal és un sistema sense interaccions</div>
+        <div class="eq">\[ H=\sum_{i=1}^{N}H_{i}\left(\mathbf{q}_{i},\mathbf{p}_{i}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Cada H<sub>i</sub> només depèn de les coordenades de la partícula i.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_deduccio.html">5.1: Z=&int;e<sup>&minus;&beta;H</sup>d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'exponencial d'una suma és un producte</span></div>
+        <div class="eq">\[ \begin{aligned}Z&=\int\prod_{i=1}^{N}\dfrac{d^{3}q_{i}\,d^{3}p_{i}}{h^{3}}\,e^{-\beta H_{i}} \\[4pt] &=\prod_{i=1}^{N}\int\dfrac{d^{3}q_{i}\,d^{3}p_{i}}{h^{3}}\,e^{-\beta H_{i}}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">La integral de 6N dimensions es parteix en N integrals de 6 dimensions, independents.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; si les partícules són idèntiques, les N integrals són iguals &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Partícules idèntiques distingibles</span></div>
+        <div class="eq">\[ Z_{\text{dist}}=Z_{1}^{N},\qquad Z_{1}=\int\dfrac{d^{3}q\,d^{3}p}{h^{3}}\,e^{-\beta H_{1}\left(\mathbf{q},\mathbf{p}\right)} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Z<sub>1</sub> és la funció de partició d'una sola partícula. Val per a partícules localitzades, com els àtoms d'un sòlid.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_comptatge_degenerat.html">3.8.2 (b): límit clàssic, &Omega;<sub>indist</sub>&simeq;&Omega;<sub>dist</sub>/N!</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Partícules indistingibles: cal descomptar les permutacions</span></div>
+        <div class="card-note">Si les partícules no es poden etiquetar, la integral sobre l'espai de fases compta N! vegades cada microstat. Dividir per N! és correcte en el <strong>límit clàssic</strong>: quan hi ha molts més estats d'una partícula accessibles que partícules, i gairebé mai n'hi ha dues al mateix estat.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; 1/N! davant de la integral &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Partícules indistingibles, en el límit clàssic</span></div>
+        <div class="eq">\[ Z_{\text{indist}}=\dfrac{Z_{1}^{N}}{N!} \]</div>
+        <div class="card-note">Els apunts ho escriuen com una igualtat general. No ho és: és el límit clàssic. Fora d'aquest límit (baixa T, alta densitat) calen les estadístiques de Bose-Einstein i Fermi-Dirac &mdash; vegeu l'exemple de dues partícules a <a href="flux_canonica_discrets.html">5.6</a>, on Z<sub>BE</sub>&ne;Z<sub>1</sub><sup>2</sup>/2!&ne;Z<sub>FD</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_helmholtz.html">5.1: Z=&int;&Omega;(E)e<sup>&minus;&beta;E</sup>dE</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Z<sub>1</sub>, agrupant els estats per energia</span></div>
+        <div class="eq">\[ Z_{1}=\int_{0}^{\infty}dE\,\Omega\left(E,V,1\right)e^{-\beta E} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El DESTÍ 1 de la guia de F, amb N=1.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_microcanonica_omega.html">3.3: &Omega;=&part;&Gamma;/&part;E=&int;&delta;(E&minus;H)d<strong>q</strong>d<strong>p</strong>/h<sup>3N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">&Omega; d'una partícula: la degeneració</span></div>
+        <div class="eq">\[ \begin{aligned}g\left(E\right)\equiv\Omega\left(E,V,1\right)&=\int\dfrac{d^{3}q\,d^{3}p}{h^{3}}\,\delta\left(E-H_{1}\right) \\[4pt] &=\dfrac{\partial}{\partial E}\int_{H_{1}\le E}\dfrac{d^{3}q\,d^{3}p}{h^{3}}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Quants estats d'una partícula hi ha per unitat d'energia a l'energia E. Per a un espectre continu, "degeneració" vol dir densitat d'estats: té dimensions d'1/energia.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; substituint &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Z<sub>1</sub> com una integral d'una sola variable</span></div>
+        <div class="eq">\[ Z_{1}=\int_{0}^{\infty}dE\,g\left(E\right)e^{-\beta E} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> dues maneres de calcular Z<sub>1</sub>: integrar directament sobre l'espai de fases d'una partícula, o comptar primer els estats a cada energia, g(E), i fer després una integral en E. Al <a href="flux_canonica_gas_ideal.html">gas ideal</a> es fan totes dues.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què la factorització és tan potent</span></div>
+    <div class="card-note">A la microcanònica, el lligam H=E acobla totes les partícules: per al gas ideal va caldre el volum d'una hiperesfera de 3N dimensions. A la canònica no hi ha lligam, i la integral es parteix en N factors iguals. <strong>Aquest és l'avantatge pràctic de la canònica</strong>: per a sistemes ideals, el problema de N cossos es redueix al d'un.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.2&ndash;5.3 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

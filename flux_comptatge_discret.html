@@ -1,0 +1,157 @@
+<!doctype html>
+<title>Guia de classe — comptatge en nivells no degenerats</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; secció 3.8.2 (a) &middot; guió de pissarra</div>
+  <h1>Comptatge discret, <em>sense degeneració</em></h1>
+  <p class="subtitle">Quan l'energia és discreta no hi ha cap integral que valgui: &Omega; es compta. Primer el cas més senzill, un sol estat per nivell: distingibles, bosons i fermions, amb les ocupacions fixades per N i E.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>E=E<sub>n</sub> discreta (típicament, un sistema quàntic)</span></li><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Nivells no degenerats: un sol estat per a cada energia</span></li><li><span class="chip postulat"><span class="dot"></span>Model</span><span>Les partícules són distingibles (localitzades)</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Indistingibilitat + principi d'exclusió de Pauli</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Permutacions amb repetició</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Dos nivells, N partícules distingibles</span></div><div class="eq">\[ \Omega_{MB}\left(N,E\right)=\dfrac{N!}{N_{1}!\,N_{2}!} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Bosons i fermions: no queda res a comptar</span></div><div class="eq">\[ \begin{gathered} \Omega_{BE}\left(\left\{n_{i}\right\}\right)=1 \\[6pt] \Omega_{FD}\left(\left\{n_{i}\right\}\right)=\begin{cases}1 & \text{si tots els }n_{i}\le 1\\ 0 & \text{altrament}\end{cases} \end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">E=E<sub>n</sub> discreta (típicament, un sistema quàntic)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Sistemes discrets: ja no hi ha cap integral</div>
+        <div class="card-note">Fins ara l'energia prenia valors continus, H(<strong>q</strong>,<strong>p</strong>)&isin;&#8477;, i &Omega; sortia d'una integral sobre l'espai de fases. En un sistema discret l'energia només pot prendre valors E=E<sub>n</sub> amb n&isin;&#8469;, i <strong>no hi ha cap fórmula general</strong>: cal definir bé què és un microstat en cada cas i comptar-los amb combinatòria.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Nivells no degenerats: un sol estat per a cada energia</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Dos nivells: N i E fixen les ocupacions</span></div>
+        <div class="card-note">Dos nivells d'energia E<sub>1</sub>&lt;E<sub>2</sub>, amb N<sub>1</sub> partícules al primer i N<sub>2</sub> al segon.</div>
+        <div class="eq">\[ E=N_{1}E_{1}+N_{2}E_{2}, \qquad N=N_{1}+N_{2} \]</div>
+        <div class="card-note"><strong>Observació clau:</strong> aquestes dues equacions determinen N<sub>1</sub> i N<sub>2</sub> unívocament. Fixar el macrostat (E i N) és fixar les <em>ocupacions</em>. La pregunta és què queda lliure un cop fixades &mdash; i la resposta depèn de si les partícules es poden distingir.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Model</span>
+          <span class="desc">Les partícules són distingibles (localitzades)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Distingibles: queda lliure quines van a cada nivell</span></div>
+        <div class="card-note">Si les partícules porten etiqueta, dos microstats amb les mateixes ocupacions es diferencien en <em>quines</em> partícules concretes són a dalt. Cal comptar les maneres de triar les N<sub>1</sub> de baix entre les N.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; un número combinatori &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Dos nivells, N partícules distingibles</span></div>
+        <div class="eq">\[ \Omega_{MB}\left(N,E\right)=\dfrac{N!}{N_{1}!\,N_{2}!} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb N<sub>1</sub> i N<sub>2</sub> escrits en funció de N i E (pas 1), és una funció de N i E: la que es fa servir per obtenir S(N,E).</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Permutacions amb repetició</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Generalització: k nivells</span></div>
+        <div class="eq">\[ \Omega_{MB}\left(\left\{n_{i}\right\}\right)=\dfrac{N!}{\prod_{i=1}^{k}n_{i}!} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Amb n<sub>i</sub> partícules al nivell i: estadística clàssica o de <strong>Maxwell-Boltzmann</strong>. Amb k&gt;2, N i E ja no fixen totes les n<sub>i</sub>: &Omega;(N,E) és la suma d'aquesta expressió sobre tots els conjunts {n<sub>i</sub>} compatibles.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Indistingibilitat + principi d'exclusió de Pauli</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Indistingibles: el microstat són les ocupacions</span></div>
+        <div class="card-note">Si les partícules són indistingibles, intercanviar-ne dues no genera cap microstat nou: un microstat ja no és "qui és on" sinó només <strong>"quantes n'hi ha a cada estat"</strong>. Falta una dada física: <strong>hi ha límit d'ocupació?</strong> Els <strong>bosons</strong> no en tenen; els <strong>fermions</strong>, com a molt un per estat (Pauli). I aquí cada nivell és un sol estat.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 1 (ocupacions fixades) + pas 4 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Bosons i fermions: no queda res a comptar</span></div>
+        <div class="eq">\[ \begin{gathered} \Omega_{BE}\left(\left\{n_{i}\right\}\right)=1 \\[6pt] \Omega_{FD}\left(\left\{n_{i}\right\}\right)=\begin{cases}1 & \text{si tots els }n_{i}\le 1\\ 0 & \text{altrament}\end{cases} \end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el paral&middot;lel exacte del DESTÍ 1. Fixades les ocupacions, a les partícules indistingibles no els queda cap tria. Amb dos nivells, S=k<sub>B</sub>ln&nbsp;1=0 per a tots els macrostats: no hi ha res a maximitzar ni cap temperatura a definir. <strong>Perquè el recompte quàntic tingui contingut, cal que un nivell d'energia tingui diversos estats</strong>: és la <a href="flux_comptatge_degenerat.html">guia del comptatge amb degeneració</a>.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">EXEMPLE</span><span class="card-title">Dos nivells no degenerats amb 3 partícules</span></div>
+    <div class="card-note">Amb energies 0 i &epsilon; hi ha exactament 4 macrostats possibles &mdash; un per cada valor de l'energia total:</div>
+    <table class="mini-table"><tr><th>Macrostat</th><th>N<sub>1</sub>, N<sub>2</sub></th><th>&Omega; distingibles</th><th>&Omega; bosons</th><th>&Omega; fermions</th></tr><tr><td>E=0</td><td>3, 0</td><td>3!/(3!&middot;0!) = 1</td><td>1</td><td>0</td></tr><tr><td>E=&epsilon;</td><td>2, 1</td><td>3!/(2!&middot;1!) = 3</td><td>1</td><td>0</td></tr><tr><td>E=2&epsilon;</td><td>1, 2</td><td>3!/(1!&middot;2!) = 3</td><td>1</td><td>0</td></tr><tr><td>E=3&epsilon;</td><td>0, 3</td><td>3!/(0!&middot;3!) = 1</td><td>1</td><td>0</td></tr><tr><td><strong>total</strong></td><td></td><td><strong>8 = 2&sup3;</strong></td><td><strong>4</strong></td><td><strong>0</strong></td></tr></table>
+    <div class="card-note">La suma de les &Omega; de tots els macrostats ha de donar el nombre total de microstats: és una bona comprovació a la pissarra. I es veu d'un cop d'ull que, per a distingibles, els macrostats <em>intermedis</em> són els que tenen més microstats &mdash; en miniatura, és per això que l'equilibri és on és. <a href="sim_microstats_macrostats.html">La simulació de microstats i macrostats</a> ho deixa comptar.</div>
+    <div class="card-note"><strong>Ull amb la fila del total:</strong> 4=(2&minus;1+3)!/(1!&middot;3!) és la fórmula de &Omega;<sub>BE</sub> dels apunts amb k=2 i N=3, i dóna 0 per a fermions perquè k&lt;N. Aquelles fórmules no compten cap fila, sinó el total: tots els microstats de totes les energies, l'equivalent del 2&sup3; dels distingibles. A la <a href="flux_comptatge_degenerat.html">guia següent</a> es veu quan sí que compten microstats a energia fixada.</div>
+  </div>
+
+  <footer>Correspon a la secció 3.8.2 (a) del guió de pissarra del Tema 3. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

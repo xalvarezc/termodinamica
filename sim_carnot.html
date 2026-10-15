@@ -1,0 +1,166 @@
+<!doctype html>
+<title>Simulació — el cicle de Carnot al diagrama PV</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; simulació &middot; secció 1.5.2</div>
+  <h1>El cicle de Carnot, <em>al diagrama PV</em></h1>
+  <p class="subtitle">Un gas ideal monoatòmic entre dos focus. Mou les temperatures i mira què passa amb Q<sub>1</sub>, Q<sub>2</sub>, el treball i el rendiment &mdash; i comprova que Q<sub>1</sub>/Q<sub>2</sub> és exactament T<sub>1</sub>/T<sub>2</sub>, que és el que fa que l'escala del gas ideal coincideixi amb la termodinàmica.</p>
+
+  <div class="card-note" style="margin-bottom:20px;">Suport per a <a href="flux_carnot_teorema.html">1.5.2(a)</a>, <a href="flux_carnot_funcio_f.html">(b)&ndash;(c)</a> i sobretot <a href="flux_carnot_gas_ideal.html">(d)</a>: el càlcul explícit amb un gas ideal que dona Q<sub>1</sub>/Q<sub>2</sub>=&theta;<sub>1</sub>/&theta;<sub>2</sub>. Aquí el càlcul el fa la màquina i es veu el cicle que el produeix.</div>
+
+  <div class="sim">
+    <div class="sim-controls">
+      <div class="sim-ctl">
+        <label for="t1">Focus calent &mdash; T<sub>1</sub> <b id="t1v">500 K</b></label>
+        <input type="range" id="t1" min="320" max="700" value="500">
+      </div>
+      <div class="sim-ctl">
+        <label for="t2">Focus fred &mdash; T<sub>2</sub> <b id="t2v">300 K</b></label>
+        <input type="range" id="t2" min="160" max="650" value="300">
+      </div>
+      <div class="sim-ctl">
+        <label for="r">Expansió isoterma &mdash; V<sub>b</sub>/V<sub>a</sub> <b id="rv">2,0</b></label>
+        <input type="range" id="r" min="130" max="260" value="200">
+      </div>
+    </div>
+
+    <div class="sim-presets"><button class="sim-btn" id="run">▶ Recorre el cicle</button></div>
+    <div id="fig"></div>
+
+    <div class="sim-out">
+      <div><span>Q<sub>1</sub> absorbida a T<sub>1</sub></span><strong id="o-q1">&mdash;</strong></div>
+      <div><span>Q<sub>2</sub> cedida a T<sub>2</sub></span><strong id="o-q2">&mdash;</strong></div>
+      <div><span>treball W = Q<sub>1</sub>&minus;Q<sub>2</sub></span><strong id="o-w">&mdash;</strong></div>
+      <div><span>rendiment W/Q<sub>1</sub></span><strong id="o-eta">&mdash;</strong></div>
+      <div><span>1 &minus; T<sub>2</sub>/T<sub>1</sub></span><strong id="o-etat">&mdash;</strong></div>
+      <div><span>Q<sub>1</sub>/Q<sub>2</sub> &nbsp;vs&nbsp; T<sub>1</sub>/T<sub>2</sub></span><strong id="o-ratio">&mdash;</strong></div>
+    </div>
+    <div class="sim-note">Unitats: nR=1, de manera que Q i W surten en kelvin&middot;(nR). Les corbes adiabàtiques són d'un gas monoatòmic, &gamma;=5/3; l'àrea ombrejada és el treball net.</div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">QUÈ MIRAR</span><span class="card-title">Tres coses</span></div>
+    <div class="card-note" style="margin-top:0;"><strong>1. Les dues isotermes són les que bescanvien calor.</strong> Per a un gas ideal U només depèn de T, així que en una isoterma tot el que entra com a calor surt com a treball: Q<sub>1</sub>=nRT<sub>1</sub>ln(V<sub>b</sub>/V<sub>a</sub>). Les adiabàtiques no bescanvien res; només connecten les dues temperatures.</div>
+    <div class="card-note"><strong>2. Q<sub>1</sub>/Q<sub>2</sub>=T<sub>1</sub>/T<sub>2</sub>, exactament, facis el que facis.</strong> El quocient dels volums de les dues isotermes és el mateix (ho imposen les adiabàtiques: TV<sup>&gamma;&minus;1</sup> constant), i per això els logaritmes es cancel&middot;len i només queden les temperatures. És el resultat de <a href="flux_carnot_gas_ideal.html">1.5.2(d)</a>: l'escala de temperatures del termòmetre de gas ideal és la mateixa que defineix Carnot amb f(T<sub>1</sub>,T<sub>2</sub>)=T<sub>2</sub>/T<sub>1</sub>.</div>
+    <div class="card-note"><strong>3. El rendiment no depèn de res més.</strong> Mou el lliscador de l'expansió: canvia Q<sub>1</sub>, canvia W, canvia l'àrea &mdash; però W/Q<sub>1</sub> no es mou. Només les dues temperatures hi tenen a veure. I acostar T<sub>2</sub> a T<sub>1</sub> aixafa el cicle fins que el treball desapareix.</div>
+  </div>
+
+  <footer>Simulació de suport per a la secció 1.5.2 del Tema 1. Tot el càlcul és el de la guia 1.5.2(d), fet pel navegador a cada moviment del lliscador.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = function (id) { return document.getElementById(id); };
+  var t1 = el("t1"), t2 = el("t2"), r = el("r");
+  var G = 5 / 3;
+  var marker = null, animT = null;     // posicio del punt que recorre el cicle (0..4), si esta animant
+
+  function fmt(v, d) { return v.toFixed(d === undefined ? 1 : d).replace(".", ","); }
+
+  function draw() {
+    var T1 = +t1.value, T2 = +t2.value, R = +r.value / 100;
+    if (T2 > T1 - 20) { T2 = T1 - 20; t2.value = T2; }      // el focus fred ha de ser mes fred
+    el("t1v").textContent = T1 + " K";
+    el("t2v").textContent = T2 + " K";
+    el("rv").textContent = fmt(R);
+
+    // estats (nR = 1):  a -> b isoterma T1,  b -> c adiabatica,  c -> d isoterma T2,  d -> a adiabatica
+    var Va = 1, Vb = R;
+    var k = Math.pow(T1 / T2, 1 / (G - 1));
+    var Vc = Vb * k, Vd = Va * k;
+    var Pa = T1 / Va, Pb = T1 / Vb, Pc = T2 / Vc, Pd = T2 / Vd;
+
+    var Q1 = T1 * Math.log(R), Q2 = T2 * Math.log(R), W = Q1 - Q2;
+
+    // figura
+    var Wd = 640, H = 330, L = 56, Rm = 18, T = 20, B = 46;
+    var VMAX = Vc * 1.06, PMAX = Pa * 1.08;
+    var x = function (v) { return L + (v / VMAX) * (Wd - L - Rm); };
+    var y = function (p) { return H - B - (p / PMAX) * (H - B - T); };
+    var i, v, n = 40, path = "";
+    function seg(fn, v0, v1, first) {
+      var d = "";
+      for (i = 0; i <= n; i++) {
+        v = v0 + (v1 - v0) * i / n;
+        d += ((first && i === 0) ? "M " : " L ") + x(v).toFixed(1) + "," + y(fn(v)).toFixed(1);
+      }
+      return d;
+    }
+    path += seg(function (v) { return T1 / v; }, Va, Vb, true);
+    path += seg(function (v) { return Pb * Math.pow(Vb / v, G); }, Vb, Vc, false);
+    path += seg(function (v) { return T2 / v; }, Vc, Vd, false);
+    path += seg(function (v) { return Pd * Math.pow(Vd / v, G); }, Vd, Va, false);
+    path += " Z";
+
+    var s = ['<svg class="sim-fig" viewBox="0 0 ' + Wd + ' ' + H + '" role="img" aria-label="Cicle de Carnot d\'un gas ideal al diagrama pressio-volum">'];
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (Wd - Rm) + '" y2="' + (H - B) + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<line x1="' + L + '" y1="' + (H - B) + '" x2="' + L + '" y2="' + T + '" stroke="var(--muted)" stroke-width="1.2"/>');
+    s.push('<path d="' + path + '" fill="var(--flux)" opacity="0.16"/>');
+    s.push('<path d="' + seg(function (v) { return T1 / v; }, Va, Vb, true) + '" fill="none" stroke="var(--goal)" stroke-width="2.6"/>');
+    s.push('<path d="' + seg(function (v) { return T2 / v; }, Vc, Vd, true) + '" fill="none" stroke="var(--previ)" stroke-width="2.6"/>');
+    s.push('<path d="' + seg(function (v) { return Pb * Math.pow(Vb / v, G); }, Vb, Vc, true) + '" fill="none" stroke="var(--muted)" stroke-width="1.8" stroke-dasharray="6 4"/>');
+    s.push('<path d="' + seg(function (v) { return Pd * Math.pow(Vd / v, G); }, Vd, Va, true) + '" fill="none" stroke="var(--muted)" stroke-width="1.8" stroke-dasharray="6 4"/>');
+    // vertexs
+    [[Va, Pa, "a", -10, -6], [Vb, Pb, "b", 8, -6], [Vc, Pc, "c", 8, 14], [Vd, Pd, "d", -12, 14]].forEach(function (q) {
+      s.push('<circle cx="' + x(q[0]).toFixed(1) + '" cy="' + y(q[1]).toFixed(1) + '" r="4" fill="var(--ink)"/>');
+      s.push('<text x="' + (x(q[0]) + q[3]).toFixed(1) + '" y="' + (y(q[1]) + q[4]).toFixed(1) + '" font-size="13" fill="var(--ink)" font-weight="600">' + q[2] + "</text>");
+    });
+    // etiquetes
+    // etiquetes de calor: a la dreta del punt b (fora de la corba) i per sota del punt c (sota tota la isoterma freda)
+    s.push('<text x="' + (x(Vb) + 12).toFixed(1) + '" y="' + (y(Pb) - 20).toFixed(1) + '" text-anchor="start" font-size="12.5" fill="var(--goal)" font-weight="600">Q<tspan baseline-shift="sub" font-size="9">1</tspan> entra, T<tspan baseline-shift="sub" font-size="9">1</tspan>=' + T1 + ' K</text>');
+    s.push('<text x="' + ((x(Vc) + x(Vd)) / 2).toFixed(1) + '" y="' + (y(Pc) + 26).toFixed(1) + '" text-anchor="middle" font-size="12.5" fill="var(--previ)" font-weight="600">Q<tspan baseline-shift="sub" font-size="9">2</tspan> surt, T<tspan baseline-shift="sub" font-size="9">2</tspan>=' + T2 + ' K</text>');
+    s.push('<text x="' + ((x(Va) + x(Vc)) / 2).toFixed(1) + '" y="' + (y((Pb + Pd) / 2)).toFixed(1) + '" text-anchor="middle" font-size="14" fill="var(--flux)" font-weight="700">W</text>');
+    s.push('<text x="' + (Wd - Rm) + '" y="' + (H - B + 18) + '" text-anchor="end" font-size="12.5" fill="var(--muted)" font-style="italic">V</text>');
+    s.push('<text x="' + (L - 8) + '" y="' + (T + 10) + '" text-anchor="end" font-size="12.5" fill="var(--muted)" font-style="italic">P</text>');
+    if (marker !== null) {
+      var tt = marker, mv, mp, txt;
+      if (tt < 1) { mv = Va + (Vb - Va) * tt; mp = T1 / mv; txt = "a→b · isoterma calenta: absorbeix Q₁ i fa treball"; }
+      else if (tt < 2) { mv = Vb + (Vc - Vb) * (tt - 1); mp = Pb * Math.pow(Vb / mv, G); txt = "b→c · adiabàtica: es refreda fent treball"; }
+      else if (tt < 3) { mv = Vc + (Vd - Vc) * (tt - 2); mp = T2 / mv; txt = "c→d · isoterma freda: cedeix Q₂ i rep treball"; }
+      else { mv = Vd + (Va - Vd) * (tt - 3); mp = Pd * Math.pow(Vd / mv, G); txt = "d→a · adiabàtica: s’escalfa rebent treball"; }
+      s.push('<circle cx="' + x(mv).toFixed(1) + '" cy="' + y(mp).toFixed(1) + '" r="7" fill="var(--goal)" stroke="var(--card)" stroke-width="2"/>');
+      s.push('<text x="' + (Wd - Rm) + '" y="' + (T + 4) + '" text-anchor="end" font-size="12.5" fill="var(--goal)" font-weight="600">' + txt + '</text>');
+    }
+    s.push("</svg>");
+    el("fig").innerHTML = s.join("");
+
+    el("o-q1").textContent = fmt(Q1);
+    el("o-q2").textContent = fmt(Q2);
+    el("o-w").textContent = fmt(W);
+    el("o-eta").textContent = fmt(100 * W / Q1, 2) + " %";
+    el("o-etat").textContent = fmt(100 * (1 - T2 / T1), 2) + " %";
+    el("o-ratio").textContent = fmt(Q1 / Q2, 4) + " = " + fmt(T1 / T2, 4);
+  }
+
+  el("run").addEventListener("click", function () {
+    if (animT) { clearInterval(animT); animT = null; marker = null; el("run").textContent = "▶ Recorre el cicle"; draw(); return; }
+    marker = 0; el("run").textContent = "■ Atura";
+    animT = setInterval(function () { marker = (marker + 0.012) % 4; draw(); }, 30);
+  });
+  [t1, t2, r].forEach(function (c) { c.addEventListener("input", draw); });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", draw);
+  else draw();
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

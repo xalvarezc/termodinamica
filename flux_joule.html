@@ -1,0 +1,138 @@
+<!doctype html>
+<title>Guia de classe — experiment de Joule</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.4 &middot; guió de pissarra</div>
+  <h1>L'<em>experiment de Joule</em></h1>
+  <p class="subtitle">De la roda de paletes que cau dins un recipient adiabàtic, a la definició mateixa de la calor i al <strong>primer principi</strong>.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Observació empírica</span><span>Amb parets adiabàtiques, tot el treball rebut escalfa el sistema</span></li><li><span class="chip postulat"><span class="dot"></span>Observació empírica</span><span>Ara amb parets diatermes: cal deixar caure el pes una distància diferent z'&ne;z per arribar al mateix B</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Definim la calor bescanviada per diferència</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Aïllem W<sup>ad</sup> del pas 1 i substituïm</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Primer principi</span></div><div class="eq">\[ \Delta U = Q + W \quad\textbf{i}\quad dU = \text{đ}Q + \text{đ}W \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip empiric"><span class="dot"></span>Observació empírica</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; punt de partida &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Recipient adiabàtic amb roda de paletes</div>
+        <div class="card-note">Un pes de massa m cau una alçada z i fa girar una roda de paletes que agita el fluid interior. El sistema passa de l'estat A (T<sub>A</sub>) a l'estat B (T<sub>B</sub>).</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag empiric">
+          <span class="kind">Observació empírica</span>
+          <span class="desc">Amb parets adiabàtiques, tot el treball rebut escalfa el sistema</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Procés purament adiabàtic</span></div>
+        <div class="eq">\[ U\left(B\right) - U\left(A\right) = W^{ad}_{A\rightarrow B} = mgz \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag empiric">
+          <span class="kind">Observació empírica</span>
+          <span class="desc">Ara amb parets diatermes: cal deixar caure el pes una distància diferent z'&ne;z per arribar al mateix B</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Repetim, ara sense adiabatisme</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El mateix estat final B ara s'assoleix amb un treball diferent &mdash; el sistema ha bescanviat calor amb l'entorn.</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Definim la calor bescanviada per diferència</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Definició de Q</span></div>
+        <div class="eq">\[ Q_{A\rightarrow B} = W^{ad}_{A\rightarrow B} - W_{A\rightarrow B} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Aïllem W<sup>ad</sup> del pas 1 i substituïm</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Reordenem</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">U(B)&minus;U(A) = W<sup>ad</sup><sub>A&rarr;B</sub> = Q<sub>A&rarr;B</sub> + W<sub>A&rarr;B</sub></div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; el mateix resultat, en forma diferencial &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Primer principi</span></div>
+        <div class="eq">\[ \Delta U = Q + W \quad\textbf{i}\quad dU = \text{đ}Q + \text{đ}W \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> U queda establerta com a funció d'estat: comparant un camí adiabàtic amb un de genèric entre els mateixos A i B, s'obté sempre el mateix &Delta;U &mdash; és a dir, &oint;<sub>C</sub>dU=0 sempre, mentre que ni Q ni W per separat ho compleixen.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.4 del guió de pissarra del Tema 1 (amb el comentari hist&ograve;ric sobre el cal&ograve;ric, de Lavoisier a Helmholtz, que no es reprodueix aqu&iacute;). Aquest primer principi és el punt de partida dles guies de <a href="flux_capacitats_generals.html">relacions entre capacitats calorífiques</a> i de l'<a href="flux_gibbs.html">equació de Gibbs</a>. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

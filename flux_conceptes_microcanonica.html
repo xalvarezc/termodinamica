@@ -1,0 +1,85 @@
+<!doctype html>
+<title>Tema 3 — conceptes i postulats de la mecànica estadística</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 3 &middot; seccions 3.1&ndash;3.3 &middot; guió de pissarra</div>
+  <h1>Els <em>conceptes</em> de la mecànica estadística</h1>
+  <p class="subtitle">Microstat, macrostat, espai de fases, col&middot;lectivitat i els dos postulats: tot el vocabulari que cal tenir fixat abans de començar a comptar microstats.</p>
+
+  <div class="card" style="margin-top:0;">
+    <div class="card-head"><span class="step-no">DEFINICIÓ</span><span class="card-title">Microstat</span></div>
+    <div class="card-note">L'estat <strong>microscòpic</strong> del sistema: totes les variables microscòpiques tenen un valor fixat i conegut. En un sistema clàssic, la posició i el moment de cada partícula.</div>
+    <div class="eq">\[ \left\{\mathbf{q},\mathbf{p}\right\}=\left\{q_{1},\ldots,q_{3N},p_{1},\ldots,p_{3N}\right\}\in\mathbb{R}^{6N} \]</div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Calen <strong>6N</strong> nombres. Per a un mol, ~10<sup>24</sup> variables: no es poden obtenir integrant les equacions de Newton (ni resolent Schrödinger, en el cas quàntic).</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">DEFINICIÓ</span><span class="card-title">Macrostat</span></div>
+    <div class="card-note">L'estat d'<strong>equilibri termodinàmic</strong>, especificat per un nombre petit de variables extensives i intensives &mdash; és el que es pot observar experimentalment. Per a un fluid aïllat, el fixen U, V i N.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">La asimetria entre els dos és tot el tema</span></div>
+    <div class="card-note">Un sol macrostat és compatible amb un nombre enorme de microstats. Tot el que ve després consisteix a <strong>comptar-los</strong> (Ω) i a adonar-se que aquest recompte és l'entropia. La direcció contrària no existeix: del macrostat no se'n pot recuperar el microstat. <a href="sim_microstats_macrostats.html">La simulació de microstats i macrostats</a> ho deixa comptar.</div>
+    <div class="card-note">Convé fixar d'entrada la notació que es fa servir tota la resta del tema: <strong>E</strong> és l'energia mecànica del sistema (el valor del hamiltonià) i <strong>U</strong> és l'energia interna termodinàmica. Són conceptualment diferents i només s'identifiquen en el <strong>límit termodinàmic</strong> &mdash; el pas E&rarr;U es fa servir sense dir-ho a la <a href="flux_formula_boltzmann.html">fórmula de Boltzmann</a>.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">DEFINICIÓ</span><span class="card-title">Espai de fases</span></div>
+    <div class="card-note">L'espai de <strong>6N dimensions</strong> on cada punt (<strong>q</strong>,<strong>p</strong>) és un microstat. Un macrostat hi correspon a tota una regió, no a un punt: la regió dels microstats compatibles amb ell.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">POSTULAT 1</span><span class="card-title">Primer postulat de la mecànica estadística</span></div>
+    <div class="card-note"><em>Els valors de les magnituds macroscòpiques que defineixen un macrostat s'obtenen calculant els valors mitjans de les corresponents magnituds microscòpiques sobre el conjunt de microstats compatibles amb el macrostat.</em></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És el pont conceptual: cap magnitud macroscòpica és una propietat d'un microstat, sinó una mitjana sobre molts.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">RESULTAT</span><span class="card-title">Valor mitjà (observable macroscòpic)</span></div>
+    <div class="card-note">Si A(<strong>q</strong>,<strong>p</strong>) és la magnitud microscòpica i &rho;(<strong>q</strong>,<strong>p</strong>) la densitat de probabilitat de cada microstat:</div>
+    <div class="eq">\[ \left\langle A\right\rangle=\int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\rho\left(\mathbf{q},\mathbf{p}\right)A\left(\mathbf{q},\mathbf{p}\right) \]</div>
+    <div class="card-note">amb &rho; normalitzada, perquè és una densitat de probabilitat:</div>
+    <div class="eq">\[ \int\dfrac{d\mathbf{q}\,d\mathbf{p}}{h^{3N}}\,\rho\left(\mathbf{q},\mathbf{p}\right)=1 \]</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">NOTACIÓ</span><span class="card-title">Per què es divideix per h<sup>3N</sup></span></div>
+    <div class="card-note">Pel principi d'incertesa de Heisenberg, &Delta;q&middot;&Delta;p~h: <strong>h és la cel&middot;la més petita de l'espai de fases que pot contenir un microstat</strong>. Dividir per h<sup>3N</sup> (una h per cada parella q<sub>i</sub>, p<sub>i</sub>, i n'hi ha 3N) converteix una integral de volum en un <em>recompte</em> d'estats.</div>
+    <div class="card-note">Conseqüència pràctica que es fa servir constantment: l'element d<strong>q</strong>&nbsp;d<strong>p</strong> té exactament les mateixes dimensions que h<sup>3N</sup>, de manera que d<strong>q</strong>&nbsp;d<strong>p</strong>/h<sup>3N</sup> és <strong>adimensional</strong> &mdash; i per tant &rho; també ho és.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">DEFINICIÓ</span><span class="card-title">Col&middot;lectivitat (Gibbs, 1902)</span></div>
+    <div class="card-note">Un conjunt de <strong>rèpliques virtuals</strong> del sistema, cadascuna representant un possible microstat compatible amb el mateix macrostat. Promitjar sobre la col&middot;lectivitat és, precisament, calcular &lang;A&rang;. Segons quines magnituds es mantenen fixes:</div>
+    <table class="mini-table"><caption>Les tres col&middot;lectivitats</caption><tr><th>Col&middot;lectivitat</th><th>Contacte amb l'exterior</th><th>Macrostat fixat per</th></tr><tr><td>Microcanònica</td><td>cap: sistema totalment aïllat</td><td>U, V, N</td></tr><tr><td>Canònica</td><td>font tèrmica a T</td><td>T, V, N</td></tr><tr><td>Macrocanònica</td><td>font tèrmica T + reservori de partícules μ</td><td>T, V, μ</td></tr></table>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Les tres han de donar les mateixes equacions d'estat. Comencem per la microcanònica, que és la més senzilla conceptualment (encara que sovint la més laboriosa de calcular).</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">POSTULAT 2</span><span class="card-title">Principi d'equiprobabilitat a priori</span></div>
+    <div class="card-note"><em>A tot estat d'equilibri termodinàmic (macrostat) d'un sistema aïllat li correspon una descripció microscòpica en què tots els microstats compatibles tenen la mateixa probabilitat.</em></div>
+    <div class="card-note">És un <strong>postulat</strong>, no un teorema: no se'n dona cap demostració, i es justifica a posteriori perquè el que se'n dedueix concorda amb la termodinàmica. A <a href="flux_entropia_shannon.html">3.9</a>, però, es recupera com a <em>conseqüència</em> de maximitzar l'entropia estadística: és la distribució menys compromesa compatible amb el que se sap.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">ORDRE</span><span class="card-title">Els conceptes, en l'ordre en què es necessiten</span></div>
+    <table class="mini-table"><tr><th>#</th><th>Concepte</th><th>Per a què fa falta tot seguit</th></tr><tr><td>1</td><td>Microstat / macrostat</td><td>sense la distinció no hi ha res a comptar</td></tr><tr><td>2</td><td>Espai de fases</td><td>és on viuen els microstats, i on s'integra</td></tr><tr><td>3</td><td>Postulat 1 + &lang;A&rang;</td><td>defineix què vol dir "magnitud macroscòpica"</td></tr><tr><td>4</td><td>La cel&middot;la h<sup>3N</sup></td><td>perquè &Omega; sigui un recompte i no un volum</td></tr><tr><td>5</td><td>Col&middot;lectivitat</td><td>dóna sentit a "promitjar" sense evolució temporal</td></tr><tr><td>6</td><td>Postulat 2</td><td>fixa &rho; i permet aïllar &Omega;</td></tr><tr><td>7</td><td>&Omega; i &Gamma;</td><td>l'objecte a calcular &mdash; <a href="flux_microcanonica_omega.html">3.3</a></td></tr><tr><td>8</td><td>S=k<sub>B</sub>ln&Omega;</td><td>el pont amb la termodinàmica &mdash; <a href="flux_formula_boltzmann.html">3.4</a></td></tr></table>
+  </div>
+
+  <footer>Correspon a les seccions 3.1, 3.2 i l'enunciat de 3.3 del guió de pissarra del Tema 3. A diferència de la resta de pàgines, aquesta no és una guia pas a pas: és el recull de definicions i postulats sobre els quals s'aguanten totes les guies del tema.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

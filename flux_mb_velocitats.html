@@ -1,0 +1,166 @@
+<!doctype html>
+<title>Guia de classe — distribucions de velocitat de Maxwell-Boltzmann</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 4 &middot; secció 4.1 &middot; guió de pissarra</div>
+  <h1>Les tres <em>distribucions de velocitat</em></h1>
+  <p class="subtitle">Una sola física, tres preguntes diferents: quin vector velocitat, quina component, quina celeritat. Cada resposta és una densitat diferent, i la tercera porta un v&sup2; que canvia completament la forma.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_mb_deduccio.html">4.1: &rho;(<strong>p</strong>) de Maxwell-Boltzmann</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Canvi de variable en una densitat: es conserva &rho;&nbsp;d<sup>3</sup>x, no &rho;</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Jacobià de les coordenades esfèriques: d<sup>3</sup>v=v&sup2;sin&theta;&nbsp;dv&nbsp;d&theta;&nbsp;d&phi;</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Distribució del vector velocitat</span></div><div class="eq">\[ \rho\left(\mathbf{v}\right)=\rho\left(v_{x},v_{y},v_{z}\right)=\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Distribució d'una component</span></div><div class="eq">\[ \begin{gathered} \rho\left(v_{x}\right)=\left(\dfrac{\beta m}{2\pi}\right)^{1/2}e^{-\beta mv_{x}^{2}/2} \\[6pt] \rho\left(\mathbf{v}\right)=\rho\left(v_{x}\right)\rho\left(v_{y}\right)\rho\left(v_{z}\right) \end{gathered} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Distribució de la celeritat</span></div><div class="eq">\[ \begin{gathered} F\left(v\right)=4\pi v^{2}\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2} \\[4pt] v=\left|\mathbf{v}\right|\ge 0 \end{gathered} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_mb_deduccio.html">4.1: &rho;(<strong>p</strong>) de Maxwell-Boltzmann</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">La distribució de moments</div>
+        <div class="eq">\[ \rho\left(\mathbf{p}\right)=\dfrac{1}{\left(2\pi mk_{B}T\right)^{3/2}}\,e^{-p^{2}/2mk_{B}T} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">D'ara endavant, &beta;&equiv;1/k<sub>B</sub>T.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Canvi de variable en una densitat: es conserva &rho;&nbsp;d<sup>3</sup>x, no &rho;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">De moments a velocitats: p=mv</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{v}\right)d^{3}v=\rho\left(\mathbf{p}\right)d^{3}p\quad\Longrightarrow\quad\rho\left(\mathbf{v}\right)=m^{3}\,\rho\left(\mathbf{p}=m\mathbf{v}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El que es conserva és la <strong>probabilitat</strong> d'una cel&middot;la, no el valor de la densitat: el jacobià m<sup>3</sup> és el que fa que el resultat torni a estar normalitzat.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; m<sup>3</sup>/(2&pi;mk<sub>B</sub>T)<sup>3/2</sup>=(&beta;m/2&pi;)<sup>3/2</sup> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Distribució del vector velocitat</span></div>
+        <div class="eq">\[ \rho\left(\mathbf{v}\right)=\rho\left(v_{x},v_{y},v_{z}\right)=\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2} \]</div>
+        <div class="card-note">Només depèn del mòdul de <strong>v</strong>, no de la direcció: el gas és <strong>isòtrop</strong>. <strong>v</strong> i &minus;<strong>v</strong> tenen la mateixa probabilitat, i el màxim és a <strong>v</strong>=0.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integral gaussiana: &int;e<sup>&minus;ax&sup2;</sup>dx=&radic;(&pi;/a)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Una component: marginal de les altres dues</span></div>
+        <div class="eq">\[ \begin{aligned} \rho\left(v_{x}\right)&=\int_{-\infty}^{\infty}dv_{y}\int_{-\infty}^{\infty}dv_{z}\,\rho\left(\mathbf{v}\right) \\[4pt] &=\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv_{x}^{2}/2}\left(\int_{-\infty}^{\infty}e^{-\beta mu^{2}/2}du\right)^{2} \end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com que v&sup2;=v<sub>x</sub>&sup2;+v<sub>y</sub>&sup2;+v<sub>z</sub>&sup2;, l'exponencial factoritza. Cada integral val (2&pi;/&beta;m)<sup>1/2</sup>.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; i el mateix per a v<sub>y</sub> i v<sub>z</sub>, per isotropia &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Distribució d'una component</span></div>
+        <div class="eq">\[ \begin{gathered} \rho\left(v_{x}\right)=\left(\dfrac{\beta m}{2\pi}\right)^{1/2}e^{-\beta mv_{x}^{2}/2} \\[6pt] \rho\left(\mathbf{v}\right)=\rho\left(v_{x}\right)\rho\left(v_{y}\right)\rho\left(v_{z}\right) \end{gathered} \]</div>
+        <div class="card-note">Una gaussiana centrada a zero amb variància k<sub>B</sub>T/m. La segona igualtat diu que <strong>les tres components són estadísticament independents</strong>: conèixer v<sub>x</sub> no diu res de v<sub>y</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Jacobià de les coordenades esfèriques: d<sup>3</sup>v=v&sup2;sin&theta;&nbsp;dv&nbsp;d&theta;&nbsp;d&phi;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Per a la celeritat, passem a esfèriques</span></div>
+        <div class="eq">\[ \rho\left(v,\theta,\varphi\right)=v^{2}\sin\theta\;\rho\left(\mathbf{v}\right)=v^{2}\sin\theta\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Com al pas 1: canviar de variables una densitat vol dir multiplicar pel jacobià.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; &rho;(<strong>v</strong>) no depèn dels angles &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Integrem els angles</span></div>
+        <div class="eq">\[ \int_{0}^{2\pi}d\varphi\int_{0}^{\pi}\sin\theta\,d\theta=4\pi \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">És l'àrea de l'esfera unitat: 4&pi;v&sup2;dv és el volum de la closca esfèrica de radi v i gruix dv a l'espai de velocitats.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; pas 3 integrat amb el pas 4 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Distribució de la celeritat</span></div>
+        <div class="eq">\[ \begin{gathered} F\left(v\right)=4\pi v^{2}\left(\dfrac{\beta m}{2\pi}\right)^{3/2}e^{-\beta mv^{2}/2} \\[4pt] v=\left|\mathbf{v}\right|\ge 0 \end{gathered} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> F(0)=0, tot i que el vector <strong>v</strong>=0 és el més probable de tots (DESTÍ 1). No hi ha contradicció: el factor 4&pi;v&sup2; compta <strong>quantes direccions</strong> tenen celeritat v. Hi ha un sol vector amb v=0 i una esfera sencera amb v gran: estar quiet és el vector més probable, però la celeritat menys probable.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Notació: per què F(v) i no &rho;(v)</span></div>
+    <div class="card-note">Als apunts de referència les tres densitats porten la mateixa lletra, i només l'argument les distingeix. Amb &rho;(<strong>v</strong>) i &rho;(v) a la pissarra, la diferència és una negreta &mdash; i és justament la diferència entre &laquo;màxim a zero&raquo; i &laquo;zero a zero&raquo;. Per això aquí la de la celeritat es diu F(v). Totes tres es normalitzen sobre el seu propi domini:</div>
+    <div class="eq">\[ \int d^{3}v\,\rho\left(\mathbf{v}\right)=\int_{-\infty}^{\infty}dv_{x}\,\rho\left(v_{x}\right)=\int_{0}^{\infty}dv\,F\left(v\right)=1 \]</div>
+  </div>
+
+  <footer>Correspon a la secció 4.1 del Tema 4 (distribució de Maxwell-Boltzmann). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

@@ -1,0 +1,160 @@
+<!doctype html>
+<title>Guia de classe — teorema d'equipartició</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.5 &middot; guió de pissarra</div>
+  <h1>El teorema d'<em>equipartició</em></h1>
+  <p class="subtitle">Una integració per parts dóna &lang;x<sub>i</sub>&part;H/&part;x<sub>j</sub>&rang;=k<sub>B</sub>T&delta;<sub>ij</sub> per a qualsevol hamiltonià clàssic. D'aquí, k<sub>B</sub>T/2 per cada terme quadràtic, sense calcular cap funció de partició.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Hipòtesi</span><span>H&rarr;&infin; a la vora del domini d'integració</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_deduccio.html">5.1: &rho;=e<sup>&minus;&beta;H</sup>/Z</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>e<sup>&minus;&beta;H</sup>&part;H/&part;x<sub>j</sub>=&minus;(1/&beta;)&part;e<sup>&minus;&beta;H</sup>/&part;x<sub>j</sub></span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Integració per parts</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Teorema d'Euler: K homogènia de grau 2 &rArr; &sum;p<sub>i</sub>&part;K/&part;p<sub>i</sub>=2K</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Teorema d'equipartició generalitzat</span></div><div class="eq">\[ \left\langle x_{i}\,\dfrac{\partial H}{\partial x_{j}}\right\rangle=k_{B}T\,\delta_{ij} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">k<sub>B</sub>T/2 per cada grau de llibertat</span></div><div class="eq">\[ \left\langle K\right\rangle=\dfrac{1}{2}f_{c}\,k_{B}T \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_deduccio.html">5.1: &rho;=e<sup>&minus;&beta;H</sup>/Z</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Variables canòniques x<sub>1</sub>,&hellip;,x<sub>6N</sub></div>
+        <div class="eq">\[ \left\langle x_{i}\dfrac{\partial H}{\partial x_{j}}\right\rangle=\dfrac{\int dx_{1}\cdots dx_{6N}\,e^{-\beta H}\,x_{i}\,\dfrac{\partial H}{\partial x_{j}}}{\int dx_{1}\cdots dx_{6N}\,e^{-\beta H}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Les x són les 3N posicions i els 3N moments. Volem aquest valor mitjà per a qualsevol parella i,j.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">e<sup>&minus;&beta;H</sup>&part;H/&part;x<sub>j</sub>=&minus;(1/&beta;)&part;e<sup>&minus;&beta;H</sup>/&part;x<sub>j</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">&part;H/&part;x<sub>j</sub> surt de derivar l'exponencial</span></div>
+        <div class="eq">\[ \begin{aligned}&\int dx_{j}\,e^{-\beta H}x_{i}\dfrac{\partial H}{\partial x_{j}} \\ &\quad=-\dfrac{1}{\beta}\int dx_{j}\,x_{i}\,\dfrac{\partial e^{-\beta H}}{\partial x_{j}}\end{aligned} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Integració per parts</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Integrem per parts en x<sub>j</sub></span></div>
+        <div class="eq">\[ \begin{aligned}&-\dfrac{1}{\beta}\int dx_{j}\,x_{i}\,\dfrac{\partial e^{-\beta H}}{\partial x_{j}} \\ &\quad=-\dfrac{1}{\beta}\Big[x_{i}\,e^{-\beta H}\Big]_{\text{vora}} \\ &\qquad+\dfrac{1}{\beta}\,\delta_{ij}\int dx_{j}\,e^{-\beta H}\end{aligned} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">&part;x<sub>i</sub>/&part;x<sub>j</sub>=&delta;<sub>ij</sub>.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Hipòtesi</span>
+          <span class="desc">H&rarr;&infin; a la vora del domini d'integració</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">El terme de vora s'anul&middot;la</span></div>
+        <div class="card-note">Si x<sub>j</sub> és un moment, la vora és p&rarr;&plusmn;&infin;, on l'energia cinètica divergeix. Si és una posició, la vora és la paret del recipient, que és una barrera de potencial infinita. En tots dos casos e<sup>&minus;&beta;H</sup>&rarr;0 i el terme de vora desapareix.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; la integral que queda és el denominador &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Teorema d'equipartició generalitzat</span></div>
+        <div class="eq">\[ \left\langle x_{i}\,\dfrac{\partial H}{\partial x_{j}}\right\rangle=k_{B}T\,\delta_{ij} \]</div>
+        <div class="card-note">Per a qualsevol hamiltonià clàssic que compleixi la hipòtesi del pas 3. Cap càlcul de Z.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Teorema d'Euler: K homogènia de grau 2 &rArr; &sum;p<sub>i</sub>&part;K/&part;p<sub>i</sub>=2K</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">L'energia cinètica és quadràtica en els moments</span></div>
+        <div class="eq">\[ K=\dfrac{1}{2}\sum_{i=1}^{f_{c}}p_{i}\dfrac{\partial K}{\partial p_{i}}=\dfrac{1}{2}\sum_{i=1}^{f_{c}}p_{i}\dfrac{\partial H}{\partial p_{i}} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">f<sub>c</sub> és el nombre de graus de llibertat cinètics. La segona igualtat val si l'energia potencial no depèn dels moments. Els apunts hi arriben amb H+L=2K, que és el mateix fet.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; promitjant i aplicant el DESTÍ 1 amb i=j &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">k<sub>B</sub>T/2 per cada grau de llibertat</span></div>
+        <div class="eq">\[ \left\langle K\right\rangle=\dfrac{1}{2}f_{c}\,k_{B}T \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> cada grau de llibertat cinètic aporta k<sub>B</sub>T/2 a l'energia cinètica mitjana. El mateix argument val per a qualsevol terme del hamiltonià que sigui <strong>quadràtic</strong> en una variable (per exemple, kq<sup>2</sup>/2): també aporta k<sub>B</sub>T/2.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">APLICACIONS</span><span class="card-title">L'equació calòrica sense calcular Z</span></div>
+    <table class="mini-table"><tr><th>Sistema</th><th>Hamiltonià</th><th>Equipartició</th><th>U</th></tr><tr><td>N oscil&middot;ladors 1D</td><td>&sum;(p<sub>i</sub><sup>2</sup>/2m+kq<sub>i</sub><sup>2</sup>/2)</td><td>&lang;p<sup>2</sup>/2m&rang;=&lang;kq<sup>2</sup>/2&rang;=k<sub>B</sub>T/2</td><td>Nk<sub>B</sub>T</td></tr><tr><td>Gas ideal en un camp gravitatori</td><td>&sum;p<sub>i</sub><sup>2</sup>/2m+&sum;mgz<sub>i</sub></td><td>&lang;mgz&rang;=&lang;z&part;H/&part;z&rang;=k<sub>B</sub>T</td><td>5/2&middot;Nk<sub>B</sub>T</td></tr></table>
+    <div class="card-note">Dues observacions. Un terme <strong>lineal</strong> com mgz aporta k<sub>B</sub>T, no k<sub>B</sub>T/2: el "k<sub>B</sub>T/2 per terme" és només per als quadràtics; el que és general és el DESTÍ 1. I el resultat &lang;mgz&rang;=k<sub>B</sub>T és per a una columna <strong>sense sostre</strong>: amb un sostre a altura L, la força del sostre també entra a &lang;z&part;H/&part;z&rang;, i &lang;mgz&rang;&lt;k<sub>B</sub>T.</div>
+    <div class="card-note">Els oscil&middot;ladors en 3D donen U=3Nk<sub>B</sub>T i C<sub>V</sub>=3Nk<sub>B</sub>: la llei de Dulong-Petit del <a href="flux_solid_classic.html">sòlid clàssic</a>.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Només per a sistemes clàssics</span></div>
+    <div class="card-note">La demostració necessita que les variables siguin contínues, per poder derivar i integrar per parts. En un sistema quàntic no ho són, i l'equipartició falla quan k<sub>B</sub>T és comparable a la separació entre nivells: l'<a href="flux_canonica_oscillador_quantic.html">oscil&middot;lador quàntic</a> només la recupera a altes temperatures, i a baixes C<sub>V</sub>&rarr;0. Històricament, aquesta fallada (les calors específiques dels sòlids i la radiació del cos negre) va ser una de les portes de la mecànica quàntica.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.5 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

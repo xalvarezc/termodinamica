@@ -1,0 +1,249 @@
+<!doctype html>
+<title>Guia de classe — potencials termodinàmics</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 2 &middot; secció 2.3 &middot; guió de pissarra</div>
+  <h1>Els <em>potencials termodinàmics</em></h1>
+  <p class="subtitle">El mateix truc &mdash; sumar o restar el diferencial d'un producte &mdash; aplicat quatre vegades: canviem S per T, V per P, o totes dues, sense perdre gens d'informació.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Transformada de Legendre: si p=dy/dx, definim &yacute;(p)=y&minus;xp (com de lagrangià a hamiltonià)</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_equacio_fonamental.html">2.1</a> i <a href="flux_forma_euler.html">2.2: forma d'Euler</a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>Substituint U=TS&minus;PV+&mu;N a H=U+PV</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Sumem d(PV) a banda i banda: els termes en PdV es cancel·len</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Ara restem d(TS) de dU: els termes en TdS es cancel·len</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Partint de dH, hi restem d(TS): mateix truc, un cop més</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Partint de dF, hi restem d(&mu;N)</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>A P constant, (dH)<sub>P</sub>=TdS=đQ<sup>rev</sup>; a T constant, (dF)<sub>T</sub>=&minus;PdV=đW<sup>rev</sup></span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Entalpia</span></div><div class="eq">\[ H=U+PV \quad\textbf{i}\quad H=TS+\mu N \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Energia lliure de Helmholtz</span></div><div class="eq">\[ F=U-TS \quad\textbf{i}\quad F=-PV+\mu N \]</div><div class="resum-goal"><span class="step-no">DESTÍ 3</span><span class="resum-gt">Energia lliure de Gibbs</span></div><div class="eq">\[ G=U-TS+PV \quad\textbf{i}\quad G=\mu N \]</div><div class="resum-goal"><span class="step-no">DESTÍ 4</span><span class="resum-gt">Potencial gran canònic</span></div><div class="eq">\[ \Omega =U-TS-\mu N \quad\textbf{i}\quad \Omega =-PV \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Calor i treball reversibles</span></div><div class="eq">\[ Q^{rev} = \left(\Delta H\right)_{P} \quad\textbf{i}\quad W^{rev} = \left(\Delta F\right)_{T} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_equacio_fonamental.html">2.1</a> i <a href="flux_forma_euler.html">2.2: forma d'Euler</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Fluid obert monocomponent</div>
+        <div class="eq">\[ dU = TdS - PdV + \mu dN \quad\textbf{i}\quad U = TS - PV + \mu N \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Transformada de Legendre: si p=dy/dx, definim &yacute;(p)=y&minus;xp (com de lagrangià a hamiltonià)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">L'eina: canviar de variable sense perdre informació</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">S no es controla fàcilment en un experiment; T sí. Volem la mateixa informació en funció de T.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 (entalpia, detailed) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Sumem d(PV) a banda i banda: els termes en PdV es cancel·len</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Entalpia H=U+PV: canviem V per P</span></div>
+        <div class="eq">\[ dH = TdS + VdP + \mu dN \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; comparem coeficients &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Derivades de H</span></div>
+        <div class="eq">\[ T=\left(\dfrac{\partial H}{\partial S}\right)_{P,N}, \quad V=\left(\dfrac{\partial H}{\partial P}\right)_{S,N}, \quad\textbf{i}\quad \mu =\left(\dfrac{\partial H}{\partial N}\right)_{S,P} \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">Substituint U=TS&minus;PV+&mu;N a H=U+PV</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Entalpia</span></div>
+        <div class="eq">\[ H=U+PV \quad\textbf{i}\quad H=TS+\mu N \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 (Helmholtz, compact) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Ara restem d(TS) de dU: els termes en TdS es cancel·len</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Helmholtz F=U&minus;TS: canviem S per T</span></div>
+        <div class="eq">\[ dF = -SdT - PdV + \mu dN \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; derivades i forma d'Euler, mateix mètode &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Energia lliure de Helmholtz</span></div>
+        <div class="eq">\[ F=U-TS \quad\textbf{i}\quad F=-PV+\mu N \]</div>
+        <div class="card-note">S=&minus;(&part;F/&part;T)<sub>V,N</sub>, P=&minus;(&part;F/&part;V)<sub>T,N</sub>, &mu;=(&part;F/&part;N)<sub>T,V</sub></div>
+      </div>
+    </div>
+
+    <!-- STEP 5 (Gibbs, compact) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Partint de dH, hi restem d(TS): mateix truc, un cop més</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Gibbs G=H&minus;TS: canviem S per T <em>i</em> V per P</span></div>
+        <div class="eq">\[ dG = -SdT + VdP + \mu dN \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 3 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; la forma d'Euler es redueix al mínim &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 3</span><span class="card-title">Energia lliure de Gibbs</span></div>
+        <div class="eq">\[ G=U-TS+PV \quad\textbf{i}\quad G=\mu N \]</div>
+        <div class="card-note">El potencial químic és l'energia de Gibbs <em>per partícula</em>. Dividint dG per N surt la Gibbs&ndash;Duhem d'aquest sistema: d&mu;=&minus;sdT+vdP.</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 (grand canonical, compact) -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Partint de dF, hi restem d(&mu;N)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 6</span><span class="card-title">Gran canònic &Omega;=F&minus;&mu;N: canviem S per T <em>i</em> N per &mu;</span></div>
+        <div class="eq">\[ d\Omega = -SdT - PdV - Nd\mu \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 4 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; forma d'Euler més simple de totes &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 4</span><span class="card-title">Potencial gran canònic</span></div>
+        <div class="eq">\[ \Omega =U-TS-\mu N \quad\textbf{i}\quad \Omega =-PV \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">A P constant, (dH)<sub>P</sub>=TdS=đQ<sup>rev</sup>; a T constant, (dF)<sub>T</sub>=&minus;PdV=đW<sup>rev</sup></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 7</span><span class="card-title">Llegim calor i treball directament dels potencials</span></div>
+      </div>
+    </div>
+
+    <!-- GOAL FINAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; conseqüència directa &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Calor i treball reversibles</span></div>
+        <div class="eq">\[ Q^{rev} = \left(\Delta H\right)_{P} \quad\textbf{i}\quad W^{rev} = \left(\Delta F\right)_{T} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> quatre potencials, cadascun còmode per a un conjunt diferent de variables controlables. La <a href="flux_maxwell.html">guia de les relacions de Maxwell</a> hi parteix directament (tots quatre són funcions d'estat).</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Per què la transformada de Legendre no perd informació</span></div>
+    <div class="card-note" style="margin-top:0;">El neguit natural: si passem de U(S,V,N) a H(S,P,N) substituint V per la seva derivada P=&minus;(&part;U/&part;V)<sub>S,N</sub>, sembla que ens quedem només amb un <em>pendent</em> i oblidem el valor concret de V. I un pendent, per si sol, sí que perd informació &mdash; la mateixa recta tangent, desplaçada amunt o avall, té el mateix pendent. Si la transformada fos "substitueix V per P(V)", series aquí: perdries la constant d'integració, el mateix problema que reconstruir U només a partir de l'equació d'estat P(V,T).</div>
+    <div class="card-note">Però la transformada no fa això. Ens quedem amb l'<strong>ordenada a l'origen</strong> de la recta tangent, no amb el seu pendent &mdash; desenvolupat, amb figura, a <a href="flux_legendre_geometria.html">la transformada de Legendre vista com a geometria</a>:</div>
+    <div class="eq">\[ H \equiv U - \left(\dfrac{\partial U}{\partial V}\right)_{S,N} V = U+PV \]</div>
+    <div class="card-note">Fet matemàtic clau: una corba estrictament convexa queda determinada exactament per l'<strong>envolupant de les seves rectes tangents</strong>. Conèixer, per a cada pendent P, l'ordenada a l'origen H(P), és exactament la mateixa informació que conèixer la corba U(V) punt a punt &mdash; són dues representacions duals de la mateixa corba, no una versió resumida l'una de l'altra.</div>
+    <div class="card-note">La prova que no es perd res és que la transformada és <strong>involutiva</strong> (el seu propi invers): aplicant el mateix procediment a H, substituint P per V=(&part;H/&part;P)<sub>S,N</sub>, es recupera exactament</div>
+    <div class="eq">\[ U = H - PV \]</div>
+    <div class="card-note">sense cap ambigüitat ni constant perduda. Si s'hagués perdut informació pel camí, no es podria desfer el pas.</div>
+    <div class="card-note">Per això es poden extreure totes les equacions d'estat de H: com que és una funció genuïna de les seves variables naturals, el seu diferencial dH=TdS+VdP+&mu;dN dona T, V i &mu; per derivació directa &mdash; exactament tan completes com les que sortirien d'U, només parametritzades amb P en lloc de V.</div>
+    <div class="card-note"><strong>Una condició que sol passar desapercebuda:</strong> això només funciona perquè U és estrictament convexa en V (a S,N fixos) &mdash; i no és casualitat: és exactament la condició d'estabilitat termodinàmica (&part;&sup2;U/&part;V&sup2;)<sub>S</sub>&gt;0 (el mateix criteri de la <a href="flux_estabilitat_cv_kappa.html">guia de criteris d'estabilitat</a>). Sense convexitat, l'envolupant de tangents no reconstrueix la corba de manera única i la transformada deixa de ser invertible.</div>
+    <div class="card-note">I per què val la pena fer-ho, si no es guanya ni es perd informació: perquè V és incòmode de controlar en un experiment (fixar un volum exacte és difícil, sobretot amb canvis de fase), mentre que P és trivial (deixar el sistema en contacte amb l'atmosfera). La transformada deixa triar quina variable fer servir de "mànec" experimental, sense pagar cap preu en informació &mdash; el mateix truc que, en mecànica clàssica, converteix la lagrangiana L(q,&#x2d9;q) en l'hamiltoniana H(q,p) substituint la velocitat pel seu moment conjugat.</div>
+  </div>
+
+  <footer>Correspon a l'apartat 2.3(a)&ndash;(e) del guió de pissarra del Tema 2, combinat en una sola guia perquè les quatre transformades segueixen exactament el mateix mètode. El comentari final es desenvolupa a <a href="flux_legendre_geometria.html">la transformada de Legendre vista com a geometria</a>. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

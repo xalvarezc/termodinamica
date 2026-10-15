@@ -1,0 +1,135 @@
+<!doctype html>
+<title>Guia de classe — teorema de Carnot</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.2(a) &middot; guió de pissarra</div>
+  <h1>El <em>teorema de Carnot</em></h1>
+  <p class="subtitle">Per què cap màquina tèrmica pot superar el rendiment d'una màquina de Carnot &mdash; i per què totes les reversibles hi arriben, exactament.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Conservació de l'energia del conjunt</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Definicions de rendiment (secció 1.5.1)</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Enunciat de Clausius: si Q<sub>2</sub>&minus;Q<sub>2</sub><sup>c</sup>&lt;0, el conjunt seria un refrigerador perfecte</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ</span><span class="resum-gt">Totes les reversibles tenen el mateix rendiment</span></div><div class="eq">\[ \eta = \eta _{c} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; disseny del muntatge &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Acoblem dues màquines entre els mateixos focus</div>
+        <div class="card-note">Una màquina de Carnot invertida (fent de refrigerador) i una màquina tèrmica genèrica MT, de manera que el treball que produeix l'una alimenti l'altra.</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Conservació de l'energia del conjunt</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Balanç d'energia</span></div>
+        <div class="eq">\[ Q_{1}-Q_{1}^{c} = Q_{2}-Q_{2}^{c} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Definicions de rendiment (secció 1.5.1)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Reescrivim en termes de &eta;</span></div>
+        <div class="eq">\[ \dfrac{Q_{2}-Q_{2}^{c}}{W} = \dfrac{1}{\eta } - \dfrac{1}{\eta _{c}} \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Enunciat de Clausius: si Q<sub>2</sub>&minus;Q<sub>2</sub><sup>c</sup>&lt;0, el conjunt seria un refrigerador perfecte</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Aquest signe és impossible</span></div>
+        <div class="eq">\[ Q_{2}-Q_{2}^{c} \ge 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 (intermediate goal-like, styled step) -->
+    <div class="row step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; conseqüència directa &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">RESULTAT INTERMEDI</span><span class="card-title">Carnot mai és superat</span></div>
+        <div class="eq">\[ \eta _{c} \ge \eta \]</div>
+        <div class="card-note">Vàlid per a qualsevol MT genèrica &mdash; ara repetim l'argument suposant que MT també és reversible.</div>
+      </div>
+    </div>
+
+    <!-- GOAL -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; repetim l'argument, MT reversible &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ</span><span class="card-title">Totes les reversibles tenen el mateix rendiment</span></div>
+        <div class="eq">\[ \eta = \eta _{c} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> el rendiment màxim no depèn de com és la màquina per dins, només que sigui reversible. Aquesta universalitat és el punt de partida de la <a href="flux_carnot_funcio_f.html">guia de la funció f(T&#8321;,T&#8322;)</a>.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Correspon a l'apartat 1.5.2(a) del guió de pissarra del Tema 1. Guia de classe: per tenir controlat el fil de la demostració sense perdre's. La <a href="sim_carnot.html">simulació del cicle de Carnot</a> mostra que el rendiment no es mou encara que canviï el cicle.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

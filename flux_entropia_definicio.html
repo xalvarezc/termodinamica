@@ -1,0 +1,218 @@
+<!doctype html>
+<title>Guia de classe — naixement de l'entropia</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 1 &middot; secció 1.5.3(b)&ndash;(d) &middot; guió de pissarra</div>
+  <h1>El <em>naixement de l'entropia</em></h1>
+  <p class="subtitle">Del teorema de Clausius surten, en cadena, tres destins: la definició d'entropia, la desigualtat general, i el segon principi per a l'univers.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Resultat previ</span><span><a href="flux_clausius_teorema.html">1.5.3(a): teorema de Clausius</a></span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Una integral que s'anul·la sobre qualsevol cicle és la diferencial d'una funció d'estat</span></li><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Sistema aïllat: đQ=0. Univers &Uscr;=&Sigma;&cup;M és aïllat per definició</span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span>Punt de partida (&oint;<sub>C</sub>đQ/T&le;0) + DESTÍ 1 (dS&equiv;đQ<sup>rev</sup>/T)</span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Recorrent el cicle a l'inrevés, el signe canvia; només 0 val per a totes dues direccions</span></li><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>Tanquem un procés genèric A&rarr;B amb un tram de tornada reversible B&rarr;A</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Definició d'entropia (Clausius, 1865)</span></div><div class="eq">\[ dS \equiv \dfrac{\text{đ}Q^{rev}}{T} \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Desigualtat de Clausius</span></div><div class="eq">\[ \int _{A}^{B} \dfrac{\text{đ}Q}{T} \le \Delta S = S\left(B\right)-S\left(A\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Segon principi (versió entropia)</span></div><div class="eq">\[ \Delta S_{\mathcal{U}} \ge 0 \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <!-- SOURCE -->
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_clausius_teorema.html">1.5.3(a): teorema de Clausius</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Vàlid per a qualsevol cicle</div>
+        <div class="eq">\[ \oint _{C} \dfrac{\text{đ}Q}{T} \le 0 \]</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Recorrent el cicle a l'inrevés, el signe canvia; només 0 val per a totes dues direccions</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Cas particular: cicle reversible</span></div>
+        <div class="eq">\[ \oint _{C} \dfrac{\text{đ}Q^{rev}}{T} = 0 \]</div>
+      </div>
+    </div>
+
+    <!-- GOAL 1 -->
+    <div class="row goal step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Una integral que s'anul·la sobre qualsevol cicle és la diferencial d'una funció d'estat</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Definició d'entropia (Clausius, 1865)</span></div>
+        <div class="eq">\[ dS \equiv \dfrac{\text{đ}Q^{rev}}{T} \]</div>
+        <div class="card-note">La primera magnitud que, sortint de la calor (que sí depèn del camí), no en depèn.</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">Tanquem un procés genèric A&rarr;B amb un tram de tornada reversible B&rarr;A</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Apliquem Clausius al cicle complet</span></div>
+        <img src="imatges/cicle_irrev_rev.png" alt="Un procés genèric (irreversible) de A a B, en vermell, tancat amb un tram de tornada reversible de B a A, en blau." style="display:block;margin:6px auto;width:140px;">
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Tanquem el procés genèric A&rarr;B (irreversible, en vermell) amb un tram de tornada reversible B&rarr;A (en blau). La part de tornada aporta &Delta;S=S(A)&minus;S(B) exacte; la part d'anada, &int;đQ/T.</div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc">Punt de partida (&oint;<sub>C</sub>đQ/T&le;0) + DESTÍ 1 (dS&equiv;đQ<sup>rev</sup>/T)</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">Sumem els dos trams del cicle</span></div>
+        <div class="eq">\[ \int _{A}^{B} \dfrac{\text{đ}Q}{T} + \left[S\left(A\right)-S\left(B\right)\right] \le 0 \]</div>
+        <div class="card-note">El primer terme és el tram d'anada (irreversible, A&rarr;B), directament de &oint;<sub>C</sub>đQ/T&le;0. El segon és el tram de tornada (reversible, B&rarr;A): com que dS=đQ<sup>rev</sup>/T (DESTÍ 1), integrar-lo dona exactament &Delta;S<sub>B&rarr;A</sub>=S(A)&minus;S(B).</div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; reordenem &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Desigualtat de Clausius</span></div>
+        <div class="eq">\[ \int _{A}^{B} \dfrac{\text{đ}Q}{T} \le \Delta S = S\left(B\right)-S\left(A\right) \]</div>
+        <div class="card-note">La igualtat es perd exactament en la mesura que el procés real s'allunya de la reversibilitat.</div>
+        <div class="card-note">En un procés irreversible es genera una entropia que no ha vingut de cap intercanvi de calor &mdash; pot ser purament mecànica (fricció, expansió lliure). Si haguéssim de tancar el cicle tornant al punt de partida per un camí reversible (pas 2), aquest tram de tornada no en genera gens més: l'entropia generada abans no té on quedar-se, i no ens quedaria més remei que expulsar-la en forma de calor cap a una font. Per això &oint;<sub>C</sub>đQ/T&lt;0 estrictament per a qualsevol cicle irreversible &mdash; es desenvolupa més avall, a "Explicació".</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Sistema aïllat: đQ=0. Univers &Uscr;=&Sigma;&cup;M és aïllat per definició</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Apliquem la desigualtat a tot l'univers</span></div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un sistema sol en pot perdre (una nevera ho fa cada dia); l'univers, mai.</div>
+      </div>
+    </div>
+
+    <!-- GOAL 3 (final) -->
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; cas límit &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Segon principi (versió entropia)</span></div>
+        <div class="eq">\[ \Delta S_{\mathcal{U}} \ge 0 \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> és el punt de partida dles guies de <a href="flux_direccio_calor.html">direcció del flux de calor</a>, <a href="flux_limits_treball.html">límits reals de treball</a> i l'<a href="flux_gibbs.html">equació de Gibbs</a>.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">EXPLICACIÓ</span><span class="card-title">đQ/T no és el mateix que dS</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El teorema de Clausius val per a <strong>qualsevol</strong> cicle, reversible o no &mdash; ve de Kelvin, que no en distingeix. Però el signe "=" només s'aconsegueix per als reversibles: en quedar oberta la possibilitat de processos irreversibles dins l'enunciat general, la desigualtat ha de ser "&le;", perquè són precisament els irreversibles els que la poden fer estrictament negativa.</div>
+    <div class="card-note">I aquí hi ha el punt clau: &Delta;S en un cicle és <strong>sempre</strong> zero &mdash; reversible o irreversible, tant se val &mdash; perquè S és funció d'estat i el cicle torna al mateix punt. Per tant &oint;đQ/T i &Delta;S <strong>no són la mateixa cosa</strong> en general:</div>
+    <div class="card-note" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;">
+      Reversible:&nbsp; &oint;đQ/T = 0 &nbsp;&nbsp;&nbsp; &Delta;S = 0<br>
+      Irreversible:&nbsp; &oint;đQ/T &lt; 0 &nbsp;&nbsp;&nbsp; &Delta;S = 0 (sempre)
+    </div>
+    <div class="card-note">La diferència entre tots dos és exactament l'<strong>entropia generada</strong> dins del sistema per la irreversibilitat, S<sub>gen</sub>&ge;0: com que el sistema torna sempre al mateix estat (&Delta;S=0), tota la S<sub>gen</sub> que es crea a dins s'ha d'expulsar cap enfora &mdash; per això &oint;đQ/T "es queda curt" respecte a &Delta;S=0, és a dir, surt negatiu. Concretament, S<sub>gen,total</sub> = &minus;&oint;đQ/T. És la mateixa idea que fas servir a <a href="flux_limits_treball.html">límits reals de treball</a> (W<sub>desap</sub>=T<sub>f</sub>&middot;&Delta;S<sub>&Uscr;</sub>): la irreversibilitat no canvia l'estat final, però sí que "costa" alguna cosa &mdash; calor extra al focus fred, o en llenguatge d'entropia, S<sub>gen</sub>.</div>
+    <div class="card-note"><strong>D'on surt exactament S<sub>gen</sub>:</strong> l'univers (sistema+fonts) és aïllat, i S és extensiva, així que tot el que es genera queda comptabilitzat en la suma: S<sub>gen</sub>=&Delta;S<sub>univers</sub>=&Delta;S<sub>sistema</sub>+&Delta;S<sub>fonts</sub>. En un cicle, &Delta;S<sub>sistema</sub>=0 (funció d'estat, torna al mateix punt). Cada font T<sub>i</sub>, en canvi, es manté sempre en el seu propi equilibri &mdash; per això la seva entropia es calcula amb una <strong>igualtat</strong> exacta, no una desigualtat: si el sistema n'absorbeix Q<sub>i</sub>, la font en perd Q<sub>i</sub>, i &Delta;S<sub>font,i</sub>=&minus;Q<sub>i</sub>/T<sub>i</sub>. Sumant totes les fonts: &Delta;S<sub>fonts</sub>=&minus;&sum;<sub>i</sub>Q<sub>i</sub>/T<sub>i</sub>=&minus;&oint;đQ/T. Ajuntant-ho: S<sub>gen</sub>=0+(&minus;&oint;đQ/T)=&minus;&oint;đQ/T &mdash; el balanç d'entropia i el teorema de Clausius no són dues coses diferents, són la mateixa afirmació mirada des de dos angles.</div>
+    <div class="card-note"><strong>Un matís sobre "quan" ho sap l'univers:</strong> el focus només nota el seu propi canvi d'entropia quan li arriba la calor de veritat &mdash; això és cert per definició (&Delta;S<sub>font</sub>=Q/T<sub>font</sub>). Però el sistema <strong>també</strong> forma part de l'univers, i el seu excés d'entropia ja hi és des del moment que arriba a l'estat final &mdash; encara que mai es tanqui el cicle ni s'expulsi res enlloc. L'univers no "espera" a saber-ho: ja ha crescut. El que fa l'expulsió és <strong>repartir</strong> aquest excés, que ja existia guardat dins del sistema, cap al focus &mdash; no crear-lo de nou.</div>
+    <div class="card-note"><strong>Un matís important:</strong> đQ/T (amb la T de la font) i dS<sub>sistema</sub> no tenen per què coincidir instant a instant &mdash; només la seva integral sobre tot el cicle hi surt relacionada. Si hi ha un bescanvi a través d'una diferència finita de temperatura (el sistema, en aquell moment, a una T pròpia diferent de T<sub>font</sub>), l'entropia que perd la font és exacta, &minus;đQ/T<sub>font</sub>, però la que guanya el sistema pot ser diferent: la relació local completa és dS<sub>sistema</sub>=đQ/T<sub>font</sub>+dS<sub>gen</sub>, amb dS<sub>gen</sub>&ge;0 generat en aquell pas concret (per la diferència de temperatura, o per fricció interna). L'argument de dalt no necessita que coincideixin instant a instant: només fa servir que &Delta;S<sub>sistema</sub>=0 <strong>sumat sobre tot el cicle</strong> (per molt embolicat que sigui el camí, en tornar al mateix estat la integral és zero) i que cada &Delta;S<sub>font,i</sub> és sempre exacte. Integrant la relació local sobre el cicle es recupera 0=&oint;đQ/T+S<sub>gen,total</sub> &mdash; el mateix resultat, ara sabent també <em>on</em> es genera físicament l'entropia.</div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">EXEMPLE NUMÈRIC</span><span class="card-title">Tres motors, mateix Q&#8321;, diferent origen de S<sub>gen</sub></span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Un motor entre T<sub>c</sub>=600 K i T<sub>f</sub>=300 K, absorbint sempre Q&#8321;=600 J del focus calent, en tres versions.</div>
+
+    <div class="card-note"><strong>1. Carnot ideal (reversible).</strong> &eta;=1&minus;T<sub>f</sub>/T<sub>c</sub>=0,5 &rArr; W=300 J, Q&#8322;=300 J. Comprovació: Q&#8321;/T<sub>c</sub>=1=Q&#8322;/T<sub>f</sub> (iguals, reversible).</div>
+
+    <div class="card-note"><strong>2. Amb fricció interna, sense bescanvi a T diferent de la font.</strong> El mateix Q&#8321; hi entra, però només se n'aprofita W<sub>real</sub>=250 J (en perd 50 J per fricció). Per conservació d'energia, Q<sub>2,real</sub>=Q&#8321;&minus;W<sub>real</sub>=350 J.</div>
+
+    <div class="card-note"><strong>3. Salt de temperatura al contacte, sense fricció interna.</strong> El fluid de treball absorbeix a la seva pròpia T<sub>sist,calent</sub>=550 K (no 600 K &mdash; per sota, per poder-ne rebre calor) i cedeix a T<sub>sist,fred</sub>=330 K (no 300 K &mdash; per sobre). Internament és un Carnot perfecte entre 550 K i 330 K: Q&#8322;=Q&#8321;&middot;(330/550)=360 J, W=240 J.</div>
+
+    <table class="mini-table">
+      <caption>&Delta;S<sub>sistema</sub>, &Delta;S<sub>fonts</sub> i &oint;đQ/T per als tres casos</caption>
+      <tr><th></th><th>Carnot ideal</th><th>Fricció interna</th><th>Salt de T</th></tr>
+      <tr><td>Q&#8322; cedida</td><td>300 J</td><td>350 J</td><td>360 J</td></tr>
+      <tr><td>W</td><td>300 J</td><td>250 J</td><td>240 J</td></tr>
+      <tr><td>&Delta;S<sub>sistema</sub></td><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>&Delta;S<sub>fonts</sub></td><td>0</td><td>+0,167 J/K</td><td>+0,2 J/K</td></tr>
+      <tr><td>&oint;đQ/T (T de les fonts)</td><td>0</td><td>&minus;0,167 J/K</td><td>&minus;0,2 J/K</td></tr>
+      <tr><td>&oint;đQ/T (T del sistema)</td><td>0</td><td>&mdash;</td><td>0 (enganyós!)</td></tr>
+      <tr><td>S<sub>gen</sub></td><td>0</td><td>0,167 J/K</td><td>0,2 J/K</td></tr>
+    </table>
+
+    <div class="card-note">El cas 3 és el més instructiu: avaluat amb la temperatura del <strong>sistema</strong>, &oint;đQ/T surt zero &mdash; vist des de dins, el motor és un Carnot perfecte, sense cap irreversibilitat interna. Però això <strong>amaga</strong> la generació d'entropia, que no passa dins del motor sinó <strong>a la frontera</strong>, en el mateix bescanvi de calor a través del salt de temperatura. Només avaluant-ho amb la T de les <strong>fonts</strong> (qui realment "paga" l'entropia) es veu: S<sub>gen</sub>=0,2 J/K. Comprovació encreuada amb <a href="flux_limits_treball.html">W<sub>desap</sub>=T<sub>f</sub>&Delta;S<sub>&Uscr;</sub></a>: W<sub>ideal</sub>&minus;W<sub>real</sub>=300&minus;240=60 J, i 60/300=0,2 J/K &mdash; exactament el mateix número, per un altre camí.</div>
+  </div>
+
+  <div class="card" style="margin-top:8px;">
+    <div class="card-head"><span class="step-no">ACLARIMENT</span><span class="card-title">Per què invertir el cicle (pas 1) no és un "cas segur" repetit</span></div>
+    <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">El "conjunt" de la <a href="flux_clausius_teorema.html">guia del teorema de Clausius</a> (sistema C + totes les Carnot auxiliars) només toca T&#8320;. Per conservació d'energia, en qualsevol direcció: calor_entrant (des de T&#8320;) = treball_sortint.</div>
+    <div class="card-note"><strong>Direcció original:</strong> el teorema de Clausius ja diu &sum;đQ<sub>i</sub>'&le;0, és a dir calor_entrant&le;0. El conjunt està sempre en règim segur: no fa res, o bé <strong>consumeix</strong> treball extern i <strong>aboca</strong> calor a T&#8320; ("treball&rarr;calor", permès &mdash; com un agitador dins un bany).</div>
+    <div class="card-note"><strong>En invertir-lo, tot canvia de signe:</strong> calor_entrant(invertit)=&minus;&sum;đQ<sub>i</sub>'&ge;0. La màquina invertida ja <strong>no</strong> és "treball&rarr;calor" &mdash; és, precisament, una <strong>candidata a convertir calor de T&#8320; en treball</strong>, exactament el cas que Kelvin restringeix. No és "un altre cas segur que no diu res nou": és la imatge especular perillosa del cas original, i per això aplicar-hi Kelvin de nou (calor_entrant(invertit)&le;0, és a dir &sum;đQ<sub>i</sub>'&ge;0) aporta una desigualtat genuïnament nova, que combinada amb la primera tanca l'argument en igualtat, &sum;đQ<sub>i</sub>'=0.</div>
+  </div>
+
+  <footer>Correspon als apartats 1.5.3(b), (c) i (d) del guió de pissarra del Tema 1, combinats en una sola guia perquè formen una única cadena de raonament. Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>

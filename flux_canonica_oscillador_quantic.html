@@ -1,0 +1,184 @@
+<!doctype html>
+<title>Guia de classe — oscil·lador harmònic quàntic a la canònica</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="flux_style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<button class="sb-toggle" id="sb-toggle" aria-label="Obre el menu">&#9776; Menu</button>
+<nav class="sidebar" id="flux-sidebar"></nav>
+
+<div class="wrap">
+  <div class="topnav"><a href="index.html">&larr; Índex de guies</a></div>
+  <div class="eyebrow">Tema 5 &middot; secció 5.6.1 &middot; guió de pissarra</div>
+  <h1>L'<em>oscil&middot;lador harmònic quàntic</em></h1>
+  <p class="subtitle">Una sèrie geomètrica en lloc de la combinatòria i l'Stirling del Tema 3: la mateixa capacitat calorífica d'Einstein, que s'anul&middot;la a T=0 i recupera l'equipartició a T alta.</p>
+
+  <div class="card resum">
+    <div class="card-head"><span class="step-no">PER A CLASSE</span><span class="card-title">Què s'invoca i on s'arriba</span></div>
+    <div class="resum-grid">
+      <div class="resum-col"><div class="resum-h">Postulats, definicions i hipòtesis</div><ul class="resum-list"><li><span class="chip postulat"><span class="dot"></span>Postulat</span><span>Quantització: E<sub>n</sub>=&hbar;&omega;(n+1/2), n=0,1,2,&hellip;</span></li><li><span class="chip postulat"><span class="dot"></span>Definició</span><span>C<sub>V</sub>=(&part;U/&part;T)<sub>V,N</sub></span></li></ul><div class="resum-h">Resultats previs</div><ul class="resum-list"><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_discrets.html">5.6: Z=&sum;<sub>s</sub>e<sup>&minus;&beta;E<sub>s</sub></sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_ideals.html">5.2: Z<sub>dist</sub>=Z<sub>1</sub><sup>N</sup></a></span></li><li><span class="chip previ"><span class="dot"></span>Resultat previ</span><span><a href="flux_canonica_fluctuacions.html">5.1: U=&minus;&part;ln&nbsp;Z/&part;&beta;</a></span></li></ul><div class="resum-h">Eines matemàtiques</div><ul class="resum-list"><li><span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span><span>&sum;<sub>n&ge;0</sub>r<sup>n</sup>=1/(1&minus;r), |r|&lt;1</span></li></ul></div>
+      <div class="resum-col"><div class="resum-h">Resultats</div><div class="resum-goal"><span class="step-no">DESTÍ 1</span><span class="resum-gt">Equació calòrica d'estat</span></div><div class="eq">\[ U=N\hbar\omega\left(\dfrac{1}{2}+\dfrac{1}{e^{\beta\hbar\omega}-1}\right) \]</div><div class="resum-goal"><span class="step-no">DESTÍ 2</span><span class="resum-gt">Capacitat calorífica</span></div><div class="eq">\[ C_{V}=Nk_{B}\,\dfrac{x^{2}e^{x}}{\left(e^{x}-1\right)^{2}},\qquad x=\dfrac{\hbar\omega}{k_{B}T} \]</div><div class="resum-goal"><span class="step-no">DESTÍ FINAL</span><span class="resum-gt">Els dos límits</span></div><div class="eq">\[ \begin{aligned} k_{B}T\gg\hbar\omega:&\quad U\simeq Nk_{B}T \\ &\quad C_{V}\simeq Nk_{B} \\[8pt] k_{B}T\ll\hbar\omega:&\quad U\simeq\dfrac{N\hbar\omega}{2}+N\hbar\omega\,e^{-x} \\ &\quad C_{V}\simeq Nk_{B}\,x^{2}e^{-x}\to 0 \end{aligned} \]</div></div>
+    </div>
+  </div><!-- /resum -->
+
+  <div class="legend">
+    <div class="legend-title">Què s'invoca a cada pas</div>
+    <span class="chip previ"><span class="dot"></span>Resultat previ</span>
+    <span class="chip postulat"><span class="dot"></span>Postulat / definició</span>
+    <span class="chip identitat"><span class="dot"></span>Identitat matemàtica</span>
+  </div>
+
+  <div class="flux">
+
+    <div class="row source step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Postulat</span>
+          <span class="desc">Quantització: E<sub>n</sub>=&hbar;&omega;(n+1/2), n=0,1,2,&hellip;</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PUNT DE PARTIDA</span></div>
+        <div class="card-title">Nivells equiespaiats, no degenerats</div>
+        <div class="eq">\[ E_{n}=\hbar\omega\left(n+\dfrac{1}{2}\right),\qquad n=0,1,2,\dots \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">En 1D, cada n és un sol microstat: sumar sobre microstats, nivells o energies és el mateix.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_discrets.html">5.6: Z=&sum;<sub>s</sub>e<sup>&minus;&beta;E<sub>s</sub></sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 1</span><span class="card-title">Funció de partició d'un oscil&middot;lador</span></div>
+        <div class="eq">\[ Z_{1}=\sum_{n=0}^{\infty}e^{-\beta\hbar\omega\left(n+1/2\right)}=e^{-\beta\hbar\omega/2}\sum_{n=0}^{\infty}\left(e^{-\beta\hbar\omega}\right)^{n} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag identitat">
+          <span class="kind">Identitat matemàtica</span>
+          <span class="desc">&sum;<sub>n&ge;0</sub>r<sup>n</sup>=1/(1&minus;r), |r|&lt;1</span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 2</span><span class="card-title">Una sèrie geomètrica</span></div>
+        <div class="eq">\[ Z_{1}=\dfrac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}} \]</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_ideals.html">5.2: Z<sub>dist</sub>=Z<sub>1</sub><sup>N</sup></a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 3</span><span class="card-title">N oscil&middot;ladors localitzats</span></div>
+        <div class="eq">\[ \begin{gathered}Z=Z_{1}^{N} \\[4pt] \ln Z=-\dfrac{N\beta\hbar\omega}{2}-N\ln\left(1-e^{-\beta\hbar\omega}\right)\end{gathered} \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">Els àtoms d'un sòlid estan lligats als nusos de la xarxa: són distingibles, no cal 1/N!. Per a un sòlid en 3D, N&rarr;3N.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag previ">
+          <span class="kind">Resultat previ</span>
+          <span class="desc"><a href="flux_canonica_fluctuacions.html">5.1: U=&minus;&part;ln&nbsp;Z/&part;&beta;</a></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 4</span><span class="card-title">Energia mitjana</span></div>
+        <div class="eq">\[ U=-\dfrac{\partial\ln Z}{\partial\beta}=\dfrac{N\hbar\omega}{2}+\dfrac{N\hbar\omega\,e^{-\beta\hbar\omega}}{1-e^{-\beta\hbar\omega}} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; multiplicant dalt i baix per e<sup>&beta;&hbar;&omega;</sup> &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 1</span><span class="card-title">Equació calòrica d'estat</span></div>
+        <div class="eq">\[ U=N\hbar\omega\left(\dfrac{1}{2}+\dfrac{1}{e^{\beta\hbar\omega}-1}\right) \]</div>
+        <div class="card-note" style="margin-top:0;font-size:14px;color:var(--ink)">1/(e<sup>&beta;&hbar;&omega;</sup>&minus;1) és el nombre mitjà de quanta per oscil&middot;lador.</div>
+      </div>
+    </div>
+
+    <div class="row step">
+      <div class="trib">
+        <div class="trib-tag postulat">
+          <span class="kind">Definició</span>
+          <span class="desc">C<sub>V</sub>=(&part;U/&part;T)<sub>V,N</sub></span>
+        </div>
+      </div>
+      <div class="spine"><span class="node-dot filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">PAS 5</span><span class="card-title">Derivem respecte de T</span></div>
+        <div class="eq">\[ C_{V}=N\hbar\omega\,\dfrac{e^{\beta\hbar\omega}}{\left(e^{\beta\hbar\omega}-1\right)^{2}}\,\dfrac{\hbar\omega}{k_{B}T^{2}} \]</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; x&equiv;&hbar;&omega;/k<sub>B</sub>T &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ 2</span><span class="card-title">Capacitat calorífica</span></div>
+        <div class="eq">\[ C_{V}=Nk_{B}\,\dfrac{x^{2}e^{x}}{\left(e^{x}-1\right)^{2}},\qquad x=\dfrac{\hbar\omega}{k_{B}T} \]</div>
+        <div class="card-note">Amb 3N oscil&middot;ladors, és exactament el resultat del <a href="flux_solid_einstein.html">sòlid d'Einstein</a> del Tema 3. Allà va caldre comptar boles i particions i aplicar Stirling; aquí, una sèrie geomètrica.</div>
+      </div>
+    </div>
+
+    <div class="row goal step">
+      <div class="trib">
+        <span class="trib-empty">&mdash; x&#8810;1 i x&#8811;1 &mdash;</span>
+      </div>
+      <div class="spine"><span class="node-dot big filled"></span></div>
+      <div class="card">
+        <div class="card-head"><span class="step-no">DESTÍ FINAL</span><span class="card-title">Els dos límits</span></div>
+        <div class="eq">\[ \begin{aligned} k_{B}T\gg\hbar\omega:&\quad U\simeq Nk_{B}T \\ &\quad C_{V}\simeq Nk_{B} \\[8pt] k_{B}T\ll\hbar\omega:&\quad U\simeq\dfrac{N\hbar\omega}{2}+N\hbar\omega\,e^{-x} \\ &\quad C_{V}\simeq Nk_{B}\,x^{2}e^{-x}\to 0 \end{aligned} \]</div>
+        <div class="arrival"><span class="rm">Arribada:</span> a T alta, l'<a href="flux_equiparticio.html">equipartició</a> clàssica (k<sub>B</sub>T per oscil&middot;lador 1D). A T baixa, els oscil&middot;ladors es queden a l'estat fonamental i C<sub>V</sub>&rarr;0 exponencialment: el tercer principi, que l'oscil&middot;lador clàssic violava.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">COMENTARI</span><span class="card-title">Ull amb la C<sub>V</sub> dels apunts</span></div>
+    <div class="card-note">Els apunts escriuen C<sub>V</sub>=Nk<sub>B</sub>x<sup>2</sup>e<sup>&minus;x</sup> com si fos el resultat general. És només el límit de baixa temperatura del DESTÍ 2 (quan e<sup>x</sup>&#8811;1). A T alta (x&rarr;0) donaria C<sub>V</sub>&rarr;0 en lloc de Nk<sub>B</sub>: la fórmula exacta és la del DESTÍ 2.</div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div class="card-head"><span class="step-no">A CLASSE</span><span class="card-title">El mateix sistema, dues col&middot;lectivitats</span></div>
+    <table class="mini-table"><tr><th></th><th>Microcanònica (Tema 3)</th><th>Canònica</th></tr><tr><td>Recompte</td><td>&Omega;=(3N&minus;1+M)!/[(3N&minus;1)!M!]</td><td>Z<sub>1</sub>=sèrie geomètrica</td></tr><tr><td>Aproximacions</td><td>Stirling, límit termodinàmic</td><td>cap</td></tr><tr><td>Resultat</td><td colspan="2">el mateix C<sub>V</sub>(T)</td></tr></table>
+    <div class="card-note">Per a sistemes sense interaccions, la canònica gairebé sempre és el camí curt.</div>
+  </div>
+
+  <footer>Correspon a la secció 5.6.1 del Tema 5 (col&middot;lectivitat canònica). Guia de classe: per tenir controlat el fil de la demostració sense perdre's.</footer>
+
+</div>
+<script src="sidebar.js"></script>
+<script src="editor.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+});
+</script>
