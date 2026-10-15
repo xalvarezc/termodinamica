@@ -867,6 +867,25 @@ footer a{ color:var(--flux); }
   max-width:60ch;
   line-height:1.5;
 }
+/* enllacos als apunts en PDF de cada tema, just sota el subtitol */
+.tema-apunts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:-12px 0 22px;
+}
+.tema-apunts a{
+  font-family:"IBM Plex Sans", sans-serif;
+  font-weight:600;
+  font-size:13px;
+  color:var(--flux);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:5px 11px;
+  text-decoration:none;
+}
+.tema-apunts a:hover{ border-color:var(--flux); }
 
 .idx-section{
   margin-bottom:30px;
